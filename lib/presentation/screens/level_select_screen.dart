@@ -79,10 +79,10 @@ class LevelSelectScreen extends ConsumerWidget {
                 Expanded(
                   child: TabBarView(
                     children: [
-                      _buildLevelGrid(context, DifficultyLevel.easy, 1, 100),
-                      _buildLevelGrid(context, DifficultyLevel.medium, 101, 250),
-                      _buildLevelGrid(context, DifficultyLevel.hard, 251, 400),
-                      _buildLevelGrid(context, DifficultyLevel.expert, 401, 500),
+                      _buildLevelGrid(context, DifficultyLevel.easy, 1, 250),
+                      _buildLevelGrid(context, DifficultyLevel.medium, 251, 500),
+                      _buildLevelGrid(context, DifficultyLevel.hard, 501, 750),
+                      _buildLevelGrid(context, DifficultyLevel.expert, 751, 1000),
                     ],
                   ),
                 ),
