@@ -93,24 +93,36 @@ class PuzzleDisplay extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               for (int s = 0; s < puzzle.steps.length; s++) ...[
-                // Operands for this step
-                for (int i = 0; i < puzzle.steps[s].operands.length; i++) ...[
-                  _buildOperandRow(
-                    puzzle.steps[s].operands[i],
-                    maxLen,
-                    puzzle.steps[s].operator,
-                    showOperator: i == puzzle.steps[s].operands.length - 1,
-                  ),
-                  if (i < puzzle.steps[s].operands.length - 1)
-                    const SizedBox(height: 6),
-                ],
+                // For step 0: show ALL operands
+                // For step 1+: skip first operand (it's the previous result, already shown)
+                if (s == 0)
+                  for (int i = 0; i < puzzle.steps[s].operands.length; i++) ...[
+                    _buildOperandRow(
+                      puzzle.steps[s].operands[i],
+                      maxLen,
+                      puzzle.steps[s].operator,
+                      showOperator: i == puzzle.steps[s].operands.length - 1,
+                    ),
+                    if (i < puzzle.steps[s].operands.length - 1)
+                      const SizedBox(height: 6),
+                  ]
+                else
+                  // Show remaining operands (skip index 0 = previous result)
+                  for (int i = 1; i < puzzle.steps[s].operands.length; i++) ...[
+                    _buildOperandRow(
+                      puzzle.steps[s].operands[i],
+                      maxLen,
+                      puzzle.steps[s].operator,
+                      showOperator: true,
+                    ),
+                  ],
                 const SizedBox(height: 4),
                 _buildDivider(maxLen),
                 const SizedBox(height: 6),
                 // Result
                 _buildWordRow(puzzle.steps[s].result, maxLen),
                 // Spacing between steps (except after last)
-                if (s < puzzle.steps.length - 1) const SizedBox(height: 14),
+                if (s < puzzle.steps.length - 1) const SizedBox(height: 10),
               ],
             ],
           ),
