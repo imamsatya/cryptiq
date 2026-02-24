@@ -1,114 +1,144 @@
 import 'dart:math';
 import '../domain/entities/puzzle.dart';
 
-/// Generates 1000 cryptarithm puzzles with mixed operations (+, −, ×)
-/// and smooth difficulty progression. Every puzzle has a unique solution.
+/// Generates 1000 cryptarithm puzzles with mixed operations (+, −, ×).
+///
+/// Generation is LAZY per difficulty tier — only the needed tier is generated
+/// when first accessed. This prevents blocking the UI thread on web.
 class PuzzleGenerator {
   PuzzleGenerator._();
 
-  static List<CryptarithmPuzzle>? _cache;
+  static List<CryptarithmPuzzle>? _easyCache;
+  static List<CryptarithmPuzzle>? _mediumCache;
+  static List<CryptarithmPuzzle>? _hardCache;
+  static List<CryptarithmPuzzle>? _expertCache;
 
+  /// Total levels — constant, does NOT trigger generation
+  static int get totalPuzzles => 1000;
+
+  /// Get all puzzles (generates all tiers if needed)
   static List<CryptarithmPuzzle> get allPuzzles {
-    _cache ??= _generateAll();
-    return _cache!;
+    return [..._getEasy(), ..._getMedium(), ..._getHard(), ..._getExpert()];
   }
 
+  /// Get puzzle by level number (only generates the needed tier)
   static CryptarithmPuzzle getPuzzle(int levelNumber) {
-    if (levelNumber < 1 || levelNumber > allPuzzles.length) {
+    if (levelNumber < 1 || levelNumber > 1000) {
       throw RangeError('Level $levelNumber out of range');
     }
-    return allPuzzles[levelNumber - 1];
+    if (levelNumber <= 250) return _getEasy()[levelNumber - 1];
+    if (levelNumber <= 500) return _getMedium()[levelNumber - 251];
+    if (levelNumber <= 750) return _getHard()[levelNumber - 501];
+    return _getExpert()[levelNumber - 751];
   }
 
   static List<CryptarithmPuzzle> getPuzzlesByDifficulty(DifficultyLevel difficulty) {
-    return allPuzzles.where((p) => p.difficulty == difficulty).toList();
+    return switch (difficulty) {
+      DifficultyLevel.easy => _getEasy(),
+      DifficultyLevel.medium => _getMedium(),
+      DifficultyLevel.hard => _getHard(),
+      DifficultyLevel.expert => _getExpert(),
+    };
   }
 
-  static int get totalPuzzles => allPuzzles.length;
+  static List<CryptarithmPuzzle> _getEasy() => _easyCache ??= _generateEasy();
+  static List<CryptarithmPuzzle> _getMedium() => _mediumCache ??= _generateMedium();
+  static List<CryptarithmPuzzle> _getHard() => _hardCache ??= _generateHard();
+  static List<CryptarithmPuzzle> _getExpert() => _expertCache ??= _generateExpert();
 
   // ================================================================
-  // GENERATION
+  // PER-TIER GENERATION
   // ================================================================
 
-  static List<CryptarithmPuzzle> _generateAll() {
-    final puzzles = <CryptarithmPuzzle>[];
+  static List<CryptarithmPuzzle> _generateEasy() {
+    final p = <CryptarithmPuzzle>[];
     final rng = Random(42);
 
-    // ============================================================
-    // EASY (1-250): Learn + then −
-    // ============================================================
+    _mixedBatch(p, rng, 10, 1, 1, 1, 9, DifficultyLevel.easy, '+');
+    _mixedBatch(p, rng, 25, 1, 1, 10, 50, DifficultyLevel.easy, '+');
+    _mixedBatch(p, rng, 40, 2, 2, 10, 99, DifficultyLevel.easy, '+');
+    _mixedBatch(p, rng, 60, 2, 3, 10, 99, DifficultyLevel.easy, '+');
+    _mixedBatch(p, rng, 80, 3, 3, 10, 99, DifficultyLevel.easy, '+');
+    _mixedBatch(p, rng, 105, 3, 4, 10, 999, DifficultyLevel.easy, '+');
+    _fullBatch(p, rng, 130, DifficultyLevel.easy, 100, 999, 4, 5, '+');
+    _mixedBatch(p, rng, 145, 1, 2, 1, 50, DifficultyLevel.easy, '-');
+    _mixedBatch(p, rng, 160, 2, 3, 10, 99, DifficultyLevel.easy, '-');
+    _mixedBatch(p, rng, 180, 3, 4, 10, 99, DifficultyLevel.easy, '-');
+    _fullBatch(p, rng, 200, DifficultyLevel.easy, 10, 999, 3, 5, '-');
+    _fullBatch(p, rng, 225, DifficultyLevel.easy, 100, 999, 4, 5, '+');
+    _fullBatch(p, rng, 250, DifficultyLevel.easy, 100, 999, 4, 5, '-');
 
-    // Tutorial addition: 1 letter (1-10)
-    _mixedBatch(puzzles, rng, 10, 1, 1, 1, 9, DifficultyLevel.easy, '+');
-    // Beginner addition: 1-2 letters (11-40)
-    _mixedBatch(puzzles, rng, 25, 1, 1, 10, 50, DifficultyLevel.easy, '+');
-    _mixedBatch(puzzles, rng, 40, 2, 2, 10, 99, DifficultyLevel.easy, '+');
-    // Easy addition: 2-3 letters (41-80)
-    _mixedBatch(puzzles, rng, 60, 2, 3, 10, 99, DifficultyLevel.easy, '+');
-    _mixedBatch(puzzles, rng, 80, 3, 3, 10, 99, DifficultyLevel.easy, '+');
-    // Easy+ addition: 3-5 letters (81-130)
-    _mixedBatch(puzzles, rng, 105, 3, 4, 10, 999, DifficultyLevel.easy, '+');
-    _fullBatch(puzzles, rng, 130, DifficultyLevel.easy, 100, 999, 4, 5, '+');
-    // Introduce subtraction: 1-2 letters (131-160)
-    _mixedBatch(puzzles, rng, 145, 1, 2, 1, 50, DifficultyLevel.easy, '-');
-    _mixedBatch(puzzles, rng, 160, 2, 3, 10, 99, DifficultyLevel.easy, '-');
-    // Subtraction: 3-4 letters (161-200)
-    _mixedBatch(puzzles, rng, 180, 3, 4, 10, 99, DifficultyLevel.easy, '-');
-    _fullBatch(puzzles, rng, 200, DifficultyLevel.easy, 10, 999, 3, 5, '-');
-    // Mix + and − (201-250)
-    _fullBatch(puzzles, rng, 225, DifficultyLevel.easy, 100, 999, 4, 5, '+');
-    _fullBatch(puzzles, rng, 250, DifficultyLevel.easy, 100, 999, 4, 5, '-');
+    return p;
+  }
 
-    // ============================================================
-    // MEDIUM (251-500): Master +/−, learn ×
-    // ============================================================
+  static List<CryptarithmPuzzle> _generateMedium() {
+    final p = <CryptarithmPuzzle>[];
+    final rng = Random(142);
 
-    _fullBatch(puzzles, rng, 290, DifficultyLevel.medium, 100, 999, 5, 6, '+');
-    _fullBatch(puzzles, rng, 330, DifficultyLevel.medium, 100, 999, 5, 6, '-');
-    // Introduce multiplication: 1-3 letters (331-380)
-    _mixedBatch(puzzles, rng, 350, 1, 2, 2, 9, DifficultyLevel.medium, '×');
-    _mixedBatch(puzzles, rng, 370, 2, 3, 2, 20, DifficultyLevel.medium, '×');
-    _mulBatch(puzzles, rng, 390, DifficultyLevel.medium, 2, 30, 3, 5);
-    // Mix all three (391-500)
-    _fullBatch(puzzles, rng, 420, DifficultyLevel.medium, 100, 9999, 5, 7, '+');
-    // TWO + TWO = FOUR
-    _curated(puzzles, ['TWO', 'TWO'], 'FOUR',
+    _fullBatch(p, rng, 40, DifficultyLevel.medium, 100, 999, 5, 6, '+');
+    _fullBatch(p, rng, 80, DifficultyLevel.medium, 100, 999, 5, 6, '-');
+    _mixedBatch(p, rng, 100, 1, 2, 2, 9, DifficultyLevel.medium, '×');
+    _mixedBatch(p, rng, 120, 2, 3, 2, 20, DifficultyLevel.medium, '×');
+    _mulBatch(p, rng, 140, DifficultyLevel.medium, 2, 30, 3, 5);
+    _fullBatch(p, rng, 170, DifficultyLevel.medium, 100, 9999, 5, 7, '+');
+    _curated(p, ['TWO', 'TWO'], 'FOUR',
         {'T': 7, 'W': 3, 'O': 4, 'F': 1, 'U': 6, 'R': 8}, DifficultyLevel.medium, '+');
-    _fullBatch(puzzles, rng, 460, DifficultyLevel.medium, 100, 9999, 5, 7, '-');
-    _mulBatch(puzzles, rng, 500, DifficultyLevel.medium, 10, 99, 4, 6);
+    _fullBatch(p, rng, 210, DifficultyLevel.medium, 100, 9999, 5, 7, '-');
+    _mulBatch(p, rng, 250, DifficultyLevel.medium, 10, 99, 4, 6);
 
-    // ============================================================
-    // HARD (501-750): All operations, larger puzzles
-    // ============================================================
+    for (int i = 0; i < p.length; i++) {
+      p[i] = _reindex(p[i], i + 251);
+    }
+    return p;
+  }
 
-    _fullBatch(puzzles, rng, 540, DifficultyLevel.hard, 100, 9999, 6, 8, '+');
-    // SEND + MORE = MONEY
-    _curated(puzzles, ['SEND', 'MORE'], 'MONEY',
+  static List<CryptarithmPuzzle> _generateHard() {
+    final p = <CryptarithmPuzzle>[];
+    final rng = Random(242);
+
+    _fullBatch(p, rng, 40, DifficultyLevel.hard, 100, 9999, 6, 8, '+');
+    _curated(p, ['SEND', 'MORE'], 'MONEY',
         {'S': 9, 'E': 5, 'N': 6, 'D': 7, 'M': 1, 'O': 0, 'R': 8, 'Y': 2},
         DifficultyLevel.hard, '+');
-    _fullBatch(puzzles, rng, 590, DifficultyLevel.hard, 100, 9999, 6, 8, '-');
-    _mulBatch(puzzles, rng, 630, DifficultyLevel.hard, 10, 999, 5, 7);
-    _fullBatch(puzzles, rng, 690, DifficultyLevel.hard, 100, 99999, 7, 8, '+');
-    _fullBatch(puzzles, rng, 750, DifficultyLevel.hard, 100, 99999, 7, 8, '-');
+    _fullBatch(p, rng, 90, DifficultyLevel.hard, 100, 9999, 6, 8, '-');
+    _mulBatch(p, rng, 130, DifficultyLevel.hard, 10, 999, 5, 7);
+    _fullBatch(p, rng, 190, DifficultyLevel.hard, 100, 99999, 7, 8, '+');
+    _fullBatch(p, rng, 250, DifficultyLevel.hard, 100, 99999, 7, 8, '-');
 
-    // ============================================================
-    // EXPERT (751-1000): Maximum difficulty
-    // ============================================================
+    for (int i = 0; i < p.length; i++) {
+      p[i] = _reindex(p[i], i + 501);
+    }
+    return p;
+  }
 
-    _fullBatch(puzzles, rng, 820, DifficultyLevel.expert, 1000, 99999, 7, 9, '+');
-    _fullBatch(puzzles, rng, 880, DifficultyLevel.expert, 1000, 99999, 7, 9, '-');
-    _mulBatch(puzzles, rng, 920, DifficultyLevel.expert, 10, 9999, 6, 7);
-    // Classics
-    _curated(puzzles, ['FORTY', 'TEN', 'TEN'], 'SIXTY',
+  static List<CryptarithmPuzzle> _generateExpert() {
+    final p = <CryptarithmPuzzle>[];
+    final rng = Random(342);
+
+    _fullBatch(p, rng, 70, DifficultyLevel.expert, 1000, 99999, 7, 9, '+');
+    _fullBatch(p, rng, 130, DifficultyLevel.expert, 1000, 99999, 7, 9, '-');
+    _mulBatch(p, rng, 170, DifficultyLevel.expert, 10, 9999, 6, 7);
+    _curated(p, ['FORTY', 'TEN', 'TEN'], 'SIXTY',
         {'F': 2, 'O': 9, 'R': 7, 'T': 8, 'Y': 6, 'E': 5, 'N': 0, 'S': 3, 'I': 1, 'X': 4},
         DifficultyLevel.expert, '+');
-    _curated(puzzles, ['DONALD', 'GERALD'], 'ROBERT',
+    _curated(p, ['DONALD', 'GERALD'], 'ROBERT',
         {'D': 5, 'O': 2, 'N': 6, 'A': 4, 'L': 8, 'G': 1, 'E': 9, 'R': 7, 'B': 3, 'T': 0},
         DifficultyLevel.expert, '+');
-    _fullBatch(puzzles, rng, 960, DifficultyLevel.expert, 1000, 99999, 8, 10, '+');
-    _fullBatch(puzzles, rng, 1000, DifficultyLevel.expert, 1000, 99999, 8, 10, '-');
+    _fullBatch(p, rng, 210, DifficultyLevel.expert, 1000, 99999, 8, 10, '+');
+    _fullBatch(p, rng, 250, DifficultyLevel.expert, 1000, 99999, 8, 10, '-');
 
-    return puzzles;
+    for (int i = 0; i < p.length; i++) {
+      p[i] = _reindex(p[i], i + 751);
+    }
+    return p;
+  }
+
+  static CryptarithmPuzzle _reindex(CryptarithmPuzzle p, int globalLevel) {
+    return CryptarithmPuzzle(
+      id: globalLevel - 1, levelNumber: globalLevel,
+      operands: p.operands, result: p.result, operator: p.operator,
+      solution: p.solution, difficulty: p.difficulty, uniqueLetters: p.uniqueLetters,
+    );
   }
 
   // ================================================================
@@ -125,7 +155,7 @@ class PuzzleGenerator {
   }
 
   // ================================================================
-  // MIXED PUZZLE GENERATION (some digits given, some letters)
+  // MIXED PUZZLE GENERATION
   // ================================================================
 
   static void _mixedBatch(List<CryptarithmPuzzle> puzzles, Random rng,
@@ -161,30 +191,24 @@ class PuzzleGenerator {
         operands = [a.toString(), b.toString()];
         result = c.toString();
       } else if (op == '-') {
-        // Generate addition a + b = c, present as c - a = b
         a = minV + rng.nextInt(maxV - minV + 1);
         b = minV + rng.nextInt(maxV - minV + 1);
         c = a + b;
         operands = [c.toString(), a.toString()];
         result = b.toString();
       } else {
-        // Multiplication: a × b = c
         final aMin = minV < 2 ? 2 : minV;
         final bMax = maxV < 9 ? maxV : 9;
         a = aMin + rng.nextInt((maxV - aMin + 1).clamp(1, 999999));
         b = 2 + rng.nextInt((bMax - 2 + 1).clamp(1, 8));
-        if (a < b) { final t = a; a = b; b = t; } // a >= b
+        if (a < b) { final t = a; a = b; b = t; }
         c = a * b;
         operands = [a.toString(), b.toString()];
         result = c.toString();
       }
 
       if (result[0] == '0') continue;
-      for (final o in operands) {
-        if (o[0] == '0') continue;
-      }
 
-      // Collect unique digits
       final allChars = <String>{};
       for (final o in operands) {
         allChars.addAll(o.split(''));
@@ -218,7 +242,6 @@ class PuzzleGenerator {
         sol[e.value] = e.key;
       }
 
-      // Leading zero check
       bool bad = false;
       for (final w in [...words, wordRes]) {
         if (w.length > 1 && isLetterChar(w[0]) && sol[w[0]] == 0) {
@@ -237,7 +260,7 @@ class PuzzleGenerator {
   }
 
   // ================================================================
-  // FULL CRYPTARITHM GENERATION (all digits are letters)
+  // FULL CRYPTARITHM GENERATION
   // ================================================================
 
   static void _fullBatch(List<CryptarithmPuzzle> puzzles, Random rng,
@@ -279,10 +302,10 @@ class PuzzleGenerator {
         numOps = [c.toString(), a.toString()];
         numRes = b.toString();
       } else {
-        final aMin2 = minV < 2 ? 2 : minV;
-        final bMax2 = (maxV ~/ 10) < 2 ? 2 : (maxV ~/ 10 < 9 ? maxV ~/ 10 : 9);
-        a = aMin2 + rng.nextInt((maxV - aMin2 + 1).clamp(1, 999999));
-        b = 2 + rng.nextInt((bMax2 - 2 + 1).clamp(1, 8));
+        final aMin = minV < 2 ? 2 : minV;
+        final bMax = (maxV ~/ 10) < 2 ? 2 : (maxV ~/ 10 < 9 ? maxV ~/ 10 : 9);
+        a = aMin + rng.nextInt((maxV - aMin + 1).clamp(1, 999999));
+        b = 2 + rng.nextInt((bMax - 2 + 1).clamp(1, 8));
         if (a < b) { final t = a; a = b; b = t; }
         c = a * b;
         numOps = [a.toString(), b.toString()];
@@ -336,10 +359,6 @@ class PuzzleGenerator {
     return null;
   }
 
-  // ================================================================
-  // MULTIPLICATION-SPECIFIC BATCH
-  // ================================================================
-
   static void _mulBatch(List<CryptarithmPuzzle> puzzles, Random rng,
       int target, DifficultyLevel diff, int minV, int maxV,
       int minL, int maxL) {
@@ -354,15 +373,13 @@ class PuzzleGenerator {
     if (op == '+') {
       return _countAdd(ops, res, 2) == 1;
     } else if (op == '-') {
-      // A - B = C  ⟺  B + C = A (same unique constraint)
       return _countAdd([ops[1], res], ops[0], 2) == 1;
     } else {
       return _countBrute(ops, res, op, 2) == 1;
     }
   }
 
-  // ---- Column-wise solver for addition (fast) ----
-
+  // Column-wise solver for addition
   static int _countAdd(List<String> operands, String result, int maxCount) {
     final letterSet = <String>{};
     for (final op in operands) {
@@ -485,8 +502,7 @@ class PuzzleGenerator {
     return count;
   }
 
-  // ---- Brute-force solver for multiplication (and any op) ----
-
+  // Brute-force solver for multiplication
   static int _countBrute(
       List<String> operands, String result, String op, int maxCount) {
     final letterSet = <String>{};
@@ -533,8 +549,7 @@ class PuzzleGenerator {
         final resVal = w2n(result);
         final bool valid = switch (op) {
           '×' => opVals.reduce((a, b) => a * b) == resVal,
-          '-' => opVals.first - opVals.skip(1).reduce((a, b) => a + b) ==
-              resVal,
+          '-' => opVals.first - opVals.skip(1).reduce((a, b) => a + b) == resVal,
           _ => opVals.reduce((a, b) => a + b) == resVal,
         };
         if (valid) count++;
@@ -554,8 +569,6 @@ class PuzzleGenerator {
     solve(0);
     return count;
   }
-
-  // ---- Fixed arithmetic check ----
 
   static bool _checkFixed(List<String> operands, String result, String op) {
     int w2n(String w) {
