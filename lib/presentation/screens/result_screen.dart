@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:confetti/confetti.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../core/theme/app_theme.dart';
 import '../../levels/puzzle_generator.dart';
+import '../providers/game_state_provider.dart';
 
-class ResultScreen extends StatefulWidget {
+class ResultScreen extends ConsumerStatefulWidget {
   final int levelNumber;
   final int timeSeconds;
   final int hintsUsed;
@@ -20,10 +22,10 @@ class ResultScreen extends StatefulWidget {
   });
 
   @override
-  State<ResultScreen> createState() => _ResultScreenState();
+  ConsumerState<ResultScreen> createState() => _ResultScreenState();
 }
 
-class _ResultScreenState extends State<ResultScreen>
+class _ResultScreenState extends ConsumerState<ResultScreen>
     with SingleTickerProviderStateMixin {
   late ConfettiController _confettiController;
   late AnimationController _animController;
@@ -191,7 +193,8 @@ class _ResultScreenState extends State<ResultScreen>
                             icon: Icons.replay_rounded,
                             label: 'Replay',
                             onTap: () {
-                              // Pop result + game, then push fresh game
+                              // Force-reset the provider state
+                              ref.invalidate(gameStateProvider(widget.levelNumber));
                               context.pop(); // pop result
                               context.pop(); // pop completed game
                               context.push('/game/${widget.levelNumber}');
@@ -258,6 +261,7 @@ class _ResultScreenState extends State<ResultScreen>
     return GestureDetector(
       onTap: hasNext
           ? () {
+              ref.invalidate(gameStateProvider(widget.levelNumber));
               context.pop(); // pop result
               context.pop(); // pop completed game
               context.push('/game/$nextLevel');
