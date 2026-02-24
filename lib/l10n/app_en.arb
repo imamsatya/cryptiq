@@ -1,0 +1,58 @@
+{
+  "@@locale": "en",
+  "appTitle": "CryptiQ",
+  "play": "Play",
+  "dailyChallenge": "Daily Challenge",
+  "statistics": "Statistics",
+  "settings": "Settings",
+  "level": "Level {number}",
+  "@level": {
+    "placeholders": {
+      "number": {"type": "int"}
+    }
+  },
+  "easy": "Easy",
+  "medium": "Medium",
+  "hard": "Hard",
+  "expert": "Expert",
+  "hint": "Hint",
+  "check": "Check",
+  "clear": "Clear",
+  "clearAll": "Clear All",
+  "congratulations": "Congratulations!",
+  "puzzleSolved": "Puzzle Solved!",
+  "nextLevel": "Next Level",
+  "replay": "Replay",
+  "share": "Share",
+  "time": "Time",
+  "hints": "Hints",
+  "bestTime": "Best Time",
+  "levelsCompleted": "Levels Completed",
+  "totalTime": "Total Time",
+  "averageTime": "Average Time",
+  "hintsUsed": "Hints Used",
+  "currentStreak": "Current Streak",
+  "bestStreak": "Best Streak",
+  "sound": "Sound",
+  "haptics": "Haptics",
+  "language": "Language",
+  "about": "About",
+  "privacyPolicy": "Privacy Policy",
+  "rateApp": "Rate App",
+  "removeAds": "Remove Ads",
+  "restorePurchase": "Restore Purchase",
+  "tryAgain": "Try Again",
+  "wrongAnswer": "Wrong Answer",
+  "someDigitsWrong": "Some digits are incorrect. Try again!",
+  "allLevelsFree": "All levels are FREE!",
+  "noLockedLevels": "No locked levels, ever.",
+  "home": "Home",
+  "back": "Back",
+  "resume": "Resume",
+  "stars": "{count} Stars",
+  "@stars": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  }
+}
