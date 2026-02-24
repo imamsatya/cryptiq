@@ -9,11 +9,11 @@ class AppConstants {
   static const String contactEmail = 'cryptiq.app@gmail.com';
 
   // Game Config
-  static const int totalLevels = 1000;
+  static const int totalLevels = 1200;
   static const int easyLevels = 250;       // Levels 1-250
   static const int mediumLevels = 250;     // Levels 251-500
   static const int hardLevels = 250;       // Levels 501-750
-  static const int expertLevels = 250;     // Levels 751-1000
+  static const int expertLevels = 450;     // Levels 751-1200 (incl. multi-step)
 
   // Hints
   static const int initialFreeHints = 5;

@@ -3,7 +3,7 @@ import '../../core/theme/app_theme.dart';
 import '../../domain/entities/puzzle.dart';
 
 /// Displays the cryptarithm equation visually.
-/// Handles both letters (unknowns) and digit chars (given/fixed).
+/// Handles single-step AND multi-step (cascading) puzzles.
 class PuzzleDisplay extends StatelessWidget {
   final CryptarithmPuzzle puzzle;
   final Map<String, int?> assignments;
@@ -26,6 +26,17 @@ class PuzzleDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (puzzle.isMultiStep) {
+      return _buildMultiStep();
+    }
+    return _buildSingleStep();
+  }
+
+  // ================================================================
+  // SINGLE-STEP (existing layout)
+  // ================================================================
+
+  Widget _buildSingleStep() {
     final maxLen = [
       ...puzzle.operands.map((o) => o.length),
       puzzle.result.length,
@@ -42,19 +53,12 @@ class PuzzleDisplay extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               for (int i = 0; i < puzzle.operands.length; i++) ...[
-                _buildOperandRow(puzzle.operands[i], maxLen,
+                _buildOperandRow(puzzle.operands[i], maxLen, puzzle.operator,
                     showOperator: i == puzzle.operands.length - 1),
                 if (i < puzzle.operands.length - 1) const SizedBox(height: 8),
               ],
               const SizedBox(height: 4),
-              Container(
-                height: 3,
-                width: maxLen * 52.0 + 40,
-                decoration: BoxDecoration(
-                  gradient: AppTheme.goldGradient,
-                  borderRadius: BorderRadius.circular(2),
-                ),
-              ),
+              _buildDivider(maxLen),
               const SizedBox(height: 8),
               _buildWordRow(puzzle.result, maxLen),
             ],
@@ -64,7 +68,74 @@ class PuzzleDisplay extends StatelessWidget {
     );
   }
 
-  Widget _buildOperandRow(String word, int maxLen, {bool showOperator = false}) {
+  // ================================================================
+  // MULTI-STEP (cascading layout)
+  // ================================================================
+
+  Widget _buildMultiStep() {
+    // Find max word length across all steps
+    int maxLen = 0;
+    for (final step in puzzle.steps) {
+      for (final op in step.operands) {
+        if (op.length > maxLen) maxLen = op.length;
+      }
+      if (step.result.length > maxLen) maxLen = step.result.length;
+    }
+
+    return Center(
+      child: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+          decoration: AppTheme.glassDecoration(borderRadius: 24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              for (int s = 0; s < puzzle.steps.length; s++) ...[
+                // Operands for this step
+                for (int i = 0; i < puzzle.steps[s].operands.length; i++) ...[
+                  _buildOperandRow(
+                    puzzle.steps[s].operands[i],
+                    maxLen,
+                    puzzle.steps[s].operator,
+                    showOperator: i == puzzle.steps[s].operands.length - 1,
+                  ),
+                  if (i < puzzle.steps[s].operands.length - 1)
+                    const SizedBox(height: 6),
+                ],
+                const SizedBox(height: 4),
+                _buildDivider(maxLen),
+                const SizedBox(height: 6),
+                // Result
+                _buildWordRow(puzzle.steps[s].result, maxLen),
+                // Spacing between steps (except after last)
+                if (s < puzzle.steps.length - 1) const SizedBox(height: 14),
+              ],
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // ================================================================
+  // SHARED WIDGETS
+  // ================================================================
+
+  Widget _buildDivider(int maxLen) {
+    return Container(
+      height: 3,
+      width: maxLen * 52.0 + 40,
+      decoration: BoxDecoration(
+        gradient: AppTheme.goldGradient,
+        borderRadius: BorderRadius.circular(2),
+      ),
+    );
+  }
+
+  Widget _buildOperandRow(String word, int maxLen, String operator,
+      {bool showOperator = false}) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -72,7 +143,7 @@ class PuzzleDisplay extends StatelessWidget {
           width: 40,
           child: showOperator
               ? Text(
-                  puzzle.operator,
+                  operator,
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w600,
@@ -100,14 +171,12 @@ class PuzzleDisplay extends StatelessWidget {
   }
 
   Widget _buildCell(String ch) {
-    // Check if this is a given digit (not a letter)
     if (!isLetterChar(ch)) {
       return _buildGivenDigitCell(ch);
     }
     return _buildLetterCell(ch);
   }
 
-  /// Cell for a GIVEN digit — already known, not tappable
   Widget _buildGivenDigitCell(String digitChar) {
     return Container(
       width: 48,
@@ -134,7 +203,6 @@ class PuzzleDisplay extends StatelessWidget {
     );
   }
 
-  /// Cell for an UNKNOWN letter — tappable
   Widget _buildLetterCell(String letter) {
     final digit = assignments[letter];
     final isSelected = selectedLetter == letter;

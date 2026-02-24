@@ -82,7 +82,7 @@ class LevelSelectScreen extends ConsumerWidget {
                       _buildLevelGrid(context, DifficultyLevel.easy, 1, 250),
                       _buildLevelGrid(context, DifficultyLevel.medium, 251, 500),
                       _buildLevelGrid(context, DifficultyLevel.hard, 501, 750),
-                      _buildLevelGrid(context, DifficultyLevel.expert, 751, 1000),
+                      _buildLevelGrid(context, DifficultyLevel.expert, 751, 1200),
                     ],
                   ),
                 ),

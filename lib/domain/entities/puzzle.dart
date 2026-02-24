@@ -8,24 +8,37 @@ bool isLetterChar(String ch) {
   return c >= 65 && c <= 90; // A-Z
 }
 
-/// A cryptarithm puzzle.
+/// One step in a multi-step puzzle.
+class PuzzleStep {
+  final List<String> operands;
+  final String result;
+  final String operator;
+
+  const PuzzleStep({
+    required this.operands,
+    required this.result,
+    this.operator = '+',
+  });
+}
+
+/// A cryptarithm puzzle — single-step or multi-step.
 ///
 /// Operands and result can contain:
 /// - **Letters** (A-Z): unknowns the player must solve
 /// - **Digit chars** ('0'-'9'): already-known digits shown as given
 ///
-/// Example: `A + A = 2` → player only needs to figure out A=1
-/// Example: `AB + 22 = 63` → player figures out A=4, B=1
-/// Example: `SEND + MORE = MONEY` → classic full cryptarithm
+/// Single-step: `SEND + MORE = MONEY`
+/// Multi-step:  `AA + BB = CCC`, then `CCC + SS = XXX`
 class CryptarithmPuzzle extends Equatable {
   final int id;
   final int levelNumber;
-  final List<String> operands;     // e.g. ["SEND", "MORE"] or ["A", "3"]
-  final String result;             // e.g. "MONEY" or "5"
+  final List<String> operands;     // first-step operands (or single-step)
+  final String result;             // final result
   final String operator;           // "+", "-", "×"
-  final Map<String, int> solution; // letter→digit for unknowns only
+  final Map<String, int> solution; // letter→digit for unknowns
   final DifficultyLevel difficulty;
-  final int uniqueLetters;         // number of unknown letters
+  final int uniqueLetters;
+  final List<PuzzleStep> steps;    // empty = single-step
 
   const CryptarithmPuzzle({
     required this.id,
@@ -36,18 +49,34 @@ class CryptarithmPuzzle extends Equatable {
     required this.solution,
     required this.difficulty,
     required this.uniqueLetters,
+    this.steps = const [],
   });
 
-  /// Get all unique LETTER characters (unknowns only, excludes digit chars)
+  bool get isMultiStep => steps.isNotEmpty;
+
+  /// Get all unique LETTER characters across all steps
   List<String> get allLetters {
     final Set<String> letters = {};
-    for (final operand in operands) {
-      for (final ch in operand.split('')) {
+    if (isMultiStep) {
+      for (final step in steps) {
+        for (final op in step.operands) {
+          for (final ch in op.split('')) {
+            if (isLetterChar(ch)) letters.add(ch);
+          }
+        }
+        for (final ch in step.result.split('')) {
+          if (isLetterChar(ch)) letters.add(ch);
+        }
+      }
+    } else {
+      for (final operand in operands) {
+        for (final ch in operand.split('')) {
+          if (isLetterChar(ch)) letters.add(ch);
+        }
+      }
+      for (final ch in result.split('')) {
         if (isLetterChar(ch)) letters.add(ch);
       }
-    }
-    for (final ch in result.split('')) {
-      if (isLetterChar(ch)) letters.add(ch);
     }
     return letters.toList()..sort();
   }
@@ -55,18 +84,29 @@ class CryptarithmPuzzle extends Equatable {
   /// Get the leading letters (cannot be 0) — only for multi-char words
   Set<String> get leadingLetters {
     final Set<String> leading = {};
-    for (final operand in operands) {
-      if (operand.length > 1 && isLetterChar(operand[0])) {
-        leading.add(operand[0]);
+    if (isMultiStep) {
+      for (final step in steps) {
+        for (final op in step.operands) {
+          if (op.length > 1 && isLetterChar(op[0])) leading.add(op[0]);
+        }
+        if (step.result.length > 1 && isLetterChar(step.result[0])) {
+          leading.add(step.result[0]);
+        }
       }
-    }
-    if (result.length > 1 && isLetterChar(result[0])) {
-      leading.add(result[0]);
+    } else {
+      for (final operand in operands) {
+        if (operand.length > 1 && isLetterChar(operand[0])) {
+          leading.add(operand[0]);
+        }
+      }
+      if (result.length > 1 && isLetterChar(result[0])) {
+        leading.add(result[0]);
+      }
     }
     return leading;
   }
 
-  /// Convert a word (mixed letters+digits) to a number using an assignment
+  /// Convert a word (mixed letters+digits) to a number
   static int wordToNum(String word, Map<String, int> assignment) {
     int val = 0;
     for (final ch in word.split('')) {
@@ -79,38 +119,51 @@ class CryptarithmPuzzle extends Equatable {
     return val;
   }
 
-  /// Verify if a given assignment is a correct solution.
-  /// Checks: unique digits, no leading zeros, arithmetic correctness.
+  /// Verify if a given assignment is correct for ALL steps.
   bool verifySolution(Map<String, int> assignment) {
     final letters = allLetters;
     if (assignment.length != letters.length) return false;
 
-    // Check unique digits (each letter maps to a different digit)
     final usedDigits = assignment.values.toSet();
     if (usedDigits.length != assignment.length) return false;
 
-    // Check leading letters are not 0
     for (final letter in leadingLetters) {
       if (assignment[letter] == 0) return false;
     }
 
-    // Verify the arithmetic
-    final operandValues = operands.map((op) => wordToNum(op, assignment)).toList();
-    final resultValue = wordToNum(result, assignment);
-
-    switch (operator) {
-      case '+':
-        return operandValues.reduce((a, b) => a + b) == resultValue;
-      case '-':
-        return operandValues.first - operandValues.skip(1).reduce((a, b) => a + b) == resultValue;
-      case '×':
-        return operandValues.reduce((a, b) => a * b) == resultValue;
-      default:
-        return operandValues.reduce((a, b) => a + b) == resultValue;
+    if (isMultiStep) {
+      for (final step in steps) {
+        if (!_verifyStep(step, assignment)) return false;
+      }
+      return true;
+    } else {
+      return _verifySingle(assignment);
     }
   }
 
-  /// Check if a partial assignment is still valid (no contradictions)
+  bool _verifySingle(Map<String, int> assignment) {
+    final operandValues = operands.map((op) => wordToNum(op, assignment)).toList();
+    final resultValue = wordToNum(result, assignment);
+    return switch (operator) {
+      '+' => operandValues.reduce((a, b) => a + b) == resultValue,
+      '-' => operandValues.first - operandValues.skip(1).reduce((a, b) => a + b) == resultValue,
+      '×' => operandValues.reduce((a, b) => a * b) == resultValue,
+      _ => operandValues.reduce((a, b) => a + b) == resultValue,
+    };
+  }
+
+  static bool _verifyStep(PuzzleStep step, Map<String, int> assignment) {
+    final opVals = step.operands.map((op) => wordToNum(op, assignment)).toList();
+    final resVal = wordToNum(step.result, assignment);
+    return switch (step.operator) {
+      '+' => opVals.reduce((a, b) => a + b) == resVal,
+      '-' => opVals.first - opVals.skip(1).reduce((a, b) => a + b) == resVal,
+      '×' => opVals.reduce((a, b) => a * b) == resVal,
+      _ => opVals.reduce((a, b) => a + b) == resVal,
+    };
+  }
+
+  /// Check if a partial assignment is still valid
   bool isPartiallyValid(Map<String, int> assignment) {
     final usedDigits = assignment.values.toSet();
     if (usedDigits.length != assignment.length) return false;
@@ -124,5 +177,5 @@ class CryptarithmPuzzle extends Equatable {
   }
 
   @override
-  List<Object?> get props => [id, levelNumber, operands, result, operator, solution];
+  List<Object?> get props => [id, levelNumber, operands, result, operator, solution, steps];
 }

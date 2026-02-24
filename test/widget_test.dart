@@ -3,45 +3,17 @@ import 'package:cryptiq/levels/puzzle_generator.dart';
 import 'package:cryptiq/domain/entities/puzzle.dart';
 
 void main() {
-  test('PuzzleGenerator generates 1000 puzzles', () {
+  test('PuzzleGenerator generates 1200 puzzles', () {
     final puzzles = PuzzleGenerator.allPuzzles;
-    expect(puzzles.length, 1000);
+    expect(puzzles.length, 1200);
   });
 
   test('All puzzles have valid solutions', () {
     final puzzles = PuzzleGenerator.allPuzzles;
     for (final puzzle in puzzles) {
-      int wordToNum(String word) {
-        int val = 0;
-        for (final ch in word.split('')) {
-          if (isLetterChar(ch)) {
-            val = val * 10 + puzzle.solution[ch]!;
-          } else {
-            val = val * 10 + int.parse(ch);
-          }
-        }
-        return val;
-      }
-
-      final opVals = puzzle.operands.map(wordToNum).toList();
-      final resVal = wordToNum(puzzle.result);
-
-      late final bool correct;
-      switch (puzzle.operator) {
-        case '+':
-          correct = opVals.reduce((a, b) => a + b) == resVal;
-        case '-':
-          correct = opVals.first - opVals.skip(1).reduce((a, b) => a + b) == resVal;
-        case '×':
-          correct = opVals.reduce((a, b) => a * b) == resVal;
-        default:
-          correct = false;
-      }
-
-      expect(correct, true,
+      expect(puzzle.verifySolution(puzzle.solution), true,
           reason: 'Level ${puzzle.levelNumber} (${puzzle.operator}): '
-              '${puzzle.operands.join(" ${puzzle.operator} ")} = ${puzzle.result} '
-              '(values: ${opVals.join(" ${puzzle.operator} ")} should equal $resVal)');
+              'solution verification failed');
     }
   });
 
@@ -59,6 +31,7 @@ void main() {
     final p = PuzzleGenerator.getPuzzle(1);
     expect(p.allLetters.length, lessThanOrEqualTo(2));
     expect(p.operator, '+');
+    expect(p.isMultiStep, false);
   });
 
   test('Mixed operations appear in later levels', () {
@@ -69,7 +42,24 @@ void main() {
     expect(ops.contains('×'), true);
   });
 
-  test('Difficulty distribution is correct', () {
+  test('Multi-step puzzles exist in levels 1001-1200', () {
+    final puzzles = PuzzleGenerator.allPuzzles;
+    final multiStep = puzzles.where((p) => p.isMultiStep).toList();
+    expect(multiStep.length, 200);
+    expect(multiStep.first.levelNumber, greaterThanOrEqualTo(1001));
+  });
+
+  test('Multi-step puzzle solutions verify across all steps', () {
+    final puzzles = PuzzleGenerator.allPuzzles.where((p) => p.isMultiStep);
+    for (final puzzle in puzzles) {
+      expect(puzzle.steps.length, greaterThanOrEqualTo(2),
+          reason: 'Level ${puzzle.levelNumber}: multi-step should have 2+ steps');
+      expect(puzzle.verifySolution(puzzle.solution), true,
+          reason: 'Level ${puzzle.levelNumber}: multi-step verification failed');
+    }
+  });
+
+  test('Difficulty distribution', () {
     final puzzles = PuzzleGenerator.allPuzzles;
     final easy = puzzles.where((p) => p.difficulty == DifficultyLevel.easy).length;
     final medium = puzzles.where((p) => p.difficulty == DifficultyLevel.medium).length;
@@ -78,6 +68,6 @@ void main() {
     expect(easy, 250);
     expect(medium, 250);
     expect(hard, 250);
-    expect(expert, 250);
+    expect(expert, 450); // 250 single + 200 multi-step
   });
 }

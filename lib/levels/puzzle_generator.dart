@@ -2,9 +2,10 @@ import '../domain/entities/puzzle.dart';
 import 'puzzle_data.dart';
 
 /// Loads pre-computed puzzles from static data.
-/// Zero generation time — all 1000 puzzles load instantly.
+/// Zero generation time — all puzzles load instantly.
 ///
-/// To regenerate: `dart run tool/generate_puzzle_data.dart`
+/// To regenerate single-step: `dart run tool/generate_puzzle_data.dart`
+/// To add multi-step: `dart run tool/generate_multistep_data.dart`
 class PuzzleGenerator {
   PuzzleGenerator._();
 
@@ -45,6 +46,25 @@ class PuzzleGenerator {
       final diff = _diffMap[d[4] as int];
       final uniqueL = d[5] as int;
 
+      // Parse multi-step data (optional 7th element)
+      final List<PuzzleStep> steps;
+      if (d.length > 6 && d[6] != null) {
+        final stepsData = d[6] as List;
+        steps = stepsData.map((s) {
+          final step = s as List;
+          final stepOps = (step[0] as List).cast<String>();
+          final stepRes = step[1] as String;
+          final stepOp = step[2] as String;
+          return PuzzleStep(
+            operands: stepOps,
+            result: stepRes,
+            operator: stepOp,
+          );
+        }).toList();
+      } else {
+        steps = const [];
+      }
+
       return CryptarithmPuzzle(
         id: i,
         levelNumber: i + 1,
@@ -54,6 +74,7 @@ class PuzzleGenerator {
         solution: sol,
         difficulty: diff,
         uniqueLetters: uniqueL,
+        steps: steps,
       );
     });
   }
