@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:share_plus/share_plus.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/services/daily_challenge_service.dart';
 import '../../core/services/audio_service.dart';
 import '../providers/daily_challenge_provider.dart';
-import '../providers/game_state_provider.dart';
 import '../widgets/puzzle_display.dart';
 import '../widgets/number_pad.dart';
 import '../widgets/letter_tile.dart';
@@ -110,11 +108,7 @@ class DailyChallengeScreen extends ConsumerWidget {
                 ),
               ),
 
-              // Completion overlay
-              if (gameState.isComplete) ...[
-                _buildCompletionCard(context, ref, gameState),
-                const SizedBox(height: 16),
-              ],
+
 
               // Letter assignments + number pad (hide when complete)
               if (!gameState.isComplete) ...[
@@ -222,11 +216,15 @@ class DailyChallengeScreen extends ConsumerWidget {
                               HapticFeedback.heavyImpact();
                               // Save daily completion
                               final time = ref.read(dailyGameStateProvider).elapsedSeconds;
+                              final hints = ref.read(dailyGameStateProvider).hintsUsed;
                               await DailyChallengeService.instance.completeDaily(time);
-                              ref.read(dailyCompletedProvider.notifier).state = true;
-                              ref.read(dailyStreakProvider.notifier).state =
-                                  DailyChallengeService.instance.streak;
-                              ref.read(dailyBestTimeProvider.notifier).state = time;
+                              // Navigate to full-screen result
+                              if (context.mounted) {
+                                context.push('/daily-result', extra: {
+                                  'time': time,
+                                  'hints': hints,
+                                });
+                              }
                             } else {
                               AudioService.instance.playError();
                               HapticFeedback.heavyImpact();
@@ -266,114 +264,7 @@ class DailyChallengeScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildCompletionCard(BuildContext context, WidgetRef ref, GameState gameState) {
-    final streak = DailyChallengeService.instance.streak;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        decoration: AppTheme.glassDecoration(borderRadius: 20),
-        child: Column(
-          children: [
-            const Icon(Icons.emoji_events_rounded,
-                color: AppTheme.primaryColor, size: 48),
-            const SizedBox(height: 8),
-            ShaderMask(
-              shaderCallback: (bounds) =>
-                  AppTheme.goldGradient.createShader(bounds),
-              child: const Text(
-                'Daily Complete!',
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            const SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                _buildStatChip(Icons.timer_rounded,
-                    _formatTime(gameState.elapsedSeconds), 'Time'),
-                _buildStatChip(Icons.local_fire_department_rounded,
-                    '$streak', 'Streak 🔥'),
-                _buildStatChip(Icons.lightbulb_rounded,
-                    '${gameState.hintsUsed}', 'Hints'),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Row(
-              children: [
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      SharePlus.instance.share(
-                        ShareParams(
-                          text: 'I solved today\'s CryptiQ Daily Challenge in ${_formatTime(gameState.elapsedSeconds)}! '
-                              '🔥 $streak day streak! Can you beat it?',
-                        ),
-                      );
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      decoration: AppTheme.glassDecoration(borderRadius: 12),
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.share_rounded, color: Colors.white, size: 18),
-                          SizedBox(width: 6),
-                          Text('Share', style: TextStyle(color: Colors.white)),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () => context.pop(),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      decoration: AppTheme.goldGlowDecoration(borderRadius: 12),
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.home_rounded,
-                              color: AppTheme.backgroundDark, size: 18),
-                          SizedBox(width: 6),
-                          Text('Home',
-                              style: TextStyle(
-                                  color: AppTheme.backgroundDark,
-                                  fontWeight: FontWeight.w600)),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildStatChip(IconData icon, String value, String label) {
-    return Column(
-      children: [
-        Icon(icon, color: AppTheme.primaryColor, size: 20),
-        const SizedBox(height: 4),
-        Text(value,
-            style: const TextStyle(
-                fontSize: 18, fontWeight: FontWeight.w700, color: Colors.white)),
-        Text(label,
-            style: TextStyle(
-                fontSize: 11,
-                color: AppTheme.textSecondary.withValues(alpha: 0.7))),
-      ],
-    );
-  }
+  // (removed _buildCompletionCard — now uses full-screen DailyResultScreen)
 
   String _formatTime(int seconds) {
     final m = seconds ~/ 60;

@@ -6,6 +6,7 @@ import '../screens/result_screen.dart';
 import '../screens/settings_screen.dart';
 import '../screens/statistics_screen.dart';
 import '../screens/daily_challenge_screen.dart';
+import '../screens/daily_result_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -17,6 +18,16 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/daily',
       builder: (context, state) => const DailyChallengeScreen(),
+    ),
+    GoRoute(
+      path: '/daily-result',
+      builder: (context, state) {
+        final extras = state.extra as Map<String, dynamic>?;
+        return DailyResultScreen(
+          timeSeconds: extras?['time'] ?? 0,
+          hintsUsed: extras?['hints'] ?? 0,
+        );
+      },
     ),
     GoRoute(
       path: '/levels',
