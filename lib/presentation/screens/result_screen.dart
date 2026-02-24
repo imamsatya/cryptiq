@@ -191,8 +191,9 @@ class _ResultScreenState extends State<ResultScreen>
                             icon: Icons.replay_rounded,
                             label: 'Replay',
                             onTap: () {
-                              context.pop();
-                              // Re-push same level
+                              // Pop result + game, then push fresh game
+                              context.pop(); // pop result
+                              context.pop(); // pop completed game
                               context.push('/game/${widget.levelNumber}');
                             },
                           ),
@@ -257,7 +258,8 @@ class _ResultScreenState extends State<ResultScreen>
     return GestureDetector(
       onTap: hasNext
           ? () {
-              context.pop();
+              context.pop(); // pop result
+              context.pop(); // pop completed game
               context.push('/game/$nextLevel');
             }
           : null,
