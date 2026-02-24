@@ -73,7 +73,7 @@ class GameState {
 
 /// Game state notifier
 class GameStateNotifier extends StateNotifier<GameState> {
-  final ProgressRepository _progressRepo;
+  final ProgressRepository? _progressRepo;
   Timer? _timer;
 
   GameStateNotifier(CryptarithmPuzzle puzzle, this._progressRepo)
@@ -222,12 +222,14 @@ class GameStateNotifier extends StateNotifier<GameState> {
       
       // Save progress
       final stars = state.calculateStars();
-      await _progressRepo.completeLevel(
-        levelNumber: state.puzzle.levelNumber,
-        timeSeconds: state.elapsedSeconds,
-        hintsUsed: state.hintsUsed,
-        stars: stars,
-      );
+      if (_progressRepo != null) {
+        await _progressRepo.completeLevel(
+          levelNumber: state.puzzle.levelNumber,
+          timeSeconds: state.elapsedSeconds,
+          hintsUsed: state.hintsUsed,
+          stars: stars,
+        );
+      }
 
       state = state.copyWith(
         isComplete: true,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/services/daily_challenge_service.dart';
 import '../../levels/puzzle_generator.dart';
 import '../providers/progress_provider.dart';
 
@@ -68,7 +69,12 @@ class HomeScreen extends ConsumerWidget {
                 // Stats row
                 _buildStatsRow(completedLevels, totalLevels, totalStars),
 
-                const SizedBox(height: 40),
+                const SizedBox(height: 20),
+
+                // Daily Challenge card
+                _buildDailyCard(context),
+
+                const SizedBox(height: 20),
 
                 // Play button
                 _buildPlayButton(context, lastPlayed),
@@ -110,7 +116,7 @@ class HomeScreen extends ConsumerWidget {
 
                 // Footer
                 Text(
-                  'All 500 levels FREE — no locked levels, ever.',
+                  'All 1200 levels FREE — no locked levels, ever.',
                   style: TextStyle(
                     fontSize: 11,
                     color: AppTheme.textMuted.withValues(alpha: 0.6),
@@ -184,6 +190,86 @@ class HomeScreen extends ConsumerWidget {
             style: TextStyle(
                 fontSize: 10, color: AppTheme.textSecondary.withValues(alpha: 0.7))),
       ],
+    );
+  }
+
+  Widget _buildDailyCard(BuildContext context) {
+    final daily = DailyChallengeService.instance;
+    final isCompleted = daily.isTodayCompleted;
+    final streak = daily.streak;
+    final now = DateTime.now();
+    final months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    final dateStr = '${now.day} ${months[now.month - 1]} ${now.year}';
+
+    return GestureDetector(
+      onTap: () => context.push('/daily'),
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          gradient: isCompleted
+              ? LinearGradient(
+                  colors: [
+                    AppTheme.successColor.withValues(alpha: 0.15),
+                    AppTheme.successColor.withValues(alpha: 0.05),
+                  ],
+                )
+              : LinearGradient(
+                  colors: [
+                    AppTheme.primaryColor.withValues(alpha: 0.15),
+                    AppTheme.primaryColor.withValues(alpha: 0.05),
+                  ],
+                ),
+          border: Border.all(
+            color: isCompleted
+                ? AppTheme.successColor.withValues(alpha: 0.3)
+                : AppTheme.primaryColor.withValues(alpha: 0.3),
+          ),
+        ),
+        child: Row(
+          children: [
+            Icon(
+              isCompleted ? Icons.check_circle_rounded : Icons.today_rounded,
+              color: isCompleted ? AppTheme.successColor : AppTheme.primaryColor,
+              size: 28,
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Daily Challenge',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: isCompleted ? AppTheme.successColor : Colors.white,
+                    ),
+                  ),
+                  Text(
+                    dateStr,
+                    style: TextStyle(
+                      fontSize: 11,
+                      color: AppTheme.textSecondary.withValues(alpha: 0.7),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            if (streak > 0) ...[
+              Text('🔥 $streak',
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white)),
+              const SizedBox(width: 12),
+            ],
+            Icon(
+              isCompleted ? Icons.replay_rounded : Icons.play_arrow_rounded,
+              color: isCompleted ? AppTheme.successColor : AppTheme.primaryColor,
+              size: 24,
+            ),
+          ],
+        ),
+      ),
     );
   }
 

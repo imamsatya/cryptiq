@@ -5,6 +5,7 @@ import '../screens/level_select_screen.dart';
 import '../screens/result_screen.dart';
 import '../screens/settings_screen.dart';
 import '../screens/statistics_screen.dart';
+import '../screens/daily_challenge_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -12,6 +13,10 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) => const HomeScreen(),
+    ),
+    GoRoute(
+      path: '/daily',
+      builder: (context, state) => const DailyChallengeScreen(),
     ),
     GoRoute(
       path: '/levels',
