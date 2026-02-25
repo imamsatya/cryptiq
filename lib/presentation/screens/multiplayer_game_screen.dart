@@ -56,6 +56,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
   int _hintsUsed = 0;
   Timer? _timer;
   bool _showHandoff = true; // show handoff screen between turns
+  bool _showSuccess = false; // show success overlay
   bool _isChecking = false;
 
   // Results: [round][player] = score
@@ -80,6 +81,11 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
 
     // Filter by settings
     var candidates = all.where((p) {
+      // Operation filter first (multistep ignores difficulty)
+      if (widget.operation == 'multi') {
+        // Only multistep puzzles, ignore difficulty
+        return p.steps.isNotEmpty;
+      }
       // Difficulty filter
       if (widget.difficulty != 'mixed') {
         final d = widget.difficulty;
@@ -88,14 +94,10 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
         if (d == 'hard' && p.difficulty != DifficultyLevel.hard) return false;
         if (d == 'expert' && p.difficulty != DifficultyLevel.expert) return false;
       }
-      // Operation filter
+      // Single-step operation filter
       if (widget.operation != 'mixed') {
-        if (widget.operation == 'multi') {
-          if (p.steps.isEmpty) return false;
-        } else {
-          if (p.steps.isNotEmpty) return false;
-          if (p.operator != widget.operation) return false;
-        }
+        if (p.steps.isNotEmpty) return false;
+        if (p.operator != widget.operation) return false;
       }
       return true;
     }).toList();
@@ -211,10 +213,28 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
         solved: true,
       );
 
+      // Show success overlay briefly
+      setState(() => _showSuccess = true);
+      await Future.delayed(const Duration(seconds: 2));
+      if (!mounted) return;
+      setState(() => _showSuccess = false);
       await _advanceTurn();
     } else {
       AudioService.instance.playError();
       HapticFeedback.heavyImpact();
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text('❌ Incorrect — try again!',
+                style: TextStyle(color: Colors.white)),
+            backgroundColor: const Color(0xFFE53935),
+            behavior: SnackBarBehavior.floating,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12)),
+            duration: const Duration(seconds: 2),
+          ),
+        );
+      }
     }
     _isChecking = false;
   }
@@ -275,7 +295,79 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
     if (_showHandoff) {
       return _buildHandoffScreen();
     }
-    return _buildGameScreen();
+    return Stack(
+      children: [
+        _buildGameScreen(),
+        if (_showSuccess) _buildSuccessOverlay(),
+      ],
+    );
+  }
+
+  Widget _buildSuccessOverlay() {
+    final playerName = widget.playerNames[_currentPlayerIndex];
+    final result = _results[_currentRound][_currentPlayerIndex];
+    final score = result?.score ?? 0;
+
+    return Positioned.fill(
+      child: Container(
+        color: Colors.black.withValues(alpha: 0.7),
+        child: Center(
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 40),
+            padding: const EdgeInsets.all(28),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(24),
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  AppTheme.surfaceLight,
+                  AppTheme.surfaceColor,
+                ],
+              ),
+              border: Border.all(
+                color: AppTheme.primaryColor.withValues(alpha: 0.4),
+              ),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text('✅', style: TextStyle(fontSize: 48)),
+                const SizedBox(height: 12),
+                ShaderMask(
+                  shaderCallback: (bounds) =>
+                      AppTheme.goldGradient.createShader(bounds),
+                  child: const Text(
+                    'Correct!',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  '$playerName scored $score pts',
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: AppTheme.textSecondary,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  '${_formatTime(_elapsedSeconds)} • $_hintsUsed hints',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: AppTheme.textMuted.withValues(alpha: 0.7),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _buildHandoffScreen() {

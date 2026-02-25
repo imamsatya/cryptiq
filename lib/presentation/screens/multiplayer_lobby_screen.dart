@@ -209,12 +209,28 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                     const SizedBox(height: 24),
 
                     // --- Rounds ---
-                    _sectionTitle('Rounds'),
-                    const SizedBox(height: 8),
-                    _buildChipRow(
-                      options: {'3': '3', '5': '5', '7': '7'},
-                      selected: '$_rounds',
-                      onSelect: (v) => setState(() => _rounds = int.parse(v)),
+                    _sectionTitle('Rounds: $_rounds'),
+                    const SizedBox(height: 4),
+                    Container(
+                      decoration: AppTheme.glassDecoration(borderRadius: 14),
+                      child: SliderTheme(
+                        data: SliderTheme.of(context).copyWith(
+                          activeTrackColor: AppTheme.primaryColor,
+                          inactiveTrackColor: AppTheme.surfaceColor,
+                          thumbColor: AppTheme.primaryColor,
+                          overlayColor: AppTheme.primaryColor.withValues(alpha: 0.15),
+                          trackHeight: 4,
+                        ),
+                        child: Slider(
+                          value: _rounds.toDouble(),
+                          min: 1,
+                          max: 7,
+                          divisions: 6,
+                          label: '$_rounds',
+                          onChanged: (v) =>
+                              setState(() => _rounds = v.round()),
+                        ),
+                      ),
                     ),
 
                     const SizedBox(height: 24),
@@ -227,6 +243,21 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                       selected: _difficulty,
                       onSelect: (v) => setState(() => _difficulty = v),
                     ),
+                    // Note when multistep is selected with difficulty
+                    if (_operation == 'multi' &&
+                        _difficulty != 'mixed' &&
+                        _difficulty != 'hard' &&
+                        _difficulty != 'expert')
+                      Padding(
+                        padding: const EdgeInsets.only(top: 6),
+                        child: Text(
+                          'ℹ️ Multi-step puzzles are Hard/Expert only. Difficulty will be ignored.',
+                          style: TextStyle(
+                            fontSize: 11,
+                            color: AppTheme.primaryColor.withValues(alpha: 0.7),
+                          ),
+                        ),
+                      ),
 
                     const SizedBox(height: 24),
 
