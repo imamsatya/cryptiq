@@ -1,12 +1,10 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for Chinese (`zh`).
+/// The translations for zh (`zh`).
 class AppLocalizationsZh extends AppLocalizations {
-  AppLocalizationsZh([String locale = 'zh']) : super(locale);
+  AppLocalizationsZh([super.locale = 'zh']);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -25,7 +23,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String level(int number) {
-    return '关卡 $number';
+    return '关卡 \${number}';
   }
 
   @override
@@ -74,19 +72,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get hints => '提示';
 
   @override
-  String get bestTime => '最佳时间';
+  String get bestTime => '最快记录';
 
   @override
-  String get levelsCompleted => '已完成关卡';
+  String get levelsCompleted => '完成关卡';
 
   @override
-  String get totalTime => '总时间';
+  String get totalTime => '总用时';
 
   @override
-  String get averageTime => '平均时间';
+  String get averageTime => '平均用时';
 
   @override
-  String get hintsUsed => '已用提示';
+  String get hintsUsed => '提示使用';
 
   @override
   String get currentStreak => '当前连胜';
@@ -144,7 +142,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '$count 星';
+    return '\${count} 星';
   }
 
   @override
@@ -161,7 +159,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return '继续 (关卡 $number)';
+    return '继续 (关卡 \${number})';
   }
 
   @override
@@ -256,4 +254,36 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get dailyStreak => '连续挑战';
+
+  @override
+  String get giveUp => '放弃';
+
+  @override
+  String get rematch => '再来一局';
+
+  @override
+  String get achievementUnlocked => '成就解锁！';
+
+  @override
+  String get noHintsAvailable => '没有提示了';
+
+  @override
+  String get overallProgress => '整体进度';
+
+  @override
+  String roundNumber(int number) {
+    return '回合 \${number}';
+  }
+
+  @override
+  String dayStreak(int count) {
+    return '\${count}天连胜！';
+  }
+
+  @override
+  String get shareResult => '分享结果';
+
+  @override
+  String get dailyComplete => '每日挑战完成！';
+
 }

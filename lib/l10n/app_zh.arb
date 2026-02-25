@@ -28,11 +28,11 @@
   "share": "分享",
   "time": "时间",
   "hints": "提示",
-  "bestTime": "最佳时间",
-  "levelsCompleted": "已完成关卡",
-  "totalTime": "总时间",
-  "averageTime": "平均时间",
-  "hintsUsed": "已用提示",
+  "bestTime": "最快记录",
+  "levelsCompleted": "完成关卡",
+  "totalTime": "总用时",
+  "averageTime": "平均用时",
+  "hintsUsed": "提示使用",
   "currentStreak": "当前连胜",
   "bestStreak": "最佳连胜",
   "sound": "声音",
@@ -98,6 +98,29 @@
   "@continueLevel": {
     "placeholders": {
       "number": {
+        "type": "int"
+      }
+    }
+  },
+  "giveUp": "放弃",
+  "rematch": "再来一局",
+  "achievementUnlocked": "成就解锁！",
+  "noHintsAvailable": "没有提示了",
+  "overallProgress": "整体进度",
+  "roundNumber": "回合 {number}",
+  "dayStreak": "{count}天连胜！",
+  "shareResult": "分享结果",
+  "dailyComplete": "每日挑战完成！",
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "@dayStreak": {
+    "placeholders": {
+      "count": {
         "type": "int"
       }
     }

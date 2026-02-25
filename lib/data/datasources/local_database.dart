@@ -31,7 +31,7 @@ class LocalDatabase {
       await _settingsBox.put(AppConstants.hapticsKey, true);
     }
     if (!_settingsBox.containsKey(AppConstants.hintBalanceKey)) {
-      await _settingsBox.put(AppConstants.hintBalanceKey, AppConstants.initialFreeHints);
+      await _settingsBox.put(AppConstants.hintBalanceKey, 0);
     }
 
     _isInitialized = true;
@@ -64,7 +64,7 @@ class LocalDatabase {
   // Settings operations
   bool getSoundEnabled() => _settingsBox.get(AppConstants.soundKey, defaultValue: true);
   bool getHapticsEnabled() => _settingsBox.get(AppConstants.hapticsKey, defaultValue: true);
-  int getHintBalance() => _settingsBox.get(AppConstants.hintBalanceKey, defaultValue: AppConstants.initialFreeHints);
+  int getHintBalance() => _settingsBox.get(AppConstants.hintBalanceKey, defaultValue: 0);
   int getLastPlayedLevel() => _settingsBox.get(AppConstants.lastPlayedLevelKey, defaultValue: 0);
   bool getProStatus() => _settingsBox.get(AppConstants.proStatusKey, defaultValue: false);
 

@@ -1,12 +1,10 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for Korean (`ko`).
+/// The translations for ko (`ko`).
 class AppLocalizationsKo extends AppLocalizations {
-  AppLocalizationsKo([String locale = 'ko']) : super(locale);
+  AppLocalizationsKo([super.locale = 'ko']);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -25,7 +23,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String level(int number) {
-    return '레벨 $number';
+    return '레벨 \${number}';
   }
 
   @override
@@ -107,7 +105,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get about => '정보';
 
   @override
-  String get privacyPolicy => '개인정보 처리방침';
+  String get privacyPolicy => '개인정보';
 
   @override
   String get rateApp => '앱 평가';
@@ -140,11 +138,11 @@ class AppLocalizationsKo extends AppLocalizations {
   String get back => '뒤로';
 
   @override
-  String get resume => '이어하기';
+  String get resume => '계속하기';
 
   @override
   String stars(int count) {
-    return '$count 별';
+    return '\${count} 별';
   }
 
   @override
@@ -161,7 +159,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return '계속하기 (레벨 $number)';
+    return '계속하기 (레벨 \${number})';
   }
 
   @override
@@ -256,4 +254,36 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get dailyStreak => '일일 연속';
+
+  @override
+  String get giveUp => '포기';
+
+  @override
+  String get rematch => '재대결';
+
+  @override
+  String get achievementUnlocked => '업적 달성!';
+
+  @override
+  String get noHintsAvailable => '이 퍼즐에 힌트 없음';
+
+  @override
+  String get overallProgress => '전체 진행률';
+
+  @override
+  String roundNumber(int number) {
+    return '라운드 \${number}';
+  }
+
+  @override
+  String dayStreak(int count) {
+    return '\${count}일 연속!';
+  }
+
+  @override
+  String get shareResult => '결과 공유';
+
+  @override
+  String get dailyComplete => '일일 챌린지 완료!';
+
 }

@@ -1,12 +1,10 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for Japanese (`ja`).
+/// The translations for ja (`ja`).
 class AppLocalizationsJa extends AppLocalizations {
-  AppLocalizationsJa([String locale = 'ja']) : super(locale);
+  AppLocalizationsJa([super.locale = 'ja']);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -25,7 +23,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'レベル $number';
+    return 'レベル \${number}';
   }
 
   @override
@@ -74,7 +72,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get hints => 'ヒント';
 
   @override
-  String get bestTime => '最高タイム';
+  String get bestTime => '最速タイム';
 
   @override
   String get levelsCompleted => 'クリア数';
@@ -86,13 +84,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get averageTime => '平均時間';
 
   @override
-  String get hintsUsed => 'ヒント使用数';
+  String get hintsUsed => 'ヒント使用';
 
   @override
-  String get currentStreak => '連続記録';
+  String get currentStreak => '現在の連続';
 
   @override
-  String get bestStreak => '最高連続記録';
+  String get bestStreak => '最高連続';
 
   @override
   String get sound => 'サウンド';
@@ -104,10 +102,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get language => '言語';
 
   @override
-  String get about => 'アプリについて';
+  String get about => '情報';
 
   @override
-  String get privacyPolicy => 'プライバシーポリシー';
+  String get privacyPolicy => 'プライバシー';
 
   @override
   String get rateApp => 'アプリを評価';
@@ -140,11 +138,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get back => '戻る';
 
   @override
-  String get resume => '再開';
+  String get resume => '続ける';
 
   @override
   String stars(int count) {
-    return '$count スター';
+    return '\${count} スター';
   }
 
   @override
@@ -161,7 +159,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return '続ける (レベル $number)';
+    return '続ける (レベル \${number})';
   }
 
   @override
@@ -256,4 +254,36 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get dailyStreak => '連続チャレンジ';
+
+  @override
+  String get giveUp => 'ギブアップ';
+
+  @override
+  String get rematch => '再戦';
+
+  @override
+  String get achievementUnlocked => '実績解除！';
+
+  @override
+  String get noHintsAvailable => 'ヒントがありません';
+
+  @override
+  String get overallProgress => '全体の進捗';
+
+  @override
+  String roundNumber(int number) {
+    return 'ラウンド \${number}';
+  }
+
+  @override
+  String dayStreak(int count) {
+    return '\${count}日連続！';
+  }
+
+  @override
+  String get shareResult => '結果をシェア';
+
+  @override
+  String get dailyComplete => 'デイリーチャレンジ完了！';
+
 }

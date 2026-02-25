@@ -101,5 +101,28 @@
         "type": "int"
       }
     }
+  },
+  "giveUp": "Give Up",
+  "rematch": "Rematch",
+  "achievementUnlocked": "Achievement Unlocked!",
+  "noHintsAvailable": "No hints left for this puzzle",
+  "overallProgress": "Overall Progress",
+  "roundNumber": "Round {number}",
+  "dayStreak": "{count} Day Streak!",
+  "shareResult": "Share Result",
+  "dailyComplete": "Daily Complete!",
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "@dayStreak": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   }
 }

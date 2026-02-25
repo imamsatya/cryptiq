@@ -1,12 +1,10 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for Indonesian (`id`).
+/// The translations for id (`id`).
 class AppLocalizationsId extends AppLocalizations {
-  AppLocalizationsId([String locale = 'id']) : super(locale);
+  AppLocalizationsId([super.locale = 'id']);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -83,10 +81,10 @@ class AppLocalizationsId extends AppLocalizations {
   String get totalTime => 'Total Waktu';
 
   @override
-  String get averageTime => 'Rata-rata Waktu';
+  String get averageTime => 'Rata-rata';
 
   @override
-  String get hintsUsed => 'Petunjuk Digunakan';
+  String get hintsUsed => 'Hint Digunakan';
 
   @override
   String get currentStreak => 'Streak Saat Ini';
@@ -161,7 +159,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return 'Lanjutkan (Level $number)';
+    return 'Lanjutkan (Level \${number})';
   }
 
   @override
@@ -256,4 +254,36 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get dailyStreak => 'Streak Harian';
+
+  @override
+  String get giveUp => 'Menyerah';
+
+  @override
+  String get rematch => 'Tanding Ulang';
+
+  @override
+  String get achievementUnlocked => 'Pencapaian Terbuka!';
+
+  @override
+  String get noHintsAvailable => 'Hint habis untuk puzzle ini';
+
+  @override
+  String get overallProgress => 'Progres Keseluruhan';
+
+  @override
+  String roundNumber(int number) {
+    return 'Ronde \${number}';
+  }
+
+  @override
+  String dayStreak(int count) {
+    return '\${count} Hari Beruntun!';
+  }
+
+  @override
+  String get shareResult => 'Bagikan Hasil';
+
+  @override
+  String get dailyComplete => 'Tantangan Harian Selesai!';
+
 }

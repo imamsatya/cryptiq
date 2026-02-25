@@ -625,7 +625,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                                 vertical: 12, horizontal: 14),
                             decoration:
                                 AppTheme.glassDecoration(borderRadius: 12),
-                            child: const Text('Give Up',
+                            child: Text(l10n.giveUp,
                                 style: TextStyle(
                                     color: AppTheme.textMuted, fontSize: 13)),
                           ),
@@ -644,7 +644,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                                 Icon(Icons.lightbulb_outline,
                                     color: AppTheme.primaryColor, size: 18),
                                 const SizedBox(width: 4),
-                                Text('Hint ($_hintsUsed)',
+                                Text('${l10n.hint} ($_hintsUsed)',
                                     style: const TextStyle(
                                         color: Colors.white, fontSize: 13)),
                               ],

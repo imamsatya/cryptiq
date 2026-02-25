@@ -28,18 +28,18 @@
   "share": "シェア",
   "time": "時間",
   "hints": "ヒント",
-  "bestTime": "最高タイム",
+  "bestTime": "最速タイム",
   "levelsCompleted": "クリア数",
   "totalTime": "合計時間",
   "averageTime": "平均時間",
-  "hintsUsed": "ヒント使用数",
-  "currentStreak": "連続記録",
-  "bestStreak": "最高連続記録",
+  "hintsUsed": "ヒント使用",
+  "currentStreak": "現在の連続",
+  "bestStreak": "最高連続",
   "sound": "サウンド",
   "haptics": "振動",
   "language": "言語",
-  "about": "アプリについて",
-  "privacyPolicy": "プライバシーポリシー",
+  "about": "情報",
+  "privacyPolicy": "プライバシー",
   "rateApp": "アプリを評価",
   "removeAds": "広告を削除",
   "restorePurchase": "購入を復元",
@@ -50,7 +50,7 @@
   "noLockedLevels": "ロックされたレベルはありません。",
   "home": "ホーム",
   "back": "戻る",
-  "resume": "再開",
+  "resume": "続ける",
   "stars": "{count} スター",
   "@stars": {
     "placeholders": {
@@ -98,6 +98,29 @@
   "@continueLevel": {
     "placeholders": {
       "number": {
+        "type": "int"
+      }
+    }
+  },
+  "giveUp": "ギブアップ",
+  "rematch": "再戦",
+  "achievementUnlocked": "実績解除！",
+  "noHintsAvailable": "ヒントがありません",
+  "overallProgress": "全体の進捗",
+  "roundNumber": "ラウンド {number}",
+  "dayStreak": "{count}日連続！",
+  "shareResult": "結果をシェア",
+  "dailyComplete": "デイリーチャレンジ完了！",
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "@dayStreak": {
+    "placeholders": {
+      "count": {
         "type": "int"
       }
     }

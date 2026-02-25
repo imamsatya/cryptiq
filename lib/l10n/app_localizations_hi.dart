@@ -1,12 +1,10 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for Hindi (`hi`).
+/// The translations for hi (`hi`).
 class AppLocalizationsHi extends AppLocalizations {
-  AppLocalizationsHi([String locale = 'hi']) : super(locale);
+  AppLocalizationsHi([super.locale = 'hi']);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -25,7 +23,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'स्तर $number';
+    return 'स्तर \${number}';
   }
 
   @override
@@ -74,10 +72,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get hints => 'संकेत';
 
   @override
-  String get bestTime => 'सर्वश्रेष्ठ समय';
+  String get bestTime => 'सर्वोत्तम समय';
 
   @override
-  String get levelsCompleted => 'पूरे स्तर';
+  String get levelsCompleted => 'पूर्ण स्तर';
 
   @override
   String get totalTime => 'कुल समय';
@@ -104,10 +102,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get language => 'भाषा';
 
   @override
-  String get about => 'परिचय';
+  String get about => 'बारे में';
 
   @override
-  String get privacyPolicy => 'गोपनीयता नीति';
+  String get privacyPolicy => 'गोपनीयता';
 
   @override
   String get rateApp => 'ऐप रेट करें';
@@ -144,7 +142,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '$count सितारे';
+    return '\${count} सितारे';
   }
 
   @override
@@ -161,7 +159,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return 'जारी रखें (स्तर $number)';
+    return 'जारी रखें (स्तर \${number})';
   }
 
   @override
@@ -256,4 +254,36 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get dailyStreak => 'दैनिक श्रृंखला';
+
+  @override
+  String get giveUp => 'हार मानें';
+
+  @override
+  String get rematch => 'दोबारा खेलें';
+
+  @override
+  String get achievementUnlocked => 'उपलब्धि खुली!';
+
+  @override
+  String get noHintsAvailable => 'कोई संकेत नहीं बचा';
+
+  @override
+  String get overallProgress => 'कुल प्रगति';
+
+  @override
+  String roundNumber(int number) {
+    return 'राउंड \${number}';
+  }
+
+  @override
+  String dayStreak(int count) {
+    return '\${count} दिन लगातार!';
+  }
+
+  @override
+  String get shareResult => 'परिणाम साझा करें';
+
+  @override
+  String get dailyComplete => 'दैनिक चुनौती पूरी!';
+
 }

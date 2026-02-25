@@ -1,12 +1,10 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for English (`en`).
+/// The translations for en (`en`).
 class AppLocalizationsEn extends AppLocalizations {
-  AppLocalizationsEn([String locale = 'en']) : super(locale);
+  AppLocalizationsEn([super.locale = 'en']);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -25,7 +23,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'Level $number';
+    return 'Level \${number}';
   }
 
   @override
@@ -144,7 +142,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '$count Stars';
+    return '\${count} Stars';
   }
 
   @override
@@ -161,7 +159,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return 'Continue (Level $number)';
+    return 'Continue (Level \${number})';
   }
 
   @override
@@ -256,4 +254,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get dailyStreak => 'Daily Streak';
+
+  @override
+  String get giveUp => 'Give Up';
+
+  @override
+  String get rematch => 'Rematch';
+
+  @override
+  String get achievementUnlocked => 'Achievement Unlocked!';
+
+  @override
+  String get noHintsAvailable => 'No hints left for this puzzle';
+
+  @override
+  String get overallProgress => 'Overall Progress';
+
+  @override
+  String roundNumber(int number) {
+    return 'Round \${number}';
+  }
+
+  @override
+  String dayStreak(int count) {
+    return '\${count} Day Streak!';
+  }
+
+  @override
+  String get shareResult => 'Share Result';
+
+  @override
+  String get dailyComplete => 'Daily Complete!';
+
 }

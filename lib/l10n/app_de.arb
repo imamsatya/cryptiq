@@ -31,8 +31,8 @@
   "bestTime": "Beste Zeit",
   "levelsCompleted": "Level Abgeschlossen",
   "totalTime": "Gesamtzeit",
-  "averageTime": "Durchschnittszeit",
-  "hintsUsed": "Hinweise Verwendet",
+  "averageTime": "Durchschnitt",
+  "hintsUsed": "Hinweise Benutzt",
   "currentStreak": "Aktuelle Serie",
   "bestStreak": "Beste Serie",
   "sound": "Ton",
@@ -98,6 +98,29 @@
   "@continueLevel": {
     "placeholders": {
       "number": {
+        "type": "int"
+      }
+    }
+  },
+  "giveUp": "Aufgeben",
+  "rematch": "Revanche",
+  "achievementUnlocked": "Erfolg Freigeschaltet!",
+  "noHintsAvailable": "Keine Hinweise für dieses Puzzle",
+  "overallProgress": "Gesamtfortschritt",
+  "roundNumber": "Runde {number}",
+  "dayStreak": "{count} Tage Serie!",
+  "shareResult": "Ergebnis Teilen",
+  "dailyComplete": "Tägliche Herausforderung Geschafft!",
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "@dayStreak": {
+    "placeholders": {
+      "count": {
         "type": "int"
       }
     }

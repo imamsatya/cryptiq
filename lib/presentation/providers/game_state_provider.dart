@@ -1,10 +1,10 @@
 import 'dart:async';
+import 'dart:math' as math;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/entities/puzzle.dart';
 import '../../levels/puzzle_generator.dart';
 import '../../data/repositories/progress_repository.dart';
 import '../../core/constants/app_constants.dart';
-import '../../data/datasources/local_database.dart';
 
 /// Game state for a single puzzle session
 class GameState {
@@ -34,9 +34,19 @@ class GameState {
     this.hintedLetters = const {},
   });
 
+  /// Max hints for this puzzle: floor(30% of letters), min 1 for 3+ letters
+  int get maxHints {
+    final letterCount = puzzle.allLetters.length;
+    if (letterCount < AppConstants.minLettersForHint) return 0;
+    return math.max(1, (letterCount * AppConstants.hintPercentage).floor());
+  }
+
+  /// Hints remaining for this puzzle
+  int get hintsRemaining => math.max(0, maxHints - hintsUsed);
+
   GameState copyWith({
     CryptarithmPuzzle? puzzle,
-    Map<String, int?>? assignments,
+    Map<String, int?> ? assignments,
     String? selectedLetter,
     bool clearSelectedLetter = false,
     Set<int>? usedDigits,
@@ -251,13 +261,10 @@ class GameStateNotifier extends StateNotifier<GameState> {
     return false;
   }
 
-  /// Use a hint - reveals one correct letter
+  /// Use a hint - reveals one correct letter (per-puzzle limit)
   bool useHint() {
     if (state.isComplete) return false;
-
-    final db = LocalDatabase.instance;
-    final balance = db.getHintBalance();
-    if (balance <= 0) return false;
+    if (state.hintsRemaining <= 0) return false;
 
     // Find an unassigned or wrongly assigned letter
     String? targetLetter;
@@ -317,9 +324,6 @@ class GameStateNotifier extends StateNotifier<GameState> {
     newAssignments[targetLetter] = correctDigit;
     newUsedDigits.add(correctDigit);
 
-    // Deduct hint
-    db.setHintBalance(balance - 1);
-
     state = state.copyWith(
       assignments: newAssignments,
       usedDigits: newUsedDigits,
@@ -350,7 +354,3 @@ final gameStateProvider = StateNotifierProvider.autoDispose
   },
 );
 
-/// Provider for hint balance
-final hintBalanceProvider = StateProvider<int>((ref) {
-  return LocalDatabase.instance.getHintBalance();
-});

@@ -57,6 +57,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
   }
 
   Future<void> _checkAchievements() async {
+    final l10n = AppLocalizations.of(context)!;
     final newlyUnlocked = await AchievementService.instance.checkAndUnlock();
     if (!mounted) return;
     for (final a in newlyUnlocked) {
@@ -71,7 +72,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Achievement Unlocked!',
+                    Text(l10n.achievementUnlocked,
                         style: TextStyle(fontSize: 11, color: Colors.white70)),
                     Text(a.title,
                         style: TextStyle(

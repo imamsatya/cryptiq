@@ -219,7 +219,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
                                       color: AppTheme.backgroundDark,
                                       size: 20),
                                   SizedBox(width: 6),
-                                  Text('Rematch',
+                                  Text(l10n.rematch,
                                       style: TextStyle(
                                         color: AppTheme.backgroundDark,
                                         fontWeight: FontWeight.w600,

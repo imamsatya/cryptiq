@@ -31,7 +31,7 @@
   "bestTime": "Melhor Tempo",
   "levelsCompleted": "Níveis Concluídos",
   "totalTime": "Tempo Total",
-  "averageTime": "Tempo Médio",
+  "averageTime": "Média",
   "hintsUsed": "Dicas Usadas",
   "currentStreak": "Sequência Atual",
   "bestStreak": "Melhor Sequência",
@@ -98,6 +98,29 @@
   "@continueLevel": {
     "placeholders": {
       "number": {
+        "type": "int"
+      }
+    }
+  },
+  "giveUp": "Desistir",
+  "rematch": "Revanche",
+  "achievementUnlocked": "Conquista Desbloqueada!",
+  "noHintsAvailable": "Sem dicas para este puzzle",
+  "overallProgress": "Progresso Geral",
+  "roundNumber": "Rodada {number}",
+  "dayStreak": "{count} Dias Seguidos!",
+  "shareResult": "Compartilhar",
+  "dailyComplete": "Desafio Diário Concluído!",
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "@dayStreak": {
+    "placeholders": {
+      "count": {
         "type": "int"
       }
     }

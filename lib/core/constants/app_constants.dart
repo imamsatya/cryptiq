@@ -15,10 +15,9 @@ class AppConstants {
   static const int hardLevels = 250;       // Levels 501-750
   static const int expertLevels = 450;     // Levels 751-1200 (incl. multi-step)
 
-  // Hints
-  static const int initialFreeHints = 5;
-  static const int hintsPerRewardedAd = 2;
-  static const int maxHints = 99;
+  // Hints (per-puzzle, based on letter count)
+  static const double hintPercentage = 0.30;    // 30% of hidden letters
+  static const int minLettersForHint = 3;       // Need at least 3 letters for 1 hint
 
   // Stars Rating
   static const int threeStarMaxHints = 0;  // No hints used

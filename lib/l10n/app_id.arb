@@ -24,8 +24,8 @@
   "bestTime": "Waktu Terbaik",
   "levelsCompleted": "Level Selesai",
   "totalTime": "Total Waktu",
-  "averageTime": "Rata-rata Waktu",
-  "hintsUsed": "Petunjuk Digunakan",
+  "averageTime": "Rata-rata",
+  "hintsUsed": "Hint Digunakan",
   "currentStreak": "Streak Saat Ini",
   "bestStreak": "Streak Terbaik",
   "sound": "Suara",
@@ -84,6 +84,29 @@
   "@continueLevel": {
     "placeholders": {
       "number": {
+        "type": "int"
+      }
+    }
+  },
+  "giveUp": "Menyerah",
+  "rematch": "Tanding Ulang",
+  "achievementUnlocked": "Pencapaian Terbuka!",
+  "noHintsAvailable": "Hint habis untuk puzzle ini",
+  "overallProgress": "Progres Keseluruhan",
+  "roundNumber": "Ronde {number}",
+  "dayStreak": "{count} Hari Beruntun!",
+  "shareResult": "Bagikan Hasil",
+  "dailyComplete": "Tantangan Harian Selesai!",
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "@dayStreak": {
+    "placeholders": {
+      "count": {
         "type": "int"
       }
     }

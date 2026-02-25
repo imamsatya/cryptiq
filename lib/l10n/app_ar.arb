@@ -30,16 +30,16 @@
   "hints": "تلميحات",
   "bestTime": "أفضل وقت",
   "levelsCompleted": "المستويات المكتملة",
-  "totalTime": "الوقت الكلي",
+  "totalTime": "الوقت الإجمالي",
   "averageTime": "متوسط الوقت",
-  "hintsUsed": "تلميحات مستخدمة",
+  "hintsUsed": "التلميحات المستخدمة",
   "currentStreak": "السلسلة الحالية",
   "bestStreak": "أفضل سلسلة",
   "sound": "الصوت",
   "haptics": "الاهتزاز",
   "language": "اللغة",
   "about": "حول",
-  "privacyPolicy": "سياسة الخصوصية",
+  "privacyPolicy": "الخصوصية",
   "rateApp": "تقييم التطبيق",
   "removeAds": "إزالة الإعلانات",
   "restorePurchase": "استعادة الشراء",
@@ -50,7 +50,7 @@
   "noLockedLevels": "لا مستويات مقفلة، أبداً.",
   "home": "الرئيسية",
   "back": "رجوع",
-  "resume": "استئناف",
+  "resume": "متابعة",
   "stars": "{count} نجوم",
   "@stars": {
     "placeholders": {
@@ -98,6 +98,29 @@
   "@continueLevel": {
     "placeholders": {
       "number": {
+        "type": "int"
+      }
+    }
+  },
+  "giveUp": "استسلم",
+  "rematch": "إعادة المباراة",
+  "achievementUnlocked": "إنجاز مفتوح!",
+  "noHintsAvailable": "لا تلميحات متبقية",
+  "overallProgress": "التقدم العام",
+  "roundNumber": "جولة {number}",
+  "dayStreak": "{count} يوم متتالي!",
+  "shareResult": "مشاركة النتيجة",
+  "dailyComplete": "التحدي اليومي مكتمل!",
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "@dayStreak": {
+    "placeholders": {
+      "count": {
         "type": "int"
       }
     }

@@ -1,12 +1,10 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for German (`de`).
+/// The translations for de (`de`).
 class AppLocalizationsDe extends AppLocalizations {
-  AppLocalizationsDe([String locale = 'de']) : super(locale);
+  AppLocalizationsDe([super.locale = 'de']);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -25,7 +23,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'Level $number';
+    return 'Level \${number}';
   }
 
   @override
@@ -83,10 +81,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get totalTime => 'Gesamtzeit';
 
   @override
-  String get averageTime => 'Durchschnittszeit';
+  String get averageTime => 'Durchschnitt';
 
   @override
-  String get hintsUsed => 'Hinweise Verwendet';
+  String get hintsUsed => 'Hinweise Benutzt';
 
   @override
   String get currentStreak => 'Aktuelle Serie';
@@ -125,8 +123,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get wrongAnswer => 'Falsche Antwort';
 
   @override
-  String get someDigitsWrong =>
-      'Einige Ziffern sind falsch. Versuche es erneut!';
+  String get someDigitsWrong => 'Einige Ziffern sind falsch. Versuche es erneut!';
 
   @override
   String get allLevelsFree => 'Alle Level sind KOSTENLOS!';
@@ -145,7 +142,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '$count Sterne';
+    return '\${count} Sterne';
   }
 
   @override
@@ -162,7 +159,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return 'Fortsetzen (Level $number)';
+    return 'Fortsetzen (Level \${number})';
   }
 
   @override
@@ -257,4 +254,36 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get dailyStreak => 'Tägliche Serie';
+
+  @override
+  String get giveUp => 'Aufgeben';
+
+  @override
+  String get rematch => 'Revanche';
+
+  @override
+  String get achievementUnlocked => 'Erfolg Freigeschaltet!';
+
+  @override
+  String get noHintsAvailable => 'Keine Hinweise für dieses Puzzle';
+
+  @override
+  String get overallProgress => 'Gesamtfortschritt';
+
+  @override
+  String roundNumber(int number) {
+    return 'Runde \${number}';
+  }
+
+  @override
+  String dayStreak(int count) {
+    return '\${count} Tage Serie!';
+  }
+
+  @override
+  String get shareResult => 'Ergebnis Teilen';
+
+  @override
+  String get dailyComplete => 'Tägliche Herausforderung Geschafft!';
+
 }

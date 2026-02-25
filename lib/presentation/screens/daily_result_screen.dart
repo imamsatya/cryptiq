@@ -51,6 +51,7 @@ class _DailyResultScreenState extends State<DailyResultScreen>
   }
 
   Future<void> _checkAchievements() async {
+    final l10n = AppLocalizations.of(context)!;
     final newlyUnlocked = await AchievementService.instance.checkAndUnlock();
     if (!mounted) return;
     for (final a in newlyUnlocked) {
@@ -65,7 +66,7 @@ class _DailyResultScreenState extends State<DailyResultScreen>
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Achievement Unlocked!',
+                    Text(l10n.achievementUnlocked,
                         style: TextStyle(fontSize: 11, color: Colors.white70)),
                     Text(a.title,
                         style: TextStyle(
@@ -150,8 +151,8 @@ class _DailyResultScreenState extends State<DailyResultScreen>
                         ShaderMask(
                           shaderCallback: (bounds) =>
                               AppTheme.goldGradient.createShader(bounds),
-                          child: const Text(
-                            'Daily Complete!',
+                          child: Text(
+                            l10n.dailyComplete,
                             style: TextStyle(
                               fontSize: 28,
                               fontWeight: FontWeight.w700,

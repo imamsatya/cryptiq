@@ -28,8 +28,8 @@
   "share": "साझा करें",
   "time": "समय",
   "hints": "संकेत",
-  "bestTime": "सर्वश्रेष्ठ समय",
-  "levelsCompleted": "पूरे स्तर",
+  "bestTime": "सर्वोत्तम समय",
+  "levelsCompleted": "पूर्ण स्तर",
   "totalTime": "कुल समय",
   "averageTime": "औसत समय",
   "hintsUsed": "संकेत उपयोग",
@@ -38,8 +38,8 @@
   "sound": "ध्वनि",
   "haptics": "कंपन",
   "language": "भाषा",
-  "about": "परिचय",
-  "privacyPolicy": "गोपनीयता नीति",
+  "about": "बारे में",
+  "privacyPolicy": "गोपनीयता",
   "rateApp": "ऐप रेट करें",
   "removeAds": "विज्ञापन हटाएं",
   "restorePurchase": "खरीदारी पुनर्स्थापित",
@@ -98,6 +98,29 @@
   "@continueLevel": {
     "placeholders": {
       "number": {
+        "type": "int"
+      }
+    }
+  },
+  "giveUp": "हार मानें",
+  "rematch": "दोबारा खेलें",
+  "achievementUnlocked": "उपलब्धि खुली!",
+  "noHintsAvailable": "कोई संकेत नहीं बचा",
+  "overallProgress": "कुल प्रगति",
+  "roundNumber": "राउंड {number}",
+  "dayStreak": "{count} दिन लगातार!",
+  "shareResult": "परिणाम साझा करें",
+  "dailyComplete": "दैनिक चुनौती पूरी!",
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "@dayStreak": {
+    "placeholders": {
+      "count": {
         "type": "int"
       }
     }

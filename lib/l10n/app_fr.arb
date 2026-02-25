@@ -31,15 +31,15 @@
   "bestTime": "Meilleur Temps",
   "levelsCompleted": "Niveaux Terminés",
   "totalTime": "Temps Total",
-  "averageTime": "Temps Moyen",
+  "averageTime": "Moyenne",
   "hintsUsed": "Indices Utilisés",
   "currentStreak": "Série Actuelle",
   "bestStreak": "Meilleure Série",
   "sound": "Son",
-  "haptics": "Haptique",
+  "haptics": "Vibration",
   "language": "Langue",
-  "about": "À Propos",
-  "privacyPolicy": "Politique de Confidentialité",
+  "about": "À propos",
+  "privacyPolicy": "Confidentialité",
   "rateApp": "Noter l'App",
   "removeAds": "Supprimer les Pubs",
   "restorePurchase": "Restaurer l'Achat",
@@ -50,7 +50,7 @@
   "noLockedLevels": "Aucun niveau bloqué, jamais.",
   "home": "Accueil",
   "back": "Retour",
-  "resume": "Reprendre",
+  "resume": "Continuer",
   "stars": "{count} Étoiles",
   "@stars": {
     "placeholders": {
@@ -98,6 +98,29 @@
   "@continueLevel": {
     "placeholders": {
       "number": {
+        "type": "int"
+      }
+    }
+  },
+  "giveUp": "Abandonner",
+  "rematch": "Revanche",
+  "achievementUnlocked": "Succès Débloqué!",
+  "noHintsAvailable": "Plus d'indices pour ce puzzle",
+  "overallProgress": "Progrès Global",
+  "roundNumber": "Manche {number}",
+  "dayStreak": "{count} Jours de Suite!",
+  "shareResult": "Partager",
+  "dailyComplete": "Défi Quotidien Réussi!",
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "@dayStreak": {
+    "placeholders": {
+      "count": {
         "type": "int"
       }
     }

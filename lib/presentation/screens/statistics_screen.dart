@@ -58,7 +58,7 @@ class StatisticsScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(16),
                   children: [
                     // Progress card
-                    _buildProgressCard(completed, PuzzleGenerator.totalPuzzles),
+                    _buildProgressCard(context, completed, PuzzleGenerator.totalPuzzles),
                     SizedBox(height: 16),
 
                     // Stats grid
@@ -127,7 +127,8 @@ class StatisticsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildProgressCard(int completed, int total) {
+  Widget _buildProgressCard(BuildContext context, int completed, int total) {
+    final l10n = AppLocalizations.of(context)!;
     final progress = total > 0 ? completed / total : 0.0;
     return Container(
       padding: const EdgeInsets.all(20),
@@ -137,7 +138,7 @@ class StatisticsScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Overall Progress',
+              Text(l10n.overallProgress,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white)),
               ShaderMask(
                 shaderCallback: (bounds) => AppTheme.goldGradient.createShader(bounds),

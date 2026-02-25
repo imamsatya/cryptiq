@@ -1,12 +1,10 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for French (`fr`).
+/// The translations for fr (`fr`).
 class AppLocalizationsFr extends AppLocalizations {
-  AppLocalizationsFr([String locale = 'fr']) : super(locale);
+  AppLocalizationsFr([super.locale = 'fr']);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -25,7 +23,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'Niveau $number';
+    return 'Niveau \${number}';
   }
 
   @override
@@ -83,7 +81,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get totalTime => 'Temps Total';
 
   @override
-  String get averageTime => 'Temps Moyen';
+  String get averageTime => 'Moyenne';
 
   @override
   String get hintsUsed => 'Indices Utilisés';
@@ -98,16 +96,16 @@ class AppLocalizationsFr extends AppLocalizations {
   String get sound => 'Son';
 
   @override
-  String get haptics => 'Haptique';
+  String get haptics => 'Vibration';
 
   @override
   String get language => 'Langue';
 
   @override
-  String get about => 'À Propos';
+  String get about => 'À propos';
 
   @override
-  String get privacyPolicy => 'Politique de Confidentialité';
+  String get privacyPolicy => 'Confidentialité';
 
   @override
   String get rateApp => 'Noter l\'App';
@@ -140,11 +138,11 @@ class AppLocalizationsFr extends AppLocalizations {
   String get back => 'Retour';
 
   @override
-  String get resume => 'Reprendre';
+  String get resume => 'Continuer';
 
   @override
   String stars(int count) {
-    return '$count Étoiles';
+    return '\${count} Étoiles';
   }
 
   @override
@@ -161,7 +159,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return 'Continuer (Niveau $number)';
+    return 'Continuer (Niveau \${number})';
   }
 
   @override
@@ -256,4 +254,36 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get dailyStreak => 'Série Quotidienne';
+
+  @override
+  String get giveUp => 'Abandonner';
+
+  @override
+  String get rematch => 'Revanche';
+
+  @override
+  String get achievementUnlocked => 'Succès Débloqué!';
+
+  @override
+  String get noHintsAvailable => 'Plus d\'indices pour ce puzzle';
+
+  @override
+  String get overallProgress => 'Progrès Global';
+
+  @override
+  String roundNumber(int number) {
+    return 'Manche \${number}';
+  }
+
+  @override
+  String dayStreak(int count) {
+    return '\${count} Jours de Suite!';
+  }
+
+  @override
+  String get shareResult => 'Partager';
+
+  @override
+  String get dailyComplete => 'Défi Quotidien Réussi!';
+
 }

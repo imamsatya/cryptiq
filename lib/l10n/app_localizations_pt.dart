@@ -1,12 +1,10 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for Portuguese (`pt`).
+/// The translations for pt (`pt`).
 class AppLocalizationsPt extends AppLocalizations {
-  AppLocalizationsPt([String locale = 'pt']) : super(locale);
+  AppLocalizationsPt([super.locale = 'pt']);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -25,7 +23,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'Nível $number';
+    return 'Nível \${number}';
   }
 
   @override
@@ -83,7 +81,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get totalTime => 'Tempo Total';
 
   @override
-  String get averageTime => 'Tempo Médio';
+  String get averageTime => 'Média';
 
   @override
   String get hintsUsed => 'Dicas Usadas';
@@ -125,8 +123,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get wrongAnswer => 'Resposta Errada';
 
   @override
-  String get someDigitsWrong =>
-      'Alguns dígitos estão incorretos. Tente novamente!';
+  String get someDigitsWrong => 'Alguns dígitos estão incorretos. Tente novamente!';
 
   @override
   String get allLevelsFree => 'Todos os níveis são GRÁTIS!';
@@ -145,7 +142,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '$count Estrelas';
+    return '\${count} Estrelas';
   }
 
   @override
@@ -162,7 +159,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return 'Continuar (Nível $number)';
+    return 'Continuar (Nível \${number})';
   }
 
   @override
@@ -257,4 +254,36 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get dailyStreak => 'Sequência Diária';
+
+  @override
+  String get giveUp => 'Desistir';
+
+  @override
+  String get rematch => 'Revanche';
+
+  @override
+  String get achievementUnlocked => 'Conquista Desbloqueada!';
+
+  @override
+  String get noHintsAvailable => 'Sem dicas para este puzzle';
+
+  @override
+  String get overallProgress => 'Progresso Geral';
+
+  @override
+  String roundNumber(int number) {
+    return 'Rodada \${number}';
+  }
+
+  @override
+  String dayStreak(int count) {
+    return '\${count} Dias Seguidos!';
+  }
+
+  @override
+  String get shareResult => 'Compartilhar';
+
+  @override
+  String get dailyComplete => 'Desafio Diário Concluído!';
+
 }

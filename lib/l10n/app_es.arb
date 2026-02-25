@@ -31,7 +31,7 @@
   "bestTime": "Mejor Tiempo",
   "levelsCompleted": "Niveles Completados",
   "totalTime": "Tiempo Total",
-  "averageTime": "Tiempo Promedio",
+  "averageTime": "Promedio",
   "hintsUsed": "Pistas Usadas",
   "currentStreak": "Racha Actual",
   "bestStreak": "Mejor Racha",
@@ -98,6 +98,29 @@
   "@continueLevel": {
     "placeholders": {
       "number": {
+        "type": "int"
+      }
+    }
+  },
+  "giveUp": "Rendirse",
+  "rematch": "Revancha",
+  "achievementUnlocked": "¡Logro Desbloqueado!",
+  "noHintsAvailable": "Sin pistas para este puzzle",
+  "overallProgress": "Progreso General",
+  "roundNumber": "Ronda {number}",
+  "dayStreak": "¡{count} Días de Racha!",
+  "shareResult": "Compartir Resultado",
+  "dailyComplete": "¡Desafío Diario Completo!",
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "@dayStreak": {
+    "placeholders": {
+      "count": {
         "type": "int"
       }
     }

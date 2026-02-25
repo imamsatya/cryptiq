@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/services/audio_service.dart';
-import '../../data/datasources/local_database.dart';
 import '../providers/game_state_provider.dart';
 import '../widgets/puzzle_display.dart';
 import '../widgets/letter_tile.dart';
@@ -45,7 +44,6 @@ class _GameScreenState extends ConsumerState<GameScreen>
   @override
   Widget build(BuildContext context) {
     final gameState = ref.watch(gameStateProvider(widget.levelNumber));
-    final hintBalance = LocalDatabase.instance.getHintBalance();
 
     return Scaffold(
       body: Container(
@@ -54,7 +52,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
           child: Column(
             children: [
               // Header
-              _buildHeader(gameState, hintBalance),
+              _buildHeader(gameState),
               const SizedBox(height: 8),
 
               // Puzzle display
@@ -111,7 +109,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
               const SizedBox(height: 12),
 
               // Action buttons
-              _buildActionButtons(gameState, hintBalance),
+              _buildActionButtons(gameState),
 
               const SizedBox(height: 16),
             ],
@@ -121,7 +119,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
     );
   }
 
-  Widget _buildHeader(GameState gameState, int hintBalance) {
+  Widget _buildHeader(GameState gameState) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Row(
@@ -219,8 +217,10 @@ class _GameScreenState extends ConsumerState<GameScreen>
     );
   }
 
-  Widget _buildActionButtons(GameState gameState, int hintBalance) {
+  Widget _buildActionButtons(GameState gameState) {
     final l10n = AppLocalizations.of(context)!;
+    final hintsRemaining = gameState.hintsRemaining;
+    final maxHints = gameState.maxHints;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
@@ -241,8 +241,8 @@ class _GameScreenState extends ConsumerState<GameScreen>
                       } else {
                         // No hints available - show snackbar
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('No hints available!'),
+                          SnackBar(
+                            content: Text(l10n.noHintsAvailable),
                             duration: Duration(seconds: 2),
                           ),
                         );
@@ -261,7 +261,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
                         color: AppTheme.primaryColor, size: 20),
                     SizedBox(width: 8),
                     Text(
-                      'Hint ($hintBalance)',
+                      '${l10n.hint} ($hintsRemaining/$maxHints)',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w500,

@@ -601,6 +601,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Daily Streak'**
   String get dailyStreak;
+
+  /// No description provided for @giveUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Give Up'**
+  String get giveUp;
+
+  /// No description provided for @rematch.
+  ///
+  /// In en, this message translates to:
+  /// **'Rematch'**
+  String get rematch;
+
+  /// No description provided for @achievementUnlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievement Unlocked!'**
+  String get achievementUnlocked;
+
+  /// No description provided for @noHintsAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No hints left for this puzzle'**
+  String get noHintsAvailable;
+
+  /// No description provided for @overallProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Overall Progress'**
+  String get overallProgress;
+
+  /// No description provided for @roundNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Round {number}'**
+  String roundNumber(int number);
+
+  /// No description provided for @dayStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Day Streak!'**
+  String dayStreak(int count);
+
+  /// No description provided for @shareResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Share Result'**
+  String get shareResult;
+
+  /// No description provided for @dailyComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Complete!'**
+  String get dailyComplete;
 }
 
 class _AppLocalizationsDelegate

@@ -1,12 +1,10 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for Arabic (`ar`).
+/// The translations for ar (`ar`).
 class AppLocalizationsAr extends AppLocalizations {
-  AppLocalizationsAr([String locale = 'ar']) : super(locale);
+  AppLocalizationsAr([super.locale = 'ar']);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -25,7 +23,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'المستوى $number';
+    return 'المستوى \${number}';
   }
 
   @override
@@ -80,13 +78,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get levelsCompleted => 'المستويات المكتملة';
 
   @override
-  String get totalTime => 'الوقت الكلي';
+  String get totalTime => 'الوقت الإجمالي';
 
   @override
   String get averageTime => 'متوسط الوقت';
 
   @override
-  String get hintsUsed => 'تلميحات مستخدمة';
+  String get hintsUsed => 'التلميحات المستخدمة';
 
   @override
   String get currentStreak => 'السلسلة الحالية';
@@ -107,7 +105,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get about => 'حول';
 
   @override
-  String get privacyPolicy => 'سياسة الخصوصية';
+  String get privacyPolicy => 'الخصوصية';
 
   @override
   String get rateApp => 'تقييم التطبيق';
@@ -140,11 +138,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get back => 'رجوع';
 
   @override
-  String get resume => 'استئناف';
+  String get resume => 'متابعة';
 
   @override
   String stars(int count) {
-    return '$count نجوم';
+    return '\${count} نجوم';
   }
 
   @override
@@ -161,7 +159,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return 'متابعة (المستوى $number)';
+    return 'متابعة (المستوى \${number})';
   }
 
   @override
@@ -256,4 +254,36 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get dailyStreak => 'سلسلة يومية';
+
+  @override
+  String get giveUp => 'استسلم';
+
+  @override
+  String get rematch => 'إعادة المباراة';
+
+  @override
+  String get achievementUnlocked => 'إنجاز مفتوح!';
+
+  @override
+  String get noHintsAvailable => 'لا تلميحات متبقية';
+
+  @override
+  String get overallProgress => 'التقدم العام';
+
+  @override
+  String roundNumber(int number) {
+    return 'جولة \${number}';
+  }
+
+  @override
+  String dayStreak(int count) {
+    return '\${count} يوم متتالي!';
+  }
+
+  @override
+  String get shareResult => 'مشاركة النتيجة';
+
+  @override
+  String get dailyComplete => 'التحدي اليومي مكتمل!';
+
 }
