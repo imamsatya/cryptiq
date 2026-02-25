@@ -72,6 +72,15 @@ class HomeScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 8),
 
+                // Pass & Play button
+                _buildMenuButton(
+                  context,
+                  icon: Icons.people_rounded,
+                  label: 'Pass & Play (2-4)',
+                  onTap: () => context.push('/multiplayer'),
+                ),
+                const SizedBox(height: 8),
+
                 // Stats, Achievements & Settings row
                 Row(
                   children: [

@@ -10,6 +10,9 @@ import '../screens/daily_challenge_screen.dart';
 import '../screens/daily_result_screen.dart';
 import '../screens/achievements_screen.dart';
 import '../screens/onboarding_screen.dart';
+import '../screens/multiplayer_lobby_screen.dart';
+import '../screens/multiplayer_game_screen.dart';
+import '../screens/multiplayer_result_screen.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -17,7 +20,6 @@ final appRouter = GoRouter(
   navigatorKey: _rootNavigatorKey,
   initialLocation: '/',
   redirect: (context, state) {
-    // On first launch, redirect to onboarding
     if (state.uri.path == '/' && !OnboardingScreen.hasSeenOnboarding()) {
       return '/onboarding';
     }
@@ -85,6 +87,33 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/achievements',
       builder: (context, state) => const AchievementsScreen(),
+    ),
+    GoRoute(
+      path: '/multiplayer',
+      builder: (context, state) => const MultiplayerLobbyScreen(),
+    ),
+    GoRoute(
+      path: '/multiplayer-game',
+      builder: (context, state) {
+        final extras = state.extra as Map<String, dynamic>;
+        return MultiplayerGameScreen(
+          playerNames: List<String>.from(extras['names']),
+          totalRounds: extras['rounds'],
+          difficulty: extras['difficulty'],
+          operation: extras['operation'],
+        );
+      },
+    ),
+    GoRoute(
+      path: '/multiplayer-result',
+      builder: (context, state) {
+        final extras = state.extra as Map<String, dynamic>;
+        return MultiplayerResultScreen(
+          playerNames: List<String>.from(extras['names']),
+          results: extras['results'],
+          totalRounds: extras['rounds'],
+        );
+      },
     ),
   ],
 );

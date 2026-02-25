@@ -4,6 +4,7 @@ import '../../core/theme/app_theme.dart';
 import '../../core/services/audio_service.dart';
 import '../../data/datasources/local_database.dart';
 import '../../core/constants/app_constants.dart';
+import 'onboarding_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -84,6 +85,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         await LocalDatabase.instance.setHapticsEnabled(val);
                       },
                     ),
+                    const SizedBox(height: 8),
+                    _buildTapTile(
+                      icon: Icons.school_rounded,
+                      title: 'Replay Tutorial',
+                      onTap: () async {
+                        await OnboardingScreen.reset();
+                        if (context.mounted) {
+                          context.go('/onboarding');
+                        }
+                      },
+                    ),
 
                     const SizedBox(height: 24),
 
@@ -139,7 +151,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const Text(
-                                  'All 500 Levels FREE',
+                                  'All 1200 Levels FREE',
                                   style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w600,
