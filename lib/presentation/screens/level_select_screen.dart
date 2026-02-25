@@ -25,7 +25,7 @@ class LevelSelectScreen extends ConsumerWidget {
                   child: Row(
                     children: [
                       GestureDetector(
-                        onTap: () => context.pop(),
+                        onTap: () { if (context.canPop()) { context.pop(); } else { context.go('/'); } },
                         child: Container(
                           padding: const EdgeInsets.all(8),
                           decoration: AppTheme.glassDecoration(borderRadius: 12),
