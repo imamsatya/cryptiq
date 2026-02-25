@@ -210,21 +210,18 @@ class DailyChallengeScreen extends ConsumerWidget {
                           onTap: () async {
                             final notifier =
                                 ref.read(dailyGameStateProvider.notifier);
+                            final navigator = GoRouter.of(context);
+                            final currentTime = ref.read(dailyGameStateProvider).elapsedSeconds;
+                            final currentHints = ref.read(dailyGameStateProvider).hintsUsed;
                             final correct = await notifier.checkSolution();
                             if (correct) {
                               AudioService.instance.playCorrect();
                               HapticFeedback.heavyImpact();
-                              // Save daily completion
-                              final time = ref.read(dailyGameStateProvider).elapsedSeconds;
-                              final hints = ref.read(dailyGameStateProvider).hintsUsed;
-                              await DailyChallengeService.instance.completeDaily(time);
-                              // Navigate to full-screen result
-                              if (context.mounted) {
-                                context.push('/daily-result', extra: {
-                                  'time': time,
-                                  'hints': hints,
-                                });
-                              }
+                              await DailyChallengeService.instance.completeDaily(currentTime);
+                              navigator.push('/daily-result', extra: {
+                                'time': currentTime,
+                                'hints': currentHints,
+                              });
                             } else {
                               AudioService.instance.playError();
                               HapticFeedback.heavyImpact();
