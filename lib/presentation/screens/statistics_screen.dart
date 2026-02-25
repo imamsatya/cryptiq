@@ -20,7 +20,7 @@ class StatisticsScreen extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(gradient: AppTheme.backgroundGradient),
+        decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
         child: SafeArea(
           child: Column(
             children: [
@@ -57,7 +57,7 @@ class StatisticsScreen extends StatelessWidget {
                   children: [
                     // Progress card
                     _buildProgressCard(completed, PuzzleGenerator.totalPuzzles),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16),
 
                     // Stats grid
                     Row(
@@ -135,7 +135,7 @@ class StatisticsScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Overall Progress',
+              Text('Overall Progress',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white)),
               ShaderMask(
                 shaderCallback: (bounds) => AppTheme.goldGradient.createShader(bounds),
@@ -150,13 +150,13 @@ class StatisticsScreen extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: LinearProgressIndicator(
               value: progress,
               backgroundColor: AppTheme.surfaceColor,
-              valueColor: const AlwaysStoppedAnimation<Color>(AppTheme.primaryColor),
+              valueColor: AlwaysStoppedAnimation<Color>(AppTheme.primaryColor),
               minHeight: 8,
             ),
           ),
@@ -210,7 +210,7 @@ class StatisticsScreen extends StatelessWidget {
           SizedBox(
             width: 60,
             child: Text(name,
-                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.white)),
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.white)),
           ),
           Expanded(
             child: ClipRRect(

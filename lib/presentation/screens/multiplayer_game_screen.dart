@@ -313,8 +313,8 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
         color: Colors.black.withValues(alpha: 0.7),
         child: Center(
           child: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 40),
-            padding: const EdgeInsets.all(28),
+            margin: EdgeInsets.symmetric(horizontal: 40),
+            padding: EdgeInsets.all(28),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(24),
               gradient: LinearGradient(
@@ -333,7 +333,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Text('✅', style: TextStyle(fontSize: 48)),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
                 ShaderMask(
                   shaderCallback: (bounds) =>
                       AppTheme.goldGradient.createShader(bounds),
@@ -376,7 +376,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
 
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(gradient: AppTheme.backgroundGradient),
+        decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
         child: SafeArea(
           child: Center(
             child: Padding(
@@ -448,12 +448,12 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.play_arrow_rounded,
+                          Icon(Icons.play_arrow_rounded,
                               color: AppTheme.backgroundDark, size: 24),
                           const SizedBox(width: 8),
                           Text(
                             "I'm Ready!",
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
                               color: AppTheme.backgroundDark,
@@ -478,7 +478,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
 
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(gradient: AppTheme.backgroundGradient),
+        decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
         child: SafeArea(
           child: Column(
             children: [
@@ -638,7 +638,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                                 AppTheme.glassDecoration(borderRadius: 12),
                             child: Row(
                               children: [
-                                const Icon(Icons.lightbulb_outline,
+                                Icon(Icons.lightbulb_outline,
                                     color: AppTheme.primaryColor, size: 18),
                                 const SizedBox(width: 4),
                                 Text('Hint ($_hintsUsed)',
@@ -658,7 +658,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                                   const EdgeInsets.symmetric(vertical: 12),
                               decoration: AppTheme.goldGlowDecoration(
                                   borderRadius: 12),
-                              child: const Row(
+                              child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(Icons.check_rounded,

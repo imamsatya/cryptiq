@@ -8,6 +8,7 @@ import 'core/services/audio_service.dart';
 import 'core/services/ad_service.dart';
 import 'data/datasources/local_database.dart';
 import 'presentation/router/app_router.dart';
+import 'presentation/providers/theme_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +20,7 @@ void main() async {
   ]);
 
   // Set system UI overlay style
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.light,
     systemNavigationBarColor: AppTheme.backgroundDark,
@@ -38,11 +39,14 @@ void main() async {
   runApp(const ProviderScope(child: CryptiqApp()));
 }
 
-class CryptiqApp extends StatelessWidget {
+class CryptiqApp extends ConsumerWidget {
   const CryptiqApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Watch theme so the entire app rebuilds when theme changes
+    ref.watch(themeProvider);
+
     return MaterialApp.router(
       title: 'CryptiQ',
       debugShowCheckedModeBanner: false,

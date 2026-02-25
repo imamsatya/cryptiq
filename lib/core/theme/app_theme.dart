@@ -1,66 +1,51 @@
 import 'package:flutter/material.dart';
+import 'theme_presets.dart';
 
-/// Application theme configuration - Premium Gold/Navy theme
+/// Application theme configuration
+/// Reads from the active ThemePreset for dynamic theming.
 class AppTheme {
   AppTheme._();
 
-  // Colors - Gold/Amber Brand Identity
-  static const Color primaryColor = Color(0xFFFFD700);       // Gold
-  static const Color secondaryColor = Color(0xFFFFC107);     // Amber
-  static const Color accentColor = Color(0xFFFFD700);        // Gold
-  static const Color successColor = Color(0xFF00C9A7);       // Emerald
-  static const Color errorColor = Color(0xFFFF6B6B);         // Coral
-  static const Color warningColor = Color(0xFFFFA726);       // Orange
+  static ThemePreset get _t => ThemeService.instance.currentTheme;
+
+  // Colors — dynamic from preset
+  static Color get primaryColor => _t.primaryColor;
+  static Color get secondaryColor => _t.secondaryColor;
+  static Color get accentColor => _t.primaryColor;
+  static const Color successColor = Color(0xFF00C9A7);
+  static const Color errorColor = Color(0xFFFF6B6B);
+  static const Color warningColor = Color(0xFFFFA726);
 
   // Background Colors
-  static const Color backgroundDark = Color(0xFF0D1B2A);     // Deep Navy
-  static const Color backgroundLight = Color(0xFF1B263B);    // Navy
-  static const Color surfaceColor = Color(0xFF1E3A5F);       // Slate
-  static const Color surfaceLight = Color(0xFF254670);       // Lighter Slate
+  static Color get backgroundDark => _t.backgroundDark;
+  static Color get backgroundLight => _t.backgroundLight;
+  static Color get surfaceColor => _t.surfaceColor;
+  static Color get surfaceLight => _t.surfaceLight;
 
-  // Text Colors
+  // Text Colors — fixed
   static const Color textPrimary = Color(0xFFFFFFFF);
   static const Color textSecondary = Color(0xFFB0BEC5);
   static const Color textMuted = Color(0xFF607D8B);
-  static const Color textGold = Color(0xFFFFD700);
+  static Color get textGold => _t.primaryColor;
 
   // Tile Colors
-  static const Color tileEmpty = Color(0xFF1E3A5F);
-  static const Color tileFilled = Color(0xFF2A4A6B);
-  static const Color tileSelected = Color(0xFFFFD700);
+  static Color get tileEmpty => _t.surfaceColor;
+  static Color get tileFilled => _t.surfaceLight;
+  static Color get tileSelected => _t.primaryColor;
   static const Color tileCorrect = Color(0xFF00C9A7);
   static const Color tileWrong = Color(0xFFFF6B6B);
 
-  // Difficulty Colors
+  // Difficulty Colors — fixed
   static const Color easyColor = Color(0xFF81C784);
   static const Color mediumColor = Color(0xFF64B5F6);
   static const Color hardColor = Color(0xFFFFB74D);
   static const Color expertColor = Color(0xFFE57373);
 
   // Gradients
-  static const LinearGradient primaryGradient = LinearGradient(
-    colors: [Color(0xFFFFD700), Color(0xFFFFA000)],
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-  );
-
-  static const LinearGradient backgroundGradient = LinearGradient(
-    colors: [backgroundDark, backgroundLight],
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
-  );
-
-  static const LinearGradient goldGradient = LinearGradient(
-    colors: [Color(0xFFFFD700), Color(0xFFFFC107), Color(0xFFFF8F00)],
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-  );
-
-  static const LinearGradient surfaceGradient = LinearGradient(
-    colors: [Color(0xFF1E3A5F), Color(0xFF254670)],
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-  );
+  static LinearGradient get primaryGradient => _t.accentGradient;
+  static LinearGradient get backgroundGradient => _t.backgroundGradient;
+  static LinearGradient get goldGradient => _t.goldGradient;
+  static LinearGradient get surfaceGradient => _t.surfaceGradient;
 
   // Glassmorphism decoration
   static BoxDecoration glassDecoration({
@@ -107,7 +92,7 @@ class AppTheme {
       scaffoldBackgroundColor: backgroundDark,
       primaryColor: primaryColor,
       fontFamily: 'Poppins',
-      colorScheme: const ColorScheme.dark(
+      colorScheme: ColorScheme.dark(
         primary: primaryColor,
         secondary: secondaryColor,
         surface: surfaceColor,

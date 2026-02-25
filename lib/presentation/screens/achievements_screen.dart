@@ -15,7 +15,7 @@ class AchievementsScreen extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(gradient: AppTheme.backgroundGradient),
+        decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
         child: SafeArea(
           child: Column(
             children: [
@@ -50,7 +50,7 @@ class AchievementsScreen extends StatelessWidget {
                       decoration: AppTheme.glassDecoration(borderRadius: 12),
                       child: Text(
                         '$unlocked / $total',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
                           color: AppTheme.primaryColor,
@@ -65,7 +65,7 @@ class AchievementsScreen extends StatelessWidget {
 
               // Progress bar
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
+                padding: EdgeInsets.symmetric(horizontal: 24),
                 child: Column(
                   children: [
                     ClipRRect(
@@ -73,7 +73,7 @@ class AchievementsScreen extends StatelessWidget {
                       child: LinearProgressIndicator(
                         value: total > 0 ? unlocked / total : 0,
                         backgroundColor: AppTheme.surfaceColor,
-                        valueColor: const AlwaysStoppedAnimation<Color>(
+                        valueColor: AlwaysStoppedAnimation<Color>(
                             AppTheme.primaryColor),
                         minHeight: 6,
                       ),
@@ -114,8 +114,8 @@ class AchievementsScreen extends StatelessWidget {
 
   Widget _buildAchievementTile(Achievement achievement, bool isUnlocked) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      margin: EdgeInsets.only(bottom: 8),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14),
         color: isUnlocked
@@ -179,7 +179,7 @@ class AchievementsScreen extends StatelessWidget {
             ),
           ),
           if (isUnlocked)
-            const Icon(Icons.check_circle_rounded,
+            Icon(Icons.check_circle_rounded,
                 color: AppTheme.primaryColor, size: 22),
         ],
       ),

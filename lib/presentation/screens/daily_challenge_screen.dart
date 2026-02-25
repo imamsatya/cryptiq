@@ -20,7 +20,7 @@ class DailyChallengeScreen extends ConsumerWidget {
 
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(gradient: AppTheme.backgroundGradient),
+        decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
         child: SafeArea(
           child: Column(
             children: [
@@ -42,7 +42,7 @@ class DailyChallengeScreen extends ConsumerWidget {
                     const Spacer(),
                     // Title
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       decoration: AppTheme.glassDecoration(borderRadius: 20),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -64,7 +64,7 @@ class DailyChallengeScreen extends ConsumerWidget {
                     const Spacer(),
                     // Timer
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                       decoration: AppTheme.glassDecoration(borderRadius: 12),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -170,7 +170,7 @@ class DailyChallengeScreen extends ConsumerWidget {
                             HapticFeedback.mediumImpact();
                           },
                           child: Container(
-                            padding: const EdgeInsets.symmetric(vertical: 14),
+                            padding: EdgeInsets.symmetric(vertical: 14),
                             decoration: AppTheme.glassDecoration(borderRadius: 14),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -230,7 +230,7 @@ class DailyChallengeScreen extends ConsumerWidget {
                           child: Container(
                             padding: const EdgeInsets.symmetric(vertical: 14),
                             decoration: AppTheme.goldGlowDecoration(borderRadius: 14),
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.check_rounded,

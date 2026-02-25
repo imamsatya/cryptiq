@@ -82,7 +82,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(gradient: AppTheme.backgroundGradient),
+        decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
         child: SafeArea(
           child: Column(
             children: [
@@ -179,7 +179,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                       GestureDetector(
                         onTap: _addPlayer,
                         child: Container(
-                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          padding: EdgeInsets.symmetric(vertical: 12),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(14),
                             border: Border.all(
@@ -187,7 +187,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                               style: BorderStyle.solid,
                             ),
                           ),
-                          child: const Row(
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(Icons.add_rounded,
@@ -210,7 +210,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
 
                     // --- Rounds ---
                     _sectionTitle('Rounds: $_rounds'),
-                    const SizedBox(height: 4),
+                    SizedBox(height: 4),
                     Container(
                       decoration: AppTheme.glassDecoration(borderRadius: 14),
                       child: SliderTheme(
@@ -249,7 +249,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                         _difficulty != 'hard' &&
                         _difficulty != 'expert')
                       Padding(
-                        padding: const EdgeInsets.only(top: 6),
+                        padding: EdgeInsets.only(top: 6),
                         child: Text(
                           'ℹ️ Multi-step puzzles are Hard/Expert only. Difficulty will be ignored.',
                           style: TextStyle(
@@ -280,7 +280,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         decoration:
                             AppTheme.goldGlowDecoration(borderRadius: 18),
-                        child: const Row(
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(Icons.play_arrow_rounded,
@@ -333,9 +333,9 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
         return GestureDetector(
           onTap: () => onSelect(e.key),
           child: AnimatedContainer(
-            duration: const Duration(milliseconds: 200),
+            duration: Duration(milliseconds: 200),
             padding:
-                const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                EdgeInsets.symmetric(horizontal: 14, vertical: 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               color: isSelected

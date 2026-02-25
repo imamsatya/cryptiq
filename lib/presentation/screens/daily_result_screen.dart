@@ -67,7 +67,7 @@ class _DailyResultScreenState extends State<DailyResultScreen>
                     const Text('Achievement Unlocked!',
                         style: TextStyle(fontSize: 11, color: Colors.white70)),
                     Text(a.title,
-                        style: const TextStyle(
+                        style: TextStyle(
                             fontWeight: FontWeight.w600, color: Colors.white)),
                   ],
                 ),
@@ -108,7 +108,7 @@ class _DailyResultScreenState extends State<DailyResultScreen>
 
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(gradient: AppTheme.backgroundGradient),
+        decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
         child: SafeArea(
           child: Stack(
             children: [
@@ -136,13 +136,13 @@ class _DailyResultScreenState extends State<DailyResultScreen>
                               ),
                             ],
                           ),
-                          child: const Center(
+                          child: Center(
                             child: Icon(Icons.emoji_events_rounded,
                                 size: 52, color: AppTheme.backgroundDark),
                           ),
                         ),
 
-                        const SizedBox(height: 20),
+                        SizedBox(height: 20),
 
                         // Title
                         ShaderMask(
@@ -264,7 +264,7 @@ class _DailyResultScreenState extends State<DailyResultScreen>
                             padding: const EdgeInsets.symmetric(vertical: 16),
                             decoration:
                                 AppTheme.goldGlowDecoration(borderRadius: 18),
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.share_rounded,
@@ -293,7 +293,7 @@ class _DailyResultScreenState extends State<DailyResultScreen>
                           },
                           child: Container(
                             width: double.infinity,
-                            padding: const EdgeInsets.symmetric(vertical: 14),
+                            padding: EdgeInsets.symmetric(vertical: 14),
                             decoration: AppTheme.glassDecoration(
                               borderRadius: 18,
                               borderColor:
@@ -335,7 +335,7 @@ class _DailyResultScreenState extends State<DailyResultScreen>
                   numberOfParticles: 15,
                   gravity: 0.15,
                   shouldLoop: false,
-                  colors: const [
+                  colors: [
                     AppTheme.primaryColor,
                     AppTheme.accentColor,
                     Colors.orange,

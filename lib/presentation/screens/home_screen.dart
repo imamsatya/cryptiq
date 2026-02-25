@@ -16,7 +16,7 @@ class HomeScreen extends ConsumerWidget {
 
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(gradient: AppTheme.backgroundGradient),
+        decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -28,7 +28,7 @@ class HomeScreen extends ConsumerWidget {
 
                 // Logo & title
                 _buildLogo(),
-                const SizedBox(height: 8),
+                SizedBox(height: 8),
                 ShaderMask(
                   shaderCallback: (bounds) =>
                       AppTheme.goldGradient.createShader(bounds),
@@ -149,7 +149,7 @@ class HomeScreen extends ConsumerWidget {
           ),
         ],
       ),
-      child: const Center(
+      child: Center(
         child: Text(
           'C',
           style: TextStyle(
@@ -231,7 +231,7 @@ class HomeScreen extends ConsumerWidget {
             if (streak > 0) ...[
               Text('🔥 $streak',
                   style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white)),
-              const SizedBox(width: 12),
+              SizedBox(width: 12),
             ],
             Icon(
               isCompleted ? Icons.replay_rounded : Icons.play_arrow_rounded,
@@ -255,7 +255,7 @@ class HomeScreen extends ConsumerWidget {
       },
       child: Container(
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(vertical: 18),
+        padding: EdgeInsets.symmetric(vertical: 18),
         decoration: AppTheme.goldGlowDecoration(borderRadius: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -268,7 +268,7 @@ class HomeScreen extends ConsumerWidget {
             const SizedBox(width: 8),
             Text(
               isResume ? 'Continue (Level $nextLevel)' : 'Play',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w700,
                 color: AppTheme.backgroundDark,
@@ -291,7 +291,7 @@ class HomeScreen extends ConsumerWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
+        padding: EdgeInsets.symmetric(vertical: 14, horizontal: 12),
         decoration: AppTheme.glassDecoration(borderRadius: 16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

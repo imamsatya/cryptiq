@@ -102,7 +102,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(gradient: AppTheme.backgroundGradient),
+        decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
         child: SafeArea(
           child: Column(
             children: [
@@ -154,8 +154,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(_pages.length, (i) {
                         return AnimatedContainer(
-                          duration: const Duration(milliseconds: 300),
-                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          duration: Duration(milliseconds: 300),
+                          margin: EdgeInsets.symmetric(horizontal: 4),
                           width: i == _currentPage ? 24 : 8,
                           height: 8,
                           decoration: BoxDecoration(
@@ -175,7 +175,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       child: AnimatedContainer(
                         duration: const Duration(milliseconds: 300),
                         width: double.infinity,
-                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        padding: EdgeInsets.symmetric(vertical: 16),
                         decoration: _currentPage == _pages.length - 1
                             ? AppTheme.goldGlowDecoration(borderRadius: 18)
                             : AppTheme.glassDecoration(
@@ -198,7 +198,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                     : Colors.white,
                               ),
                             ),
-                            const SizedBox(width: 8),
+                            SizedBox(width: 8),
                             Icon(
                               _currentPage == _pages.length - 1
                                   ? Icons.play_arrow_rounded
@@ -231,7 +231,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
           // Emoji
           Text(page.emoji, style: const TextStyle(fontSize: 64)),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
 
           // Title
           ShaderMask(
@@ -281,7 +281,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             decoration: AppTheme.glassDecoration(borderRadius: 14),
             child: Text(
               page.example,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
                 color: AppTheme.primaryColor,

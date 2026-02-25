@@ -73,7 +73,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                     const Text('Achievement Unlocked!',
                         style: TextStyle(fontSize: 11, color: Colors.white70)),
                     Text(a.title,
-                        style: const TextStyle(
+                        style: TextStyle(
                             fontWeight: FontWeight.w600, color: Colors.white)),
                   ],
                 ),
@@ -100,7 +100,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(gradient: AppTheme.backgroundGradient),
+        decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
         child: SafeArea(
           child: Stack(
             alignment: Alignment.topCenter,
@@ -114,7 +114,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                 maxBlastForce: 30,
                 minBlastForce: 10,
                 gravity: 0.2,
-                colors: const [
+                colors: [
                   AppTheme.primaryColor,
                   AppTheme.secondaryColor,
                   AppTheme.successColor,
@@ -146,7 +146,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                             ),
                           ],
                         ),
-                        child: const Icon(
+                        child: Icon(
                           Icons.emoji_events_rounded,
                           size: 50,
                           color: AppTheme.backgroundDark,
@@ -154,7 +154,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                       ),
                     ),
 
-                    const SizedBox(height: 24),
+                    SizedBox(height: 24),
 
                     // Congratulations text
                     ShaderMask(
@@ -186,7 +186,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                       children: List.generate(3, (i) {
                         final isEarned = i < widget.stars;
                         return Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          padding: EdgeInsets.symmetric(horizontal: 4),
                           child: Icon(
                             isEarned
                                 ? Icons.star_rounded
@@ -309,7 +309,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
           : null,
       child: Container(
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(vertical: 16),
+        padding: EdgeInsets.symmetric(vertical: 16),
         decoration: hasNext
             ? AppTheme.goldGlowDecoration(borderRadius: 16)
             : BoxDecoration(
@@ -329,7 +329,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
             ),
             if (hasNext) ...[
               const SizedBox(width: 8),
-              const Icon(Icons.arrow_forward_rounded,
+              Icon(Icons.arrow_forward_rounded,
                   color: AppTheme.backgroundDark, size: 20),
             ],
           ],

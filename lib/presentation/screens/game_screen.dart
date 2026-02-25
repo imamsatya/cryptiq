@@ -48,7 +48,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
 
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(gradient: AppTheme.backgroundGradient),
+        decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
         child: SafeArea(
           child: Column(
             children: [
@@ -156,7 +156,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
 
           // Timer
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             decoration: AppTheme.glassDecoration(borderRadius: 12),
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -247,7 +247,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
                       }
                     },
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 14),
+                padding: EdgeInsets.symmetric(vertical: 14),
                 decoration: AppTheme.glassDecoration(
                   borderRadius: 14,
                   borderColor: AppTheme.primaryColor.withValues(alpha: 0.3),
@@ -257,7 +257,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
                   children: [
                     Icon(Icons.lightbulb_outline_rounded,
                         color: AppTheme.primaryColor, size: 20),
-                    const SizedBox(width: 8),
+                    SizedBox(width: 8),
                     Text(
                       'Hint ($hintBalance)',
                       style: TextStyle(
@@ -322,7 +322,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
                       }
                     },
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 14),
+                padding: EdgeInsets.symmetric(vertical: 14),
                 decoration: AppTheme.goldGlowDecoration(borderRadius: 14),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -330,7 +330,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
                     Icon(Icons.check_rounded,
                         color: AppTheme.backgroundDark, size: 22),
                     const SizedBox(width: 6),
-                    const Text(
+                    Text(
                       'Check',
                       style: TextStyle(
                         fontSize: 14,

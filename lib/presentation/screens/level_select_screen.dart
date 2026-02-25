@@ -15,7 +15,7 @@ class LevelSelectScreen extends ConsumerWidget {
       length: 4,
       child: Scaffold(
         body: Container(
-          decoration: const BoxDecoration(gradient: AppTheme.backgroundGradient),
+          decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
           child: SafeArea(
             child: Column(
               children: [

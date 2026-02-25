@@ -88,7 +88,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
 
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(gradient: AppTheme.backgroundGradient),
+        decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
         child: SafeArea(
           child: Stack(
             alignment: Alignment.topCenter,
@@ -100,7 +100,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
                 maxBlastForce: 20,
                 numberOfParticles: 25,
                 gravity: 0.1,
-                colors: const [
+                colors: [
                   AppTheme.primaryColor,
                   AppTheme.secondaryColor,
                   Color(0xFFFF6B6B),
@@ -120,7 +120,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
                       children: [
                         const Text('🏆',
                             style: TextStyle(fontSize: 48)),
-                        const SizedBox(height: 8),
+                        SizedBox(height: 8),
                         ShaderMask(
                           shaderCallback: (bounds) =>
                               AppTheme.goldGradient.createShader(bounds),
@@ -150,7 +150,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
                           return _buildRankRow(i + 1, p);
                         }),
 
-                        const SizedBox(height: 20),
+                        SizedBox(height: 20),
 
                         // Round-by-round
                         Text(
@@ -210,7 +210,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
                                   const EdgeInsets.symmetric(vertical: 14),
                               decoration: AppTheme.goldGlowDecoration(
                                   borderRadius: 14),
-                              child: const Row(
+                              child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(Icons.replay_rounded,
@@ -244,8 +244,8 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
     final isFirst = rank == 1;
 
     return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      margin: EdgeInsets.only(bottom: 8),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14),
         color: isFirst
@@ -379,7 +379,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
                   const SizedBox(width: 8),
                   Text(
                     '${pr.score}pts',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
                       color: AppTheme.primaryColor,
