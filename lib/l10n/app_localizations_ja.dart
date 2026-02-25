@@ -1,10 +1,12 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for ja (`ja`).
+/// The translations for Japanese (`ja`).
 class AppLocalizationsJa extends AppLocalizations {
-  AppLocalizationsJa([super.locale = 'ja']);
+  AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -23,7 +25,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'レベル {number}';
+    return 'レベル $number';
   }
 
   @override
@@ -142,7 +144,116 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '{count} スター';
+    return '$count スター';
   }
 
+  @override
+  String get selectLevel => 'レベル選択';
+
+  @override
+  String get badges => 'バッジ';
+
+  @override
+  String get passAndPlay => 'パス＆プレイ (2-4)';
+
+  @override
+  String get decodeTheLogic => 'ロジックを解読';
+
+  @override
+  String continueLevel(int number) {
+    return '続ける (レベル $number)';
+  }
+
+  @override
+  String get selectDifficulty => '難易度選択';
+
+  @override
+  String get all => '全て';
+
+  @override
+  String get completed => '完了';
+
+  @override
+  String get locked => 'ロック中';
+
+  @override
+  String get unlocked => '解除済み';
+
+  @override
+  String get theme => 'テーマ';
+
+  @override
+  String get replayTutorial => 'チュートリアル';
+
+  @override
+  String get version => 'バージョン';
+
+  @override
+  String get contactUs => 'お問い合わせ';
+
+  @override
+  String get resetProgress => 'リセット';
+
+  @override
+  String get correct => '正解！';
+
+  @override
+  String get incorrect => '不正解';
+
+  @override
+  String get round => 'ラウンド';
+
+  @override
+  String get player => 'プレイヤー';
+
+  @override
+  String get score => 'スコア';
+
+  @override
+  String get winner => '勝者';
+
+  @override
+  String get draw => '引き分け';
+
+  @override
+  String get players => 'プレイヤー';
+
+  @override
+  String get rounds => 'ラウンド';
+
+  @override
+  String get difficulty => '難易度';
+
+  @override
+  String get operation => '演算';
+
+  @override
+  String get mixed => 'ミックス';
+
+  @override
+  String get startGame => '開始';
+
+  @override
+  String get achievements => '実績';
+
+  @override
+  String get streak => '連続記録';
+
+  @override
+  String get solvedIn => '解答時間';
+
+  @override
+  String get seconds => '秒';
+
+  @override
+  String get noHintsUsed => 'ヒントなし';
+
+  @override
+  String get playAgain => 'もう一度';
+
+  @override
+  String get results => '結果';
+
+  @override
+  String get dailyStreak => '連続チャレンジ';
 }

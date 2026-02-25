@@ -1,10 +1,12 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for hi (`hi`).
+/// The translations for Hindi (`hi`).
 class AppLocalizationsHi extends AppLocalizations {
-  AppLocalizationsHi([super.locale = 'hi']);
+  AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -23,7 +25,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'स्तर {number}';
+    return 'स्तर $number';
   }
 
   @override
@@ -142,7 +144,116 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '{count} सितारे';
+    return '$count सितारे';
   }
 
+  @override
+  String get selectLevel => 'स्तर चुनें';
+
+  @override
+  String get badges => 'बैज';
+
+  @override
+  String get passAndPlay => 'बारी-बारी खेलें (2-4)';
+
+  @override
+  String get decodeTheLogic => 'तर्क को सुलझाएं';
+
+  @override
+  String continueLevel(int number) {
+    return 'जारी रखें (स्तर $number)';
+  }
+
+  @override
+  String get selectDifficulty => 'कठिनाई चुनें';
+
+  @override
+  String get all => 'सभी';
+
+  @override
+  String get completed => 'पूरा';
+
+  @override
+  String get locked => 'लॉक';
+
+  @override
+  String get unlocked => 'अनलॉक';
+
+  @override
+  String get theme => 'थीम';
+
+  @override
+  String get replayTutorial => 'ट्यूटोरियल';
+
+  @override
+  String get version => 'संस्करण';
+
+  @override
+  String get contactUs => 'संपर्क';
+
+  @override
+  String get resetProgress => 'रीसेट';
+
+  @override
+  String get correct => 'सही!';
+
+  @override
+  String get incorrect => 'गलत';
+
+  @override
+  String get round => 'राउंड';
+
+  @override
+  String get player => 'खिलाड़ी';
+
+  @override
+  String get score => 'अंक';
+
+  @override
+  String get winner => 'विजेता';
+
+  @override
+  String get draw => 'ड्रॉ';
+
+  @override
+  String get players => 'खिलाड़ी';
+
+  @override
+  String get rounds => 'राउंड';
+
+  @override
+  String get difficulty => 'कठिनाई';
+
+  @override
+  String get operation => 'संक्रिया';
+
+  @override
+  String get mixed => 'मिश्रित';
+
+  @override
+  String get startGame => 'शुरू';
+
+  @override
+  String get achievements => 'उपलब्धियाँ';
+
+  @override
+  String get streak => 'श्रृंखला';
+
+  @override
+  String get solvedIn => 'समय में हल';
+
+  @override
+  String get seconds => 'सेकंड';
+
+  @override
+  String get noHintsUsed => 'बिना संकेत';
+
+  @override
+  String get playAgain => 'फिर खेलें';
+
+  @override
+  String get results => 'परिणाम';
+
+  @override
+  String get dailyStreak => 'दैनिक श्रृंखला';
 }

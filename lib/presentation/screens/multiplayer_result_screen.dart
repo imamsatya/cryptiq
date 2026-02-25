@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:confetti/confetti.dart';
 import '../../core/theme/app_theme.dart';
@@ -86,6 +87,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
     final totals = _calculateTotals();
     final winner = totals.first;
 
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
@@ -186,13 +188,13 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
                                   const EdgeInsets.symmetric(vertical: 14),
                               decoration:
                                   AppTheme.glassDecoration(borderRadius: 14),
-                              child: const Row(
+                              child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(Icons.home_rounded,
                                       color: Colors.white, size: 20),
                                   SizedBox(width: 6),
-                                  Text('Home',
+                                  Text(l10n.home,
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500)),

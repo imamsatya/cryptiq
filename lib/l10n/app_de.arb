@@ -58,5 +58,48 @@
         "type": "int"
       }
     }
+  },
+  "selectLevel": "Level Wählen",
+  "badges": "Abzeichen",
+  "passAndPlay": "Weitergeben (2-4)",
+  "decodeTheLogic": "Entschlüssle die Logik",
+  "continueLevel": "Fortsetzen (Level {number})",
+  "selectDifficulty": "Schwierigkeit Wählen",
+  "all": "Alle",
+  "completed": "Abgeschlossen",
+  "locked": "Gesperrt",
+  "unlocked": "Freigeschaltet",
+  "theme": "Thema",
+  "replayTutorial": "Tutorial Wiederholen",
+  "version": "Version",
+  "contactUs": "Kontakt",
+  "resetProgress": "Fortschritt Zurücksetzen",
+  "correct": "Richtig!",
+  "incorrect": "Falsch",
+  "round": "Runde",
+  "player": "Spieler",
+  "score": "Punktzahl",
+  "winner": "Gewinner",
+  "draw": "Unentschieden",
+  "players": "Spieler",
+  "rounds": "Runden",
+  "difficulty": "Schwierigkeit",
+  "operation": "Operation",
+  "mixed": "Gemischt",
+  "startGame": "Starten",
+  "achievements": "Erfolge",
+  "streak": "Serie",
+  "solvedIn": "Gelöst in",
+  "seconds": "Sekunden",
+  "noHintsUsed": "Keine Hinweise",
+  "playAgain": "Nochmal Spielen",
+  "results": "Ergebnisse",
+  "dailyStreak": "Tägliche Serie",
+  "@continueLevel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
   }
 }

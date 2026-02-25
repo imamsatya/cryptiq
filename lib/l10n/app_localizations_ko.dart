@@ -1,10 +1,12 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for ko (`ko`).
+/// The translations for Korean (`ko`).
 class AppLocalizationsKo extends AppLocalizations {
-  AppLocalizationsKo([super.locale = 'ko']);
+  AppLocalizationsKo([String locale = 'ko']) : super(locale);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -23,7 +25,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String level(int number) {
-    return '레벨 {number}';
+    return '레벨 $number';
   }
 
   @override
@@ -142,7 +144,116 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '{count} 별';
+    return '$count 별';
   }
 
+  @override
+  String get selectLevel => '레벨 선택';
+
+  @override
+  String get badges => '배지';
+
+  @override
+  String get passAndPlay => '패스 앤 플레이 (2-4)';
+
+  @override
+  String get decodeTheLogic => '논리를 해독하세요';
+
+  @override
+  String continueLevel(int number) {
+    return '계속하기 (레벨 $number)';
+  }
+
+  @override
+  String get selectDifficulty => '난이도 선택';
+
+  @override
+  String get all => '전체';
+
+  @override
+  String get completed => '완료';
+
+  @override
+  String get locked => '잠김';
+
+  @override
+  String get unlocked => '해제됨';
+
+  @override
+  String get theme => '테마';
+
+  @override
+  String get replayTutorial => '튜토리얼';
+
+  @override
+  String get version => '버전';
+
+  @override
+  String get contactUs => '문의';
+
+  @override
+  String get resetProgress => '초기화';
+
+  @override
+  String get correct => '정답!';
+
+  @override
+  String get incorrect => '오답';
+
+  @override
+  String get round => '라운드';
+
+  @override
+  String get player => '플레이어';
+
+  @override
+  String get score => '점수';
+
+  @override
+  String get winner => '승자';
+
+  @override
+  String get draw => '무승부';
+
+  @override
+  String get players => '플레이어';
+
+  @override
+  String get rounds => '라운드';
+
+  @override
+  String get difficulty => '난이도';
+
+  @override
+  String get operation => '연산';
+
+  @override
+  String get mixed => '혼합';
+
+  @override
+  String get startGame => '시작';
+
+  @override
+  String get achievements => '업적';
+
+  @override
+  String get streak => '연속';
+
+  @override
+  String get solvedIn => '풀이 시간';
+
+  @override
+  String get seconds => '초';
+
+  @override
+  String get noHintsUsed => '힌트 미사용';
+
+  @override
+  String get playAgain => '다시 하기';
+
+  @override
+  String get results => '결과';
+
+  @override
+  String get dailyStreak => '일일 연속';
 }

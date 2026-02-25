@@ -58,5 +58,48 @@
         "type": "int"
       }
     }
+  },
+  "selectLevel": "レベル選択",
+  "badges": "バッジ",
+  "passAndPlay": "パス＆プレイ (2-4)",
+  "decodeTheLogic": "ロジックを解読",
+  "continueLevel": "続ける (レベル {number})",
+  "selectDifficulty": "難易度選択",
+  "all": "全て",
+  "completed": "完了",
+  "locked": "ロック中",
+  "unlocked": "解除済み",
+  "theme": "テーマ",
+  "replayTutorial": "チュートリアル",
+  "version": "バージョン",
+  "contactUs": "お問い合わせ",
+  "resetProgress": "リセット",
+  "correct": "正解！",
+  "incorrect": "不正解",
+  "round": "ラウンド",
+  "player": "プレイヤー",
+  "score": "スコア",
+  "winner": "勝者",
+  "draw": "引き分け",
+  "players": "プレイヤー",
+  "rounds": "ラウンド",
+  "difficulty": "難易度",
+  "operation": "演算",
+  "mixed": "ミックス",
+  "startGame": "開始",
+  "achievements": "実績",
+  "streak": "連続記録",
+  "solvedIn": "解答時間",
+  "seconds": "秒",
+  "noHintsUsed": "ヒントなし",
+  "playAgain": "もう一度",
+  "results": "結果",
+  "dailyStreak": "連続チャレンジ",
+  "@continueLevel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
   }
 }

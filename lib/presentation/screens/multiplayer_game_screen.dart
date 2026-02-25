@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
@@ -304,6 +305,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
   }
 
   Widget _buildSuccessOverlay() {
+    final l10n = AppLocalizations.of(context)!;
     final playerName = widget.playerNames[_currentPlayerIndex];
     final result = _results[_currentRound][_currentPlayerIndex];
     final score = result?.score ?? 0;
@@ -337,8 +339,8 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                 ShaderMask(
                   shaderCallback: (bounds) =>
                       AppTheme.goldGradient.createShader(bounds),
-                  child: const Text(
-                    'Correct!',
+                  child: Text(
+                    l10n.correct,
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
@@ -473,6 +475,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
   }
 
   Widget _buildGameScreen() {
+    final l10n = AppLocalizations.of(context)!;
     final playerName = widget.playerNames[_currentPlayerIndex];
     final playerColor = _playerColor(_currentPlayerIndex);
 
@@ -665,7 +668,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                                       color: AppTheme.backgroundDark,
                                       size: 18),
                                   SizedBox(width: 4),
-                                  Text('Check',
+                                  Text(l10n.check,
                                       style: TextStyle(
                                         color: AppTheme.backgroundDark,
                                         fontWeight: FontWeight.w600,

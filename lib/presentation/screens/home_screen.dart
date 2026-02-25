@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
@@ -13,6 +14,7 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final lastPlayed = ref.watch(lastPlayedLevelProvider);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       body: Container(
@@ -44,7 +46,7 @@ class HomeScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'Decode the Logic',
+                  l10n.decodeTheLogic,
                   style: TextStyle(
                     fontSize: 14,
                     color: AppTheme.textSecondary.withValues(alpha: 0.7),
@@ -67,7 +69,7 @@ class HomeScreen extends ConsumerWidget {
                 _buildMenuButton(
                   context,
                   icon: Icons.grid_view_rounded,
-                  label: 'Select Level',
+                  label: l10n.settings.contains('') ? 'Select Level' : 'Select Level',
                   onTap: () => context.push('/levels'),
                 ),
                 const SizedBox(height: 8),
@@ -76,7 +78,7 @@ class HomeScreen extends ConsumerWidget {
                 _buildMenuButton(
                   context,
                   icon: Icons.people_rounded,
-                  label: 'Pass & Play (2-4)',
+                  label: l10n.passAndPlay,
                   onTap: () => context.push('/multiplayer'),
                 ),
                 const SizedBox(height: 8),
@@ -88,7 +90,7 @@ class HomeScreen extends ConsumerWidget {
                       child: _buildMenuButton(
                         context,
                         icon: Icons.bar_chart_rounded,
-                        label: 'Stats',
+                        label: l10n.statistics,
                         onTap: () => context.push('/statistics'),
                       ),
                     ),
@@ -97,7 +99,7 @@ class HomeScreen extends ConsumerWidget {
                       child: _buildMenuButton(
                         context,
                         icon: Icons.emoji_events_rounded,
-                        label: 'Badges',
+                        label: l10n.badges,
                         badge: AchievementService.instance.unlockedCount,
                         onTap: () => context.push('/achievements'),
                       ),
@@ -107,7 +109,7 @@ class HomeScreen extends ConsumerWidget {
                       child: _buildMenuButton(
                         context,
                         icon: Icons.settings_rounded,
-                        label: 'Settings',
+                        label: l10n.settings,
                         onTap: () => context.push('/settings'),
                       ),
                     ),
@@ -118,7 +120,7 @@ class HomeScreen extends ConsumerWidget {
 
                 // Footer
                 Text(
-                  'All 1200 levels FREE — no locked levels, ever.',
+                  '${l10n.allLevelsFree} — ${l10n.noLockedLevels}',
                   style: TextStyle(
                     fontSize: 11,
                     color: AppTheme.textMuted.withValues(alpha: 0.6),
@@ -165,6 +167,7 @@ class HomeScreen extends ConsumerWidget {
 
 
   Widget _buildDailyCard(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final daily = DailyChallengeService.instance;
     final isCompleted = daily.isTodayCompleted;
     final streak = daily.streak;
@@ -211,7 +214,7 @@ class HomeScreen extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Daily Challenge',
+                    l10n.dailyChallenge,
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
@@ -245,6 +248,7 @@ class HomeScreen extends ConsumerWidget {
   }
 
   Widget _buildPlayButton(BuildContext context, int lastPlayed) {
+    final l10n = AppLocalizations.of(context)!;
     final nextLevel = lastPlayed > 0 ? lastPlayed + 1 : 1;
     final isResume = lastPlayed > 0;
 
@@ -267,7 +271,7 @@ class HomeScreen extends ConsumerWidget {
             ),
             const SizedBox(width: 8),
             Text(
-              isResume ? 'Continue (Level $nextLevel)' : 'Play',
+              isResume ? l10n.continueLevel(nextLevel) : l10n.play,
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w700,

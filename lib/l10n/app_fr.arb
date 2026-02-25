@@ -58,5 +58,48 @@
         "type": "int"
       }
     }
+  },
+  "selectLevel": "Choisir Niveau",
+  "badges": "Badges",
+  "passAndPlay": "Passer et Jouer (2-4)",
+  "decodeTheLogic": "Déchiffrez la Logique",
+  "continueLevel": "Continuer (Niveau {number})",
+  "selectDifficulty": "Choisir Difficulté",
+  "all": "Tous",
+  "completed": "Terminé",
+  "locked": "Verrouillé",
+  "unlocked": "Déverrouillé",
+  "theme": "Thème",
+  "replayTutorial": "Revoir le Tutoriel",
+  "version": "Version",
+  "contactUs": "Contact",
+  "resetProgress": "Réinitialiser",
+  "correct": "Correct!",
+  "incorrect": "Incorrect",
+  "round": "Manche",
+  "player": "Joueur",
+  "score": "Score",
+  "winner": "Gagnant",
+  "draw": "Égalité",
+  "players": "Joueurs",
+  "rounds": "Manches",
+  "difficulty": "Difficulté",
+  "operation": "Opération",
+  "mixed": "Mixte",
+  "startGame": "Commencer",
+  "achievements": "Succès",
+  "streak": "Série",
+  "solvedIn": "Résolu en",
+  "seconds": "secondes",
+  "noHintsUsed": "Sans indices",
+  "playAgain": "Rejouer",
+  "results": "Résultats",
+  "dailyStreak": "Série Quotidienne",
+  "@continueLevel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
   }
 }

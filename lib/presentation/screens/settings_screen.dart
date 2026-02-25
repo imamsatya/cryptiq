@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
@@ -30,6 +31,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
@@ -51,8 +53,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       ),
                     ),
                     const SizedBox(width: 16),
-                    const Text(
-                      'Settings',
+                    Text(
+                      l10n.settings,
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w600,
@@ -92,7 +94,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     const SizedBox(height: 8),
                     _buildTapTile(
                       icon: Icons.school_rounded,
-                      title: 'Replay Tutorial',
+                      title: l10n.replayTutorial,
                       onTap: () async {
                         await OnboardingScreen.reset();
                         if (context.mounted) {
@@ -104,7 +106,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     const SizedBox(height: 24),
 
                     // Themes
-                    _buildSectionTitle('Theme'),
+                    _buildSectionTitle(l10n.theme),
                     const SizedBox(height: 8),
                     GridView.count(
                       crossAxisCount: 3,
@@ -192,7 +194,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     const SizedBox(height: 24),
 
                     // Language
-                    _buildSectionTitle('Language'),
+                    _buildSectionTitle(l10n.language),
                     const SizedBox(height: 8),
                     Container(
                       decoration: AppTheme.glassDecoration(borderRadius: 14),
@@ -241,17 +243,17 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     const SizedBox(height: 24),
 
                     // About
-                    _buildSectionTitle('About'),
+                    _buildSectionTitle(l10n.about),
                     const SizedBox(height: 8),
                     _buildInfoTile(
                       icon: Icons.info_outline_rounded,
-                      title: 'Version',
+                      title: l10n.version,
                       subtitle: AppConstants.appVersion,
                     ),
                     const SizedBox(height: 8),
                     _buildTapTile(
                       icon: Icons.privacy_tip_outlined,
-                      title: 'Privacy Policy',
+                      title: l10n.privacyPolicy,
                       onTap: () {
                         // TODO: Open privacy policy URL
                       },
@@ -259,7 +261,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     const SizedBox(height: 8),
                     _buildTapTile(
                       icon: Icons.email_outlined,
-                      title: 'Contact Us',
+                      title: l10n.contactUs,
                       onTap: () {
                         // TODO: Open email
                       },

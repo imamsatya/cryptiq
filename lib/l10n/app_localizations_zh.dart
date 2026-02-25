@@ -1,10 +1,12 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for zh (`zh`).
+/// The translations for Chinese (`zh`).
 class AppLocalizationsZh extends AppLocalizations {
-  AppLocalizationsZh([super.locale = 'zh']);
+  AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -23,7 +25,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String level(int number) {
-    return '关卡 {number}';
+    return '关卡 $number';
   }
 
   @override
@@ -142,7 +144,116 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '{count} 星';
+    return '$count 星';
   }
 
+  @override
+  String get selectLevel => '选择关卡';
+
+  @override
+  String get badges => '徽章';
+
+  @override
+  String get passAndPlay => '轮流玩 (2-4)';
+
+  @override
+  String get decodeTheLogic => '解密逻辑';
+
+  @override
+  String continueLevel(int number) {
+    return '继续 (关卡 $number)';
+  }
+
+  @override
+  String get selectDifficulty => '选择难度';
+
+  @override
+  String get all => '全部';
+
+  @override
+  String get completed => '已完成';
+
+  @override
+  String get locked => '锁定';
+
+  @override
+  String get unlocked => '已解锁';
+
+  @override
+  String get theme => '主题';
+
+  @override
+  String get replayTutorial => '教程';
+
+  @override
+  String get version => '版本';
+
+  @override
+  String get contactUs => '联系我们';
+
+  @override
+  String get resetProgress => '重置进度';
+
+  @override
+  String get correct => '正确！';
+
+  @override
+  String get incorrect => '错误';
+
+  @override
+  String get round => '回合';
+
+  @override
+  String get player => '玩家';
+
+  @override
+  String get score => '分数';
+
+  @override
+  String get winner => '赢家';
+
+  @override
+  String get draw => '平局';
+
+  @override
+  String get players => '玩家';
+
+  @override
+  String get rounds => '回合';
+
+  @override
+  String get difficulty => '难度';
+
+  @override
+  String get operation => '运算';
+
+  @override
+  String get mixed => '混合';
+
+  @override
+  String get startGame => '开始';
+
+  @override
+  String get achievements => '成就';
+
+  @override
+  String get streak => '连胜';
+
+  @override
+  String get solvedIn => '用时';
+
+  @override
+  String get seconds => '秒';
+
+  @override
+  String get noHintsUsed => '无提示';
+
+  @override
+  String get playAgain => '再玩一次';
+
+  @override
+  String get results => '结果';
+
+  @override
+  String get dailyStreak => '连续挑战';
 }

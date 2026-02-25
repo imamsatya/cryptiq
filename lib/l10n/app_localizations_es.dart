@@ -1,10 +1,12 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for es (`es`).
+/// The translations for Spanish Castilian (`es`).
 class AppLocalizationsEs extends AppLocalizations {
-  AppLocalizationsEs([super.locale = 'es']);
+  AppLocalizationsEs([String locale = 'es']) : super(locale);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -23,7 +25,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'Nivel {number}';
+    return 'Nivel $number';
   }
 
   @override
@@ -123,7 +125,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get wrongAnswer => 'Respuesta Incorrecta';
 
   @override
-  String get someDigitsWrong => '¡Algunos dígitos son incorrectos. Intenta de nuevo!';
+  String get someDigitsWrong =>
+      '¡Algunos dígitos son incorrectos. Intenta de nuevo!';
 
   @override
   String get allLevelsFree => '¡Todos los niveles son GRATIS!';
@@ -142,7 +145,116 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '{count} Estrellas';
+    return '$count Estrellas';
   }
 
+  @override
+  String get selectLevel => 'Elegir Nivel';
+
+  @override
+  String get badges => 'Insignias';
+
+  @override
+  String get passAndPlay => 'Pasar y Jugar (2-4)';
+
+  @override
+  String get decodeTheLogic => 'Descifra la Lógica';
+
+  @override
+  String continueLevel(int number) {
+    return 'Continuar (Nivel $number)';
+  }
+
+  @override
+  String get selectDifficulty => 'Elegir Dificultad';
+
+  @override
+  String get all => 'Todos';
+
+  @override
+  String get completed => 'Completado';
+
+  @override
+  String get locked => 'Bloqueado';
+
+  @override
+  String get unlocked => 'Desbloqueado';
+
+  @override
+  String get theme => 'Tema';
+
+  @override
+  String get replayTutorial => 'Ver Tutorial';
+
+  @override
+  String get version => 'Versión';
+
+  @override
+  String get contactUs => 'Contáctanos';
+
+  @override
+  String get resetProgress => 'Reiniciar Progreso';
+
+  @override
+  String get correct => '¡Correcto!';
+
+  @override
+  String get incorrect => 'Incorrecto';
+
+  @override
+  String get round => 'Ronda';
+
+  @override
+  String get player => 'Jugador';
+
+  @override
+  String get score => 'Puntuación';
+
+  @override
+  String get winner => 'Ganador';
+
+  @override
+  String get draw => 'Empate';
+
+  @override
+  String get players => 'Jugadores';
+
+  @override
+  String get rounds => 'Rondas';
+
+  @override
+  String get difficulty => 'Dificultad';
+
+  @override
+  String get operation => 'Operación';
+
+  @override
+  String get mixed => 'Mixto';
+
+  @override
+  String get startGame => 'Iniciar';
+
+  @override
+  String get achievements => 'Logros';
+
+  @override
+  String get streak => 'Racha';
+
+  @override
+  String get solvedIn => 'Resuelto en';
+
+  @override
+  String get seconds => 'segundos';
+
+  @override
+  String get noHintsUsed => 'Sin pistas';
+
+  @override
+  String get playAgain => 'Jugar de Nuevo';
+
+  @override
+  String get results => 'Resultados';
+
+  @override
+  String get dailyStreak => 'Racha Diaria';
 }

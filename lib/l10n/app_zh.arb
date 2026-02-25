@@ -58,5 +58,48 @@
         "type": "int"
       }
     }
+  },
+  "selectLevel": "选择关卡",
+  "badges": "徽章",
+  "passAndPlay": "轮流玩 (2-4)",
+  "decodeTheLogic": "解密逻辑",
+  "continueLevel": "继续 (关卡 {number})",
+  "selectDifficulty": "选择难度",
+  "all": "全部",
+  "completed": "已完成",
+  "locked": "锁定",
+  "unlocked": "已解锁",
+  "theme": "主题",
+  "replayTutorial": "教程",
+  "version": "版本",
+  "contactUs": "联系我们",
+  "resetProgress": "重置进度",
+  "correct": "正确！",
+  "incorrect": "错误",
+  "round": "回合",
+  "player": "玩家",
+  "score": "分数",
+  "winner": "赢家",
+  "draw": "平局",
+  "players": "玩家",
+  "rounds": "回合",
+  "difficulty": "难度",
+  "operation": "运算",
+  "mixed": "混合",
+  "startGame": "开始",
+  "achievements": "成就",
+  "streak": "连胜",
+  "solvedIn": "用时",
+  "seconds": "秒",
+  "noHintsUsed": "无提示",
+  "playAgain": "再玩一次",
+  "results": "结果",
+  "dailyStreak": "连续挑战",
+  "@continueLevel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
   }
 }

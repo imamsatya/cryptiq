@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
 
@@ -80,6 +81,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
@@ -102,8 +104,8 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                       ),
                     ),
                     const SizedBox(width: 16),
-                    const Text(
-                      'Pass & Play',
+                    Text(
+                      l10n.passAndPlay,
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w600,
@@ -119,7 +121,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                   padding: const EdgeInsets.all(16),
                   children: [
                     // --- Players ---
-                    _sectionTitle('Players'),
+                    _sectionTitle(l10n.players),
                     const SizedBox(height: 8),
                     ...List.generate(_nameControllers.length, (i) {
                       return Padding(
@@ -236,7 +238,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                     const SizedBox(height: 24),
 
                     // --- Difficulty ---
-                    _sectionTitle('Difficulty'),
+                    _sectionTitle(l10n.difficulty),
                     const SizedBox(height: 8),
                     _buildChipRow(
                       options: _difficulties,
@@ -262,7 +264,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                     const SizedBox(height: 24),
 
                     // --- Operation ---
-                    _sectionTitle('Operation'),
+                    _sectionTitle(l10n.operation),
                     const SizedBox(height: 8),
                     _buildChipRow(
                       options: _operations,
@@ -287,7 +289,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                                 color: AppTheme.backgroundDark, size: 24),
                             SizedBox(width: 8),
                             Text(
-                              'Start Game',
+                              l10n.startGame,
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w700,

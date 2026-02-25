@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/datasources/local_database.dart';
@@ -18,6 +19,7 @@ class StatisticsScreen extends StatelessWidget {
     final avgTime = completed > 0 ? totalTime ~/ completed : 0;
     final totalHints = allProgress.fold(0, (sum, p) => sum + p.hintsUsed);
 
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
@@ -39,8 +41,8 @@ class StatisticsScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 16),
-                    const Text(
-                      'Statistics',
+                    Text(
+                      l10n.statistics,
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w600,
@@ -83,14 +85,14 @@ class StatisticsScreen extends StatelessWidget {
                         Expanded(child: _buildStatCard(
                           Icons.lightbulb_outline,
                           '$totalHints',
-                          'Hints Used',
+                          l10n.hintsUsed,
                           AppTheme.hardColor,
                         )),
                         const SizedBox(width: 12),
                         Expanded(child: _buildStatCard(
                           Icons.access_time_rounded,
                           _formatTime(totalTime),
-                          'Total Time',
+                          l10n.totalTime,
                           AppTheme.expertColor,
                         )),
                       ],
@@ -108,13 +110,13 @@ class StatisticsScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 12),
-                    _buildDifficultyRow('Easy', 1, 100, AppTheme.easyColor, allProgress),
+                    _buildDifficultyRow(l10n.easy, 1, 100, AppTheme.easyColor, allProgress),
                     const SizedBox(height: 8),
-                    _buildDifficultyRow('Medium', 101, 250, AppTheme.mediumColor, allProgress),
+                    _buildDifficultyRow(l10n.medium, 101, 250, AppTheme.mediumColor, allProgress),
                     const SizedBox(height: 8),
-                    _buildDifficultyRow('Hard', 251, 400, AppTheme.hardColor, allProgress),
+                    _buildDifficultyRow(l10n.hard, 251, 400, AppTheme.hardColor, allProgress),
                     const SizedBox(height: 8),
-                    _buildDifficultyRow('Expert', 401, 500, AppTheme.expertColor, allProgress),
+                    _buildDifficultyRow(l10n.expert, 401, 500, AppTheme.expertColor, allProgress),
                   ],
                 ),
               ),

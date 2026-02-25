@@ -146,4 +146,114 @@ class AppLocalizationsEn extends AppLocalizations {
   String stars(int count) {
     return '$count Stars';
   }
+
+  @override
+  String get selectLevel => 'Select Level';
+
+  @override
+  String get badges => 'Badges';
+
+  @override
+  String get passAndPlay => 'Pass & Play (2-4)';
+
+  @override
+  String get decodeTheLogic => 'Decode the Logic';
+
+  @override
+  String continueLevel(int number) {
+    return 'Continue (Level $number)';
+  }
+
+  @override
+  String get selectDifficulty => 'Select Difficulty';
+
+  @override
+  String get all => 'All';
+
+  @override
+  String get completed => 'Completed';
+
+  @override
+  String get locked => 'Locked';
+
+  @override
+  String get unlocked => 'Unlocked';
+
+  @override
+  String get theme => 'Theme';
+
+  @override
+  String get replayTutorial => 'Replay Tutorial';
+
+  @override
+  String get version => 'Version';
+
+  @override
+  String get contactUs => 'Contact Us';
+
+  @override
+  String get resetProgress => 'Reset Progress';
+
+  @override
+  String get correct => 'Correct!';
+
+  @override
+  String get incorrect => 'Incorrect';
+
+  @override
+  String get round => 'Round';
+
+  @override
+  String get player => 'Player';
+
+  @override
+  String get score => 'Score';
+
+  @override
+  String get winner => 'Winner';
+
+  @override
+  String get draw => 'Draw';
+
+  @override
+  String get players => 'Players';
+
+  @override
+  String get rounds => 'Rounds';
+
+  @override
+  String get difficulty => 'Difficulty';
+
+  @override
+  String get operation => 'Operation';
+
+  @override
+  String get mixed => 'Mixed';
+
+  @override
+  String get startGame => 'Start Game';
+
+  @override
+  String get achievements => 'Achievements';
+
+  @override
+  String get streak => 'Streak';
+
+  @override
+  String get solvedIn => 'Solved in';
+
+  @override
+  String get seconds => 'seconds';
+
+  @override
+  String get noHintsUsed => 'No hints used';
+
+  @override
+  String get playAgain => 'Play Again';
+
+  @override
+  String get results => 'Results';
+
+  @override
+  String get dailyStreak => 'Daily Streak';
 }

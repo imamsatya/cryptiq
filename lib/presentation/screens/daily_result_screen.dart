@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:confetti/confetti.dart';
 import 'package:share_plus/share_plus.dart';
@@ -106,6 +107,7 @@ class _DailyResultScreenState extends State<DailyResultScreen>
     ];
     final dateStr = '${now.day} ${months[now.month - 1]} ${now.year}';
 
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
@@ -218,7 +220,7 @@ class _DailyResultScreenState extends State<DailyResultScreen>
                               _buildStatItem(
                                 Icons.timer_rounded,
                                 _formatTime(widget.timeSeconds),
-                                'Time',
+                                l10n.time,
                               ),
                               Container(
                                 width: 1,
@@ -228,7 +230,7 @@ class _DailyResultScreenState extends State<DailyResultScreen>
                               _buildStatItem(
                                 Icons.lightbulb_rounded,
                                 '${widget.hintsUsed}',
-                                'Hints',
+                                l10n.hints,
                               ),
                               Container(
                                 width: 1,
@@ -238,7 +240,7 @@ class _DailyResultScreenState extends State<DailyResultScreen>
                               _buildStatItem(
                                 Icons.local_fire_department_rounded,
                                 '$streak',
-                                'Streak',
+                                l10n.streak,
                               ),
                             ],
                           ),
@@ -299,14 +301,14 @@ class _DailyResultScreenState extends State<DailyResultScreen>
                               borderColor:
                                   AppTheme.primaryColor.withValues(alpha: 0.3),
                             ),
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.home_rounded,
                                     color: Colors.white, size: 22),
                                 SizedBox(width: 8),
                                 Text(
-                                  'Home',
+                                  l10n.home,
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,

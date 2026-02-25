@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -219,6 +220,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
   }
 
   Widget _buildActionButtons(GameState gameState, int hintBalance) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
@@ -331,7 +333,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
                         color: AppTheme.backgroundDark, size: 22),
                     const SizedBox(width: 6),
                     Text(
-                      'Check',
+                      l10n.check,
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,

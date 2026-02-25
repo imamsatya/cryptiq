@@ -8,7 +8,9 @@
   "level": "Level {number}",
   "@level": {
     "placeholders": {
-      "number": {"type": "int"}
+      "number": {
+        "type": "int"
+      }
     }
   },
   "easy": "Easy",
@@ -52,7 +54,52 @@
   "stars": "{count} Stars",
   "@stars": {
     "placeholders": {
-      "count": {"type": "int"}
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "selectLevel": "Select Level",
+  "badges": "Badges",
+  "passAndPlay": "Pass & Play (2-4)",
+  "decodeTheLogic": "Decode the Logic",
+  "continueLevel": "Continue (Level {number})",
+  "selectDifficulty": "Select Difficulty",
+  "all": "All",
+  "completed": "Completed",
+  "locked": "Locked",
+  "unlocked": "Unlocked",
+  "theme": "Theme",
+  "replayTutorial": "Replay Tutorial",
+  "version": "Version",
+  "contactUs": "Contact Us",
+  "resetProgress": "Reset Progress",
+  "correct": "Correct!",
+  "incorrect": "Incorrect",
+  "round": "Round",
+  "player": "Player",
+  "score": "Score",
+  "winner": "Winner",
+  "draw": "Draw",
+  "players": "Players",
+  "rounds": "Rounds",
+  "difficulty": "Difficulty",
+  "operation": "Operation",
+  "mixed": "Mixed",
+  "startGame": "Start Game",
+  "achievements": "Achievements",
+  "streak": "Streak",
+  "solvedIn": "Solved in",
+  "seconds": "seconds",
+  "noHintsUsed": "No hints used",
+  "playAgain": "Play Again",
+  "results": "Results",
+  "dailyStreak": "Daily Streak",
+  "@continueLevel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
     }
   }
 }

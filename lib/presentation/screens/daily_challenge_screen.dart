@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -18,6 +19,7 @@ class DailyChallengeScreen extends ConsumerWidget {
     final gameState = ref.watch(dailyGameStateProvider);
     final puzzle = gameState.puzzle;
 
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
@@ -50,8 +52,8 @@ class DailyChallengeScreen extends ConsumerWidget {
                           Icon(Icons.today_rounded,
                               color: AppTheme.primaryColor, size: 18),
                           const SizedBox(width: 6),
-                          const Text(
-                            'Daily Challenge',
+                          Text(
+                            l10n.dailyChallenge,
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
@@ -237,7 +239,7 @@ class DailyChallengeScreen extends ConsumerWidget {
                                     color: AppTheme.backgroundDark, size: 20),
                                 SizedBox(width: 6),
                                 Text(
-                                  'Check',
+                                  l10n.check,
                                   style: TextStyle(
                                     color: AppTheme.backgroundDark,
                                     fontWeight: FontWeight.w700,

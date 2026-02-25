@@ -58,5 +58,48 @@
         "type": "int"
       }
     }
+  },
+  "selectLevel": "स्तर चुनें",
+  "badges": "बैज",
+  "passAndPlay": "बारी-बारी खेलें (2-4)",
+  "decodeTheLogic": "तर्क को सुलझाएं",
+  "continueLevel": "जारी रखें (स्तर {number})",
+  "selectDifficulty": "कठिनाई चुनें",
+  "all": "सभी",
+  "completed": "पूरा",
+  "locked": "लॉक",
+  "unlocked": "अनलॉक",
+  "theme": "थीम",
+  "replayTutorial": "ट्यूटोरियल",
+  "version": "संस्करण",
+  "contactUs": "संपर्क",
+  "resetProgress": "रीसेट",
+  "correct": "सही!",
+  "incorrect": "गलत",
+  "round": "राउंड",
+  "player": "खिलाड़ी",
+  "score": "अंक",
+  "winner": "विजेता",
+  "draw": "ड्रॉ",
+  "players": "खिलाड़ी",
+  "rounds": "राउंड",
+  "difficulty": "कठिनाई",
+  "operation": "संक्रिया",
+  "mixed": "मिश्रित",
+  "startGame": "शुरू",
+  "achievements": "उपलब्धियाँ",
+  "streak": "श्रृंखला",
+  "solvedIn": "समय में हल",
+  "seconds": "सेकंड",
+  "noHintsUsed": "बिना संकेत",
+  "playAgain": "फिर खेलें",
+  "results": "परिणाम",
+  "dailyStreak": "दैनिक श्रृंखला",
+  "@continueLevel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
   }
 }

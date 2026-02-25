@@ -146,4 +146,114 @@ class AppLocalizationsId extends AppLocalizations {
   String stars(int count) {
     return '$count Bintang';
   }
+
+  @override
+  String get selectLevel => 'Pilih Level';
+
+  @override
+  String get badges => 'Lencana';
+
+  @override
+  String get passAndPlay => 'Main Bergantian (2-4)';
+
+  @override
+  String get decodeTheLogic => 'Pecahkan Logika';
+
+  @override
+  String continueLevel(int number) {
+    return 'Lanjutkan (Level $number)';
+  }
+
+  @override
+  String get selectDifficulty => 'Pilih Kesulitan';
+
+  @override
+  String get all => 'Semua';
+
+  @override
+  String get completed => 'Selesai';
+
+  @override
+  String get locked => 'Terkunci';
+
+  @override
+  String get unlocked => 'Terbuka';
+
+  @override
+  String get theme => 'Tema';
+
+  @override
+  String get replayTutorial => 'Ulangi Tutorial';
+
+  @override
+  String get version => 'Versi';
+
+  @override
+  String get contactUs => 'Hubungi Kami';
+
+  @override
+  String get resetProgress => 'Reset Progres';
+
+  @override
+  String get correct => 'Benar!';
+
+  @override
+  String get incorrect => 'Salah';
+
+  @override
+  String get round => 'Ronde';
+
+  @override
+  String get player => 'Pemain';
+
+  @override
+  String get score => 'Skor';
+
+  @override
+  String get winner => 'Pemenang';
+
+  @override
+  String get draw => 'Seri';
+
+  @override
+  String get players => 'Pemain';
+
+  @override
+  String get rounds => 'Ronde';
+
+  @override
+  String get difficulty => 'Kesulitan';
+
+  @override
+  String get operation => 'Operasi';
+
+  @override
+  String get mixed => 'Campuran';
+
+  @override
+  String get startGame => 'Mulai';
+
+  @override
+  String get achievements => 'Pencapaian';
+
+  @override
+  String get streak => 'Beruntun';
+
+  @override
+  String get solvedIn => 'Selesai dalam';
+
+  @override
+  String get seconds => 'detik';
+
+  @override
+  String get noHintsUsed => 'Tanpa petunjuk';
+
+  @override
+  String get playAgain => 'Main Lagi';
+
+  @override
+  String get results => 'Hasil';
+
+  @override
+  String get dailyStreak => 'Streak Harian';
 }

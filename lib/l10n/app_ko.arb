@@ -58,5 +58,48 @@
         "type": "int"
       }
     }
+  },
+  "selectLevel": "레벨 선택",
+  "badges": "배지",
+  "passAndPlay": "패스 앤 플레이 (2-4)",
+  "decodeTheLogic": "논리를 해독하세요",
+  "continueLevel": "계속하기 (레벨 {number})",
+  "selectDifficulty": "난이도 선택",
+  "all": "전체",
+  "completed": "완료",
+  "locked": "잠김",
+  "unlocked": "해제됨",
+  "theme": "테마",
+  "replayTutorial": "튜토리얼",
+  "version": "버전",
+  "contactUs": "문의",
+  "resetProgress": "초기화",
+  "correct": "정답!",
+  "incorrect": "오답",
+  "round": "라운드",
+  "player": "플레이어",
+  "score": "점수",
+  "winner": "승자",
+  "draw": "무승부",
+  "players": "플레이어",
+  "rounds": "라운드",
+  "difficulty": "난이도",
+  "operation": "연산",
+  "mixed": "혼합",
+  "startGame": "시작",
+  "achievements": "업적",
+  "streak": "연속",
+  "solvedIn": "풀이 시간",
+  "seconds": "초",
+  "noHintsUsed": "힌트 미사용",
+  "playAgain": "다시 하기",
+  "results": "결과",
+  "dailyStreak": "일일 연속",
+  "@continueLevel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
   }
 }

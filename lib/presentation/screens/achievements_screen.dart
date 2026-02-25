@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/services/achievement_service.dart';
@@ -13,6 +14,7 @@ class AchievementsScreen extends StatelessWidget {
     final unlocked = all.where((a) => a.$2).length;
     final total = all.length;
 
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
@@ -35,8 +37,8 @@ class AchievementsScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 16),
-                    const Text(
-                      'Achievements',
+                    Text(
+                      l10n.achievements,
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w600,

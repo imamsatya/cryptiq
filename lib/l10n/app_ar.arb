@@ -58,5 +58,48 @@
         "type": "int"
       }
     }
+  },
+  "selectLevel": "اختر المستوى",
+  "badges": "الشارات",
+  "passAndPlay": "تمرير ولعب (2-4)",
+  "decodeTheLogic": "فك شيفرة المنطق",
+  "continueLevel": "متابعة (المستوى {number})",
+  "selectDifficulty": "اختر الصعوبة",
+  "all": "الكل",
+  "completed": "مكتمل",
+  "locked": "مقفل",
+  "unlocked": "مفتوح",
+  "theme": "السمة",
+  "replayTutorial": "إعادة الدرس",
+  "version": "الإصدار",
+  "contactUs": "اتصل بنا",
+  "resetProgress": "إعادة التعيين",
+  "correct": "صحيح!",
+  "incorrect": "خطأ",
+  "round": "جولة",
+  "player": "لاعب",
+  "score": "النتيجة",
+  "winner": "الفائز",
+  "draw": "تعادل",
+  "players": "اللاعبون",
+  "rounds": "الجولات",
+  "difficulty": "الصعوبة",
+  "operation": "العملية",
+  "mixed": "مختلط",
+  "startGame": "ابدأ",
+  "achievements": "الإنجازات",
+  "streak": "السلسلة",
+  "solvedIn": "حُل في",
+  "seconds": "ثانية",
+  "noHintsUsed": "بدون تلميحات",
+  "playAgain": "العب مجدداً",
+  "results": "النتائج",
+  "dailyStreak": "سلسلة يومية",
+  "@continueLevel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
   }
 }

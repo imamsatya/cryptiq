@@ -58,5 +58,48 @@
         "type": "int"
       }
     }
+  },
+  "selectLevel": "Escolher Nível",
+  "badges": "Insígnias",
+  "passAndPlay": "Passar e Jogar (2-4)",
+  "decodeTheLogic": "Decifre a Lógica",
+  "continueLevel": "Continuar (Nível {number})",
+  "selectDifficulty": "Escolher Dificuldade",
+  "all": "Todos",
+  "completed": "Concluído",
+  "locked": "Bloqueado",
+  "unlocked": "Desbloqueado",
+  "theme": "Tema",
+  "replayTutorial": "Rever Tutorial",
+  "version": "Versão",
+  "contactUs": "Contato",
+  "resetProgress": "Reiniciar Progresso",
+  "correct": "Correto!",
+  "incorrect": "Incorreto",
+  "round": "Rodada",
+  "player": "Jogador",
+  "score": "Pontuação",
+  "winner": "Vencedor",
+  "draw": "Empate",
+  "players": "Jogadores",
+  "rounds": "Rodadas",
+  "difficulty": "Dificuldade",
+  "operation": "Operação",
+  "mixed": "Misto",
+  "startGame": "Iniciar",
+  "achievements": "Conquistas",
+  "streak": "Sequência",
+  "solvedIn": "Resolvido em",
+  "seconds": "segundos",
+  "noHintsUsed": "Sem dicas",
+  "playAgain": "Jogar Novamente",
+  "results": "Resultados",
+  "dailyStreak": "Sequência Diária",
+  "@continueLevel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
   }
 }

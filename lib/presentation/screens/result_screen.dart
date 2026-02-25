@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:confetti/confetti.dart';
@@ -98,6 +99,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
@@ -160,8 +162,8 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                     ShaderMask(
                       shaderCallback: (bounds) =>
                           AppTheme.goldGradient.createShader(bounds),
-                      child: const Text(
-                        'Puzzle Solved!',
+                      child: Text(
+                        l10n.puzzleSolved,
                         style: TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.w700,
@@ -210,10 +212,10 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           _buildStatItem(
-                              Icons.timer_outlined, _formatTime(widget.timeSeconds), 'Time'),
+                              Icons.timer_outlined, _formatTime(widget.timeSeconds), l10n.time),
                           Container(width: 1, height: 40, color: Colors.white.withValues(alpha: 0.1)),
                           _buildStatItem(
-                              Icons.lightbulb_outline, '${widget.hintsUsed}', 'Hints'),
+                              Icons.lightbulb_outline, '${widget.hintsUsed}', l10n.hints),
                           Container(width: 1, height: 40, color: Colors.white.withValues(alpha: 0.1)),
                           _buildStatItem(
                               Icons.star_rounded, '${widget.stars}/3', 'Stars'),
@@ -245,7 +247,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                         Expanded(
                           child: _buildSecondaryButton(
                             icon: Icons.share_rounded,
-                            label: 'Share',
+                            label: l10n.share,
                             onTap: () {
                               SharePlus.instance.share(
                                 ShareParams(
@@ -259,7 +261,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                         Expanded(
                           child: _buildSecondaryButton(
                             icon: Icons.home_rounded,
-                            label: 'Home',
+                            label: l10n.home,
                             onTap: () => context.go('/'),
                           ),
                         ),
@@ -295,6 +297,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
   }
 
   Widget _buildNextLevelButton(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final nextLevel = widget.levelNumber + 1;
     final hasNext = nextLevel <= PuzzleGenerator.totalPuzzles;
 
@@ -320,7 +323,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              hasNext ? 'Next Level' : 'All Done!',
+              hasNext ? l10n.nextLevel : 'All Done!',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,

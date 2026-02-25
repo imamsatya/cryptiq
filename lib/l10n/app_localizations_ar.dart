@@ -1,10 +1,12 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for ar (`ar`).
+/// The translations for Arabic (`ar`).
 class AppLocalizationsAr extends AppLocalizations {
-  AppLocalizationsAr([super.locale = 'ar']);
+  AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -23,7 +25,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'المستوى {number}';
+    return 'المستوى $number';
   }
 
   @override
@@ -142,7 +144,116 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '{count} نجوم';
+    return '$count نجوم';
   }
 
+  @override
+  String get selectLevel => 'اختر المستوى';
+
+  @override
+  String get badges => 'الشارات';
+
+  @override
+  String get passAndPlay => 'تمرير ولعب (2-4)';
+
+  @override
+  String get decodeTheLogic => 'فك شيفرة المنطق';
+
+  @override
+  String continueLevel(int number) {
+    return 'متابعة (المستوى $number)';
+  }
+
+  @override
+  String get selectDifficulty => 'اختر الصعوبة';
+
+  @override
+  String get all => 'الكل';
+
+  @override
+  String get completed => 'مكتمل';
+
+  @override
+  String get locked => 'مقفل';
+
+  @override
+  String get unlocked => 'مفتوح';
+
+  @override
+  String get theme => 'السمة';
+
+  @override
+  String get replayTutorial => 'إعادة الدرس';
+
+  @override
+  String get version => 'الإصدار';
+
+  @override
+  String get contactUs => 'اتصل بنا';
+
+  @override
+  String get resetProgress => 'إعادة التعيين';
+
+  @override
+  String get correct => 'صحيح!';
+
+  @override
+  String get incorrect => 'خطأ';
+
+  @override
+  String get round => 'جولة';
+
+  @override
+  String get player => 'لاعب';
+
+  @override
+  String get score => 'النتيجة';
+
+  @override
+  String get winner => 'الفائز';
+
+  @override
+  String get draw => 'تعادل';
+
+  @override
+  String get players => 'اللاعبون';
+
+  @override
+  String get rounds => 'الجولات';
+
+  @override
+  String get difficulty => 'الصعوبة';
+
+  @override
+  String get operation => 'العملية';
+
+  @override
+  String get mixed => 'مختلط';
+
+  @override
+  String get startGame => 'ابدأ';
+
+  @override
+  String get achievements => 'الإنجازات';
+
+  @override
+  String get streak => 'السلسلة';
+
+  @override
+  String get solvedIn => 'حُل في';
+
+  @override
+  String get seconds => 'ثانية';
+
+  @override
+  String get noHintsUsed => 'بدون تلميحات';
+
+  @override
+  String get playAgain => 'العب مجدداً';
+
+  @override
+  String get results => 'النتائج';
+
+  @override
+  String get dailyStreak => 'سلسلة يومية';
 }

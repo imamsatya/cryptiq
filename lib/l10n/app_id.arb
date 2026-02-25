@@ -44,5 +44,48 @@
   "home": "Beranda",
   "back": "Kembali",
   "resume": "Lanjutkan",
-  "stars": "{count} Bintang"
+  "stars": "{count} Bintang",
+  "selectLevel": "Pilih Level",
+  "badges": "Lencana",
+  "passAndPlay": "Main Bergantian (2-4)",
+  "decodeTheLogic": "Pecahkan Logika",
+  "continueLevel": "Lanjutkan (Level {number})",
+  "selectDifficulty": "Pilih Kesulitan",
+  "all": "Semua",
+  "completed": "Selesai",
+  "locked": "Terkunci",
+  "unlocked": "Terbuka",
+  "theme": "Tema",
+  "replayTutorial": "Ulangi Tutorial",
+  "version": "Versi",
+  "contactUs": "Hubungi Kami",
+  "resetProgress": "Reset Progres",
+  "correct": "Benar!",
+  "incorrect": "Salah",
+  "round": "Ronde",
+  "player": "Pemain",
+  "score": "Skor",
+  "winner": "Pemenang",
+  "draw": "Seri",
+  "players": "Pemain",
+  "rounds": "Ronde",
+  "difficulty": "Kesulitan",
+  "operation": "Operasi",
+  "mixed": "Campuran",
+  "startGame": "Mulai",
+  "achievements": "Pencapaian",
+  "streak": "Beruntun",
+  "solvedIn": "Selesai dalam",
+  "seconds": "detik",
+  "noHintsUsed": "Tanpa petunjuk",
+  "playAgain": "Main Lagi",
+  "results": "Hasil",
+  "dailyStreak": "Streak Harian",
+  "@continueLevel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  }
 }

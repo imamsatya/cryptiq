@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
@@ -11,6 +12,7 @@ class LevelSelectScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     return DefaultTabController(
       length: 4,
       child: Scaffold(
@@ -34,8 +36,8 @@ class LevelSelectScreen extends ConsumerWidget {
                         ),
                       ),
                       const SizedBox(width: 16),
-                      const Text(
-                        'Select Level',
+                      Text(
+                        l10n.selectLevel,
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w600,
@@ -64,11 +66,11 @@ class LevelSelectScreen extends ConsumerWidget {
                     indicatorSize: TabBarIndicatorSize.tab,
                     dividerColor: Colors.transparent,
                     padding: const EdgeInsets.all(4),
-                    tabs: const [
-                      Tab(text: 'Easy'),
-                      Tab(text: 'Medium'),
-                      Tab(text: 'Hard'),
-                      Tab(text: 'Expert'),
+                    tabs: [
+                      Tab(text: l10n.easy),
+                      Tab(text: l10n.medium),
+                      Tab(text: l10n.hard),
+                      Tab(text: l10n.expert),
                     ],
                   ),
                 ),

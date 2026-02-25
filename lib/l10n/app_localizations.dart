@@ -5,17 +5,17 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
-import 'app_localizations_en.dart';
-import 'app_localizations_id.dart';
-import 'app_localizations_es.dart';
-import 'app_localizations_pt.dart';
+import 'app_localizations_ar.dart';
 import 'app_localizations_de.dart';
+import 'app_localizations_en.dart';
+import 'app_localizations_es.dart';
 import 'app_localizations_fr.dart';
+import 'app_localizations_hi.dart';
+import 'app_localizations_id.dart';
 import 'app_localizations_ja.dart';
 import 'app_localizations_ko.dart';
+import 'app_localizations_pt.dart';
 import 'app_localizations_zh.dart';
-import 'app_localizations_hi.dart';
-import 'app_localizations_ar.dart';
 
 // ignore_for_file: type=lint
 
@@ -103,17 +103,17 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
-    Locale('en'),
-    Locale('id'),
-    Locale('es'),
-    Locale('pt'),
+    Locale('ar'),
     Locale('de'),
+    Locale('en'),
+    Locale('es'),
     Locale('fr'),
+    Locale('hi'),
+    Locale('id'),
     Locale('ja'),
     Locale('ko'),
+    Locale('pt'),
     Locale('zh'),
-    Locale('hi'),
-    Locale('ar'),
   ];
 
   /// No description provided for @appTitle.
@@ -385,6 +385,222 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} Stars'**
   String stars(int count);
+
+  /// No description provided for @selectLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Level'**
+  String get selectLevel;
+
+  /// No description provided for @badges.
+  ///
+  /// In en, this message translates to:
+  /// **'Badges'**
+  String get badges;
+
+  /// No description provided for @passAndPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Pass & Play (2-4)'**
+  String get passAndPlay;
+
+  /// No description provided for @decodeTheLogic.
+  ///
+  /// In en, this message translates to:
+  /// **'Decode the Logic'**
+  String get decodeTheLogic;
+
+  /// No description provided for @continueLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue (Level {number})'**
+  String continueLevel(int number);
+
+  /// No description provided for @selectDifficulty.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Difficulty'**
+  String get selectDifficulty;
+
+  /// No description provided for @all.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get all;
+
+  /// No description provided for @completed.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get completed;
+
+  /// No description provided for @locked.
+  ///
+  /// In en, this message translates to:
+  /// **'Locked'**
+  String get locked;
+
+  /// No description provided for @unlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocked'**
+  String get unlocked;
+
+  /// No description provided for @theme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get theme;
+
+  /// No description provided for @replayTutorial.
+  ///
+  /// In en, this message translates to:
+  /// **'Replay Tutorial'**
+  String get replayTutorial;
+
+  /// No description provided for @version.
+  ///
+  /// In en, this message translates to:
+  /// **'Version'**
+  String get version;
+
+  /// No description provided for @contactUs.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Us'**
+  String get contactUs;
+
+  /// No description provided for @resetProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Progress'**
+  String get resetProgress;
+
+  /// No description provided for @correct.
+  ///
+  /// In en, this message translates to:
+  /// **'Correct!'**
+  String get correct;
+
+  /// No description provided for @incorrect.
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect'**
+  String get incorrect;
+
+  /// No description provided for @round.
+  ///
+  /// In en, this message translates to:
+  /// **'Round'**
+  String get round;
+
+  /// No description provided for @player.
+  ///
+  /// In en, this message translates to:
+  /// **'Player'**
+  String get player;
+
+  /// No description provided for @score.
+  ///
+  /// In en, this message translates to:
+  /// **'Score'**
+  String get score;
+
+  /// No description provided for @winner.
+  ///
+  /// In en, this message translates to:
+  /// **'Winner'**
+  String get winner;
+
+  /// No description provided for @draw.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw'**
+  String get draw;
+
+  /// No description provided for @players.
+  ///
+  /// In en, this message translates to:
+  /// **'Players'**
+  String get players;
+
+  /// No description provided for @rounds.
+  ///
+  /// In en, this message translates to:
+  /// **'Rounds'**
+  String get rounds;
+
+  /// No description provided for @difficulty.
+  ///
+  /// In en, this message translates to:
+  /// **'Difficulty'**
+  String get difficulty;
+
+  /// No description provided for @operation.
+  ///
+  /// In en, this message translates to:
+  /// **'Operation'**
+  String get operation;
+
+  /// No description provided for @mixed.
+  ///
+  /// In en, this message translates to:
+  /// **'Mixed'**
+  String get mixed;
+
+  /// No description provided for @startGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Game'**
+  String get startGame;
+
+  /// No description provided for @achievements.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievements'**
+  String get achievements;
+
+  /// No description provided for @streak.
+  ///
+  /// In en, this message translates to:
+  /// **'Streak'**
+  String get streak;
+
+  /// No description provided for @solvedIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Solved in'**
+  String get solvedIn;
+
+  /// No description provided for @seconds.
+  ///
+  /// In en, this message translates to:
+  /// **'seconds'**
+  String get seconds;
+
+  /// No description provided for @noHintsUsed.
+  ///
+  /// In en, this message translates to:
+  /// **'No hints used'**
+  String get noHintsUsed;
+
+  /// No description provided for @playAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Play Again'**
+  String get playAgain;
+
+  /// No description provided for @results.
+  ///
+  /// In en, this message translates to:
+  /// **'Results'**
+  String get results;
+
+  /// No description provided for @dailyStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Streak'**
+  String get dailyStreak;
 }
 
 class _AppLocalizationsDelegate
@@ -397,29 +613,55 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en', 'id', 'es', 'pt', 'de', 'fr', 'ja', 'ko', 'zh', 'hi', 'ar'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+    'ar',
+    'de',
+    'en',
+    'es',
+    'fr',
+    'hi',
+    'id',
+    'ja',
+    'ko',
+    'pt',
+    'zh',
+  ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
+  // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return AppLocalizationsEn();
-    case 'id': return AppLocalizationsId();
-    case 'es': return AppLocalizationsEs();
-    case 'pt': return AppLocalizationsPt();
-    case 'de': return AppLocalizationsDe();
-    case 'fr': return AppLocalizationsFr();
-    case 'ja': return AppLocalizationsJa();
-    case 'ko': return AppLocalizationsKo();
-    case 'zh': return AppLocalizationsZh();
-    case 'hi': return AppLocalizationsHi();
-    case 'ar': return AppLocalizationsAr();
+    case 'ar':
+      return AppLocalizationsAr();
+    case 'de':
+      return AppLocalizationsDe();
+    case 'en':
+      return AppLocalizationsEn();
+    case 'es':
+      return AppLocalizationsEs();
+    case 'fr':
+      return AppLocalizationsFr();
+    case 'hi':
+      return AppLocalizationsHi();
+    case 'id':
+      return AppLocalizationsId();
+    case 'ja':
+      return AppLocalizationsJa();
+    case 'ko':
+      return AppLocalizationsKo();
+    case 'pt':
+      return AppLocalizationsPt();
+    case 'zh':
+      return AppLocalizationsZh();
   }
 
   throw FlutterError(
-    'AppLocalizations.delegate failed to load unsupported locale "$locale".',
+    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.',
   );
 }
