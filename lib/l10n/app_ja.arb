@@ -125,5 +125,6 @@
       }
     }
   },
-  "completeMoreLevels": "リプレイするにはもっとレベルをクリアしてください"
+  "completeMoreLevels": "リプレイするにはもっとレベルをクリアしてください",
+  "viewSolution": "解答を見る"
 }

@@ -289,4 +289,7 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get completeMoreLevels => 'Complète plus de niveaux pour rejouer';
 
+  @override
+  String get viewSolution => 'Voir Solution';
+
 }

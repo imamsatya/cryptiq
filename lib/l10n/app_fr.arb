@@ -125,5 +125,6 @@
       }
     }
   },
-  "completeMoreLevels": "Complète plus de niveaux pour rejouer"
+  "completeMoreLevels": "Complète plus de niveaux pour rejouer",
+  "viewSolution": "Voir Solution"
 }

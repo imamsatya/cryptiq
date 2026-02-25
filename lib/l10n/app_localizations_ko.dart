@@ -289,4 +289,7 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get completeMoreLevels => '리플레이하려면 더 많은 레벨을 완료하세요';
 
+  @override
+  String get viewSolution => '풀이 보기';
+
 }

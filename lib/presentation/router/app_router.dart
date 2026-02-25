@@ -60,7 +60,8 @@ final appRouter = GoRouter(
       path: '/game/:level',
       builder: (context, state) {
         final level = int.parse(state.pathParameters['level']!);
-        return GameScreen(levelNumber: level);
+        final viewOnly = state.uri.queryParameters['viewOnly'] == 'true';
+        return GameScreen(levelNumber: level, viewOnly: viewOnly);
       },
     ),
     GoRoute(

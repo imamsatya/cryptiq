@@ -125,5 +125,6 @@
       }
     }
   },
-  "completeMoreLevels": "리플레이하려면 더 많은 레벨을 완료하세요"
+  "completeMoreLevels": "리플레이하려면 더 많은 레벨을 완료하세요",
+  "viewSolution": "풀이 보기"
 }

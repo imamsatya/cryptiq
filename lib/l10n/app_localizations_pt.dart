@@ -289,4 +289,7 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get completeMoreLevels => 'Complete mais níveis para repetir';
 
+  @override
+  String get viewSolution => 'Ver Solução';
+
 }

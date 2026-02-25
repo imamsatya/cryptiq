@@ -233,14 +233,12 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                       children: [
                         Expanded(
                           child: _buildSecondaryButton(
-                            icon: Icons.replay_rounded,
-                            label: 'Replay',
+                            icon: Icons.visibility_rounded,
+                            label: l10n.viewSolution,
                             onTap: () {
-                              // Force-reset the provider state
-                              ref.invalidate(gameStateProvider(widget.levelNumber));
                               context.pop(); // pop result
                               context.pop(); // pop completed game
-                              context.push('/game/${widget.levelNumber}');
+                              context.push('/game/${widget.levelNumber}?viewOnly=true');
                             },
                           ),
                         ),

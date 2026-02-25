@@ -289,4 +289,7 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get completeMoreLevels => 'Schließe mehr Level ab zum Wiederholen';
 
+  @override
+  String get viewSolution => 'Lösung Anzeigen';
+
 }

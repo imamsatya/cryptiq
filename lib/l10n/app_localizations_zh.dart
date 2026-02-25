@@ -289,4 +289,7 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get completeMoreLevels => '完成更多关卡后可重玩';
 
+  @override
+  String get viewSolution => '查看答案';
+
 }

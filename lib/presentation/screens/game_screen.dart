@@ -12,7 +12,8 @@ import '../widgets/number_pad.dart';
 
 class GameScreen extends ConsumerStatefulWidget {
   final int levelNumber;
-  const GameScreen({super.key, required this.levelNumber});
+  final bool viewOnly;
+  const GameScreen({super.key, required this.levelNumber, this.viewOnly = false});
 
   @override
   ConsumerState<GameScreen> createState() => _GameScreenState();
@@ -44,6 +45,11 @@ class _GameScreenState extends ConsumerState<GameScreen>
   @override
   Widget build(BuildContext context) {
     final gameState = ref.watch(gameStateProvider(widget.levelNumber));
+
+    // View-only mode: show completed solution
+    if (widget.viewOnly) {
+      return _buildViewOnlyScreen(gameState);
+    }
 
     return Scaffold(
       body: Container(
@@ -354,5 +360,170 @@ class _GameScreenState extends ConsumerState<GameScreen>
     final m = seconds ~/ 60;
     final s = seconds % 60;
     return '${m.toString().padLeft(2, '0')}:${s.toString().padLeft(2, '0')}';
+  }
+
+  /// Read-only view of a completed puzzle showing the solution
+  Widget _buildViewOnlyScreen(GameState gameState) {
+    final l10n = AppLocalizations.of(context)!;
+    final puzzle = gameState.puzzle;
+    final solution = puzzle.solution;
+
+    // Build fully-filled assignments from the solution
+    final filledAssignments = <String, int?>{
+      for (final entry in solution.entries) entry.key: entry.value,
+    };
+
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
+        child: SafeArea(
+          child: Column(
+            children: [
+              // Header
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        if (context.canPop()) {
+                          context.pop();
+                        } else {
+                          context.go('/');
+                        }
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: AppTheme.glassDecoration(borderRadius: 12),
+                        child: const Icon(Icons.arrow_back_rounded,
+                            color: Colors.white, size: 22),
+                      ),
+                    ),
+                    const Spacer(),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      decoration: AppTheme.glassDecoration(borderRadius: 12),
+                      child: Text(
+                        '${l10n.level(widget.levelNumber)}',
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    const Spacer(),
+                    // Solved badge
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: AppTheme.successColor.withValues(alpha: 0.2),
+                        border: Border.all(
+                          color: AppTheme.successColor.withValues(alpha: 0.4),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.check_circle_rounded,
+                              color: AppTheme.successColor, size: 16),
+                          const SizedBox(width: 4),
+                          Text(
+                            l10n.correct,
+                            style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                              color: AppTheme.successColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 16),
+
+              // View Solution label
+              Text(
+                l10n.viewSolution,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: AppTheme.textSecondary.withValues(alpha: 0.7),
+                ),
+              ),
+
+              const SizedBox(height: 16),
+
+              // Puzzle display with solution filled in
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: PuzzleDisplay(
+                    puzzle: puzzle,
+                    assignments: filledAssignments,
+                    wrongLetters: const {},
+                    correctLetters: solution.keys.toSet(),
+                    hintedLetters: const {},
+                    selectedLetter: null,
+                    onLetterTap: (_) {}, // Disabled
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 16),
+
+              // Letter assignments summary
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: AppTheme.glassDecoration(borderRadius: 16),
+                  child: Wrap(
+                    spacing: 16,
+                    runSpacing: 8,
+                    alignment: WrapAlignment.center,
+                    children: solution.entries.map((e) {
+                      return Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            e.key,
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              color: AppTheme.primaryColor,
+                            ),
+                          ),
+                          Text(
+                            ' = ',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white.withValues(alpha: 0.5),
+                            ),
+                          ),
+                          Text(
+                            '${e.value}',
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      );
+                    }).toList(),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 24),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

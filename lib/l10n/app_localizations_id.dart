@@ -289,4 +289,7 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get completeMoreLevels => 'Selesaikan level lagi untuk replay';
 
+  @override
+  String get viewSolution => 'Lihat Jawaban';
+
 }

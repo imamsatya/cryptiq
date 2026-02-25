@@ -102,7 +102,6 @@ class LevelSelectScreen extends ConsumerWidget {
     int startLevel,
     int endLevel,
   ) {
-    final l10n = AppLocalizations.of(context)!;
     final totalLevels = PuzzleGenerator.totalPuzzles;
     final adjustedEnd = endLevel > totalLevels ? totalLevels : endLevel;
     final highestCompleted = LocalDatabase.instance.getHighestCompletedLevel();
@@ -128,9 +127,6 @@ class LevelSelectScreen extends ConsumerWidget {
             levelNum > totalLevels - replayGap ||
             highestCompleted >= levelNum + replayGap;
         final bool isReplayLocked = isCompleted && !canReplay;
-        final levelsNeeded = isReplayLocked
-            ? (levelNum + replayGap) - highestCompleted
-            : 0;
 
         final diffColor = switch (difficulty) {
           DifficultyLevel.easy => AppTheme.easyColor,
@@ -142,14 +138,8 @@ class LevelSelectScreen extends ConsumerWidget {
         return GestureDetector(
           onTap: () {
             if (isReplayLocked) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    '${l10n.completeMoreLevels} ($levelsNeeded)',
-                  ),
-                  duration: const Duration(seconds: 2),
-                ),
-              );
+              // Open in view-only mode (read-only solution display)
+              context.push('/game/$levelNum?viewOnly=true');
               return;
             }
             context.push('/game/$levelNum');
