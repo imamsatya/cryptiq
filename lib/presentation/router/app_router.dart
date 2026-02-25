@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../screens/home_screen.dart';
 import '../screens/game_screen.dart';
@@ -8,13 +9,32 @@ import '../screens/statistics_screen.dart';
 import '../screens/daily_challenge_screen.dart';
 import '../screens/daily_result_screen.dart';
 import '../screens/achievements_screen.dart';
+import '../screens/onboarding_screen.dart';
+
+final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
 final appRouter = GoRouter(
+  navigatorKey: _rootNavigatorKey,
   initialLocation: '/',
+  redirect: (context, state) {
+    // On first launch, redirect to onboarding
+    if (state.uri.path == '/' && !OnboardingScreen.hasSeenOnboarding()) {
+      return '/onboarding';
+    }
+    return null;
+  },
   routes: [
     GoRoute(
       path: '/',
       builder: (context, state) => const HomeScreen(),
+    ),
+    GoRoute(
+      path: '/onboarding',
+      builder: (context, state) => OnboardingScreen(
+        onComplete: () {
+          _rootNavigatorKey.currentContext?.go('/');
+        },
+      ),
     ),
     GoRoute(
       path: '/daily',
