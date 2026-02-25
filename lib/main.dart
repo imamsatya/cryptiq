@@ -19,16 +19,16 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  // Set system UI overlay style
+  // Initialize database FIRST (theme reads from it)
+  await LocalDatabase.instance.init();
+
+  // Set system UI overlay style (after DB init so theme can read settings)
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
     statusBarIconBrightness: Brightness.light,
     systemNavigationBarColor: AppTheme.backgroundDark,
     systemNavigationBarIconBrightness: Brightness.light,
   ));
-
-  // Initialize database
-  await LocalDatabase.instance.init();
 
   // Initialize audio
   await AudioService.instance.init();
