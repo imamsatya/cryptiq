@@ -7,6 +7,7 @@ import '../screens/settings_screen.dart';
 import '../screens/statistics_screen.dart';
 import '../screens/daily_challenge_screen.dart';
 import '../screens/daily_result_screen.dart';
+import '../screens/achievements_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -60,6 +61,10 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/settings',
       builder: (context, state) => const SettingsScreen(),
+    ),
+    GoRoute(
+      path: '/achievements',
+      builder: (context, state) => const AchievementsScreen(),
     ),
   ],
 );

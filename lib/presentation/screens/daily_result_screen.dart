@@ -4,6 +4,7 @@ import 'package:confetti/confetti.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/services/daily_challenge_service.dart';
+import '../../core/services/achievement_service.dart';
 
 class DailyResultScreen extends StatefulWidget {
   final int timeSeconds;
@@ -41,6 +42,45 @@ class _DailyResultScreenState extends State<DailyResultScreen>
 
     _confettiController.play();
     _animController.forward();
+
+    // Check achievements after screen renders
+    Future.delayed(const Duration(milliseconds: 500), () {
+      if (mounted) _checkAchievements();
+    });
+  }
+
+  Future<void> _checkAchievements() async {
+    final newlyUnlocked = await AchievementService.instance.checkAndUnlock();
+    if (!mounted) return;
+    for (final a in newlyUnlocked) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Row(
+            children: [
+              Text(a.icon, style: const TextStyle(fontSize: 24)),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('Achievement Unlocked!',
+                        style: TextStyle(fontSize: 11, color: Colors.white70)),
+                    Text(a.title,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.w600, color: Colors.white)),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          backgroundColor: AppTheme.surfaceLight,
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          duration: const Duration(seconds: 3),
+        ),
+      );
+    }
   }
 
   @override

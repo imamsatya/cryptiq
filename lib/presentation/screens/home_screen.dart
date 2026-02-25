@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/services/daily_challenge_service.dart';
+import '../../core/services/achievement_service.dart';
 import '../../levels/puzzle_generator.dart';
 import '../providers/progress_provider.dart';
 
@@ -89,18 +90,28 @@ class HomeScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 12),
 
-                // Stats & Settings row
+                // Stats, Achievements & Settings row
                 Row(
                   children: [
                     Expanded(
                       child: _buildMenuButton(
                         context,
                         icon: Icons.bar_chart_rounded,
-                        label: 'Statistics',
+                        label: 'Stats',
                         onTap: () => context.push('/statistics'),
                       ),
                     ),
-                    const SizedBox(width: 12),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: _buildMenuButton(
+                        context,
+                        icon: Icons.emoji_events_rounded,
+                        label: 'Badges',
+                        badge: AchievementService.instance.unlockedCount,
+                        onTap: () => context.push('/achievements'),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
                     Expanded(
                       child: _buildMenuButton(
                         context,
@@ -315,23 +326,27 @@ class HomeScreen extends ConsumerWidget {
     required IconData icon,
     required String label,
     required VoidCallback onTap,
+    int? badge,
   }) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
         decoration: AppTheme.glassDecoration(borderRadius: 16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, color: AppTheme.primaryColor, size: 20),
-            const SizedBox(width: 10),
-            Text(
-              label,
-              style: const TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                color: Colors.white,
+            Icon(icon, color: AppTheme.primaryColor, size: 18),
+            const SizedBox(width: 6),
+            Flexible(
+              child: Text(
+                badge != null ? '$label ($badge)' : label,
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white,
+                ),
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ],
