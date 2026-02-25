@@ -7,6 +7,7 @@ import '../../core/services/audio_service.dart';
 import '../../data/datasources/local_database.dart';
 import '../../core/constants/app_constants.dart';
 import '../providers/theme_provider.dart';
+import '../providers/locale_provider.dart';
 import 'onboarding_screen.dart';
 
 class SettingsScreen extends ConsumerStatefulWidget {
@@ -186,6 +187,55 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                           ),
                         );
                       }).toList(),
+                    ),
+
+                    const SizedBox(height: 24),
+
+                    // Language
+                    _buildSectionTitle('Language'),
+                    const SizedBox(height: 8),
+                    Container(
+                      decoration: AppTheme.glassDecoration(borderRadius: 14),
+                      child: Column(
+                        children: supportedLanguages.map((lang) {
+                          final isActive = ref.read(localeProvider.notifier).selectedCode == lang.code;
+                          return InkWell(
+                            onTap: () async {
+                              await ref.read(localeProvider.notifier).setLocale(lang.code);
+                              if (mounted) setState(() {});
+                            },
+                            borderRadius: BorderRadius.circular(14),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                              decoration: isActive
+                                  ? BoxDecoration(
+                                      color: AppTheme.primaryColor.withValues(alpha: 0.15),
+                                      borderRadius: BorderRadius.circular(14),
+                                    )
+                                  : null,
+                              child: Row(
+                                children: [
+                                  Text(lang.flag, style: const TextStyle(fontSize: 22)),
+                                  const SizedBox(width: 14),
+                                  Expanded(
+                                    child: Text(
+                                      lang.name,
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
+                                        color: isActive ? AppTheme.primaryColor : Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                  if (isActive)
+                                    Icon(Icons.check_rounded,
+                                        color: AppTheme.primaryColor, size: 20),
+                                ],
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                      ),
                     ),
 
                     const SizedBox(height: 24),

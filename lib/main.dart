@@ -9,6 +9,7 @@ import 'core/services/ad_service.dart';
 import 'data/datasources/local_database.dart';
 import 'presentation/router/app_router.dart';
 import 'presentation/providers/theme_provider.dart';
+import 'presentation/providers/locale_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,24 +45,23 @@ class CryptiqApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Watch theme so the entire app rebuilds when theme changes
+    // Watch theme and locale so the entire app rebuilds on change
     ref.watch(themeProvider);
+    final locale = ref.watch(localeProvider);
 
     return MaterialApp.router(
       title: 'CryptiQ',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.darkTheme,
       routerConfig: appRouter,
+      locale: locale,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const [
-        Locale('en'),
-        Locale('id'),
-      ],
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }

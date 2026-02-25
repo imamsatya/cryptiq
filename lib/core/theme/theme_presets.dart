@@ -137,8 +137,10 @@ class ThemeService {
   static const _themeKey = 'selected_theme';
   final _db = LocalDatabase.instance;
 
-  String get selectedThemeId =>
-      _db.settingsBox.get(_themeKey, defaultValue: 'navy_gold');
+  String get selectedThemeId {
+    if (!_db.isInitialized) return 'navy_gold';
+    return _db.settingsBox.get(_themeKey, defaultValue: 'navy_gold');
+  }
 
   ThemePreset get currentTheme => ThemePresets.getById(selectedThemeId);
 

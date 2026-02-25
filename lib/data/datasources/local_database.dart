@@ -9,6 +9,9 @@ class LocalDatabase {
 
   late Box<UserProgress> _progressBox;
   late Box _settingsBox;
+  bool _isInitialized = false;
+
+  bool get isInitialized => _isInitialized;
 
   Future<void> init() async {
     await Hive.initFlutter();
@@ -30,6 +33,8 @@ class LocalDatabase {
     if (!_settingsBox.containsKey(AppConstants.hintBalanceKey)) {
       await _settingsBox.put(AppConstants.hintBalanceKey, AppConstants.initialFreeHints);
     }
+
+    _isInitialized = true;
   }
 
   Box<UserProgress> get progressBox => _progressBox;

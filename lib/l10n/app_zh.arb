@@ -1,0 +1,62 @@
+{
+  "@@locale": "zh",
+  "appTitle": "CryptiQ",
+  "play": "开始",
+  "dailyChallenge": "每日挑战",
+  "statistics": "统计",
+  "settings": "设置",
+  "level": "关卡 {number}",
+  "@level": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "easy": "简单",
+  "medium": "中等",
+  "hard": "困难",
+  "expert": "专家",
+  "hint": "提示",
+  "check": "检查",
+  "clear": "清除",
+  "clearAll": "全部清除",
+  "congratulations": "恭喜！",
+  "puzzleSolved": "谜题已解！",
+  "nextLevel": "下一关",
+  "replay": "重玩",
+  "share": "分享",
+  "time": "时间",
+  "hints": "提示",
+  "bestTime": "最佳时间",
+  "levelsCompleted": "已完成关卡",
+  "totalTime": "总时间",
+  "averageTime": "平均时间",
+  "hintsUsed": "已用提示",
+  "currentStreak": "当前连胜",
+  "bestStreak": "最佳连胜",
+  "sound": "声音",
+  "haptics": "震动",
+  "language": "语言",
+  "about": "关于",
+  "privacyPolicy": "隐私政策",
+  "rateApp": "评价应用",
+  "removeAds": "移除广告",
+  "restorePurchase": "恢复购买",
+  "tryAgain": "再试一次",
+  "wrongAnswer": "答案错误",
+  "someDigitsWrong": "部分数字不正确，请再试一次！",
+  "allLevelsFree": "所有关卡免费！",
+  "noLockedLevels": "没有锁定的关卡。",
+  "home": "主页",
+  "back": "返回",
+  "resume": "继续",
+  "stars": "{count} 星",
+  "@stars": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

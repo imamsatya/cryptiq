@@ -1,0 +1,62 @@
+{
+  "@@locale": "hi",
+  "appTitle": "CryptiQ",
+  "play": "खेलें",
+  "dailyChallenge": "दैनिक चुनौती",
+  "statistics": "आंकड़े",
+  "settings": "सेटिंग्स",
+  "level": "स्तर {number}",
+  "@level": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "easy": "आसान",
+  "medium": "मध्यम",
+  "hard": "कठिन",
+  "expert": "विशेषज्ञ",
+  "hint": "संकेत",
+  "check": "जाँचें",
+  "clear": "मिटाएं",
+  "clearAll": "सब मिटाएं",
+  "congratulations": "बधाई हो!",
+  "puzzleSolved": "पहेली हल!",
+  "nextLevel": "अगला स्तर",
+  "replay": "फिर से खेलें",
+  "share": "साझा करें",
+  "time": "समय",
+  "hints": "संकेत",
+  "bestTime": "सर्वश्रेष्ठ समय",
+  "levelsCompleted": "पूरे स्तर",
+  "totalTime": "कुल समय",
+  "averageTime": "औसत समय",
+  "hintsUsed": "संकेत उपयोग",
+  "currentStreak": "वर्तमान श्रृंखला",
+  "bestStreak": "सर्वश्रेष्ठ श्रृंखला",
+  "sound": "ध्वनि",
+  "haptics": "कंपन",
+  "language": "भाषा",
+  "about": "परिचय",
+  "privacyPolicy": "गोपनीयता नीति",
+  "rateApp": "ऐप रेट करें",
+  "removeAds": "विज्ञापन हटाएं",
+  "restorePurchase": "खरीदारी पुनर्स्थापित",
+  "tryAgain": "पुनः प्रयास",
+  "wrongAnswer": "गलत उत्तर",
+  "someDigitsWrong": "कुछ अंक गलत हैं। पुनः प्रयास करें!",
+  "allLevelsFree": "सभी स्तर मुफ़्त!",
+  "noLockedLevels": "कोई लॉक स्तर नहीं।",
+  "home": "होम",
+  "back": "वापस",
+  "resume": "जारी रखें",
+  "stars": "{count} सितारे",
+  "@stars": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

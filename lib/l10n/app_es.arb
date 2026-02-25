@@ -1,0 +1,62 @@
+{
+  "@@locale": "es",
+  "appTitle": "CryptiQ",
+  "play": "Jugar",
+  "dailyChallenge": "Desafío Diario",
+  "statistics": "Estadísticas",
+  "settings": "Ajustes",
+  "level": "Nivel {number}",
+  "@level": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "easy": "Fácil",
+  "medium": "Medio",
+  "hard": "Difícil",
+  "expert": "Experto",
+  "hint": "Pista",
+  "check": "Verificar",
+  "clear": "Borrar",
+  "clearAll": "Borrar Todo",
+  "congratulations": "¡Felicidades!",
+  "puzzleSolved": "¡Puzzle Resuelto!",
+  "nextLevel": "Siguiente Nivel",
+  "replay": "Repetir",
+  "share": "Compartir",
+  "time": "Tiempo",
+  "hints": "Pistas",
+  "bestTime": "Mejor Tiempo",
+  "levelsCompleted": "Niveles Completados",
+  "totalTime": "Tiempo Total",
+  "averageTime": "Tiempo Promedio",
+  "hintsUsed": "Pistas Usadas",
+  "currentStreak": "Racha Actual",
+  "bestStreak": "Mejor Racha",
+  "sound": "Sonido",
+  "haptics": "Vibración",
+  "language": "Idioma",
+  "about": "Acerca de",
+  "privacyPolicy": "Política de Privacidad",
+  "rateApp": "Calificar App",
+  "removeAds": "Eliminar Anuncios",
+  "restorePurchase": "Restaurar Compra",
+  "tryAgain": "Intentar de Nuevo",
+  "wrongAnswer": "Respuesta Incorrecta",
+  "someDigitsWrong": "¡Algunos dígitos son incorrectos. Intenta de nuevo!",
+  "allLevelsFree": "¡Todos los niveles son GRATIS!",
+  "noLockedLevels": "Sin niveles bloqueados, nunca.",
+  "home": "Inicio",
+  "back": "Volver",
+  "resume": "Continuar",
+  "stars": "{count} Estrellas",
+  "@stars": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

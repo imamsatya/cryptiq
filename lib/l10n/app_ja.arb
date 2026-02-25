@@ -1,0 +1,62 @@
+{
+  "@@locale": "ja",
+  "appTitle": "CryptiQ",
+  "play": "プレイ",
+  "dailyChallenge": "デイリーチャレンジ",
+  "statistics": "統計",
+  "settings": "設定",
+  "level": "レベル {number}",
+  "@level": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "easy": "簡単",
+  "medium": "普通",
+  "hard": "難しい",
+  "expert": "エキスパート",
+  "hint": "ヒント",
+  "check": "確認",
+  "clear": "クリア",
+  "clearAll": "全てクリア",
+  "congratulations": "おめでとう！",
+  "puzzleSolved": "パズル完成！",
+  "nextLevel": "次のレベル",
+  "replay": "リプレイ",
+  "share": "シェア",
+  "time": "時間",
+  "hints": "ヒント",
+  "bestTime": "最高タイム",
+  "levelsCompleted": "クリア数",
+  "totalTime": "合計時間",
+  "averageTime": "平均時間",
+  "hintsUsed": "ヒント使用数",
+  "currentStreak": "連続記録",
+  "bestStreak": "最高連続記録",
+  "sound": "サウンド",
+  "haptics": "振動",
+  "language": "言語",
+  "about": "アプリについて",
+  "privacyPolicy": "プライバシーポリシー",
+  "rateApp": "アプリを評価",
+  "removeAds": "広告を削除",
+  "restorePurchase": "購入を復元",
+  "tryAgain": "もう一度",
+  "wrongAnswer": "不正解",
+  "someDigitsWrong": "いくつかの数字が間違っています。もう一度！",
+  "allLevelsFree": "全レベル無料！",
+  "noLockedLevels": "ロックされたレベルはありません。",
+  "home": "ホーム",
+  "back": "戻る",
+  "resume": "再開",
+  "stars": "{count} スター",
+  "@stars": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

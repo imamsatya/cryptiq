@@ -1,0 +1,62 @@
+{
+  "@@locale": "ko",
+  "appTitle": "CryptiQ",
+  "play": "플레이",
+  "dailyChallenge": "일일 도전",
+  "statistics": "통계",
+  "settings": "설정",
+  "level": "레벨 {number}",
+  "@level": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "easy": "쉬움",
+  "medium": "보통",
+  "hard": "어려움",
+  "expert": "전문가",
+  "hint": "힌트",
+  "check": "확인",
+  "clear": "지우기",
+  "clearAll": "모두 지우기",
+  "congratulations": "축하합니다!",
+  "puzzleSolved": "퍼즐 완성!",
+  "nextLevel": "다음 레벨",
+  "replay": "다시 하기",
+  "share": "공유",
+  "time": "시간",
+  "hints": "힌트",
+  "bestTime": "최고 기록",
+  "levelsCompleted": "완료한 레벨",
+  "totalTime": "총 시간",
+  "averageTime": "평균 시간",
+  "hintsUsed": "힌트 사용",
+  "currentStreak": "현재 연속",
+  "bestStreak": "최고 연속",
+  "sound": "소리",
+  "haptics": "진동",
+  "language": "언어",
+  "about": "정보",
+  "privacyPolicy": "개인정보 처리방침",
+  "rateApp": "앱 평가",
+  "removeAds": "광고 제거",
+  "restorePurchase": "구매 복원",
+  "tryAgain": "다시 시도",
+  "wrongAnswer": "오답",
+  "someDigitsWrong": "일부 숫자가 틀렸습니다. 다시 시도하세요!",
+  "allLevelsFree": "모든 레벨 무료!",
+  "noLockedLevels": "잠긴 레벨 없음.",
+  "home": "홈",
+  "back": "뒤로",
+  "resume": "이어하기",
+  "stars": "{count} 별",
+  "@stars": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

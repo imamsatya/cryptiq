@@ -1,0 +1,62 @@
+{
+  "@@locale": "ar",
+  "appTitle": "CryptiQ",
+  "play": "العب",
+  "dailyChallenge": "التحدي اليومي",
+  "statistics": "الإحصائيات",
+  "settings": "الإعدادات",
+  "level": "المستوى {number}",
+  "@level": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "easy": "سهل",
+  "medium": "متوسط",
+  "hard": "صعب",
+  "expert": "خبير",
+  "hint": "تلميح",
+  "check": "تحقق",
+  "clear": "مسح",
+  "clearAll": "مسح الكل",
+  "congratulations": "تهانينا!",
+  "puzzleSolved": "تم حل اللغز!",
+  "nextLevel": "المستوى التالي",
+  "replay": "إعادة",
+  "share": "مشاركة",
+  "time": "الوقت",
+  "hints": "تلميحات",
+  "bestTime": "أفضل وقت",
+  "levelsCompleted": "المستويات المكتملة",
+  "totalTime": "الوقت الكلي",
+  "averageTime": "متوسط الوقت",
+  "hintsUsed": "تلميحات مستخدمة",
+  "currentStreak": "السلسلة الحالية",
+  "bestStreak": "أفضل سلسلة",
+  "sound": "الصوت",
+  "haptics": "الاهتزاز",
+  "language": "اللغة",
+  "about": "حول",
+  "privacyPolicy": "سياسة الخصوصية",
+  "rateApp": "تقييم التطبيق",
+  "removeAds": "إزالة الإعلانات",
+  "restorePurchase": "استعادة الشراء",
+  "tryAgain": "حاول مرة أخرى",
+  "wrongAnswer": "إجابة خاطئة",
+  "someDigitsWrong": "بعض الأرقام غير صحيحة. حاول مرة أخرى!",
+  "allLevelsFree": "جميع المستويات مجانية!",
+  "noLockedLevels": "لا مستويات مقفلة، أبداً.",
+  "home": "الرئيسية",
+  "back": "رجوع",
+  "resume": "استئناف",
+  "stars": "{count} نجوم",
+  "@stars": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

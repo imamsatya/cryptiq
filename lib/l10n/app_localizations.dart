@@ -7,6 +7,15 @@ import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_en.dart';
 import 'app_localizations_id.dart';
+import 'app_localizations_es.dart';
+import 'app_localizations_pt.dart';
+import 'app_localizations_de.dart';
+import 'app_localizations_fr.dart';
+import 'app_localizations_ja.dart';
+import 'app_localizations_ko.dart';
+import 'app_localizations_zh.dart';
+import 'app_localizations_hi.dart';
+import 'app_localizations_ar.dart';
 
 // ignore_for_file: type=lint
 
@@ -96,6 +105,15 @@ abstract class AppLocalizations {
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
     Locale('id'),
+    Locale('es'),
+    Locale('pt'),
+    Locale('de'),
+    Locale('fr'),
+    Locale('ja'),
+    Locale('ko'),
+    Locale('zh'),
+    Locale('hi'),
+    Locale('ar'),
   ];
 
   /// No description provided for @appTitle.
@@ -380,25 +398,28 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['en', 'id'].contains(locale.languageCode);
+      <String>['en', 'id', 'es', 'pt', 'de', 'fr', 'ja', 'ko', 'zh', 'hi', 'ar'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
-  // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en':
-      return AppLocalizationsEn();
-    case 'id':
-      return AppLocalizationsId();
+    case 'en': return AppLocalizationsEn();
+    case 'id': return AppLocalizationsId();
+    case 'es': return AppLocalizationsEs();
+    case 'pt': return AppLocalizationsPt();
+    case 'de': return AppLocalizationsDe();
+    case 'fr': return AppLocalizationsFr();
+    case 'ja': return AppLocalizationsJa();
+    case 'ko': return AppLocalizationsKo();
+    case 'zh': return AppLocalizationsZh();
+    case 'hi': return AppLocalizationsHi();
+    case 'ar': return AppLocalizationsAr();
   }
 
   throw FlutterError(
-    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.',
+    'AppLocalizations.delegate failed to load unsupported locale "$locale".',
   );
 }
