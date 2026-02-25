@@ -12,10 +12,7 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final completedLevels = ref.watch(completedLevelsProvider);
-    final totalStars = ref.watch(totalStarsProvider);
     final lastPlayed = ref.watch(lastPlayedLevelProvider);
-    final totalLevels = PuzzleGenerator.totalPuzzles;
 
     return Scaffold(
       body: Container(
@@ -25,17 +22,7 @@ class HomeScreen extends ConsumerWidget {
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               children: [
-                const SizedBox(height: 20),
-
-                // Settings button
-                Align(
-                  alignment: Alignment.topRight,
-                  child: IconButton(
-                    onPressed: () => context.push('/settings'),
-                    icon: Icon(Icons.settings_rounded,
-                        color: AppTheme.textSecondary.withValues(alpha: 0.7)),
-                  ),
-                ),
+                const SizedBox(height: 12),
 
                 const Spacer(flex: 2),
 
@@ -65,21 +52,16 @@ class HomeScreen extends ConsumerWidget {
                   ),
                 ),
 
-                const SizedBox(height: 32),
-
-                // Stats row
-                _buildStatsRow(completedLevels, totalLevels, totalStars),
-
-                const SizedBox(height: 20),
+                const SizedBox(height: 16),
 
                 // Daily Challenge card
                 _buildDailyCard(context),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 16),
 
                 // Play button
                 _buildPlayButton(context, lastPlayed),
-                const SizedBox(height: 16),
+                const SizedBox(height: 10),
 
                 // Level select button
                 _buildMenuButton(
@@ -88,7 +70,7 @@ class HomeScreen extends ConsumerWidget {
                   label: 'Select Level',
                   onTap: () => context.push('/levels'),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 8),
 
                 // Stats, Achievements & Settings row
                 Row(
@@ -171,38 +153,7 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildStatsRow(int completed, int total, int stars) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-      decoration: AppTheme.glassDecoration(borderRadius: 20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          _buildStatItem(Icons.check_circle_outline, '$completed/$total', 'Levels'),
-          Container(width: 1, height: 30, color: Colors.white.withValues(alpha: 0.1)),
-          _buildStatItem(Icons.star_rounded, '$stars', 'Stars'),
-          Container(width: 1, height: 30, color: Colors.white.withValues(alpha: 0.1)),
-          _buildStatItem(Icons.emoji_events_rounded, '${(completed / total * 100).toStringAsFixed(0)}%', 'Progress'),
-        ],
-      ),
-    );
-  }
 
-  Widget _buildStatItem(IconData icon, String value, String label) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icon, color: AppTheme.primaryColor, size: 20),
-        const SizedBox(height: 4),
-        Text(value,
-            style: const TextStyle(
-                fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white)),
-        Text(label,
-            style: TextStyle(
-                fontSize: 10, color: AppTheme.textSecondary.withValues(alpha: 0.7))),
-      ],
-    );
-  }
 
   Widget _buildDailyCard(BuildContext context) {
     final daily = DailyChallengeService.instance;
