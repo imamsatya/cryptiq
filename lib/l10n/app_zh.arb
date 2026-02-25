@@ -124,5 +124,6 @@
         "type": "int"
       }
     }
-  }
+  },
+  "completeMoreLevels": "完成更多关卡后可重玩"
 }

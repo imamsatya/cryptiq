@@ -21,7 +21,7 @@ class UserProgressAdapter extends TypeAdapter<UserProgress> {
       isCompleted: fields[1] as bool,
       stars: fields[2] as int,
       bestTimeSeconds: fields[3] as int,
-      hintsUsed: fields[4] as int,
+      totalHintsUsed: fields[4] as int,
       attempts: fields[5] as int,
       completedAt: fields[6] as DateTime?,
     );
@@ -40,7 +40,7 @@ class UserProgressAdapter extends TypeAdapter<UserProgress> {
       ..writeByte(3)
       ..write(obj.bestTimeSeconds)
       ..writeByte(4)
-      ..write(obj.hintsUsed)
+      ..write(obj.totalHintsUsed)
       ..writeByte(5)
       ..write(obj.attempts)
       ..writeByte(6)

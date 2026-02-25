@@ -602,6 +602,12 @@ abstract class AppLocalizations {
   /// **'Daily Streak'**
   String get dailyStreak;
 
+  /// No description provided for @completeMoreLevels.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete more levels to replay'**
+  String get completeMoreLevels;
+
   /// No description provided for @giveUp.
   ///
   /// In en, this message translates to:

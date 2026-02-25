@@ -102,8 +102,11 @@ class LevelSelectScreen extends ConsumerWidget {
     int startLevel,
     int endLevel,
   ) {
+    final l10n = AppLocalizations.of(context)!;
     final totalLevels = PuzzleGenerator.totalPuzzles;
     final adjustedEnd = endLevel > totalLevels ? totalLevels : endLevel;
+    final highestCompleted = LocalDatabase.instance.getHighestCompletedLevel();
+    const replayGap = 5;
 
     return GridView.builder(
       padding: const EdgeInsets.all(16),
@@ -120,6 +123,15 @@ class LevelSelectScreen extends ConsumerWidget {
         final isCompleted = progress?.isCompleted ?? false;
         final stars = progress?.stars ?? 0;
 
+        // Replay gate: need 5 more levels completed, unless in last 5 levels
+        final bool canReplay = !isCompleted ||
+            levelNum > totalLevels - replayGap ||
+            highestCompleted >= levelNum + replayGap;
+        final bool isReplayLocked = isCompleted && !canReplay;
+        final levelsNeeded = isReplayLocked
+            ? (levelNum + replayGap) - highestCompleted
+            : 0;
+
         final diffColor = switch (difficulty) {
           DifficultyLevel.easy => AppTheme.easyColor,
           DifficultyLevel.medium => AppTheme.mediumColor,
@@ -128,46 +140,79 @@ class LevelSelectScreen extends ConsumerWidget {
         };
 
         return GestureDetector(
-          onTap: () => context.push('/game/$levelNum'),
+          onTap: () {
+            if (isReplayLocked) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    '${l10n.completeMoreLevels} ($levelsNeeded)',
+                  ),
+                  duration: const Duration(seconds: 2),
+                ),
+              );
+              return;
+            }
+            context.push('/game/$levelNum');
+          },
           child: Container(
             decoration: BoxDecoration(
               color: isCompleted
-                  ? diffColor.withValues(alpha: 0.15)
+                  ? diffColor.withValues(alpha: isReplayLocked ? 0.08 : 0.15)
                   : AppTheme.surfaceColor.withValues(alpha: 0.5),
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
                 color: isCompleted
-                    ? diffColor.withValues(alpha: 0.4)
+                    ? diffColor.withValues(alpha: isReplayLocked ? 0.2 : 0.4)
                     : Colors.white.withValues(alpha: 0.08),
                 width: 1.5,
               ),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Stack(
+              alignment: Alignment.center,
               children: [
-                Text(
-                  '$levelNum',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: isCompleted ? diffColor : Colors.white,
-                  ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      '$levelNum',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: isCompleted
+                            ? (isReplayLocked ? diffColor.withValues(alpha: 0.4) : diffColor)
+                            : Colors.white,
+                      ),
+                    ),
+                    if (isCompleted) ...[
+                      const SizedBox(height: 2),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: List.generate(3, (i) {
+                          return Icon(
+                            i < stars ? Icons.star_rounded : Icons.star_border_rounded,
+                            size: 12,
+                            color: i < stars
+                                ? (isReplayLocked
+                                    ? AppTheme.primaryColor.withValues(alpha: 0.4)
+                                    : AppTheme.primaryColor)
+                                : AppTheme.textMuted.withValues(alpha: 0.4),
+                          );
+                        }),
+                      ),
+                    ],
+                  ],
                 ),
-                if (isCompleted) ...[
-                  const SizedBox(height: 2),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(3, (i) {
-                      return Icon(
-                        i < stars ? Icons.star_rounded : Icons.star_border_rounded,
-                        size: 12,
-                        color: i < stars
-                            ? AppTheme.primaryColor
-                            : AppTheme.textMuted.withValues(alpha: 0.4),
-                      );
-                    }),
+                // Replay lock icon overlay
+                if (isReplayLocked)
+                  Positioned(
+                    top: 4,
+                    right: 4,
+                    child: Icon(
+                      Icons.lock_outline_rounded,
+                      size: 10,
+                      color: Colors.white.withValues(alpha: 0.3),
+                    ),
                   ),
-                ],
               ],
             ),
           ),
@@ -176,3 +221,4 @@ class LevelSelectScreen extends ConsumerWidget {
     );
   }
 }
+

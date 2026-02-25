@@ -124,5 +124,6 @@
         "type": "int"
       }
     }
-  }
+  },
+  "completeMoreLevels": "Complete mais níveis para repetir"
 }

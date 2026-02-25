@@ -286,4 +286,7 @@ class AppLocalizationsZh extends AppLocalizations {
   @override
   String get dailyComplete => '每日挑战完成！';
 
+  @override
+  String get completeMoreLevels => '完成更多关卡后可重玩';
+
 }

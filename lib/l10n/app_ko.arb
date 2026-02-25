@@ -124,5 +124,6 @@
         "type": "int"
       }
     }
-  }
+  },
+  "completeMoreLevels": "리플레이하려면 더 많은 레벨을 완료하세요"
 }

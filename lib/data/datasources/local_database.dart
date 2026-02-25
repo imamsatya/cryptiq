@@ -30,9 +30,6 @@ class LocalDatabase {
     if (!_settingsBox.containsKey(AppConstants.hapticsKey)) {
       await _settingsBox.put(AppConstants.hapticsKey, true);
     }
-    if (!_settingsBox.containsKey(AppConstants.hintBalanceKey)) {
-      await _settingsBox.put(AppConstants.hintBalanceKey, 0);
-    }
 
     _isInitialized = true;
   }
@@ -61,6 +58,17 @@ class LocalDatabase {
     return _progressBox.values.fold(0, (sum, p) => sum + p.stars);
   }
 
+  /// Get highest completed level number (for replay gap check)
+  int getHighestCompletedLevel() {
+    int highest = 0;
+    for (final p in _progressBox.values) {
+      if (p.isCompleted && p.levelNumber > highest) {
+        highest = p.levelNumber;
+      }
+    }
+    return highest;
+  }
+
   // Settings operations
   bool getSoundEnabled() => _settingsBox.get(AppConstants.soundKey, defaultValue: true);
   bool getHapticsEnabled() => _settingsBox.get(AppConstants.hapticsKey, defaultValue: true);
@@ -70,7 +78,6 @@ class LocalDatabase {
 
   Future<void> setSoundEnabled(bool value) => _settingsBox.put(AppConstants.soundKey, value);
   Future<void> setHapticsEnabled(bool value) => _settingsBox.put(AppConstants.hapticsKey, value);
-  Future<void> setHintBalance(int value) => _settingsBox.put(AppConstants.hintBalanceKey, value);
   Future<void> setLastPlayedLevel(int value) => _settingsBox.put(AppConstants.lastPlayedLevelKey, value);
   Future<void> setProStatus(bool value) => _settingsBox.put(AppConstants.proStatusKey, value);
 }

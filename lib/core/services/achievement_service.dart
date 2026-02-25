@@ -261,7 +261,7 @@ class AchievementService {
       if (fastest == 0 || p.bestTimeSeconds < fastest) {
         fastest = p.bestTimeSeconds;
       }
-      if (p.hintsUsed == 0) noHint++;
+      if (p.totalHintsUsed == 0) noHint++;
       if (p.stars == 3) perfect++;
       totalAttempts += p.attempts;
 

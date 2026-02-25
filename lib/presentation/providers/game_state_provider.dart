@@ -230,14 +230,12 @@ class GameStateNotifier extends StateNotifier<GameState> {
     if (state.puzzle.verifySolution(assignment)) {
       _timer?.cancel();
       
-      // Save progress
-      final stars = state.calculateStars();
+      // Save progress — stars calculated from cumulative totalHintsUsed in repo
       if (_progressRepo != null) {
         await _progressRepo.completeLevel(
           levelNumber: state.puzzle.levelNumber,
           timeSeconds: state.elapsedSeconds,
           hintsUsed: state.hintsUsed,
-          stars: stars,
         );
       }
 

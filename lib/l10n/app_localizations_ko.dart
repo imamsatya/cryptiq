@@ -286,4 +286,7 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get dailyComplete => '일일 챌린지 완료!';
 
+  @override
+  String get completeMoreLevels => '리플레이하려면 더 많은 레벨을 완료하세요';
+
 }

@@ -110,5 +110,6 @@
         "type": "int"
       }
     }
-  }
+  },
+  "completeMoreLevels": "Selesaikan level lagi untuk replay"
 }

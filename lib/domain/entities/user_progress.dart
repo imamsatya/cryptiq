@@ -17,7 +17,7 @@ class UserProgress extends HiveObject {
   int bestTimeSeconds;
 
   @HiveField(4)
-  int hintsUsed;
+  int totalHintsUsed; // Cumulative across ALL attempts (permanent)
 
   @HiveField(5)
   int attempts;
@@ -30,7 +30,7 @@ class UserProgress extends HiveObject {
     this.isCompleted = false,
     this.stars = 0,
     this.bestTimeSeconds = 0,
-    this.hintsUsed = 0,
+    this.totalHintsUsed = 0,
     this.attempts = 0,
     this.completedAt,
   });

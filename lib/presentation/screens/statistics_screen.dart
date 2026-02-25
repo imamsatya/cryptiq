@@ -17,7 +17,7 @@ class StatisticsScreen extends StatelessWidget {
     final maxStars = PuzzleGenerator.totalPuzzles * 3;
     final totalTime = allProgress.fold(0, (sum, p) => sum + p.bestTimeSeconds);
     final avgTime = completed > 0 ? totalTime ~/ completed : 0;
-    final totalHints = allProgress.fold(0, (sum, p) => sum + p.hintsUsed);
+    final totalHints = allProgress.fold(0, (sum, p) => sum + p.totalHintsUsed);
 
     final l10n = AppLocalizations.of(context)!;
     return Scaffold(

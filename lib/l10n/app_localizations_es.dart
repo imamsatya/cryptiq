@@ -286,4 +286,7 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get dailyComplete => '¡Desafío Diario Completo!';
 
+  @override
+  String get completeMoreLevels => 'Completa más niveles para repetir';
+
 }
