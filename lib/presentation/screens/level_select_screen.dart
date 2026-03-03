@@ -108,7 +108,8 @@ class LevelSelectScreen extends ConsumerWidget {
     final adjustedEnd = endLevel > totalLevels ? totalLevels : endLevel;
 
     return GridView.builder(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+      physics: const ClampingScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 5,
         mainAxisSpacing: 10,
