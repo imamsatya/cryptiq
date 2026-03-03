@@ -318,7 +318,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
             ),
           ),
 
-          const SizedBox(width: 12),
+          const SizedBox(width: 8),
 
           // Clear button
           GestureDetector(
@@ -331,14 +331,39 @@ class _GameScreenState extends ConsumerState<GameScreen>
                     HapticFeedback.lightImpact();
                   },
             child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+              padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
               decoration: AppTheme.glassDecoration(borderRadius: 14),
               child: const Icon(Icons.refresh_rounded,
                   color: AppTheme.textSecondary, size: 22),
             ),
           ),
 
-          const SizedBox(width: 12),
+          const SizedBox(width: 8),
+
+          // Undo button
+          GestureDetector(
+            onTap: gameState.isComplete
+                ? null
+                : () {
+                    final notifier = ref.read(
+                        gameStateProvider(widget.levelNumber).notifier);
+                    if (notifier.canUndo) {
+                      notifier.undo();
+                      HapticFeedback.lightImpact();
+                    }
+                  },
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
+              decoration: AppTheme.glassDecoration(borderRadius: 14),
+              child: Icon(Icons.undo_rounded,
+                  color: ref.read(gameStateProvider(widget.levelNumber).notifier).canUndo
+                      ? AppTheme.textSecondary
+                      : AppTheme.textSecondary.withValues(alpha: 0.3),
+                  size: 22),
+            ),
+          ),
+
+          const SizedBox(width: 8),
 
           // Check button
           Expanded(

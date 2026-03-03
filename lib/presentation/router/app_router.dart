@@ -17,6 +17,34 @@ import '../screens/privacy_policy_screen.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
+/// Smooth slide-fade transition for all routes
+CustomTransitionPage<void> _transitionPage({
+  required Widget child,
+  required GoRouterState state,
+  bool slideUp = false,
+}) {
+  return CustomTransitionPage(
+    key: state.pageKey,
+    child: child,
+    transitionDuration: const Duration(milliseconds: 300),
+    reverseTransitionDuration: const Duration(milliseconds: 250),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      final curved = CurvedAnimation(parent: animation, curve: Curves.easeOutCubic);
+      final offset = slideUp
+          ? Tween(begin: const Offset(0, 0.08), end: Offset.zero)
+          : Tween(begin: const Offset(0.05, 0), end: Offset.zero);
+
+      return FadeTransition(
+        opacity: curved,
+        child: SlideTransition(
+          position: offset.animate(curved),
+          child: child,
+        ),
+      );
+    },
+  );
+}
+
 final appRouter = GoRouter(
   navigatorKey: _rootNavigatorKey,
   initialLocation: '/',
@@ -29,97 +57,126 @@ final appRouter = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => const HomeScreen(),
+      pageBuilder: (context, state) =>
+          _transitionPage(child: const HomeScreen(), state: state),
     ),
     GoRoute(
       path: '/onboarding',
-      builder: (context, state) => OnboardingScreen(
-        onComplete: () {
-          _rootNavigatorKey.currentContext?.go('/');
-        },
+      pageBuilder: (context, state) => _transitionPage(
+        child: OnboardingScreen(
+          onComplete: () {
+            _rootNavigatorKey.currentContext?.go('/');
+          },
+        ),
+        state: state,
       ),
     ),
     GoRoute(
       path: '/daily',
-      builder: (context, state) => const DailyChallengeScreen(),
+      pageBuilder: (context, state) =>
+          _transitionPage(child: const DailyChallengeScreen(), state: state),
     ),
     GoRoute(
       path: '/daily-result',
-      builder: (context, state) {
+      pageBuilder: (context, state) {
         final extras = state.extra as Map<String, dynamic>?;
-        return DailyResultScreen(
-          timeSeconds: extras?['time'] ?? 0,
-          hintsUsed: extras?['hints'] ?? 0,
+        return _transitionPage(
+          child: DailyResultScreen(
+            timeSeconds: extras?['time'] ?? 0,
+            hintsUsed: extras?['hints'] ?? 0,
+          ),
+          state: state,
+          slideUp: true,
         );
       },
     ),
     GoRoute(
       path: '/levels',
-      builder: (context, state) => const LevelSelectScreen(),
+      pageBuilder: (context, state) =>
+          _transitionPage(child: const LevelSelectScreen(), state: state),
     ),
     GoRoute(
       path: '/game/:level',
-      builder: (context, state) {
+      pageBuilder: (context, state) {
         final level = int.parse(state.pathParameters['level']!);
         final viewOnly = state.uri.queryParameters['viewOnly'] == 'true';
-        return GameScreen(levelNumber: level, viewOnly: viewOnly);
+        return _transitionPage(
+          child: GameScreen(levelNumber: level, viewOnly: viewOnly),
+          state: state,
+        );
       },
     ),
     GoRoute(
       path: '/result/:level',
-      builder: (context, state) {
+      pageBuilder: (context, state) {
         final level = int.parse(state.pathParameters['level']!);
         final extras = state.extra as Map<String, dynamic>?;
-        return ResultScreen(
-          levelNumber: level,
-          timeSeconds: extras?['time'] ?? 0,
-          hintsUsed: extras?['hints'] ?? 0,
-          stars: extras?['stars'] ?? 1,
+        return _transitionPage(
+          child: ResultScreen(
+            levelNumber: level,
+            timeSeconds: extras?['time'] ?? 0,
+            hintsUsed: extras?['hints'] ?? 0,
+            stars: extras?['stars'] ?? 1,
+          ),
+          state: state,
+          slideUp: true,
         );
       },
     ),
     GoRoute(
       path: '/statistics',
-      builder: (context, state) => const StatisticsScreen(),
+      pageBuilder: (context, state) =>
+          _transitionPage(child: const StatisticsScreen(), state: state),
     ),
     GoRoute(
       path: '/settings',
-      builder: (context, state) => const SettingsScreen(),
+      pageBuilder: (context, state) =>
+          _transitionPage(child: const SettingsScreen(), state: state),
     ),
     GoRoute(
       path: '/achievements',
-      builder: (context, state) => const AchievementsScreen(),
+      pageBuilder: (context, state) =>
+          _transitionPage(child: const AchievementsScreen(), state: state),
     ),
     GoRoute(
       path: '/multiplayer',
-      builder: (context, state) => const MultiplayerLobbyScreen(),
+      pageBuilder: (context, state) =>
+          _transitionPage(child: const MultiplayerLobbyScreen(), state: state),
     ),
     GoRoute(
       path: '/multiplayer-game',
-      builder: (context, state) {
+      pageBuilder: (context, state) {
         final extras = state.extra as Map<String, dynamic>;
-        return MultiplayerGameScreen(
-          playerNames: List<String>.from(extras['names']),
-          totalRounds: extras['rounds'],
-          difficulty: extras['difficulty'],
-          operation: extras['operation'],
+        return _transitionPage(
+          child: MultiplayerGameScreen(
+            playerNames: List<String>.from(extras['names']),
+            totalRounds: extras['rounds'],
+            difficulty: extras['difficulty'],
+            operation: extras['operation'],
+          ),
+          state: state,
         );
       },
     ),
     GoRoute(
       path: '/multiplayer-result',
-      builder: (context, state) {
+      pageBuilder: (context, state) {
         final extras = state.extra as Map<String, dynamic>;
-        return MultiplayerResultScreen(
-          playerNames: List<String>.from(extras['names']),
-          results: extras['results'],
-          totalRounds: extras['rounds'],
+        return _transitionPage(
+          child: MultiplayerResultScreen(
+            playerNames: List<String>.from(extras['names']),
+            results: extras['results'],
+            totalRounds: extras['rounds'],
+          ),
+          state: state,
+          slideUp: true,
         );
       },
     ),
     GoRoute(
       path: '/privacy',
-      builder: (context, state) => const PrivacyPolicyScreen(),
+      pageBuilder: (context, state) =>
+          _transitionPage(child: const PrivacyPolicyScreen(), state: state),
     ),
   ],
 );

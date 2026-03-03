@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/datasources/local_database.dart';
 import '../../levels/puzzle_generator.dart';
+import '../../core/services/daily_challenge_service.dart';
 
 class StatisticsScreen extends StatelessWidget {
   const StatisticsScreen({super.key});
@@ -94,6 +95,26 @@ class StatisticsScreen extends StatelessWidget {
                           _formatTime(totalTime),
                           l10n.totalTime,
                           AppTheme.expertColor,
+                        )),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+
+                    // Streak & Daily row
+                    Row(
+                      children: [
+                        Expanded(child: _buildStatCard(
+                          Icons.local_fire_department_rounded,
+                          '${DailyChallengeService.instance.streak}',
+                          'Current Streak',
+                          Colors.orange,
+                        )),
+                        const SizedBox(width: 12),
+                        Expanded(child: _buildStatCard(
+                          Icons.emoji_events_rounded,
+                          '${DailyChallengeService.instance.bestStreak}',
+                          'Best Streak',
+                          const Color(0xFFD4A843),
                         )),
                       ],
                     ),

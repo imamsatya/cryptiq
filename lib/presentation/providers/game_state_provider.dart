@@ -111,6 +111,8 @@ class GameState {
 class GameStateNotifier extends StateNotifier<GameState> {
   final ProgressRepository? _progressRepo;
   Timer? _timer;
+  final List<_UndoSnapshot> _undoStack = [];
+  static const _maxUndoSteps = 20;
 
   GameStateNotifier(CryptarithmPuzzle puzzle, this._progressRepo)
       : super(GameState(
@@ -149,6 +151,9 @@ class GameStateNotifier extends StateNotifier<GameState> {
 
     final letter = state.selectedLetter!;
     if (state.hintedLetters.contains(letter)) return;
+
+    // Save undo snapshot before change
+    _pushUndo();
 
     final newAssignments = Map<String, int?>.from(state.assignments);
     final newUsedDigits = Set<int>.from(state.usedDigits);
@@ -368,11 +373,45 @@ class GameStateNotifier extends StateNotifier<GameState> {
     state = state.copyWith(rewardedHints: state.rewardedHints + 1);
   }
 
+  // --- Undo ---
+
+  void _pushUndo() {
+    _undoStack.add(_UndoSnapshot(
+      assignments: Map<String, int?>.from(state.assignments),
+      usedDigits: Set<int>.from(state.usedDigits),
+    ));
+    if (_undoStack.length > _maxUndoSteps) {
+      _undoStack.removeAt(0);
+    }
+  }
+
+  bool get canUndo => _undoStack.isNotEmpty && !state.isComplete;
+
+  /// Undo the last assignment
+  void undo() {
+    if (!canUndo) return;
+    final snapshot = _undoStack.removeLast();
+    state = state.copyWith(
+      assignments: snapshot.assignments,
+      usedDigits: snapshot.usedDigits,
+      clearSelectedLetter: true,
+      wrongLetters: {},
+      isChecking: false,
+    );
+  }
+
   @override
   void dispose() {
     _timer?.cancel();
     super.dispose();
   }
+}
+
+/// Snapshot for undo stack
+class _UndoSnapshot {
+  final Map<String, int?> assignments;
+  final Set<int> usedDigits;
+  const _UndoSnapshot({required this.assignments, required this.usedDigits});
 }
 
 /// Provider family for game state per level
