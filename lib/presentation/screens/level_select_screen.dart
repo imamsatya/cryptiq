@@ -137,12 +137,18 @@ class LevelSelectScreen extends ConsumerWidget {
 
         return GestureDetector(
           onTap: () {
+            if (!isCompleted) {
+              // Uncompleted level — play directly
+              context.push('/game/$levelNum');
+              return;
+            }
             if (isReplayLocked) {
-              // Open in view-only mode (read-only solution display)
+              // Replay-locked — view solution only
               context.push('/game/$levelNum?viewOnly=true');
               return;
             }
-            context.push('/game/$levelNum');
+            // Completed + replay-unlocked — show choice dialog
+            _showLevelActionSheet(context, levelNum, progress!.stars);
           },
           child: Container(
             decoration: BoxDecoration(
@@ -210,5 +216,121 @@ class LevelSelectScreen extends ConsumerWidget {
       },
     );
   }
-}
 
+  void _showLevelActionSheet(BuildContext context, int levelNum, int stars) {
+    final l10n = AppLocalizations.of(context)!;
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (ctx) => Container(
+        padding: const EdgeInsets.all(24),
+        decoration: BoxDecoration(
+          color: AppTheme.surfaceColor,
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+          border: Border.all(
+            color: Colors.white.withValues(alpha: 0.1),
+          ),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Handle bar
+            Container(
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: Colors.white.withValues(alpha: 0.2),
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+            const SizedBox(height: 16),
+
+            // Level title with stars
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  l10n.level(levelNum),
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                ...List.generate(3, (i) => Icon(
+                  i < stars ? Icons.star_rounded : Icons.star_border_rounded,
+                  size: 20,
+                  color: i < stars
+                      ? AppTheme.primaryColor
+                      : AppTheme.textMuted.withValues(alpha: 0.4),
+                )),
+              ],
+            ),
+            const SizedBox(height: 24),
+
+            // View Solution button
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(ctx);
+                context.push('/game/$levelNum?viewOnly=true');
+              },
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(vertical: 14),
+                decoration: AppTheme.glassDecoration(borderRadius: 14),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.visibility_rounded,
+                        color: AppTheme.primaryColor, size: 22),
+                    const SizedBox(width: 10),
+                    Text(
+                      l10n.viewSolution,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                        color: AppTheme.primaryColor,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+
+            // Replay button
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(ctx);
+                context.push('/game/$levelNum');
+              },
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(vertical: 14),
+                decoration: AppTheme.glassDecoration(borderRadius: 14),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.replay_rounded,
+                        color: Colors.white, size: 22),
+                    const SizedBox(width: 10),
+                    Text(
+                      l10n.replay,
+                      style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+          ],
+        ),
+      ),
+    );
+  }
+}
