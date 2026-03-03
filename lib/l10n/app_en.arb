@@ -126,5 +126,7 @@
     }
   },
   "completeMoreLevels": "Complete more levels to replay",
-  "viewSolution": "View Solution"
+  "viewSolution": "View Solution",
+  "attempts": "Attempts",
+  "close": "Close"
 }

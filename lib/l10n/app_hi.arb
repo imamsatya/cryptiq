@@ -126,5 +126,7 @@
     }
   },
   "completeMoreLevels": "फिर से खेलने के लिए अधिक स्तर पूरे करें",
-  "viewSolution": "उत्तर देखें"
+  "viewSolution": "उत्तर देखें",
+  "attempts": "प्रयास",
+  "close": "बंद करें"
 }

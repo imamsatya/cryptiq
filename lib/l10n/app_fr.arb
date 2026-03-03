@@ -126,5 +126,7 @@
     }
   },
   "completeMoreLevels": "Complète plus de niveaux pour rejouer",
-  "viewSolution": "Voir Solution"
+  "viewSolution": "Voir Solution",
+  "attempts": "Tentatives",
+  "close": "Fermer"
 }

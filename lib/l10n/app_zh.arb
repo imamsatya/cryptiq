@@ -126,5 +126,7 @@
     }
   },
   "completeMoreLevels": "完成更多关卡后可重玩",
-  "viewSolution": "查看答案"
+  "viewSolution": "查看答案",
+  "attempts": "尝试次数",
+  "close": "关闭"
 }

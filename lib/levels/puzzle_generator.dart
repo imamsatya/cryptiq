@@ -78,4 +78,11 @@ class PuzzleGenerator {
       );
     });
   }
+
+  static String getDifficultyName(int levelNumber) {
+    if (levelNumber <= 250) return 'Easy';
+    if (levelNumber <= 500) return 'Medium';
+    if (levelNumber <= 750) return 'Hard';
+    return 'Expert';
+  }
 }

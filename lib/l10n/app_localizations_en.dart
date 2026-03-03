@@ -1,12 +1,10 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for English (`en`).
+/// The translations for en (`en`).
 class AppLocalizationsEn extends AppLocalizations {
-  AppLocalizationsEn([String locale = 'en']) : super(locale);
+  AppLocalizationsEn([super.locale = 'en']);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -25,7 +23,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'Level $number';
+    return 'Level \${number}';
   }
 
   @override
@@ -144,7 +142,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '$count Stars';
+    return '\${count} Stars';
   }
 
   @override
@@ -161,7 +159,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return 'Continue (Level $number)';
+    return 'Continue (Level \${number})';
   }
 
   @override
@@ -274,12 +272,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String roundNumber(int number) {
-    return 'Round $number';
+    return 'Round \${number}';
   }
 
   @override
   String dayStreak(int count) {
-    return '$count Day Streak!';
+    return '\${count} Day Streak!';
   }
 
   @override
@@ -293,4 +291,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get viewSolution => 'View Solution';
+
+  @override
+  String get attempts => 'Attempts';
+
+  @override
+  String get close => 'Close';
+
 }

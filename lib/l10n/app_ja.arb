@@ -126,5 +126,7 @@
     }
   },
   "completeMoreLevels": "リプレイするにはもっとレベルをクリアしてください",
-  "viewSolution": "解答を見る"
+  "viewSolution": "解答を見る",
+  "attempts": "試行回数",
+  "close": "閉じる"
 }

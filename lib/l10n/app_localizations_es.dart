@@ -1,12 +1,10 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for Spanish Castilian (`es`).
+/// The translations for es (`es`).
 class AppLocalizationsEs extends AppLocalizations {
-  AppLocalizationsEs([String locale = 'es']) : super(locale);
+  AppLocalizationsEs([super.locale = 'es']);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -25,7 +23,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'Nivel $number';
+    return 'Nivel \${number}';
   }
 
   @override
@@ -125,8 +123,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get wrongAnswer => 'Respuesta Incorrecta';
 
   @override
-  String get someDigitsWrong =>
-      '¡Algunos dígitos son incorrectos. Intenta de nuevo!';
+  String get someDigitsWrong => '¡Algunos dígitos son incorrectos. Intenta de nuevo!';
 
   @override
   String get allLevelsFree => '¡Todos los niveles son GRATIS!';
@@ -145,7 +142,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '$count Estrellas';
+    return '\${count} Estrellas';
   }
 
   @override
@@ -162,7 +159,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return 'Continuar (Nivel $number)';
+    return 'Continuar (Nivel \${number})';
   }
 
   @override
@@ -275,12 +272,12 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String roundNumber(int number) {
-    return 'Ronda $number';
+    return 'Ronda \${number}';
   }
 
   @override
   String dayStreak(int count) {
-    return '¡$count Días de Racha!';
+    return '¡\${count} Días de Racha!';
   }
 
   @override
@@ -294,4 +291,11 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get viewSolution => 'Ver Solución';
+
+  @override
+  String get attempts => 'Intentos';
+
+  @override
+  String get close => 'Cerrar';
+
 }

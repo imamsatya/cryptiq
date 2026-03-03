@@ -112,5 +112,7 @@
     }
   },
   "completeMoreLevels": "Selesaikan level lagi untuk replay",
-  "viewSolution": "Lihat Jawaban"
+  "viewSolution": "Lihat Jawaban",
+  "attempts": "Percobaan",
+  "close": "Tutup"
 }

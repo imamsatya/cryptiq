@@ -126,5 +126,7 @@
     }
   },
   "completeMoreLevels": "أكمل المزيد من المستويات لإعادة اللعب",
-  "viewSolution": "عرض الحل"
+  "viewSolution": "عرض الحل",
+  "attempts": "المحاولات",
+  "close": "إغلاق"
 }

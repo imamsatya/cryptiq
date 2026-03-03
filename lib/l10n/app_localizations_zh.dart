@@ -1,12 +1,10 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for Chinese (`zh`).
+/// The translations for zh (`zh`).
 class AppLocalizationsZh extends AppLocalizations {
-  AppLocalizationsZh([String locale = 'zh']) : super(locale);
+  AppLocalizationsZh([super.locale = 'zh']);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -25,7 +23,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String level(int number) {
-    return '关卡 $number';
+    return '关卡 \${number}';
   }
 
   @override
@@ -144,7 +142,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '$count 星';
+    return '\${count} 星';
   }
 
   @override
@@ -161,7 +159,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return '继续 (关卡 $number)';
+    return '继续 (关卡 \${number})';
   }
 
   @override
@@ -274,12 +272,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String roundNumber(int number) {
-    return '回合 $number';
+    return '回合 \${number}';
   }
 
   @override
   String dayStreak(int count) {
-    return '$count天连胜！';
+    return '\${count}天连胜！';
   }
 
   @override
@@ -293,4 +291,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get viewSolution => '查看答案';
+
+  @override
+  String get attempts => '尝试次数';
+
+  @override
+  String get close => '关闭';
+
 }

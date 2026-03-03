@@ -126,5 +126,7 @@
     }
   },
   "completeMoreLevels": "Schließe mehr Level ab zum Wiederholen",
-  "viewSolution": "Lösung Anzeigen"
+  "viewSolution": "Lösung Anzeigen",
+  "attempts": "Versuche",
+  "close": "Schließen"
 }

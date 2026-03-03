@@ -126,5 +126,7 @@
     }
   },
   "completeMoreLevels": "리플레이하려면 더 많은 레벨을 완료하세요",
-  "viewSolution": "풀이 보기"
+  "viewSolution": "풀이 보기",
+  "attempts": "시도",
+  "close": "닫기"
 }
