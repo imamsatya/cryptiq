@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:share_plus/share_plus.dart';
 import '../../core/theme/app_theme.dart';
 import '../../domain/entities/puzzle.dart';
 import '../../levels/puzzle_generator.dart';
@@ -256,115 +257,136 @@ class LevelSelectScreen extends ConsumerWidget {
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
+      isScrollControlled: true,
       builder: (ctx) => Container(
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.fromLTRB(20, 16, 20, 12),
         decoration: BoxDecoration(
           color: AppTheme.surfaceColor,
           borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
           border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: 40, height: 4,
-              decoration: BoxDecoration(
-                color: Colors.white.withValues(alpha: 0.2),
-                borderRadius: BorderRadius.circular(2),
+        child: SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Handle bar
+              Container(
+                width: 40, height: 4,
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.2),
+                  borderRadius: BorderRadius.circular(2),
+                ),
               ),
-            ),
-            const SizedBox(height: 16),
+              const SizedBox(height: 12),
 
-            // CryptiQ badge
-            ShaderMask(
-              shaderCallback: (bounds) => AppTheme.goldGradient.createShader(bounds),
-              child: const Text('CryptiQ',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.white, letterSpacing: 2)),
-            ),
-            const SizedBox(height: 8),
-
-            // Difficulty badge
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-              decoration: AppTheme.glassDecoration(borderRadius: 8),
-              child: Text(
-                '${PuzzleGenerator.getDifficultyName(levelNum)}',
-                style: TextStyle(fontSize: 11, color: AppTheme.textSecondary),
+              // CryptiQ + Difficulty
+              ShaderMask(
+                shaderCallback: (bounds) => AppTheme.goldGradient.createShader(bounds),
+                child: const Text('CryptiQ',
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Colors.white, letterSpacing: 2)),
               ),
-            ),
-            const SizedBox(height: 12),
+              const SizedBox(height: 6),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                decoration: AppTheme.glassDecoration(borderRadius: 8),
+                child: Text(
+                  PuzzleGenerator.getDifficultyName(levelNum),
+                  style: TextStyle(fontSize: 10, color: AppTheme.textSecondary),
+                ),
+              ),
+              const SizedBox(height: 8),
 
-            // Level title
-            Text(
-              l10n.level(levelNum),
-              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: Colors.white),
-            ),
-            const SizedBox(height: 20),
+              // Level title
+              Text(
+                l10n.level(levelNum),
+                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: Colors.white),
+              ),
+              const SizedBox(height: 14),
 
-            // Stats row
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: AppTheme.glassDecoration(borderRadius: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              // All stats in one row
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+                decoration: AppTheme.glassDecoration(borderRadius: 14),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    _buildDetailStat(Icons.timer_outlined, _formatTime(progress.bestTimeSeconds), l10n.bestTime),
+                    Container(width: 1, height: 36, color: Colors.white.withValues(alpha: 0.1)),
+                    _buildDetailStat(Icons.replay_rounded, '${progress.attempts}x', l10n.attempts),
+                    Container(width: 1, height: 36, color: Colors.white.withValues(alpha: 0.1)),
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: List.generate(3, (i) => Icon(
+                            i < progress.stars ? Icons.star_rounded : Icons.star_border_rounded,
+                            size: 16,
+                            color: i < progress.stars ? AppTheme.primaryColor : AppTheme.textMuted.withValues(alpha: 0.4),
+                          )),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(l10n.stars(progress.stars),
+                            style: TextStyle(fontSize: 9, color: AppTheme.textSecondary)),
+                      ],
+                    ),
+                    Container(width: 1, height: 36, color: Colors.white.withValues(alpha: 0.1)),
+                    _buildDetailStat(Icons.lightbulb_outline_rounded, '${progress.totalHintsUsed}', l10n.hintsUsed),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 14),
+
+              // Share + Close buttons
+              Row(
                 children: [
-                  _buildDetailStat(Icons.timer_outlined, _formatTime(progress.bestTimeSeconds), l10n.bestTime),
-                  Container(width: 1, height: 40, color: Colors.white.withValues(alpha: 0.1)),
-                  _buildDetailStat(Icons.replay_rounded, '${progress.attempts}x', l10n.attempts),
-                ],
-              ),
-            ),
-            const SizedBox(height: 12),
-
-            // Stars + Hints row
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: AppTheme.glassDecoration(borderRadius: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: List.generate(3, (i) => Icon(
-                          i < progress.stars ? Icons.star_rounded : Icons.star_border_rounded,
-                          size: 24,
-                          color: i < progress.stars ? AppTheme.primaryColor : AppTheme.textMuted.withValues(alpha: 0.4),
-                        )),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(l10n.stars(progress.stars),
-                          style: TextStyle(fontSize: 11, color: AppTheme.textSecondary)),
-                    ],
-                  ),
-                  Container(width: 1, height: 40, color: Colors.white.withValues(alpha: 0.1)),
-                  _buildDetailStat(Icons.lightbulb_outline_rounded, '${progress.totalHintsUsed}', l10n.hintsUsed),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-
-            // Share + Close buttons
-            Row(
-              children: [
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () => Navigator.pop(ctx),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 14),
-                      decoration: AppTheme.glassDecoration(borderRadius: 14),
-                      child: Center(
-                        child: Text(l10n.close,
-                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: AppTheme.textSecondary)),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pop(ctx);
+                        SharePlus.instance.share(
+                          ShareParams(
+                            text: 'CryptiQ ${l10n.level(levelNum)} ⭐${progress.stars}/3\n'
+                                '⏱ ${_formatTime(progress.bestTimeSeconds)} | '
+                                '🔄 ${progress.attempts}x\n'
+                                'Can you beat my time?',
+                          ),
+                        );
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        decoration: AppTheme.goldGlowDecoration(borderRadius: 14),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.share_rounded, color: AppTheme.backgroundDark, size: 18),
+                            const SizedBox(width: 6),
+                            Text(l10n.share,
+                                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: AppTheme.backgroundDark)),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-          ],
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () => Navigator.pop(ctx),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        decoration: AppTheme.glassDecoration(borderRadius: 14),
+                        child: Center(
+                          child: Text(l10n.close,
+                              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: AppTheme.textSecondary)),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 4),
+            ],
+          ),
         ),
       ),
     );
