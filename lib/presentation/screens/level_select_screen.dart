@@ -158,51 +158,57 @@ class LevelSelectScreen extends ConsumerWidget {
             child: Stack(
               alignment: Alignment.center,
               children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '$levelNum',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                        color: isCompleted
-                            ? diffColor
-                            : Colors.white,
-                      ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 4),
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '$levelNum',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                            color: isCompleted
+                                ? diffColor
+                                : Colors.white,
+                          ),
+                        ),
+                        if (isCompleted) ...[
+                          const SizedBox(height: 1),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: List.generate(3, (i) {
+                              return Icon(
+                                i < stars ? Icons.star_rounded : Icons.star_border_rounded,
+                                size: 10,
+                                color: i < stars
+                                    ? AppTheme.primaryColor
+                                    : AppTheme.textMuted.withValues(alpha: 0.3),
+                              );
+                            }),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            _formatTime(progress!.bestTimeSeconds),
+                            style: TextStyle(
+                              fontSize: 8,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white.withValues(alpha: 0.5),
+                            ),
+                          ),
+                          Text(
+                            '${progress.attempts}x',
+                            style: TextStyle(
+                              fontSize: 8,
+                              color: Colors.white.withValues(alpha: 0.35),
+                            ),
+                          ),
+                        ],
+                      ],
                     ),
-                    if (isCompleted) ...[
-                      const SizedBox(height: 1),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(3, (i) {
-                          return Icon(
-                            i < stars ? Icons.star_rounded : Icons.star_border_rounded,
-                            size: 10,
-                            color: i < stars
-                                ? AppTheme.primaryColor
-                                : AppTheme.textMuted.withValues(alpha: 0.3),
-                          );
-                        }),
-                      ),
-                      const SizedBox(height: 2),
-                      Text(
-                        _formatTime(progress!.bestTimeSeconds),
-                        style: TextStyle(
-                          fontSize: 8,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white.withValues(alpha: 0.5),
-                        ),
-                      ),
-                      Text(
-                        '${progress.attempts}x',
-                        style: TextStyle(
-                          fontSize: 8,
-                          color: Colors.white.withValues(alpha: 0.35),
-                        ),
-                      ),
-                    ],
-                  ],
+                  ),
                 ),
                 // Completed checkmark
                 if (isCompleted)
