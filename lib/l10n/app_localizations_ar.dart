@@ -1,10 +1,12 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for ar (`ar`).
+/// The translations for Arabic (`ar`).
 class AppLocalizationsAr extends AppLocalizations {
-  AppLocalizationsAr([super.locale = 'ar']);
+  AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -23,7 +25,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'المستوى \${number}';
+    return 'المستوى $number';
   }
 
   @override
@@ -142,7 +144,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '\${count} نجوم';
+    return '$count نجوم';
   }
 
   @override
@@ -159,7 +161,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return 'متابعة (المستوى \${number})';
+    return 'متابعة (المستوى $number)';
   }
 
   @override
@@ -272,12 +274,12 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String roundNumber(int number) {
-    return 'جولة \${number}';
+    return 'جولة $number';
   }
 
   @override
   String dayStreak(int count) {
-    return '\${count} يوم متتالي!';
+    return '$count يوم متتالي!';
   }
 
   @override
@@ -291,5 +293,4 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get viewSolution => 'عرض الحل';
-
 }

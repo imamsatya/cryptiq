@@ -1,10 +1,12 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for id (`id`).
+/// The translations for Indonesian (`id`).
 class AppLocalizationsId extends AppLocalizations {
-  AppLocalizationsId([super.locale = 'id']);
+  AppLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -159,7 +161,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return 'Lanjutkan (Level \${number})';
+    return 'Lanjutkan (Level $number)';
   }
 
   @override
@@ -272,12 +274,12 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String roundNumber(int number) {
-    return 'Ronde \${number}';
+    return 'Ronde $number';
   }
 
   @override
   String dayStreak(int count) {
-    return '\${count} Hari Beruntun!';
+    return '$count Hari Beruntun!';
   }
 
   @override
@@ -291,5 +293,4 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get viewSolution => 'Lihat Jawaban';
-
 }

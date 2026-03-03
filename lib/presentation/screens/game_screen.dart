@@ -404,7 +404,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       decoration: AppTheme.glassDecoration(borderRadius: 12),
                       child: Text(
-                        '${l10n.level(widget.levelNumber)}',
+                        l10n.level(widget.levelNumber),
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,

@@ -5,15 +5,15 @@ import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/services/daily_challenge_service.dart';
 import '../../core/services/achievement_service.dart';
+import '../../data/datasources/local_database.dart';
 import '../../levels/puzzle_generator.dart';
-import '../providers/progress_provider.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final lastPlayed = ref.watch(lastPlayedLevelProvider);
+    final highestCompleted = LocalDatabase.instance.getHighestCompletedLevel();
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
@@ -62,7 +62,7 @@ class HomeScreen extends ConsumerWidget {
                 const SizedBox(height: 16),
 
                 // Play button
-                _buildPlayButton(context, lastPlayed),
+                _buildPlayButton(context, highestCompleted),
                 const SizedBox(height: 10),
 
                 // Level select button

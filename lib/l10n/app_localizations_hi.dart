@@ -1,10 +1,12 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for hi (`hi`).
+/// The translations for Hindi (`hi`).
 class AppLocalizationsHi extends AppLocalizations {
-  AppLocalizationsHi([super.locale = 'hi']);
+  AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -23,7 +25,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'स्तर \${number}';
+    return 'स्तर $number';
   }
 
   @override
@@ -142,7 +144,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '\${count} सितारे';
+    return '$count सितारे';
   }
 
   @override
@@ -159,7 +161,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return 'जारी रखें (स्तर \${number})';
+    return 'जारी रखें (स्तर $number)';
   }
 
   @override
@@ -272,12 +274,12 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String roundNumber(int number) {
-    return 'राउंड \${number}';
+    return 'राउंड $number';
   }
 
   @override
   String dayStreak(int count) {
-    return '\${count} दिन लगातार!';
+    return '$count दिन लगातार!';
   }
 
   @override
@@ -291,5 +293,4 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get viewSolution => 'उत्तर देखें';
-
 }

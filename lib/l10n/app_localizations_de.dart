@@ -1,10 +1,12 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for de (`de`).
+/// The translations for German (`de`).
 class AppLocalizationsDe extends AppLocalizations {
-  AppLocalizationsDe([super.locale = 'de']);
+  AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -23,7 +25,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'Level \${number}';
+    return 'Level $number';
   }
 
   @override
@@ -123,7 +125,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get wrongAnswer => 'Falsche Antwort';
 
   @override
-  String get someDigitsWrong => 'Einige Ziffern sind falsch. Versuche es erneut!';
+  String get someDigitsWrong =>
+      'Einige Ziffern sind falsch. Versuche es erneut!';
 
   @override
   String get allLevelsFree => 'Alle Level sind KOSTENLOS!';
@@ -142,7 +145,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '\${count} Sterne';
+    return '$count Sterne';
   }
 
   @override
@@ -159,7 +162,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return 'Fortsetzen (Level \${number})';
+    return 'Fortsetzen (Level $number)';
   }
 
   @override
@@ -272,12 +275,12 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String roundNumber(int number) {
-    return 'Runde \${number}';
+    return 'Runde $number';
   }
 
   @override
   String dayStreak(int count) {
-    return '\${count} Tage Serie!';
+    return '$count Tage Serie!';
   }
 
   @override
@@ -291,5 +294,4 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get viewSolution => 'Lösung Anzeigen';
-
 }

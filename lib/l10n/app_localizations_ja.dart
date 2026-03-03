@@ -1,10 +1,12 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for ja (`ja`).
+/// The translations for Japanese (`ja`).
 class AppLocalizationsJa extends AppLocalizations {
-  AppLocalizationsJa([super.locale = 'ja']);
+  AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
   String get appTitle => 'CryptiQ';
@@ -23,7 +25,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String level(int number) {
-    return 'レベル \${number}';
+    return 'レベル $number';
   }
 
   @override
@@ -142,7 +144,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '\${count} スター';
+    return '$count スター';
   }
 
   @override
@@ -159,7 +161,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String continueLevel(int number) {
-    return '続ける (レベル \${number})';
+    return '続ける (レベル $number)';
   }
 
   @override
@@ -272,12 +274,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String roundNumber(int number) {
-    return 'ラウンド \${number}';
+    return 'ラウンド $number';
   }
 
   @override
   String dayStreak(int count) {
-    return '\${count}日連続！';
+    return '$count日連続！';
   }
 
   @override
@@ -291,5 +293,4 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get viewSolution => '解答を見る';
-
 }
