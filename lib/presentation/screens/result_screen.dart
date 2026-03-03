@@ -85,7 +85,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
           backgroundColor: AppTheme.surfaceLight,
           behavior: SnackBarBehavior.floating,
           margin: EdgeInsets.only(
-            bottom: MediaQuery.of(context).size.height - 160,
+            bottom: MediaQuery.of(context).size.height - 100,
             left: 16,
             right: 16,
           ),
