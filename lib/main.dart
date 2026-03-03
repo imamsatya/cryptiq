@@ -6,6 +6,7 @@ import 'l10n/app_localizations.dart';
 import 'core/theme/app_theme.dart';
 import 'core/services/audio_service.dart';
 import 'core/services/ad_service.dart';
+import 'core/services/iap_service.dart';
 import 'data/datasources/local_database.dart';
 import 'presentation/router/app_router.dart';
 import 'presentation/providers/theme_provider.dart';
@@ -36,6 +37,9 @@ void main() async {
 
   // Initialize ads
   await AdService.instance.initialize();
+
+  // Initialize in-app purchases
+  await IapService.instance.initialize();
 
   runApp(const ProviderScope(child: CryptiqApp()));
 }

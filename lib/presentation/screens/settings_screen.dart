@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/theme/theme_presets.dart';
 import '../../core/services/audio_service.dart';
+import '../../core/services/iap_service.dart';
 import '../../data/datasources/local_database.dart';
 import '../../core/constants/app_constants.dart';
 import '../providers/theme_provider.dart';
@@ -32,6 +33,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final isPro = LocalDatabase.instance.getProStatus();
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
@@ -69,6 +71,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 child: ListView(
                   padding: const EdgeInsets.all(16),
                   children: [
+                    // Go Pro Section
+                    _buildProCard(isPro),
+                    const SizedBox(height: 20),
+
                     // Game Settings
                     _buildSectionTitle('Game'),
                     const SizedBox(height: 8),
@@ -320,6 +326,115 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildProCard(bool isPro) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: isPro
+            ? LinearGradient(colors: [Colors.green.shade800, Colors.green.shade600])
+            : const LinearGradient(colors: [Color(0xFFD4A843), Color(0xFFB8860B)]),
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: (isPro ? Colors.green : const Color(0xFFD4A843)).withValues(alpha: 0.3),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(isPro ? Icons.verified_rounded : Icons.workspace_premium_rounded,
+                    color: Colors.white, size: 28),
+                const SizedBox(width: 12),
+                Text(
+                  isPro ? 'CryptiQ Pro ✓' : 'Go Pro',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                const Spacer(),
+                if (!isPro)
+                  Text(
+                    IapService.instance.proPriceString,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                    ),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            _proBenefit(Icons.block_rounded, 'No Ads'),
+            _proBenefit(Icons.palette_rounded, 'All Themes'),
+            _proBenefit(Icons.lightbulb_rounded, '+1 Bonus Hint'),
+            if (!isPro) ...[
+              const SizedBox(height: 16),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () async {
+                    await IapService.instance.purchasePro();
+                    if (mounted) setState(() {});
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: const Color(0xFFB8860B),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                  ),
+                  child: const Text('Upgrade to Pro',
+                      style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
+                ),
+              ),
+              const SizedBox(height: 8),
+              Center(
+                child: GestureDetector(
+                  onTap: () async {
+                    await IapService.instance.restorePurchases();
+                    await Future.delayed(const Duration(seconds: 1));
+                    if (mounted) setState(() {});
+                  },
+                  child: Text(
+                    'Restore Purchase',
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.white.withValues(alpha: 0.7),
+                      decoration: TextDecoration.underline,
+                      decorationColor: Colors.white.withValues(alpha: 0.5),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _proBenefit(IconData icon, String text) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 3),
+      child: Row(
+        children: [
+          Icon(icon, color: Colors.white.withValues(alpha: 0.9), size: 16),
+          const SizedBox(width: 10),
+          Text(text,
+              style: TextStyle(color: Colors.white.withValues(alpha: 0.9), fontSize: 14)),
+        ],
       ),
     );
   }
