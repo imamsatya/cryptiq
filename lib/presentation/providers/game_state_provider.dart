@@ -20,8 +20,8 @@ class GameState {
   final Set<String> wrongLetters;       // letters with wrong assignments (after check)
   final Set<String> correctLetters;     // letters confirmed correct
   final Set<String> hintedLetters;      // letters revealed by hints
-  final int rewardedHints;               // extra hints from rewarded ads
-  final int bonusHints;                  // pro user bonus hints
+  final int bonusHints;                  // pro user bonus hints (+1)
+  final bool lastHintUnlocked;          // true if user watched ad to unlock last hint
 
   const GameState({
     required this.puzzle,
@@ -35,35 +35,42 @@ class GameState {
     this.wrongLetters = const {},
     this.correctLetters = const {},
     this.hintedLetters = const {},
-    this.rewardedHints = 0,
     this.bonusHints = 0,
+    this.lastHintUnlocked = false,
   });
 
-  /// 50% hard cap: user must always solve at least half the letters
-  int get maxHintsCap {
-    final letterCount = puzzle.allLetters.length;
-    return (letterCount * AppConstants.maxHintPercentage).floor();
-  }
-
-  /// Base hints from 30% rule
-  int get baseHints {
+  /// Total hints allowed: 30% of hidden letters + pro bonus
+  int get maxHints {
     final letterCount = puzzle.allLetters.length;
     if (letterCount < AppConstants.minLettersForHint) return 0;
-    return math.max(1, (letterCount * AppConstants.hintPercentage).floor());
+    final base = math.max(1, (letterCount * AppConstants.hintPercentage).floor());
+    return base + bonusHints;
   }
 
-  /// Max hints for this puzzle: base + bonus + rewarded, capped at 50%
-  int get maxHints {
-    return math.min(baseHints + bonusHints + rewardedHints, maxHintsCap);
+  /// Free hints (all except last one, which requires ad)
+  int get freeHints {
+    final isPro = LocalDatabase.instance.getProStatus();
+    if (isPro) return maxHints; // Pro: all hints are free
+    return math.max(0, maxHints - 1);
   }
 
-  /// Hints remaining for this puzzle
+  /// Whether the next hint requires watching an ad
+  bool get nextHintNeedsAd {
+    if (maxHints <= 0) return false;
+    final isPro = LocalDatabase.instance.getProStatus();
+    if (isPro) return false; // Pro: never needs ad
+    // Ad needed when: used all free hints, but still have the ad-hint left
+    return hintsUsed >= freeHints && hintsUsed < maxHints && !lastHintUnlocked;
+  }
+
+  /// Whether user can still use hints (either free or ad-unlocked)
   int get hintsRemaining => math.max(0, maxHints - hintsUsed);
 
-  /// Whether user can get more hints via rewarded ad (within 50% cap)
-  bool get canWatchAdForHint {
-    return hintsRemaining <= 0 &&
-        (baseHints + bonusHints + rewardedHints + 1) <= maxHintsCap;
+  /// Can use hint right now (either free or already unlocked)
+  bool get canUseHint {
+    if (hintsRemaining <= 0) return false;
+    if (hintsUsed < freeHints) return true; // Still have free hints
+    return lastHintUnlocked; // Last hint unlocked via ad
   }
 
   GameState copyWith({
@@ -79,8 +86,8 @@ class GameState {
     Set<String>? wrongLetters,
     Set<String>? correctLetters,
     Set<String>? hintedLetters,
-    int? rewardedHints,
     int? bonusHints,
+    bool? lastHintUnlocked,
   }) {
     return GameState(
       puzzle: puzzle ?? this.puzzle,
@@ -94,8 +101,8 @@ class GameState {
       wrongLetters: wrongLetters ?? this.wrongLetters,
       correctLetters: correctLetters ?? this.correctLetters,
       hintedLetters: hintedLetters ?? this.hintedLetters,
-      rewardedHints: rewardedHints ?? this.rewardedHints,
       bonusHints: bonusHints ?? this.bonusHints,
+      lastHintUnlocked: lastHintUnlocked ?? this.lastHintUnlocked,
     );
   }
 
@@ -367,10 +374,12 @@ class GameStateNotifier extends StateNotifier<GameState> {
     return true;
   }
 
-  /// Add a rewarded hint (from watching ad)
-  void addRewardedHint() {
-    if (!state.canWatchAdForHint) return;
-    state = state.copyWith(rewardedHints: state.rewardedHints + 1);
+  /// Unlock the last (ad-gated) hint after watching ad
+  void unlockLastHint() {
+    if (!state.nextHintNeedsAd) return;
+    state = state.copyWith(lastHintUnlocked: true);
+    // Auto-use the hint immediately after unlocking
+    useHint();
   }
 
   // --- Undo ---

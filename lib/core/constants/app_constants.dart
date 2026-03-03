@@ -17,7 +17,6 @@ class AppConstants {
 
   // Hints (per-puzzle, based on letter count)
   static const double hintPercentage = 0.30;    // 30% of hidden letters (base)
-  static const double maxHintPercentage = 0.50;  // 50% cap (all sources combined)
   static const int minLettersForHint = 3;       // Need at least 3 letters for 1 hint
 
   // Stars Rating

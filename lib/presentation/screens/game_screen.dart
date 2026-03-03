@@ -10,6 +10,7 @@ import '../providers/game_state_provider.dart';
 import '../widgets/puzzle_display.dart';
 import '../widgets/letter_tile.dart';
 import '../widgets/number_pad.dart';
+import '../widgets/tutorial_overlay.dart';
 
 class GameScreen extends ConsumerStatefulWidget {
   final int levelNumber;
@@ -35,7 +36,14 @@ class _GameScreenState extends ConsumerState<GameScreen>
     _shakeAnimation = Tween<double>(begin: 0, end: 10).chain(
       CurveTween(curve: Curves.elasticIn),
     ).animate(_shakeController);
+
+    // Show tutorial on level 1 first play
+    if (widget.levelNumber == 1 && !TutorialOverlay.hasSeenTutorial()) {
+      _showTutorial = true;
+    }
   }
+
+  bool _showTutorial = false;
 
   @override
   void dispose() {
@@ -52,7 +60,9 @@ class _GameScreenState extends ConsumerState<GameScreen>
       return _buildViewOnlyScreen(gameState);
     }
 
-    return Scaffold(
+    return Stack(
+      children: [
+        Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
         child: SafeArea(
@@ -123,6 +133,12 @@ class _GameScreenState extends ConsumerState<GameScreen>
           ),
         ),
       ),
+    ),
+        if (_showTutorial)
+          TutorialOverlay(
+            onComplete: () => setState(() => _showTutorial = false),
+          ),
+      ],
     );
   }
 
@@ -241,23 +257,21 @@ class _GameScreenState extends ConsumerState<GameScreen>
                       final notifier = ref.read(
                           gameStateProvider(widget.levelNumber).notifier);
                       
-                      if (hintsRemaining > 0) {
-                        // Use available hint
+                      if (gameState.canUseHint) {
+                        // Use available free hint
                         final used = notifier.useHint();
                         if (used) {
                           AudioService.instance.playTap();
                           HapticFeedback.mediumImpact();
                           setState(() {});
                         }
-                      } else if (gameState.canWatchAdForHint) {
-                        // Watch ad for extra hint
+                      } else if (gameState.nextHintNeedsAd) {
+                        // Last hint — watch ad first
                         final adService = AdService.instance;
                         if (adService.isRewardedReady) {
                           final rewarded = await adService.showRewarded();
                           if (rewarded && mounted) {
-                            notifier.addRewardedHint();
-                            // Auto-use the new hint
-                            notifier.useHint();
+                            notifier.unlockLastHint();
                             AudioService.instance.playTap();
                             HapticFeedback.mediumImpact();
                             setState(() {});
@@ -291,21 +305,17 @@ class _GameScreenState extends ConsumerState<GameScreen>
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      hintsRemaining > 0
-                          ? Icons.lightbulb_outline_rounded
-                          : (gameState.canWatchAdForHint
-                              ? Icons.play_circle_outline_rounded
-                              : Icons.lightbulb_outline_rounded),
+                      gameState.nextHintNeedsAd
+                          ? Icons.play_circle_outline_rounded
+                          : Icons.lightbulb_outline_rounded,
                       color: AppTheme.primaryColor,
                       size: 20,
                     ),
                     SizedBox(width: 8),
                     Text(
-                      hintsRemaining > 0
-                          ? '${l10n.hint} ($hintsRemaining/$maxHints)'
-                          : (gameState.canWatchAdForHint
-                              ? '🎬 ${l10n.hint}'
-                              : '${l10n.hint} (0/$maxHints)'),
+                      gameState.nextHintNeedsAd
+                          ? '🎬 ${l10n.hint} (1)'
+                          : '${l10n.hint} ($hintsRemaining/$maxHints)',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w500,

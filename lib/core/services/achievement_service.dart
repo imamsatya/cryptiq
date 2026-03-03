@@ -221,11 +221,25 @@ class AchievementService {
       check: (d) => d.streak >= 7,
     ),
     Achievement(
+      id: 'streak_14',
+      title: 'Two Week Champion',
+      description: '14 day daily challenge streak',
+      icon: '🏅',
+      check: (d) => d.streak >= 14,
+    ),
+    Achievement(
       id: 'streak_30',
       title: 'Streak Master',
       description: '30 day daily challenge streak',
       icon: '🗓️',
       check: (d) => d.streak >= 30,
+    ),
+    Achievement(
+      id: 'streak_100',
+      title: 'Unstoppable',
+      description: '100 day daily challenge streak',
+      icon: '💯',
+      check: (d) => d.streak >= 100,
     ),
 
     // --- Multi-step ---
