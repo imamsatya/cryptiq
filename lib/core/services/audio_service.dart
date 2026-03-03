@@ -33,6 +33,19 @@ class AudioService {
     await _player.play(AssetSource('audio/success.mp3'));
   }
 
+  Future<void> playThreeStar() async {
+    if (!_soundEnabled) return;
+    // Play success with slight delay for emphasis
+    await _player.play(AssetSource('audio/success.mp3'));
+    await Future.delayed(const Duration(milliseconds: 200));
+    await _player.play(AssetSource('audio/success.mp3'));
+  }
+
+  Future<void> playAchievement() async {
+    if (!_soundEnabled) return;
+    await _player.play(AssetSource('audio/success.mp3'));
+  }
+
   Future<void> playError() async {
     if (!_soundEnabled) return;
     await _player.play(AssetSource('audio/error.mp3'));

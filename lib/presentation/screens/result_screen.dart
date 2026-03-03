@@ -6,6 +6,7 @@ import 'package:confetti/confetti.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/services/ad_service.dart';
+import '../../core/services/audio_service.dart';
 import '../../core/constants/app_constants.dart';
 import '../../data/datasources/local_database.dart';
 import '../../core/services/achievement_service.dart';
@@ -50,7 +51,10 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
       curve: Curves.elasticOut,
     );
 
-    _confettiController.play();
+    if (widget.stars == 3) {
+      _confettiController.play();
+      AudioService.instance.playThreeStar();
+    }
     _animController.forward();
 
     // Show ad if needed, then check achievements

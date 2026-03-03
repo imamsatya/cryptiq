@@ -160,17 +160,38 @@ class _GameScreenState extends ConsumerState<GameScreen>
 
           const Spacer(),
 
-          // Level number
+          // Level number + difficulty
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             decoration: AppTheme.glassDecoration(borderRadius: 12),
-            child: Text(
-              'Level ${widget.levelNumber}',
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: Colors.white,
-              ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Level ${widget.levelNumber}',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: _getDiffColor().withValues(alpha: 0.2),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: Text(
+                    _getDiffLabel(),
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
+                      color: _getDiffColor(),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
 
@@ -436,6 +457,22 @@ class _GameScreenState extends ConsumerState<GameScreen>
   }
 
   /// Read-only view of a completed puzzle showing the solution
+  Color _getDiffColor() {
+    final n = widget.levelNumber;
+    if (n <= 100) return AppTheme.easyColor;
+    if (n <= 250) return AppTheme.mediumColor;
+    if (n <= 400) return AppTheme.hardColor;
+    return AppTheme.expertColor;
+  }
+
+  String _getDiffLabel() {
+    final n = widget.levelNumber;
+    if (n <= 100) return 'EASY';
+    if (n <= 250) return 'MEDIUM';
+    if (n <= 400) return 'HARD';
+    return 'EXPERT';
+  }
+
   Widget _buildViewOnlyScreen(GameState gameState) {
     final l10n = AppLocalizations.of(context)!;
     final puzzle = gameState.puzzle;
