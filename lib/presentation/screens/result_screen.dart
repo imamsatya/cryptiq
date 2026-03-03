@@ -68,6 +68,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
   }
 
   void _checkRateApp() {
+    final l10n = AppLocalizations.of(context)!;
     final db = LocalDatabase.instance;
     final status = db.getRateAppStatus();
     if (status == 'never' || status == 'rated') return;
@@ -81,10 +82,10 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
       builder: (ctx) => AlertDialog(
         backgroundColor: AppTheme.surfaceColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: const Text('Enjoying CryptiQ?',
+        title: Text(l10n.enjoyingApp,
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600)),
         content: Text(
-          'If you like the app, please take a moment to rate it!',
+          l10n.rateAppBody,
           style: TextStyle(color: Colors.white.withValues(alpha: 0.7)),
         ),
         actions: [
@@ -93,7 +94,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
               db.setRateAppStatus('never');
               Navigator.pop(ctx);
             },
-            child: Text('No Thanks',
+            child: Text(l10n.noThanks,
                 style: TextStyle(color: Colors.white.withValues(alpha: 0.5))),
           ),
           TextButton(
@@ -101,7 +102,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
               db.setRateAppStatus('later');
               Navigator.pop(ctx);
             },
-            child: const Text('Later',
+            child: Text(l10n.later,
                 style: TextStyle(color: Colors.white)),
           ),
           ElevatedButton(
@@ -114,7 +115,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
               backgroundColor: AppTheme.primaryColor,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
             ),
-            child: const Text('Rate Now ⭐'),
+            child: Text(l10n.rateNow),
           ),
         ],
       ),

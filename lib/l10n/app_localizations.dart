@@ -679,6 +679,180 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Close'**
   String get close;
+
+  /// No description provided for @game.
+  ///
+  /// In en, this message translates to:
+  /// **'Game'**
+  String get game;
+
+  /// No description provided for @soundEffects.
+  ///
+  /// In en, this message translates to:
+  /// **'Sound Effects'**
+  String get soundEffects;
+
+  /// No description provided for @hapticFeedback.
+  ///
+  /// In en, this message translates to:
+  /// **'Haptic Feedback'**
+  String get hapticFeedback;
+
+  /// No description provided for @dailyReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Reminder'**
+  String get dailyReminder;
+
+  /// No description provided for @appearance.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
+  String get appearance;
+
+  /// No description provided for @upgradeToPro.
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade to Pro'**
+  String get upgradeToPro;
+
+  /// No description provided for @noAds.
+  ///
+  /// In en, this message translates to:
+  /// **'No Ads'**
+  String get noAds;
+
+  /// No description provided for @allThemes.
+  ///
+  /// In en, this message translates to:
+  /// **'All Themes'**
+  String get allThemes;
+
+  /// No description provided for @bonusHint.
+  ///
+  /// In en, this message translates to:
+  /// **'+1 Bonus Hint'**
+  String get bonusHint;
+
+  /// No description provided for @goPro.
+  ///
+  /// In en, this message translates to:
+  /// **'Go Pro'**
+  String get goPro;
+
+  /// No description provided for @proActive.
+  ///
+  /// In en, this message translates to:
+  /// **'CryptiQ Pro ✓'**
+  String get proActive;
+
+  /// No description provided for @byDifficulty.
+  ///
+  /// In en, this message translates to:
+  /// **'By Difficulty'**
+  String get byDifficulty;
+
+  /// No description provided for @totalStars.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Stars'**
+  String get totalStars;
+
+  /// No description provided for @avgTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Avg. Time'**
+  String get avgTime;
+
+  /// No description provided for @enjoyingApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Enjoying CryptiQ?'**
+  String get enjoyingApp;
+
+  /// No description provided for @rateAppBody.
+  ///
+  /// In en, this message translates to:
+  /// **'If you like the app, please take a moment to rate it!'**
+  String get rateAppBody;
+
+  /// No description provided for @noThanks.
+  ///
+  /// In en, this message translates to:
+  /// **'No Thanks'**
+  String get noThanks;
+
+  /// No description provided for @later.
+  ///
+  /// In en, this message translates to:
+  /// **'Later'**
+  String get later;
+
+  /// No description provided for @rateNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate Now ⭐'**
+  String get rateNow;
+
+  /// No description provided for @undo.
+  ///
+  /// In en, this message translates to:
+  /// **'Undo'**
+  String get undo;
+
+  /// No description provided for @overview.
+  ///
+  /// In en, this message translates to:
+  /// **'Overview'**
+  String get overview;
+
+  /// No description provided for @dataCollection.
+  ///
+  /// In en, this message translates to:
+  /// **'Data Collection'**
+  String get dataCollection;
+
+  /// No description provided for @thirdPartyServices.
+  ///
+  /// In en, this message translates to:
+  /// **'Third-Party Services'**
+  String get thirdPartyServices;
+
+  /// No description provided for @dataStorage.
+  ///
+  /// In en, this message translates to:
+  /// **'Data Storage'**
+  String get dataStorage;
+
+  /// No description provided for @childrenPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Children\'s Privacy'**
+  String get childrenPrivacy;
+
+  /// No description provided for @changes.
+  ///
+  /// In en, this message translates to:
+  /// **'Changes'**
+  String get changes;
+
+  /// No description provided for @contact.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact'**
+  String get contact;
+
+  /// No description provided for @lastUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Updated'**
+  String get lastUpdated;
+
+  /// No description provided for @levelsOf.
+  ///
+  /// In en, this message translates to:
+  /// **'{completed} of {total} levels completed'**
+  String levelsOf(int completed, int total);
 }
 
 class _AppLocalizationsDelegate

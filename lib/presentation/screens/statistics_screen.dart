@@ -68,14 +68,14 @@ class StatisticsScreen extends StatelessWidget {
                         Expanded(child: _buildStatCard(
                           Icons.star_rounded,
                           '$totalStars/$maxStars',
-                          'Total Stars',
+                          l10n.totalStars,
                           AppTheme.primaryColor,
                         )),
                         const SizedBox(width: 12),
                         Expanded(child: _buildStatCard(
                           Icons.timer_outlined,
                           _formatTime(avgTime),
-                          'Avg. Time',
+                          l10n.avgTime,
                           AppTheme.mediumColor,
                         )),
                       ],
@@ -106,14 +106,14 @@ class StatisticsScreen extends StatelessWidget {
                         Expanded(child: _buildStatCard(
                           Icons.local_fire_department_rounded,
                           '${DailyChallengeService.instance.streak}',
-                          'Current Streak',
+                          l10n.currentStreak,
                           Colors.orange,
                         )),
                         const SizedBox(width: 12),
                         Expanded(child: _buildStatCard(
                           Icons.emoji_events_rounded,
                           '${DailyChallengeService.instance.bestStreak}',
-                          'Best Streak',
+                          l10n.bestStreak,
                           const Color(0xFFD4A843),
                         )),
                       ],
@@ -122,8 +122,8 @@ class StatisticsScreen extends StatelessWidget {
                     const SizedBox(height: 24),
 
                     // Difficulty breakdown
-                    const Text(
-                      'By Difficulty',
+                    Text(
+                      l10n.byDifficulty,
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
@@ -186,7 +186,7 @@ class StatisticsScreen extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            '$completed of $total levels completed',
+            l10n.levelsOf(completed, total),
             style: TextStyle(fontSize: 12, color: AppTheme.textSecondary.withValues(alpha: 0.7)),
           ),
         ],

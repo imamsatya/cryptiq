@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../l10n/app_localizations.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/constants/app_constants.dart';
 
@@ -9,6 +10,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
@@ -36,8 +38,8 @@ class PrivacyPolicyScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 16),
-                    const Text(
-                      'Privacy Policy',
+                    Text(
+                      l10n.privacyPolicy,
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w600,
@@ -58,38 +60,38 @@ class PrivacyPolicyScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        _section('Last Updated', 'March 2026'),
+                        _section(l10n.lastUpdated, 'March 2026'),
                         _section(
-                          'Overview',
+                          l10n.overview,
                           '${AppConstants.appName} is a cryptarithm puzzle game. '
                           'We respect your privacy and are committed to protecting your personal information.',
                         ),
                         _section(
-                          'Data Collection',
+                          l10n.dataCollection,
                           '${AppConstants.appName} does NOT collect, store, or transmit any personal data. '
                           'All game progress is stored locally on your device using offline storage (Hive). '
                           'We do not require account creation or login.',
                         ),
                         _section(
-                          'Third-Party Services',
+                          l10n.thirdPartyServices,
                           '• Google AdMob — displays ads. AdMob may collect device identifiers and usage data per Google\'s privacy policy.\n'
                           '• Google Play / App Store — handles in-app purchases. Transaction data is managed by respective stores.',
                         ),
                         _section(
-                          'Data Storage',
+                          l10n.dataStorage,
                           'All data (game progress, settings, achievements) is stored locally on your device. '
                           'Uninstalling the app will remove all local data.',
                         ),
                         _section(
-                          'Children\'s Privacy',
+                          l10n.childrenPrivacy,
                           '${AppConstants.appName} does not knowingly collect information from children under 13.',
                         ),
                         _section(
-                          'Changes',
+                          l10n.changes,
                           'We may update this policy. Continued use of the app after changes constitutes acceptance.',
                         ),
                         _section(
-                          'Contact',
+                          l10n.contact,
                           'For questions, email: ${AppConstants.contactEmail}',
                         ),
                       ],

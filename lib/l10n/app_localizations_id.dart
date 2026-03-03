@@ -299,4 +299,94 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get close => 'Tutup';
+
+  @override
+  String get game => 'Permainan';
+
+  @override
+  String get soundEffects => 'Efek Suara';
+
+  @override
+  String get hapticFeedback => 'Umpan Balik Haptic';
+
+  @override
+  String get dailyReminder => 'Pengingat Harian';
+
+  @override
+  String get appearance => 'Tampilan';
+
+  @override
+  String get upgradeToPro => 'Upgrade ke Pro';
+
+  @override
+  String get noAds => 'Tanpa Iklan';
+
+  @override
+  String get allThemes => 'Semua Tema';
+
+  @override
+  String get bonusHint => '+1 Petunjuk Bonus';
+
+  @override
+  String get goPro => 'Jadi Pro';
+
+  @override
+  String get proActive => 'CryptiQ Pro ✓';
+
+  @override
+  String get byDifficulty => 'Per Kesulitan';
+
+  @override
+  String get totalStars => 'Total Bintang';
+
+  @override
+  String get avgTime => 'Rata-rata Waktu';
+
+  @override
+  String get enjoyingApp => 'Suka CryptiQ?';
+
+  @override
+  String get rateAppBody =>
+      'Jika kamu suka aplikasi ini, luangkan waktu untuk menilai!';
+
+  @override
+  String get noThanks => 'Tidak, Terima Kasih';
+
+  @override
+  String get later => 'Nanti';
+
+  @override
+  String get rateNow => 'Nilai Sekarang ⭐';
+
+  @override
+  String get undo => 'Undo';
+
+  @override
+  String get overview => 'Ringkasan';
+
+  @override
+  String get dataCollection => 'Pengumpulan Data';
+
+  @override
+  String get thirdPartyServices => 'Layanan Pihak Ketiga';
+
+  @override
+  String get dataStorage => 'Penyimpanan Data';
+
+  @override
+  String get childrenPrivacy => 'Privasi Anak';
+
+  @override
+  String get changes => 'Perubahan';
+
+  @override
+  String get contact => 'Kontak';
+
+  @override
+  String get lastUpdated => 'Terakhir Diperbarui';
+
+  @override
+  String levelsOf(int completed, int total) {
+    return '$completed dari $total level selesai';
+  }
 }

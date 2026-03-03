@@ -75,15 +75,15 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   padding: const EdgeInsets.all(16),
                   children: [
                     // Go Pro Section
-                    _buildProCard(isPro),
+                    _buildProCard(isPro, l10n),
                     const SizedBox(height: 20),
 
                     // Game Settings
-                    _buildSectionTitle('Game'),
+                    _buildSectionTitle(l10n.game),
                     const SizedBox(height: 8),
                     _buildToggleTile(
                       icon: Icons.volume_up_rounded,
-                      title: 'Sound Effects',
+                      title: l10n.soundEffects,
                       value: _soundEnabled,
                       onChanged: (val) async {
                         setState(() => _soundEnabled = val);
@@ -93,7 +93,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     const SizedBox(height: 8),
                     _buildToggleTile(
                       icon: Icons.vibration_rounded,
-                      title: 'Haptic Feedback',
+                      title: l10n.hapticFeedback,
                       value: _hapticsEnabled,
                       onChanged: (val) async {
                         setState(() => _hapticsEnabled = val);
@@ -103,7 +103,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     const SizedBox(height: 8),
                     _buildToggleTile(
                       icon: Icons.notifications_outlined,
-                      title: 'Daily Reminder',
+                      title: l10n.dailyReminder,
                       value: _notificationsEnabled,
                       onChanged: (val) async {
                         setState(() => _notificationsEnabled = val);
@@ -343,7 +343,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     );
   }
 
-  Widget _buildProCard(bool isPro) {
+  Widget _buildProCard(bool isPro, AppLocalizations l10n) {
     return Container(
       decoration: BoxDecoration(
         gradient: isPro
@@ -369,7 +369,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     color: Colors.white, size: 28),
                 const SizedBox(width: 12),
                 Text(
-                  isPro ? 'CryptiQ Pro ✓' : 'Go Pro',
+                  isPro ? l10n.proActive : l10n.goPro,
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -389,9 +389,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               ],
             ),
             const SizedBox(height: 12),
-            _proBenefit(Icons.block_rounded, 'No Ads'),
-            _proBenefit(Icons.palette_rounded, 'All Themes'),
-            _proBenefit(Icons.lightbulb_rounded, '+1 Bonus Hint'),
+            _proBenefit(Icons.block_rounded, l10n.noAds),
+            _proBenefit(Icons.palette_rounded, l10n.allThemes),
+            _proBenefit(Icons.lightbulb_rounded, l10n.bonusHint),
             if (!isPro) ...[
               const SizedBox(height: 16),
               SizedBox(
@@ -408,7 +408,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
                   ),
-                  child: const Text('Upgrade to Pro',
+                  child: Text(l10n.upgradeToPro,
                       style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
                 ),
               ),
@@ -421,7 +421,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     if (mounted) setState(() {});
                   },
                   child: Text(
-                    'Restore Purchase',
+                    l10n.restorePurchase,
                     style: TextStyle(
                       fontSize: 13,
                       color: Colors.white.withValues(alpha: 0.7),

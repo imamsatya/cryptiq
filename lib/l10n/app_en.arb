@@ -128,5 +128,44 @@
   "completeMoreLevels": "Complete more levels to replay",
   "viewSolution": "View Solution",
   "attempts": "Attempts",
-  "close": "Close"
+  "close": "Close",
+  "game": "Game",
+  "soundEffects": "Sound Effects",
+  "hapticFeedback": "Haptic Feedback",
+  "dailyReminder": "Daily Reminder",
+  "appearance": "Appearance",
+  "upgradeToPro": "Upgrade to Pro",
+  "noAds": "No Ads",
+  "allThemes": "All Themes",
+  "bonusHint": "+1 Bonus Hint",
+  "goPro": "Go Pro",
+  "proActive": "CryptiQ Pro ✓",
+  "byDifficulty": "By Difficulty",
+  "totalStars": "Total Stars",
+  "avgTime": "Avg. Time",
+  "enjoyingApp": "Enjoying CryptiQ?",
+  "rateAppBody": "If you like the app, please take a moment to rate it!",
+  "noThanks": "No Thanks",
+  "later": "Later",
+  "rateNow": "Rate Now ⭐",
+  "undo": "Undo",
+  "overview": "Overview",
+  "dataCollection": "Data Collection",
+  "thirdPartyServices": "Third-Party Services",
+  "dataStorage": "Data Storage",
+  "childrenPrivacy": "Children's Privacy",
+  "changes": "Changes",
+  "contact": "Contact",
+  "lastUpdated": "Last Updated",
+  "levelsOf": "{completed} of {total} levels completed",
+  "@levelsOf": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  }
 }

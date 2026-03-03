@@ -299,4 +299,94 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get close => '닫기';
+
+  @override
+  String get game => 'Game';
+
+  @override
+  String get soundEffects => 'Sound Effects';
+
+  @override
+  String get hapticFeedback => 'Haptic Feedback';
+
+  @override
+  String get dailyReminder => 'Daily Reminder';
+
+  @override
+  String get appearance => 'Appearance';
+
+  @override
+  String get upgradeToPro => 'Upgrade to Pro';
+
+  @override
+  String get noAds => 'No Ads';
+
+  @override
+  String get allThemes => 'All Themes';
+
+  @override
+  String get bonusHint => '+1 Bonus Hint';
+
+  @override
+  String get goPro => 'Go Pro';
+
+  @override
+  String get proActive => 'CryptiQ Pro ✓';
+
+  @override
+  String get byDifficulty => 'By Difficulty';
+
+  @override
+  String get totalStars => 'Total Stars';
+
+  @override
+  String get avgTime => 'Avg. Time';
+
+  @override
+  String get enjoyingApp => 'Enjoying CryptiQ?';
+
+  @override
+  String get rateAppBody =>
+      'If you like the app, please take a moment to rate it!';
+
+  @override
+  String get noThanks => 'No Thanks';
+
+  @override
+  String get later => 'Later';
+
+  @override
+  String get rateNow => 'Rate Now ⭐';
+
+  @override
+  String get undo => 'Undo';
+
+  @override
+  String get overview => 'Overview';
+
+  @override
+  String get dataCollection => 'Data Collection';
+
+  @override
+  String get thirdPartyServices => 'Third-Party Services';
+
+  @override
+  String get dataStorage => 'Data Storage';
+
+  @override
+  String get childrenPrivacy => 'Children\'s Privacy';
+
+  @override
+  String get changes => 'Changes';
+
+  @override
+  String get contact => 'Contact';
+
+  @override
+  String get lastUpdated => 'Last Updated';
+
+  @override
+  String levelsOf(int completed, int total) {
+    return '$completed of $total levels completed';
+  }
 }

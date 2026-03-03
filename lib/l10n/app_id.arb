@@ -114,5 +114,44 @@
   "completeMoreLevels": "Selesaikan level lagi untuk replay",
   "viewSolution": "Lihat Jawaban",
   "attempts": "Percobaan",
-  "close": "Tutup"
+  "close": "Tutup",
+  "game": "Permainan",
+  "soundEffects": "Efek Suara",
+  "hapticFeedback": "Umpan Balik Haptic",
+  "dailyReminder": "Pengingat Harian",
+  "appearance": "Tampilan",
+  "upgradeToPro": "Upgrade ke Pro",
+  "noAds": "Tanpa Iklan",
+  "allThemes": "Semua Tema",
+  "bonusHint": "+1 Petunjuk Bonus",
+  "goPro": "Jadi Pro",
+  "proActive": "CryptiQ Pro ✓",
+  "byDifficulty": "Per Kesulitan",
+  "totalStars": "Total Bintang",
+  "avgTime": "Rata-rata Waktu",
+  "enjoyingApp": "Suka CryptiQ?",
+  "rateAppBody": "Jika kamu suka aplikasi ini, luangkan waktu untuk menilai!",
+  "noThanks": "Tidak, Terima Kasih",
+  "later": "Nanti",
+  "rateNow": "Nilai Sekarang ⭐",
+  "undo": "Undo",
+  "overview": "Ringkasan",
+  "dataCollection": "Pengumpulan Data",
+  "thirdPartyServices": "Layanan Pihak Ketiga",
+  "dataStorage": "Penyimpanan Data",
+  "childrenPrivacy": "Privasi Anak",
+  "changes": "Perubahan",
+  "contact": "Kontak",
+  "lastUpdated": "Terakhir Diperbarui",
+  "levelsOf": "{completed} dari {total} level selesai",
+  "@levelsOf": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  }
 }
