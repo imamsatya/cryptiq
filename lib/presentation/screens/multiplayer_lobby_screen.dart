@@ -22,7 +22,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
   String _operation = 'mixed';
 
   static const _difficulties = {
-    'easy': 'Easy',
+    'easy': 'Easy',  // overridden by l10n in build
     'medium': 'Medium',
     'hard': 'Hard',
     'expert': 'Expert',
@@ -30,7 +30,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
   };
 
   static const _operations = {
-    '+': 'Addition (+)',
+    '+': 'Addition (+)',  // overridden by l10n in build
     '-': 'Subtraction (−)',
     '*': 'Multiply (×)',
     'multi': 'Multi-step',
@@ -196,7 +196,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                                   color: AppTheme.primaryColor, size: 20),
                               SizedBox(width: 6),
                               Text(
-                                'Add Player',
+                                l10n.addPlayer,
                                 style: TextStyle(
                                   color: AppTheme.primaryColor,
                                   fontWeight: FontWeight.w500,

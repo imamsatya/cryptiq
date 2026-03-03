@@ -179,5 +179,58 @@
   "tutorialGoTitle": "You're Ready!",
   "tutorialGoBody": "Solve fast with fewer hints for ⭐⭐⭐!\nGood luck and have fun! 🧩",
   "next": "Next",
-  "autoFillNext": "Auto-select Next Letter"
+  "autoFillNext": "Auto-select Next Letter",
+  "onboardingWelcomeTitle": "Welcome to CryptiQ!",
+  "onboardingWelcomeSubtitle": "Decode the Logic",
+  "onboardingWelcomeBody": "CryptiQ is a cryptarithm puzzle game where each letter represents a unique digit (0-9).\n\nYour goal: figure out which digit goes with which letter to make the equation true!",
+  "onboardingHowToPlay": "How to Play",
+  "onboardingSelectAssign": "Select & Assign",
+  "onboardingExample": "If S=9, E=5, N=6, D=7\nthen SEND = 9567",
+  "onboardingNeedHelp": "Need Help?",
+  "onboardingDailyTitle": "Daily Challenge",
+  "onboardingDailySubtitle": "Come Back Every Day!",
+  "onboardingReady": "Ready? Let's go! 🚀",
+  "skip": "Skip",
+  "startPlaying": "Start Playing",
+  "playerName": "Player {number}",
+  "@playerName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "addPlayer": "Add Player",
+  "roundsLabel": "Rounds: {count}",
+  "@roundsLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addition": "Addition (+)",
+  "subtraction": "Subtraction (−)",
+  "multiply": "Multiply (×)",
+  "multiStep": "Multi-step",
+  "passDevice": "Pass the device to this player",
+  "roundDetails": "Round Details",
+  "gaveUp": "Gave up",
+  "beatMyTime": "Can you beat my time?",
+  "allLevelsFreeTitle": "All 1200 Levels FREE",
+  "allLevelsFreeBody": "No locked levels, no paywall. Enjoy!",
+  "privacyOverviewBody": "We respect your privacy and are committed to protecting your personal information.",
+  "privacyDataBody": "All game progress is stored locally on your device using offline storage (Hive). We do not require account creation or login.",
+  "privacyStorageBody": "All data (game progress, settings, achievements) is stored locally on your device. Uninstalling the app will remove all local data.",
+  "privacyChangesBody": "We may update this policy. Continued use of the app after changes constitutes acceptance.",
+  "privacyContactBody": "For questions, email: {email}",
+  "@privacyContactBody": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "multiStepLabel": "Multi-step",
+  "stars3": "Stars"
 }

@@ -166,7 +166,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
 
                         // Round-by-round
                         Text(
-                          'Round Details',
+                          l10n.roundDetails,
                           style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
@@ -382,7 +382,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
                   Text(
                     pr.solved
                         ? '${_formatTime(pr.timeSeconds)} • ${pr.hintsUsed}h'
-                        : 'Gave up',
+                        : '—',
                     style: TextStyle(
                       fontSize: 12,
                       color: pr.solved ? Colors.white : AppTheme.textMuted,

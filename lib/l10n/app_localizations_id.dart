@@ -430,4 +430,111 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get autoFillNext => 'Otomatis Pilih Huruf Berikutnya';
+
+  @override
+  String get onboardingWelcomeTitle => 'Selamat Datang di CryptiQ!';
+
+  @override
+  String get onboardingWelcomeSubtitle => 'Decode the Logic';
+
+  @override
+  String get onboardingWelcomeBody =>
+      'CryptiQ adalah game teka-teki kriptaritma di mana setiap huruf mewakili digit unik (0-9).\n\nTujuanmu: cari tahu digit mana untuk setiap huruf agar persamaan menjadi benar!';
+
+  @override
+  String get onboardingHowToPlay => 'Cara Bermain';
+
+  @override
+  String get onboardingSelectAssign => 'Pilih & Isi';
+
+  @override
+  String get onboardingExample => 'Jika S=9, E=5, N=6, D=7\nmaka SEND = 9567';
+
+  @override
+  String get onboardingNeedHelp => 'Butuh Bantuan?';
+
+  @override
+  String get onboardingDailyTitle => 'Tantangan Harian';
+
+  @override
+  String get onboardingDailySubtitle => 'Kembali Setiap Hari!';
+
+  @override
+  String get onboardingReady => 'Siap? Ayo mulai! 🚀';
+
+  @override
+  String get skip => 'Lewati';
+
+  @override
+  String get startPlaying => 'Mulai Bermain';
+
+  @override
+  String playerName(int number) {
+    return 'Pemain $number';
+  }
+
+  @override
+  String get addPlayer => 'Tambah Pemain';
+
+  @override
+  String roundsLabel(int count) {
+    return 'Ronde: $count';
+  }
+
+  @override
+  String get addition => 'Penjumlahan (+)';
+
+  @override
+  String get subtraction => 'Pengurangan (−)';
+
+  @override
+  String get multiply => 'Perkalian (×)';
+
+  @override
+  String get multiStep => 'Multi-langkah';
+
+  @override
+  String get passDevice => 'Berikan perangkat ke pemain ini';
+
+  @override
+  String get roundDetails => 'Detail Ronde';
+
+  @override
+  String get gaveUp => 'Menyerah';
+
+  @override
+  String get beatMyTime => 'Bisakah kamu mengalahkan waktuku?';
+
+  @override
+  String get allLevelsFreeTitle => 'Semua 1200 Level GRATIS';
+
+  @override
+  String get allLevelsFreeBody => 'Tidak ada level terkunci. Nikmati!';
+
+  @override
+  String get privacyOverviewBody =>
+      'Kami menghormati privasi Anda dan berkomitmen melindungi informasi pribadi Anda.';
+
+  @override
+  String get privacyDataBody =>
+      'Semua progress game disimpan secara lokal di perangkat Anda menggunakan penyimpanan offline (Hive). Kami tidak memerlukan pembuatan akun atau login.';
+
+  @override
+  String get privacyStorageBody =>
+      'Semua data (progress game, pengaturan, pencapaian) disimpan secara lokal di perangkat Anda. Menghapus aplikasi akan menghapus semua data lokal.';
+
+  @override
+  String get privacyChangesBody =>
+      'Kami dapat memperbarui kebijakan ini. Penggunaan berkelanjutan setelah perubahan dianggap sebagai persetujuan.';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'Untuk pertanyaan, email: $email';
+  }
+
+  @override
+  String get multiStepLabel => 'Multi-langkah';
+
+  @override
+  String get stars3 => 'Bintang';
 }

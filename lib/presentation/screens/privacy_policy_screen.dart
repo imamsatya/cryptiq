@@ -63,14 +63,11 @@ class PrivacyPolicyScreen extends StatelessWidget {
                         _section(l10n.lastUpdated, 'March 2026'),
                         _section(
                           l10n.overview,
-                          '${AppConstants.appName} is a cryptarithm puzzle game. '
-                          'We respect your privacy and are committed to protecting your personal information.',
+                          l10n.privacyOverviewBody,
                         ),
                         _section(
                           l10n.dataCollection,
-                          '${AppConstants.appName} does NOT collect, store, or transmit any personal data. '
-                          'All game progress is stored locally on your device using offline storage (Hive). '
-                          'We do not require account creation or login.',
+                          l10n.privacyDataBody,
                         ),
                         _section(
                           l10n.thirdPartyServices,
@@ -79,8 +76,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                         ),
                         _section(
                           l10n.dataStorage,
-                          'All data (game progress, settings, achievements) is stored locally on your device. '
-                          'Uninstalling the app will remove all local data.',
+                          l10n.privacyStorageBody,
                         ),
                         _section(
                           l10n.childrenPrivacy,
@@ -88,11 +84,11 @@ class PrivacyPolicyScreen extends StatelessWidget {
                         ),
                         _section(
                           l10n.changes,
-                          'We may update this policy. Continued use of the app after changes constitutes acceptance.',
+                          l10n.privacyChangesBody,
                         ),
                         _section(
                           l10n.contact,
-                          'For questions, email: ${AppConstants.contactEmail}',
+                          l10n.privacyContactBody(AppConstants.contactEmail),
                         ),
                       ],
                     ),

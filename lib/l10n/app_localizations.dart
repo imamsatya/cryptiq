@@ -925,6 +925,198 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Auto-select Next Letter'**
   String get autoFillNext;
+
+  /// No description provided for @onboardingWelcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to CryptiQ!'**
+  String get onboardingWelcomeTitle;
+
+  /// No description provided for @onboardingWelcomeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Decode the Logic'**
+  String get onboardingWelcomeSubtitle;
+
+  /// No description provided for @onboardingWelcomeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'CryptiQ is a cryptarithm puzzle game where each letter represents a unique digit (0-9).\n\nYour goal: figure out which digit goes with which letter to make the equation true!'**
+  String get onboardingWelcomeBody;
+
+  /// No description provided for @onboardingHowToPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'How to Play'**
+  String get onboardingHowToPlay;
+
+  /// No description provided for @onboardingSelectAssign.
+  ///
+  /// In en, this message translates to:
+  /// **'Select & Assign'**
+  String get onboardingSelectAssign;
+
+  /// No description provided for @onboardingExample.
+  ///
+  /// In en, this message translates to:
+  /// **'If S=9, E=5, N=6, D=7\nthen SEND = 9567'**
+  String get onboardingExample;
+
+  /// No description provided for @onboardingNeedHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Need Help?'**
+  String get onboardingNeedHelp;
+
+  /// No description provided for @onboardingDailyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Challenge'**
+  String get onboardingDailyTitle;
+
+  /// No description provided for @onboardingDailySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Come Back Every Day!'**
+  String get onboardingDailySubtitle;
+
+  /// No description provided for @onboardingReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready? Let\'s go! 🚀'**
+  String get onboardingReady;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
+
+  /// No description provided for @startPlaying.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Playing'**
+  String get startPlaying;
+
+  /// No description provided for @playerName.
+  ///
+  /// In en, this message translates to:
+  /// **'Player {number}'**
+  String playerName(int number);
+
+  /// No description provided for @addPlayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Player'**
+  String get addPlayer;
+
+  /// No description provided for @roundsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Rounds: {count}'**
+  String roundsLabel(int count);
+
+  /// No description provided for @addition.
+  ///
+  /// In en, this message translates to:
+  /// **'Addition (+)'**
+  String get addition;
+
+  /// No description provided for @subtraction.
+  ///
+  /// In en, this message translates to:
+  /// **'Subtraction (−)'**
+  String get subtraction;
+
+  /// No description provided for @multiply.
+  ///
+  /// In en, this message translates to:
+  /// **'Multiply (×)'**
+  String get multiply;
+
+  /// No description provided for @multiStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Multi-step'**
+  String get multiStep;
+
+  /// No description provided for @passDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'Pass the device to this player'**
+  String get passDevice;
+
+  /// No description provided for @roundDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Round Details'**
+  String get roundDetails;
+
+  /// No description provided for @gaveUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Gave up'**
+  String get gaveUp;
+
+  /// No description provided for @beatMyTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Can you beat my time?'**
+  String get beatMyTime;
+
+  /// No description provided for @allLevelsFreeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'All 1200 Levels FREE'**
+  String get allLevelsFreeTitle;
+
+  /// No description provided for @allLevelsFreeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'No locked levels, no paywall. Enjoy!'**
+  String get allLevelsFreeBody;
+
+  /// No description provided for @privacyOverviewBody.
+  ///
+  /// In en, this message translates to:
+  /// **'We respect your privacy and are committed to protecting your personal information.'**
+  String get privacyOverviewBody;
+
+  /// No description provided for @privacyDataBody.
+  ///
+  /// In en, this message translates to:
+  /// **'All game progress is stored locally on your device using offline storage (Hive). We do not require account creation or login.'**
+  String get privacyDataBody;
+
+  /// No description provided for @privacyStorageBody.
+  ///
+  /// In en, this message translates to:
+  /// **'All data (game progress, settings, achievements) is stored locally on your device. Uninstalling the app will remove all local data.'**
+  String get privacyStorageBody;
+
+  /// No description provided for @privacyChangesBody.
+  ///
+  /// In en, this message translates to:
+  /// **'We may update this policy. Continued use of the app after changes constitutes acceptance.'**
+  String get privacyChangesBody;
+
+  /// No description provided for @privacyContactBody.
+  ///
+  /// In en, this message translates to:
+  /// **'For questions, email: {email}'**
+  String privacyContactBody(String email);
+
+  /// No description provided for @multiStepLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Multi-step'**
+  String get multiStepLabel;
+
+  /// No description provided for @stars3.
+  ///
+  /// In en, this message translates to:
+  /// **'Stars'**
+  String get stars3;
 }
 
 class _AppLocalizationsDelegate

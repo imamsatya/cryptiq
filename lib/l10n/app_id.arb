@@ -165,5 +165,58 @@
   "tutorialGoTitle": "Kamu Siap!",
   "tutorialGoBody": "Selesaikan cepat tanpa hint untuk ⭐⭐⭐!\nSelamat bermain! 🧩",
   "next": "Lanjut",
-  "autoFillNext": "Otomatis Pilih Huruf Berikutnya"
+  "autoFillNext": "Otomatis Pilih Huruf Berikutnya",
+  "onboardingWelcomeTitle": "Selamat Datang di CryptiQ!",
+  "onboardingWelcomeSubtitle": "Decode the Logic",
+  "onboardingWelcomeBody": "CryptiQ adalah game teka-teki kriptaritma di mana setiap huruf mewakili digit unik (0-9).\n\nTujuanmu: cari tahu digit mana untuk setiap huruf agar persamaan menjadi benar!",
+  "onboardingHowToPlay": "Cara Bermain",
+  "onboardingSelectAssign": "Pilih & Isi",
+  "onboardingExample": "Jika S=9, E=5, N=6, D=7\nmaka SEND = 9567",
+  "onboardingNeedHelp": "Butuh Bantuan?",
+  "onboardingDailyTitle": "Tantangan Harian",
+  "onboardingDailySubtitle": "Kembali Setiap Hari!",
+  "onboardingReady": "Siap? Ayo mulai! 🚀",
+  "skip": "Lewati",
+  "startPlaying": "Mulai Bermain",
+  "playerName": "Pemain {number}",
+  "@playerName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "addPlayer": "Tambah Pemain",
+  "roundsLabel": "Ronde: {count}",
+  "@roundsLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addition": "Penjumlahan (+)",
+  "subtraction": "Pengurangan (−)",
+  "multiply": "Perkalian (×)",
+  "multiStep": "Multi-langkah",
+  "passDevice": "Berikan perangkat ke pemain ini",
+  "roundDetails": "Detail Ronde",
+  "gaveUp": "Menyerah",
+  "beatMyTime": "Bisakah kamu mengalahkan waktuku?",
+  "allLevelsFreeTitle": "Semua 1200 Level GRATIS",
+  "allLevelsFreeBody": "Tidak ada level terkunci. Nikmati!",
+  "privacyOverviewBody": "Kami menghormati privasi Anda dan berkomitmen melindungi informasi pribadi Anda.",
+  "privacyDataBody": "Semua progress game disimpan secara lokal di perangkat Anda menggunakan penyimpanan offline (Hive). Kami tidak memerlukan pembuatan akun atau login.",
+  "privacyStorageBody": "Semua data (progress game, pengaturan, pencapaian) disimpan secara lokal di perangkat Anda. Menghapus aplikasi akan menghapus semua data lokal.",
+  "privacyChangesBody": "Kami dapat memperbarui kebijakan ini. Penggunaan berkelanjutan setelah perubahan dianggap sebagai persetujuan.",
+  "privacyContactBody": "Untuk pertanyaan, email: {email}",
+  "@privacyContactBody": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "multiStepLabel": "Multi-langkah",
+  "stars3": "Bintang"
 }

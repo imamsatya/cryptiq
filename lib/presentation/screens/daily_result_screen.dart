@@ -285,7 +285,7 @@ class _DailyResultScreenState extends State<DailyResultScreen>
                                     color: AppTheme.backgroundDark, size: 22),
                                 SizedBox(width: 8),
                                 Text(
-                                  'Share Result',
+                                  l10n.shareResult,
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700,

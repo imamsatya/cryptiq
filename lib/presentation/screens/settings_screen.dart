@@ -325,7 +325,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'All 1200 Levels FREE',
+                                  l10n.allLevelsFreeTitle,
                                   style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w600,
@@ -333,7 +333,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                                   ),
                                 ),
                                 Text(
-                                  'No locked levels, no paywall. Enjoy!',
+                                  l10n.allLevelsFreeBody,
                                   style: TextStyle(
                                     fontSize: 12,
                                     color: AppTheme.textSecondary.withValues(alpha: 0.7),

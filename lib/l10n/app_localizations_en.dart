@@ -430,4 +430,111 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get autoFillNext => 'Auto-select Next Letter';
+
+  @override
+  String get onboardingWelcomeTitle => 'Welcome to CryptiQ!';
+
+  @override
+  String get onboardingWelcomeSubtitle => 'Decode the Logic';
+
+  @override
+  String get onboardingWelcomeBody =>
+      'CryptiQ is a cryptarithm puzzle game where each letter represents a unique digit (0-9).\n\nYour goal: figure out which digit goes with which letter to make the equation true!';
+
+  @override
+  String get onboardingHowToPlay => 'How to Play';
+
+  @override
+  String get onboardingSelectAssign => 'Select & Assign';
+
+  @override
+  String get onboardingExample => 'If S=9, E=5, N=6, D=7\nthen SEND = 9567';
+
+  @override
+  String get onboardingNeedHelp => 'Need Help?';
+
+  @override
+  String get onboardingDailyTitle => 'Daily Challenge';
+
+  @override
+  String get onboardingDailySubtitle => 'Come Back Every Day!';
+
+  @override
+  String get onboardingReady => 'Ready? Let\'s go! 🚀';
+
+  @override
+  String get skip => 'Skip';
+
+  @override
+  String get startPlaying => 'Start Playing';
+
+  @override
+  String playerName(int number) {
+    return 'Player $number';
+  }
+
+  @override
+  String get addPlayer => 'Add Player';
+
+  @override
+  String roundsLabel(int count) {
+    return 'Rounds: $count';
+  }
+
+  @override
+  String get addition => 'Addition (+)';
+
+  @override
+  String get subtraction => 'Subtraction (−)';
+
+  @override
+  String get multiply => 'Multiply (×)';
+
+  @override
+  String get multiStep => 'Multi-step';
+
+  @override
+  String get passDevice => 'Pass the device to this player';
+
+  @override
+  String get roundDetails => 'Round Details';
+
+  @override
+  String get gaveUp => 'Gave up';
+
+  @override
+  String get beatMyTime => 'Can you beat my time?';
+
+  @override
+  String get allLevelsFreeTitle => 'All 1200 Levels FREE';
+
+  @override
+  String get allLevelsFreeBody => 'No locked levels, no paywall. Enjoy!';
+
+  @override
+  String get privacyOverviewBody =>
+      'We respect your privacy and are committed to protecting your personal information.';
+
+  @override
+  String get privacyDataBody =>
+      'All game progress is stored locally on your device using offline storage (Hive). We do not require account creation or login.';
+
+  @override
+  String get privacyStorageBody =>
+      'All data (game progress, settings, achievements) is stored locally on your device. Uninstalling the app will remove all local data.';
+
+  @override
+  String get privacyChangesBody =>
+      'We may update this policy. Continued use of the app after changes constitutes acceptance.';
+
+  @override
+  String privacyContactBody(String email) {
+    return 'For questions, email: $email';
+  }
+
+  @override
+  String get multiStepLabel => 'Multi-step';
+
+  @override
+  String get stars3 => 'Stars';
 }

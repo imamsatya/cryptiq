@@ -431,7 +431,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Pass the device to this player',
+                    AppLocalizations.of(context)!.passDevice,
                     style: TextStyle(
                       fontSize: 14,
                       color: AppTheme.textSecondary.withValues(alpha: 0.7),
