@@ -83,40 +83,75 @@ class HomeScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 8),
 
-                // Stats, Achievements & Settings row
+                // Stats, Achievements & Settings — icon only
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(
-                      child: _buildMenuButton(
-                        context,
-                        icon: Icons.bar_chart_rounded,
-                        label: l10n.statistics,
-                        onTap: () => context.push('/statistics'),
-                      ),
+                    _buildIconButton(
+                      icon: Icons.bar_chart_rounded,
+                      tooltip: l10n.statistics,
+                      onTap: () => context.push('/statistics'),
                     ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: _buildMenuButton(
-                        context,
-                        icon: Icons.emoji_events_rounded,
-                        label: l10n.badges,
-                        badge: AchievementService.instance.unlockedCount,
-                        onTap: () => context.push('/achievements'),
-                      ),
+                    const SizedBox(width: 16),
+                    _buildIconButton(
+                      icon: Icons.emoji_events_rounded,
+                      tooltip: l10n.badges,
+                      badge: AchievementService.instance.unlockedCount,
+                      onTap: () => context.push('/achievements'),
                     ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: _buildMenuButton(
-                        context,
-                        icon: Icons.settings_rounded,
-                        label: l10n.settings,
-                        onTap: () => context.push('/settings'),
-                      ),
+                    const SizedBox(width: 16),
+                    _buildIconButton(
+                      icon: Icons.settings_rounded,
+                      tooltip: l10n.settings,
+                      onTap: () => context.push('/settings'),
                     ),
                   ],
                 ),
 
-                const Spacer(flex: 3),
+                const Spacer(flex: 2),
+
+                // Go Pro banner (only for non-pro users)
+                if (!LocalDatabase.instance.getProStatus())
+                  GestureDetector(
+                    onTap: () => context.push('/settings'),
+                    child: Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        gradient: const LinearGradient(
+                          colors: [Color(0xFFD4A843), Color(0xFFB8860B)],
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0xFFD4A843).withValues(alpha: 0.25),
+                            blurRadius: 12,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.workspace_premium_rounded,
+                              color: Colors.white, size: 20),
+                          const SizedBox(width: 8),
+                          Text(
+                            l10n.upgradeToPro,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white,
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          const Text('👑', style: TextStyle(fontSize: 14)),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                const Spacer(),
 
                 // Footer
                 Text(
@@ -313,6 +348,51 @@ class HomeScreen extends ConsumerWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildIconButton({
+    required IconData icon,
+    required String tooltip,
+    required VoidCallback onTap,
+    int? badge,
+  }) {
+    return Tooltip(
+      message: tooltip,
+      child: GestureDetector(
+        onTap: onTap,
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Container(
+              width: 52,
+              height: 52,
+              decoration: AppTheme.glassDecoration(borderRadius: 16),
+              child: Icon(icon, color: AppTheme.primaryColor, size: 24),
+            ),
+            if (badge != null && badge > 0)
+              Positioned(
+                top: -4,
+                right: -4,
+                child: Container(
+                  padding: const EdgeInsets.all(4),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: AppTheme.primaryColor,
+                  ),
+                  child: Text(
+                    '$badge',
+                    style: const TextStyle(
+                      fontSize: 9,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
           ],
         ),
       ),
