@@ -389,4 +389,42 @@ class AppLocalizationsAr extends AppLocalizations {
   String levelsOf(int completed, int total) {
     return '$completed of $total levels completed';
   }
+
+  @override
+  String get tutorialWelcomeTitle => 'Welcome to CryptiQ!';
+
+  @override
+  String get tutorialWelcomeBody =>
+      'Each letter represents a unique digit (0-9).\nYour goal: find which digit each letter stands for\nso the equation is correct.';
+
+  @override
+  String get tutorialSelectTitle => 'Step 1: Select a Letter';
+
+  @override
+  String get tutorialSelectBody =>
+      'Tap on any letter tile in the equation.\nIt will highlight, showing it\'s selected.';
+
+  @override
+  String get tutorialAssignTitle => 'Step 2: Assign a Digit';
+
+  @override
+  String get tutorialAssignBody =>
+      'Use the number pad to assign a digit (0-9)\nto the selected letter.\nEach digit can only be used once!';
+
+  @override
+  String get tutorialCheckTitle => 'Step 3: Check Your Answer';
+
+  @override
+  String get tutorialCheckBody =>
+      'Once all letters have digits, tap \"Check\".\nWrong letters turn red — fix them!\nUse Hints or Undo if you get stuck.';
+
+  @override
+  String get tutorialGoTitle => 'You\'re Ready!';
+
+  @override
+  String get tutorialGoBody =>
+      'Solve fast with fewer hints for ⭐⭐⭐!\nGood luck and have fun! 🧩';
+
+  @override
+  String get next => 'Next';
 }

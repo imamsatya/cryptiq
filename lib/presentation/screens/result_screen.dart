@@ -263,17 +263,35 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(3, (i) {
                         final isEarned = i < widget.stars;
-                        return Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 4),
-                          child: Icon(
-                            isEarned
-                                ? Icons.star_rounded
-                                : Icons.star_border_rounded,
-                            size: i == 1 ? 56 : 44,
-                            color: isEarned
-                                ? AppTheme.primaryColor
-                                : AppTheme.textMuted.withValues(alpha: 0.3),
-                          ),
+                        final delay = Duration(milliseconds: 300 + i * 250);
+                        return TweenAnimationBuilder<double>(
+                          tween: Tween(begin: 0.0, end: 1.0),
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.elasticOut,
+                          builder: (context, value, child) {
+                            // Delay each star
+                            return FutureBuilder(
+                              future: Future.delayed(delay),
+                              builder: (context, snapshot) {
+                                final show = snapshot.connectionState == ConnectionState.done;
+                                return Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 4),
+                                  child: Transform.scale(
+                                    scale: show ? 1.0 : 0.0,
+                                    child: Icon(
+                                      isEarned
+                                          ? Icons.star_rounded
+                                          : Icons.star_border_rounded,
+                                      size: i == 1 ? 56 : 44,
+                                      color: isEarned
+                                          ? AppTheme.primaryColor
+                                          : AppTheme.textMuted.withValues(alpha: 0.3),
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                          },
                         );
                       }),
                     ),
@@ -287,14 +305,29 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          _buildStatItem(
-                              Icons.timer_outlined, _formatTime(widget.timeSeconds), l10n.time),
+                          TweenAnimationBuilder<int>(
+                            tween: IntTween(begin: 0, end: widget.timeSeconds),
+                            duration: const Duration(milliseconds: 1200),
+                            curve: Curves.easeOutCubic,
+                            builder: (context, value, _) => _buildStatItem(
+                                Icons.timer_outlined, _formatTime(value), l10n.time),
+                          ),
                           Container(width: 1, height: 40, color: Colors.white.withValues(alpha: 0.1)),
-                          _buildStatItem(
-                              Icons.lightbulb_outline, '${widget.hintsUsed}', l10n.hints),
+                          TweenAnimationBuilder<int>(
+                            tween: IntTween(begin: 0, end: widget.hintsUsed),
+                            duration: const Duration(milliseconds: 800),
+                            curve: Curves.easeOutCubic,
+                            builder: (context, value, _) => _buildStatItem(
+                                Icons.lightbulb_outline, '$value', l10n.hints),
+                          ),
                           Container(width: 1, height: 40, color: Colors.white.withValues(alpha: 0.1)),
-                          _buildStatItem(
-                              Icons.star_rounded, '${widget.stars}/3', 'Stars'),
+                          TweenAnimationBuilder<int>(
+                            tween: IntTween(begin: 0, end: widget.stars),
+                            duration: const Duration(milliseconds: 1000),
+                            curve: Curves.easeOutCubic,
+                            builder: (context, value, _) => _buildStatItem(
+                                Icons.star_rounded, '$value/3', l10n.stars(widget.stars)),
+                          ),
                         ],
                       ),
                     ),

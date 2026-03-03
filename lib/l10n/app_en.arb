@@ -167,5 +167,16 @@
         "type": "int"
       }
     }
-  }
+  },
+  "tutorialWelcomeTitle": "Welcome to CryptiQ!",
+  "tutorialWelcomeBody": "Each letter represents a unique digit (0-9).\nYour goal: find which digit each letter stands for\nso the equation is correct.",
+  "tutorialSelectTitle": "Step 1: Select a Letter",
+  "tutorialSelectBody": "Tap on any letter tile in the equation.\nIt will highlight, showing it's selected.",
+  "tutorialAssignTitle": "Step 2: Assign a Digit",
+  "tutorialAssignBody": "Use the number pad to assign a digit (0-9)\nto the selected letter.\nEach digit can only be used once!",
+  "tutorialCheckTitle": "Step 3: Check Your Answer",
+  "tutorialCheckBody": "Once all letters have digits, tap \"Check\".\nWrong letters turn red — fix them!\nUse Hints or Undo if you get stuck.",
+  "tutorialGoTitle": "You're Ready!",
+  "tutorialGoBody": "Solve fast with fewer hints for ⭐⭐⭐!\nGood luck and have fun! 🧩",
+  "next": "Next"
 }

@@ -153,5 +153,16 @@
         "type": "int"
       }
     }
-  }
+  },
+  "tutorialWelcomeTitle": "Selamat Datang di CryptiQ!",
+  "tutorialWelcomeBody": "Setiap huruf mewakili satu digit unik (0-9).\nTugas kamu: temukan digit untuk setiap huruf\nagar persamaan menjadi benar.",
+  "tutorialSelectTitle": "Langkah 1: Pilih Huruf",
+  "tutorialSelectBody": "Ketuk huruf di persamaan.\nHuruf yang dipilih akan menyala.",
+  "tutorialAssignTitle": "Langkah 2: Pilih Angka",
+  "tutorialAssignBody": "Gunakan keypad untuk memilih digit (0-9)\nuntuk huruf yang dipilih.\nSetiap digit hanya bisa dipakai sekali!",
+  "tutorialCheckTitle": "Langkah 3: Periksa Jawaban",
+  "tutorialCheckBody": "Setelah semua huruf terisi, ketuk \"Periksa\".\nHuruf salah berubah merah — perbaiki!\nGunakan Petunjuk atau Undo jika buntu.",
+  "tutorialGoTitle": "Kamu Siap!",
+  "tutorialGoBody": "Selesaikan cepat tanpa hint untuk ⭐⭐⭐!\nSelamat bermain! 🧩",
+  "next": "Lanjut"
 }

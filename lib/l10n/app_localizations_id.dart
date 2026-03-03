@@ -389,4 +389,42 @@ class AppLocalizationsId extends AppLocalizations {
   String levelsOf(int completed, int total) {
     return '$completed dari $total level selesai';
   }
+
+  @override
+  String get tutorialWelcomeTitle => 'Selamat Datang di CryptiQ!';
+
+  @override
+  String get tutorialWelcomeBody =>
+      'Setiap huruf mewakili satu digit unik (0-9).\nTugas kamu: temukan digit untuk setiap huruf\nagar persamaan menjadi benar.';
+
+  @override
+  String get tutorialSelectTitle => 'Langkah 1: Pilih Huruf';
+
+  @override
+  String get tutorialSelectBody =>
+      'Ketuk huruf di persamaan.\nHuruf yang dipilih akan menyala.';
+
+  @override
+  String get tutorialAssignTitle => 'Langkah 2: Pilih Angka';
+
+  @override
+  String get tutorialAssignBody =>
+      'Gunakan keypad untuk memilih digit (0-9)\nuntuk huruf yang dipilih.\nSetiap digit hanya bisa dipakai sekali!';
+
+  @override
+  String get tutorialCheckTitle => 'Langkah 3: Periksa Jawaban';
+
+  @override
+  String get tutorialCheckBody =>
+      'Setelah semua huruf terisi, ketuk \"Periksa\".\nHuruf salah berubah merah — perbaiki!\nGunakan Petunjuk atau Undo jika buntu.';
+
+  @override
+  String get tutorialGoTitle => 'Kamu Siap!';
+
+  @override
+  String get tutorialGoBody =>
+      'Selesaikan cepat tanpa hint untuk ⭐⭐⭐!\nSelamat bermain! 🧩';
+
+  @override
+  String get next => 'Lanjut';
 }

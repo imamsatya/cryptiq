@@ -853,6 +853,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{completed} of {total} levels completed'**
   String levelsOf(int completed, int total);
+
+  /// No description provided for @tutorialWelcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to CryptiQ!'**
+  String get tutorialWelcomeTitle;
+
+  /// No description provided for @tutorialWelcomeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Each letter represents a unique digit (0-9).\nYour goal: find which digit each letter stands for\nso the equation is correct.'**
+  String get tutorialWelcomeBody;
+
+  /// No description provided for @tutorialSelectTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Step 1: Select a Letter'**
+  String get tutorialSelectTitle;
+
+  /// No description provided for @tutorialSelectBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap on any letter tile in the equation.\nIt will highlight, showing it\'s selected.'**
+  String get tutorialSelectBody;
+
+  /// No description provided for @tutorialAssignTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Step 2: Assign a Digit'**
+  String get tutorialAssignTitle;
+
+  /// No description provided for @tutorialAssignBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the number pad to assign a digit (0-9)\nto the selected letter.\nEach digit can only be used once!'**
+  String get tutorialAssignBody;
+
+  /// No description provided for @tutorialCheckTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Step 3: Check Your Answer'**
+  String get tutorialCheckTitle;
+
+  /// No description provided for @tutorialCheckBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Once all letters have digits, tap \"Check\".\nWrong letters turn red — fix them!\nUse Hints or Undo if you get stuck.'**
+  String get tutorialCheckBody;
+
+  /// No description provided for @tutorialGoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re Ready!'**
+  String get tutorialGoTitle;
+
+  /// No description provided for @tutorialGoBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve fast with fewer hints for ⭐⭐⭐!\nGood luck and have fun! 🧩'**
+  String get tutorialGoBody;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
 }
 
 class _AppLocalizationsDelegate

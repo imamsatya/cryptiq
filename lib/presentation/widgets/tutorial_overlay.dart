@@ -197,7 +197,7 @@ class _TutorialOverlayState extends State<TutorialOverlay>
 
                     // Title
                     Text(
-                      step.titleFallback,
+                      _getTitle(l10n, _step),
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontSize: 20,
@@ -209,7 +209,7 @@ class _TutorialOverlayState extends State<TutorialOverlay>
 
                     // Body
                     Text(
-                      step.bodyFallback,
+                      _getBody(l10n, _step),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 14,
@@ -249,7 +249,7 @@ class _TutorialOverlayState extends State<TutorialOverlay>
                               ),
                             ),
                             child: Text(
-                              isLast ? l10n.startGame : l10n.nextLevel,
+                              isLast ? l10n.startGame : l10n.next,
                               style: const TextStyle(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 15,
@@ -267,6 +267,28 @@ class _TutorialOverlayState extends State<TutorialOverlay>
         ),
       ),
     );
+  }
+
+  String _getTitle(AppLocalizations l10n, int step) {
+    return switch (step) {
+      0 => l10n.tutorialWelcomeTitle,
+      1 => l10n.tutorialSelectTitle,
+      2 => l10n.tutorialAssignTitle,
+      3 => l10n.tutorialCheckTitle,
+      4 => l10n.tutorialGoTitle,
+      _ => '',
+    };
+  }
+
+  String _getBody(AppLocalizations l10n, int step) {
+    return switch (step) {
+      0 => l10n.tutorialWelcomeBody,
+      1 => l10n.tutorialSelectBody,
+      2 => l10n.tutorialAssignBody,
+      3 => l10n.tutorialCheckBody,
+      4 => l10n.tutorialGoBody,
+      _ => '',
+    };
   }
 }
 
