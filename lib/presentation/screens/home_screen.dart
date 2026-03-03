@@ -71,6 +71,18 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 _buildPlayButton(context, highestCompleted),
                 const SizedBox(height: 10),
 
+                // Completion progress
+                Center(
+                  child: Text(
+                    l10n.levelsCompleted(highestCompleted, PuzzleGenerator.totalPuzzles),
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: AppTheme.textSecondary.withValues(alpha: 0.6),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+
                 // Level select button
                 _buildMenuButton(
                   context,

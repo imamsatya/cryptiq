@@ -77,7 +77,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get bestTime => '最快记录';
 
   @override
-  String get levelsCompleted => '完成关卡';
+  String levelsCompleted(int count, int total) {
+    return '完成关卡';
+  }
 
   @override
   String get totalTime => '总用时';
@@ -537,4 +539,31 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get stars3 => 'Stars';
+
+  @override
+  String get onboardingHowToPlayBody =>
+      '1. Tap a letter tile to select it\n2. Tap a number (0-9) to assign it\n3. Each letter must have a unique digit\n4. Long-press a letter to clear it';
+
+  @override
+  String get onboardingHelpSubtitle => 'Hints & Checking';
+
+  @override
+  String get onboardingHelpBody =>
+      '• Tap 💡 Hint to reveal one correct letter\n• Tap ✓ Check to verify your solution\n• Wrong letters glow red, correct ones glow green\n• Try to solve with fewer hints for more ⭐ stars!';
+
+  @override
+  String get onboardingDailyBody =>
+      '• A new puzzle appears every day\n• Build your streak 🔥 by playing daily\n• Unlock achievements as you play\n• 1200 levels from Easy to Expert — all FREE!';
+
+  @override
+  String get onboardingStarExample =>
+      '⭐⭐⭐  No hints, fast solve\n⭐⭐     1-2 hints\n⭐       3+ hints';
+
+  @override
+  String usedBy(String letter) {
+    return 'Used by: $letter';
+  }
+
+  @override
+  String get notUsed => 'Not used';
 }

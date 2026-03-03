@@ -77,7 +77,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get bestTime => 'Waktu Terbaik';
 
   @override
-  String get levelsCompleted => 'Level Selesai';
+  String levelsCompleted(int count, int total) {
+    return '$count/$total selesai';
+  }
 
   @override
   String get totalTime => 'Total Waktu';
@@ -537,4 +539,31 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get stars3 => 'Bintang';
+
+  @override
+  String get onboardingHowToPlayBody =>
+      '1. Ketuk huruf untuk memilihnya\n2. Ketuk angka (0-9) untuk mengisinya\n3. Setiap huruf harus memiliki digit unik\n4. Tekan lama huruf untuk menghapus';
+
+  @override
+  String get onboardingHelpSubtitle => 'Petunjuk & Pemeriksaan';
+
+  @override
+  String get onboardingHelpBody =>
+      '• Ketuk 💡 Petunjuk untuk membuka satu huruf\n• Ketuk ✓ Periksa untuk cek jawaban\n• Huruf salah merah, benar hijau\n• Selesaikan tanpa hint untuk ⭐ lebih banyak!';
+
+  @override
+  String get onboardingDailyBody =>
+      '• Puzzle baru setiap hari\n• Bangun streak 🔥 dengan bermain harian\n• Buka pencapaian saat bermain\n• 1200 level dari Mudah ke Ahli — semua GRATIS!';
+
+  @override
+  String get onboardingStarExample =>
+      '⭐⭐⭐  Tanpa hint, cepat\n⭐⭐     1-2 hint\n⭐       3+ hint';
+
+  @override
+  String usedBy(String letter) {
+    return 'Dipakai oleh: $letter';
+  }
+
+  @override
+  String get notUsed => 'Belum dipakai';
 }

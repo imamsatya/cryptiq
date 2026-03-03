@@ -251,8 +251,8 @@ abstract class AppLocalizations {
   /// No description provided for @levelsCompleted.
   ///
   /// In en, this message translates to:
-  /// **'Levels Completed'**
-  String get levelsCompleted;
+  /// **'{count}/{total} completed'**
+  String levelsCompleted(int count, int total);
 
   /// No description provided for @totalTime.
   ///
@@ -1117,6 +1117,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Stars'**
   String get stars3;
+
+  /// No description provided for @onboardingHowToPlayBody.
+  ///
+  /// In en, this message translates to:
+  /// **'1. Tap a letter tile to select it\n2. Tap a number (0-9) to assign it\n3. Each letter must have a unique digit\n4. Long-press a letter to clear it'**
+  String get onboardingHowToPlayBody;
+
+  /// No description provided for @onboardingHelpSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hints & Checking'**
+  String get onboardingHelpSubtitle;
+
+  /// No description provided for @onboardingHelpBody.
+  ///
+  /// In en, this message translates to:
+  /// **'• Tap 💡 Hint to reveal one correct letter\n• Tap ✓ Check to verify your solution\n• Wrong letters glow red, correct ones glow green\n• Try to solve with fewer hints for more ⭐ stars!'**
+  String get onboardingHelpBody;
+
+  /// No description provided for @onboardingDailyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'• A new puzzle appears every day\n• Build your streak 🔥 by playing daily\n• Unlock achievements as you play\n• 1200 levels from Easy to Expert — all FREE!'**
+  String get onboardingDailyBody;
+
+  /// No description provided for @onboardingStarExample.
+  ///
+  /// In en, this message translates to:
+  /// **'⭐⭐⭐  No hints, fast solve\n⭐⭐     1-2 hints\n⭐       3+ hints'**
+  String get onboardingStarExample;
+
+  /// No description provided for @usedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Used by: {letter}'**
+  String usedBy(String letter);
+
+  /// No description provided for @notUsed.
+  ///
+  /// In en, this message translates to:
+  /// **'Not used'**
+  String get notUsed;
 }
 
 class _AppLocalizationsDelegate

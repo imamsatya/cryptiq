@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../l10n/app_localizations.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/datasources/local_database.dart';
 
@@ -33,53 +34,39 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final _controller = PageController();
   int _currentPage = 0;
 
-  final _pages = const <_TutorialPage>[
+  List<_TutorialPage> _getPages(AppLocalizations l10n) => [
     _TutorialPage(
       emoji: '🧩',
-      title: 'Welcome to CryptiQ!',
-      subtitle: 'Decode the Logic',
-      body:
-          'CryptiQ is a cryptarithm puzzle game where each letter represents a unique digit (0-9).\n\n'
-          'Your goal: figure out which digit goes with which letter to make the equation true!',
+      title: l10n.onboardingWelcomeTitle,
+      subtitle: l10n.onboardingWelcomeSubtitle,
+      body: l10n.onboardingWelcomeBody,
       example: 'S E N D\n+ M O R E\n─────────\nM O N E Y',
     ),
     _TutorialPage(
       emoji: '👆',
-      title: 'How to Play',
-      subtitle: 'Select & Assign',
-      body:
-          '1. Tap a letter tile to select it\n'
-          '2. Tap a number (0-9) to assign it\n'
-          '3. Each letter must have a unique digit\n'
-          '4. Long-press a letter to clear it',
-      example: 'If S=9, E=5, N=6, D=7\nthen SEND = 9567',
+      title: l10n.onboardingHowToPlay,
+      subtitle: l10n.onboardingSelectAssign,
+      body: l10n.onboardingHowToPlayBody,
+      example: l10n.onboardingExample,
     ),
     _TutorialPage(
       emoji: '💡',
-      title: 'Need Help?',
-      subtitle: 'Hints & Checking',
-      body:
-          '• Tap 💡 Hint to reveal one correct letter\n'
-          '• Tap ✓ Check to verify your solution\n'
-          '• Wrong letters glow red, correct ones glow green\n'
-          '• Try to solve with fewer hints for more ⭐ stars!',
-      example: '⭐⭐⭐  No hints, fast solve\n⭐⭐     1-2 hints\n⭐       3+ hints',
+      title: l10n.onboardingNeedHelp,
+      subtitle: l10n.onboardingHelpSubtitle,
+      body: l10n.onboardingHelpBody,
+      example: l10n.onboardingStarExample,
     ),
     _TutorialPage(
       emoji: '🔥',
-      title: 'Daily Challenge',
-      subtitle: 'Come Back Every Day!',
-      body:
-          '• A new puzzle appears every day\n'
-          '• Build your streak 🔥 by playing daily\n'
-          '• Unlock achievements as you play\n'
-          '• 1200 levels from Easy to Expert — all FREE!',
-      example: 'Ready? Let\'s go! 🚀',
+      title: l10n.onboardingDailyTitle,
+      subtitle: l10n.onboardingDailySubtitle,
+      body: l10n.onboardingDailyBody,
+      example: l10n.onboardingReady,
     ),
   ];
 
   void _next() {
-    if (_currentPage < _pages.length - 1) {
+    if (_currentPage < 4 - 1) {
       _controller.nextPage(
         duration: const Duration(milliseconds: 400),
         curve: Curves.easeInOut,
@@ -100,6 +87,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final pages = _getPages(l10n);
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
@@ -118,7 +107,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           horizontal: 16, vertical: 8),
                       decoration: AppTheme.glassDecoration(borderRadius: 20),
                       child: Text(
-                        _currentPage < _pages.length - 1 ? 'Skip' : '',
+                        _currentPage < pages.length - 1 ? l10n.skip : '',
                         style: TextStyle(
                           fontSize: 13,
                           color:
@@ -134,10 +123,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               Expanded(
                 child: PageView.builder(
                   controller: _controller,
-                  itemCount: _pages.length,
+                  itemCount: pages.length,
                   onPageChanged: (i) => setState(() => _currentPage = i),
                   itemBuilder: (context, index) {
-                    final page = _pages[index];
+                    final page = pages[index];
                     return _buildPage(page);
                   },
                 ),
@@ -152,7 +141,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     // Page dots
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(_pages.length, (i) {
+                      children: List.generate(pages.length, (i) {
                         return AnimatedContainer(
                           duration: Duration(milliseconds: 300),
                           margin: EdgeInsets.symmetric(horizontal: 4),
@@ -176,7 +165,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         duration: const Duration(milliseconds: 300),
                         width: double.infinity,
                         padding: EdgeInsets.symmetric(vertical: 16),
-                        decoration: _currentPage == _pages.length - 1
+                        decoration: _currentPage == pages.length - 1
                             ? AppTheme.goldGlowDecoration(borderRadius: 18)
                             : AppTheme.glassDecoration(
                                 borderRadius: 18,
@@ -187,23 +176,23 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              _currentPage == _pages.length - 1
-                                  ? 'Start Playing'
-                                  : 'Next',
+                              _currentPage == pages.length - 1
+                                  ? l10n.startPlaying
+                                  : l10n.next,
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
-                                color: _currentPage == _pages.length - 1
+                                color: _currentPage == pages.length - 1
                                     ? AppTheme.backgroundDark
                                     : Colors.white,
                               ),
                             ),
                             SizedBox(width: 8),
                             Icon(
-                              _currentPage == _pages.length - 1
+                              _currentPage == pages.length - 1
                                   ? Icons.play_arrow_rounded
                                   : Icons.arrow_forward_rounded,
-                              color: _currentPage == _pages.length - 1
+                              color: _currentPage == pages.length - 1
                                   ? AppTheme.backgroundDark
                                   : Colors.white,
                               size: 20,

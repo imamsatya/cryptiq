@@ -5,12 +5,14 @@ import '../../core/theme/app_theme.dart';
 class NumberPad extends StatelessWidget {
   final Set<int> usedDigits;
   final Function(int) onDigitTap;
+  final Function(int)? onDigitLongPress;
   final bool enabled;
 
   const NumberPad({
     super.key,
     required this.usedDigits,
     required this.onDigitTap,
+    this.onDigitLongPress,
     this.enabled = true,
   });
 
@@ -25,6 +27,7 @@ class NumberPad extends StatelessWidget {
 
           return GestureDetector(
             onTap: enabled ? () => onDigitTap(index) : null,
+            onLongPress: onDigitLongPress != null ? () => onDigitLongPress!(index) : null,
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 150),
               width: 34,

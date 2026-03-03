@@ -22,7 +22,7 @@
   "time": "Waktu",
   "hints": "Petunjuk",
   "bestTime": "Waktu Terbaik",
-  "levelsCompleted": "Level Selesai",
+  "levelsCompleted": "{count}/{total} selesai",
   "totalTime": "Total Waktu",
   "averageTime": "Rata-rata",
   "hintsUsed": "Hint Digunakan",
@@ -218,5 +218,29 @@
     }
   },
   "multiStepLabel": "Multi-langkah",
-  "stars3": "Bintang"
+  "stars3": "Bintang",
+  "onboardingHowToPlayBody": "1. Ketuk huruf untuk memilihnya\n2. Ketuk angka (0-9) untuk mengisinya\n3. Setiap huruf harus memiliki digit unik\n4. Tekan lama huruf untuk menghapus",
+  "onboardingHelpSubtitle": "Petunjuk & Pemeriksaan",
+  "onboardingHelpBody": "• Ketuk 💡 Petunjuk untuk membuka satu huruf\n• Ketuk ✓ Periksa untuk cek jawaban\n• Huruf salah merah, benar hijau\n• Selesaikan tanpa hint untuk ⭐ lebih banyak!",
+  "onboardingDailyBody": "• Puzzle baru setiap hari\n• Bangun streak 🔥 dengan bermain harian\n• Buka pencapaian saat bermain\n• 1200 level dari Mudah ke Ahli — semua GRATIS!",
+  "onboardingStarExample": "⭐⭐⭐  Tanpa hint, cepat\n⭐⭐     1-2 hint\n⭐       3+ hint",
+  "usedBy": "Dipakai oleh: {letter}",
+  "@usedBy": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
+  "notUsed": "Belum dipakai",
+  "@levelsCompleted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  }
 }

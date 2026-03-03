@@ -168,6 +168,22 @@ class DailyChallengeScreen extends ConsumerWidget {
                       AudioService.instance.playTap();
                       HapticFeedback.selectionClick();
                     },
+                    onDigitLongPress: (digit) {
+                      final entry = gameState.assignments.entries
+                          .where((e) => e.value == digit)
+                          .toList();
+                      final msg = entry.isNotEmpty
+                          ? l10n.usedBy(entry.first.key)
+                          : l10n.notUsed;
+                      ScaffoldMessenger.of(context)
+                        ..hideCurrentSnackBar()
+                        ..showSnackBar(SnackBar(
+                            content: Text(msg),
+                            duration: const Duration(seconds: 1),
+                            behavior: SnackBarBehavior.floating,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                          ));
+                    },
                     enabled: gameState.selectedLetter != null && !gameState.isComplete,
                   ),
                 ),
