@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/services/audio_service.dart';
+import '../../core/services/ad_service.dart';
 import '../providers/game_state_provider.dart';
 import '../widgets/puzzle_display.dart';
 import '../widgets/letter_tile.dart';
@@ -236,16 +237,42 @@ class _GameScreenState extends ConsumerState<GameScreen>
             child: GestureDetector(
               onTap: gameState.isComplete
                   ? null
-                  : () {
+                  : () async {
                       final notifier = ref.read(
                           gameStateProvider(widget.levelNumber).notifier);
-                      final used = notifier.useHint();
-                      if (used) {
-                        AudioService.instance.playTap();
-                        HapticFeedback.mediumImpact();
-                        setState(() {}); // Update hint balance display
+                      
+                      if (hintsRemaining > 0) {
+                        // Use available hint
+                        final used = notifier.useHint();
+                        if (used) {
+                          AudioService.instance.playTap();
+                          HapticFeedback.mediumImpact();
+                          setState(() {});
+                        }
+                      } else if (gameState.canWatchAdForHint) {
+                        // Watch ad for extra hint
+                        final adService = AdService.instance;
+                        if (adService.isRewardedReady) {
+                          final rewarded = await adService.showRewarded();
+                          if (rewarded && mounted) {
+                            notifier.addRewardedHint();
+                            // Auto-use the new hint
+                            notifier.useHint();
+                            AudioService.instance.playTap();
+                            HapticFeedback.mediumImpact();
+                            setState(() {});
+                          }
+                        } else {
+                          if (mounted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(l10n.noHintsAvailable),
+                                duration: Duration(seconds: 2),
+                              ),
+                            );
+                          }
+                        }
                       } else {
-                        // No hints available - show snackbar
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(l10n.noHintsAvailable),
@@ -263,11 +290,22 @@ class _GameScreenState extends ConsumerState<GameScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.lightbulb_outline_rounded,
-                        color: AppTheme.primaryColor, size: 20),
+                    Icon(
+                      hintsRemaining > 0
+                          ? Icons.lightbulb_outline_rounded
+                          : (gameState.canWatchAdForHint
+                              ? Icons.play_circle_outline_rounded
+                              : Icons.lightbulb_outline_rounded),
+                      color: AppTheme.primaryColor,
+                      size: 20,
+                    ),
                     SizedBox(width: 8),
                     Text(
-                      '${l10n.hint} ($hintsRemaining/$maxHints)',
+                      hintsRemaining > 0
+                          ? '${l10n.hint} ($hintsRemaining/$maxHints)'
+                          : (gameState.canWatchAdForHint
+                              ? '🎬 ${l10n.hint}'
+                              : '${l10n.hint} (0/$maxHints)'),
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w500,

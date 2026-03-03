@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:confetti/confetti.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/services/ad_service.dart';
 import '../../core/services/daily_challenge_service.dart';
 import '../../core/services/achievement_service.dart';
 
@@ -44,8 +45,13 @@ class _DailyResultScreenState extends State<DailyResultScreen>
     _confettiController.play();
     _animController.forward();
 
-    // Check achievements after screen renders
-    Future.delayed(const Duration(milliseconds: 500), () {
+    // Daily challenge: always show interstitial (max 1x/day), then achievements
+    Future.delayed(const Duration(milliseconds: 500), () async {
+      if (!mounted) return;
+      final adService = AdService.instance;
+      if (!adService.isPro) {
+        await adService.showInterstitial();
+      }
       if (mounted) _checkAchievements();
     });
   }

@@ -3,6 +3,7 @@ import '../../l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:confetti/confetti.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/services/ad_service.dart';
 import 'multiplayer_game_screen.dart';
 
 /// Multiplayer result leaderboard
@@ -44,6 +45,15 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
     );
     _confettiController.play();
     _animController.forward();
+
+    // Multiplayer: show interstitial once per session
+    Future.delayed(const Duration(milliseconds: 500), () async {
+      if (!mounted) return;
+      final adService = AdService.instance;
+      if (!adService.isPro) {
+        await adService.showInterstitial();
+      }
+    });
   }
 
   @override

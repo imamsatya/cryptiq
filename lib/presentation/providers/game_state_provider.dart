@@ -5,6 +5,7 @@ import '../../domain/entities/puzzle.dart';
 import '../../levels/puzzle_generator.dart';
 import '../../data/repositories/progress_repository.dart';
 import '../../core/constants/app_constants.dart';
+import '../../data/datasources/local_database.dart';
 
 /// Game state for a single puzzle session
 class GameState {
@@ -19,6 +20,8 @@ class GameState {
   final Set<String> wrongLetters;       // letters with wrong assignments (after check)
   final Set<String> correctLetters;     // letters confirmed correct
   final Set<String> hintedLetters;      // letters revealed by hints
+  final int rewardedHints;               // extra hints from rewarded ads
+  final int bonusHints;                  // pro user bonus hints
 
   const GameState({
     required this.puzzle,
@@ -32,17 +35,36 @@ class GameState {
     this.wrongLetters = const {},
     this.correctLetters = const {},
     this.hintedLetters = const {},
+    this.rewardedHints = 0,
+    this.bonusHints = 0,
   });
 
-  /// Max hints for this puzzle: floor(30% of letters), min 1 for 3+ letters
-  int get maxHints {
+  /// 50% hard cap: user must always solve at least half the letters
+  int get maxHintsCap {
+    final letterCount = puzzle.allLetters.length;
+    return (letterCount * AppConstants.maxHintPercentage).floor();
+  }
+
+  /// Base hints from 30% rule
+  int get baseHints {
     final letterCount = puzzle.allLetters.length;
     if (letterCount < AppConstants.minLettersForHint) return 0;
     return math.max(1, (letterCount * AppConstants.hintPercentage).floor());
   }
 
+  /// Max hints for this puzzle: base + bonus + rewarded, capped at 50%
+  int get maxHints {
+    return math.min(baseHints + bonusHints + rewardedHints, maxHintsCap);
+  }
+
   /// Hints remaining for this puzzle
   int get hintsRemaining => math.max(0, maxHints - hintsUsed);
+
+  /// Whether user can get more hints via rewarded ad (within 50% cap)
+  bool get canWatchAdForHint {
+    return hintsRemaining <= 0 &&
+        (baseHints + bonusHints + rewardedHints + 1) <= maxHintsCap;
+  }
 
   GameState copyWith({
     CryptarithmPuzzle? puzzle,
@@ -57,6 +79,8 @@ class GameState {
     Set<String>? wrongLetters,
     Set<String>? correctLetters,
     Set<String>? hintedLetters,
+    int? rewardedHints,
+    int? bonusHints,
   }) {
     return GameState(
       puzzle: puzzle ?? this.puzzle,
@@ -70,6 +94,8 @@ class GameState {
       wrongLetters: wrongLetters ?? this.wrongLetters,
       correctLetters: correctLetters ?? this.correctLetters,
       hintedLetters: hintedLetters ?? this.hintedLetters,
+      rewardedHints: rewardedHints ?? this.rewardedHints,
+      bonusHints: bonusHints ?? this.bonusHints,
     );
   }
 
@@ -90,6 +116,7 @@ class GameStateNotifier extends StateNotifier<GameState> {
       : super(GameState(
           puzzle: puzzle,
           assignments: {for (final l in puzzle.allLetters) l: null},
+          bonusHints: LocalDatabase.instance.getProStatus() ? 1 : 0,
         )) {
     // Defer timer start to avoid setState during initial build
     Future.microtask(() => _startTimer());
@@ -333,6 +360,12 @@ class GameStateNotifier extends StateNotifier<GameState> {
     );
 
     return true;
+  }
+
+  /// Add a rewarded hint (from watching ad)
+  void addRewardedHint() {
+    if (!state.canWatchAdForHint) return;
+    state = state.copyWith(rewardedHints: state.rewardedHints + 1);
   }
 
   @override

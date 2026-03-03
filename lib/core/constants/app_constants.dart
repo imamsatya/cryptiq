@@ -16,7 +16,8 @@ class AppConstants {
   static const int expertLevels = 450;     // Levels 751-1200 (incl. multi-step)
 
   // Hints (per-puzzle, based on letter count)
-  static const double hintPercentage = 0.30;    // 30% of hidden letters
+  static const double hintPercentage = 0.30;    // 30% of hidden letters (base)
+  static const double maxHintPercentage = 0.50;  // 50% cap (all sources combined)
   static const int minLettersForHint = 3;       // Need at least 3 letters for 1 hint
 
   // Stars Rating
@@ -30,9 +31,18 @@ class AppConstants {
   static const int threeStarMaxTimeHard = 180;
   static const int threeStarMaxTimeExpert = 300;
 
-  // Ads
-  static const bool adsEnabled = false;  // Disable until AdMob is set up
-  static const int interstitialAdInterval = 5; // Every 5 levels
+  // Ads — Interstitial trigger (OR logic)
+  static const bool adsEnabled = false;  // Enable when AdMob IDs are configured
+  static const int minLevelsBetweenAds = 3;         // Condition A: min levels
+  static const int minSecondsBetweenAdsShort = 120;  // Condition A: min 2 min
+  static const int minSecondsBetweenAdsLong = 240;   // Condition B: 4 min auto-trigger
+  static const int maxInterstitialsPerHour = 8;      // Safety cap
+  static const int skipAdsForFirstNLevels = 5;       // No ads for first 5 levels
+
+  // Ad Unit IDs (replace with real IDs before release)
+  static const String bannerAdUnitId = 'ca-app-pub-3940256099942544/6300978111';         // TEST
+  static const String interstitialAdUnitId = 'ca-app-pub-3940256099942544/1033173712';   // TEST
+  static const String rewardedAdUnitId = 'ca-app-pub-3940256099942544/5224354917';       // TEST
 
   // Hive Box Names
   static const String progressBox = 'user_progress';
@@ -49,4 +59,5 @@ class AppConstants {
 
   // IAP Product IDs
   static const String proProductId = 'cryptiq_pro';
+  static const double proPrice = 2.99;
 }

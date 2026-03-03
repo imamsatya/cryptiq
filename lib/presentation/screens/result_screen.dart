@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:confetti/confetti.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/services/ad_service.dart';
 import '../../core/services/achievement_service.dart';
 import '../../levels/puzzle_generator.dart';
 import '../providers/game_state_provider.dart';
@@ -50,8 +51,15 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
     _confettiController.play();
     _animController.forward();
 
-    // Check achievements after screen renders
-    Future.delayed(const Duration(milliseconds: 500), () {
+    // Show ad if needed, then check achievements
+    Future.delayed(const Duration(milliseconds: 500), () async {
+      if (!mounted) return;
+      // Track level completion for interstitial frequency
+      final adService = AdService.instance;
+      adService.onLevelCompleted();
+      if (adService.shouldShowInterstitial()) {
+        await adService.showInterstitial();
+      }
       if (mounted) _checkAchievements();
     });
   }
