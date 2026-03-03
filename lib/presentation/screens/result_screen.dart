@@ -84,6 +84,11 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
           ),
           backgroundColor: AppTheme.surfaceLight,
           behavior: SnackBarBehavior.floating,
+          margin: EdgeInsets.only(
+            bottom: MediaQuery.of(context).size.height - 160,
+            left: 16,
+            right: 16,
+          ),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           duration: const Duration(seconds: 3),
         ),
