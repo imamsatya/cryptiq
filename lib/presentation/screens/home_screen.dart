@@ -5,14 +5,20 @@ import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/services/daily_challenge_service.dart';
 import '../../core/services/achievement_service.dart';
+import '../../core/services/iap_service.dart';
 import '../../data/datasources/local_database.dart';
 import '../../levels/puzzle_generator.dart';
 
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
     final highestCompleted = LocalDatabase.instance.getHighestCompletedLevel();
     final l10n = AppLocalizations.of(context)!;
 
@@ -113,7 +119,10 @@ class HomeScreen extends ConsumerWidget {
                 // Go Pro banner (only for non-pro users)
                 if (!LocalDatabase.instance.getProStatus())
                   GestureDetector(
-                    onTap: () => context.push('/settings'),
+                    onTap: () async {
+                      await IapService.instance.purchasePro();
+                      if (mounted) setState(() {});
+                    },
                     child: Container(
                       width: double.infinity,
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -130,22 +139,34 @@ class HomeScreen extends ConsumerWidget {
                           ),
                         ],
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      child: Column(
                         children: [
-                          const Icon(Icons.workspace_premium_rounded,
-                              color: Colors.white, size: 20),
-                          const SizedBox(width: 8),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Icon(Icons.workspace_premium_rounded,
+                                  color: Colors.white, size: 20),
+                              const SizedBox(width: 8),
+                              Text(
+                                l10n.upgradeToPro,
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(width: 4),
+                              const Text('👑', style: TextStyle(fontSize: 14)),
+                            ],
+                          ),
+                          const SizedBox(height: 4),
                           Text(
-                            l10n.upgradeToPro,
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
+                            '${l10n.noAds} • ${l10n.bonusHint} • ${l10n.allThemes}',
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: Colors.white.withValues(alpha: 0.7),
                             ),
                           ),
-                          const SizedBox(width: 4),
-                          const Text('👑', style: TextStyle(fontSize: 14)),
                         ],
                       ),
                     ),
