@@ -6,6 +6,7 @@ import '../../core/theme/app_theme.dart';
 import '../../core/theme/theme_presets.dart';
 import '../../core/services/audio_service.dart';
 import '../../core/services/iap_service.dart';
+import '../../core/services/notification_service.dart';
 import '../../data/datasources/local_database.dart';
 import '../../core/constants/app_constants.dart';
 import '../providers/theme_provider.dart';
@@ -22,12 +23,14 @@ class SettingsScreen extends ConsumerStatefulWidget {
 class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   late bool _soundEnabled;
   late bool _hapticsEnabled;
+  late bool _notificationsEnabled;
 
   @override
   void initState() {
     super.initState();
     _soundEnabled = LocalDatabase.instance.getSoundEnabled();
     _hapticsEnabled = LocalDatabase.instance.getHapticsEnabled();
+    _notificationsEnabled = NotificationService.instance.isEnabled;
   }
 
   @override
@@ -95,6 +98,16 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       onChanged: (val) async {
                         setState(() => _hapticsEnabled = val);
                         await LocalDatabase.instance.setHapticsEnabled(val);
+                      },
+                    ),
+                    const SizedBox(height: 8),
+                    _buildToggleTile(
+                      icon: Icons.notifications_outlined,
+                      title: 'Daily Reminder',
+                      value: _notificationsEnabled,
+                      onChanged: (val) async {
+                        setState(() => _notificationsEnabled = val);
+                        await NotificationService.instance.setEnabled(val);
                       },
                     ),
                     const SizedBox(height: 8),

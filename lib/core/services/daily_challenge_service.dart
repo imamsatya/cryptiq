@@ -1,3 +1,4 @@
+import 'notification_service.dart';
 import 'dart:math';
 import '../../data/datasources/local_database.dart';
 import '../../levels/puzzle_generator.dart';
@@ -14,6 +15,7 @@ class DailyChallengeService {
   static const _completedDateKey = 'daily_completed_date';
   static const _bestTimeKey = 'daily_best_time';
   static const _streakKey = 'daily_streak';
+  static const _bestStreakKey = 'daily_best_streak';
   static const _lastStreakDateKey = 'daily_last_streak_date';
 
   final _db = LocalDatabase.instance;
@@ -22,6 +24,11 @@ class DailyChallengeService {
   String get _today {
     final now = DateTime.now();
     return '${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}';
+  }
+
+  String get _yesterday {
+    final y = DateTime.now().subtract(const Duration(days: 1));
+    return '${y.year}-${y.month.toString().padLeft(2, '0')}-${y.day.toString().padLeft(2, '0')}';
   }
 
   /// Get today's daily challenge puzzle.
@@ -50,9 +57,23 @@ class DailyChallengeService {
     return _db.settingsBox.get(_bestTimeKey, defaultValue: 0);
   }
 
-  /// Current streak count
+  /// Current streak count (validates if streak is still active)
   int get streak {
-    return _db.settingsBox.get(_streakKey, defaultValue: 0);
+    final lastDate = _db.settingsBox.get(_lastStreakDateKey, defaultValue: '');
+    final currentStreak = _db.settingsBox.get(_streakKey, defaultValue: 0);
+
+    // Streak is valid if last completion was today or yesterday
+    if (lastDate == _today || lastDate == _yesterday) {
+      return currentStreak;
+    }
+
+    // Streak broken — return 0 (will be reset on next completion)
+    return 0;
+  }
+
+  /// Best streak ever achieved
+  int get bestStreak {
+    return _db.settingsBox.get(_bestStreakKey, defaultValue: 0);
   }
 
   /// Complete today's daily challenge
@@ -71,17 +92,14 @@ class DailyChallengeService {
     // Update streak
     if (!wasCompleted) {
       final lastDate = _db.settingsBox.get(_lastStreakDateKey, defaultValue: '');
-      final yesterday = DateTime.now().subtract(const Duration(days: 1));
-      final yesterdayStr =
-          '${yesterday.year}-${yesterday.month.toString().padLeft(2, '0')}-${yesterday.day.toString().padLeft(2, '0')}';
 
       int newStreak;
-      if (lastDate == yesterdayStr) {
+      if (lastDate == _yesterday) {
         // Consecutive day → increment streak
-        newStreak = streak + 1;
+        newStreak = (_db.settingsBox.get(_streakKey, defaultValue: 0) as int) + 1;
       } else if (lastDate == _today) {
         // Already counted today
-        newStreak = streak;
+        newStreak = _db.settingsBox.get(_streakKey, defaultValue: 0);
       } else {
         // Streak broken → restart at 1
         newStreak = 1;
@@ -89,6 +107,16 @@ class DailyChallengeService {
 
       await _db.settingsBox.put(_streakKey, newStreak);
       await _db.settingsBox.put(_lastStreakDateKey, _today);
+
+      // Cancel today's notification since challenge completed
+      NotificationService.instance.cancelDailyReminder();
+
+      // Update best streak
+      final currentBestStreak = _db.settingsBox.get(_bestStreakKey, defaultValue: 0) as int;
+      if (newStreak > currentBestStreak) {
+        await _db.settingsBox.put(_bestStreakKey, newStreak);
+      }
     }
   }
 }
+

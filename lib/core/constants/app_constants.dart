@@ -56,6 +56,8 @@ class AppConstants {
   static const String proStatusKey = 'is_pro';
   static const String hintBalanceKey = 'hint_balance';
   static const String lastPlayedLevelKey = 'last_played_level';
+  static const String notificationKey = 'notifications_enabled';
+  static const int notificationHour = 19; // 7 PM daily reminder
   static const String rateAppKey = 'rate_app_status'; // 'none', 'later', 'never', 'rated'
   static const int rateAppAfterLevels = 10; // Show after completing 10 levels
 

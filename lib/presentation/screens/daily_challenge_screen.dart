@@ -63,6 +63,21 @@ class DailyChallengeScreen extends ConsumerWidget {
                         ],
                       ),
                     ),
+                    const SizedBox(width: 8),
+                    // Streak badge
+                    if (DailyChallengeService.instance.streak > 0)
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                        decoration: BoxDecoration(
+                          color: Colors.orange.withValues(alpha: 0.2),
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.orange.withValues(alpha: 0.4)),
+                        ),
+                        child: Text(
+                          '🔥 ${DailyChallengeService.instance.streak}',
+                          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Colors.orange),
+                        ),
+                      ),
                     const Spacer(),
                     // Timer
                     Container(

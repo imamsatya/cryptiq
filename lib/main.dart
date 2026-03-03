@@ -7,6 +7,7 @@ import 'core/theme/app_theme.dart';
 import 'core/services/audio_service.dart';
 import 'core/services/ad_service.dart';
 import 'core/services/iap_service.dart';
+import 'core/services/notification_service.dart';
 import 'data/datasources/local_database.dart';
 import 'presentation/router/app_router.dart';
 import 'presentation/providers/theme_provider.dart';
@@ -40,6 +41,9 @@ void main() async {
 
   // Initialize in-app purchases
   await IapService.instance.initialize();
+
+  // Initialize notifications
+  await NotificationService.instance.initialize();
 
   runApp(const ProviderScope(child: CryptiqApp()));
 }
