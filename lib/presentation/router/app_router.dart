@@ -13,6 +13,7 @@ import '../screens/onboarding_screen.dart';
 import '../screens/multiplayer_lobby_screen.dart';
 import '../screens/multiplayer_game_screen.dart';
 import '../screens/multiplayer_result_screen.dart';
+import '../screens/privacy_policy_screen.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -115,6 +116,10 @@ final appRouter = GoRouter(
           totalRounds: extras['rounds'],
         );
       },
+    ),
+    GoRoute(
+      path: '/privacy',
+      builder: (context, state) => const PrivacyPolicyScreen(),
     ),
   ],
 );

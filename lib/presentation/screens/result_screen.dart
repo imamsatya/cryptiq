@@ -6,6 +6,8 @@ import 'package:confetti/confetti.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/services/ad_service.dart';
+import '../../core/constants/app_constants.dart';
+import '../../data/datasources/local_database.dart';
 import '../../core/services/achievement_service.dart';
 import '../../levels/puzzle_generator.dart';
 import '../providers/game_state_provider.dart';
@@ -61,7 +63,62 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
         await adService.showInterstitial();
       }
       if (mounted) _checkAchievements();
+      if (mounted) _checkRateApp();
     });
+  }
+
+  void _checkRateApp() {
+    final db = LocalDatabase.instance;
+    final status = db.getRateAppStatus();
+    if (status == 'never' || status == 'rated') return;
+
+    final completed = db.getHighestCompletedLevel();
+    if (completed < AppConstants.rateAppAfterLevels) return;
+
+    // Show rate dialog
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: AppTheme.surfaceColor,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        title: const Text('Enjoying CryptiQ?',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600)),
+        content: Text(
+          'If you like the app, please take a moment to rate it!',
+          style: TextStyle(color: Colors.white.withValues(alpha: 0.7)),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              db.setRateAppStatus('never');
+              Navigator.pop(ctx);
+            },
+            child: Text('No Thanks',
+                style: TextStyle(color: Colors.white.withValues(alpha: 0.5))),
+          ),
+          TextButton(
+            onPressed: () {
+              db.setRateAppStatus('later');
+              Navigator.pop(ctx);
+            },
+            child: const Text('Later',
+                style: TextStyle(color: Colors.white)),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              db.setRateAppStatus('rated');
+              Navigator.pop(ctx);
+              // TODO: Open store listing
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppTheme.primaryColor,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            ),
+            child: const Text('Rate Now ⭐'),
+          ),
+        ],
+      ),
+    );
   }
 
   Future<void> _checkAchievements() async {

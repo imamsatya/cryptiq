@@ -80,4 +80,8 @@ class LocalDatabase {
   Future<void> setHapticsEnabled(bool value) => _settingsBox.put(AppConstants.hapticsKey, value);
   Future<void> setLastPlayedLevel(int value) => _settingsBox.put(AppConstants.lastPlayedLevelKey, value);
   Future<void> setProStatus(bool value) => _settingsBox.put(AppConstants.proStatusKey, value);
+
+  // Rate app
+  String getRateAppStatus() => _settingsBox.get(AppConstants.rateAppKey, defaultValue: 'none');
+  Future<void> setRateAppStatus(String value) => _settingsBox.put(AppConstants.rateAppKey, value);
 }
