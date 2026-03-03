@@ -106,8 +106,6 @@ class LevelSelectScreen extends ConsumerWidget {
   ) {
     final totalLevels = PuzzleGenerator.totalPuzzles;
     final adjustedEnd = endLevel > totalLevels ? totalLevels : endLevel;
-    final highestCompleted = LocalDatabase.instance.getHighestCompletedLevel();
-    const replayGap = 5;
 
     return GridView.builder(
       padding: const EdgeInsets.all(16),
@@ -124,12 +122,6 @@ class LevelSelectScreen extends ConsumerWidget {
         final isCompleted = progress?.isCompleted ?? false;
         final stars = progress?.stars ?? 0;
 
-        // Replay gate: need 5 more levels completed, unless in last 5 levels
-        final bool canReplay = !isCompleted ||
-            levelNum > totalLevels - replayGap ||
-            highestCompleted >= levelNum + replayGap;
-        final bool isReplayLocked = isCompleted && !canReplay;
-
         final diffColor = switch (difficulty) {
           DifficultyLevel.easy => AppTheme.easyColor,
           DifficultyLevel.medium => AppTheme.mediumColor,
@@ -140,16 +132,10 @@ class LevelSelectScreen extends ConsumerWidget {
         return GestureDetector(
           onTap: () {
             if (!isCompleted) {
-              // Uncompleted level — play directly
               context.push('/game/$levelNum');
               return;
             }
-            if (isReplayLocked) {
-              // Replay-locked — view solution only
-              context.push('/game/$levelNum?viewOnly=true');
-              return;
-            }
-            // Completed + replay-unlocked — show choice dialog
+            // Completed — show View Solution / Replay dialog
             _showLevelActionSheet(context, levelNum, progress!.stars);
           },
           onLongPress: isCompleted
@@ -158,12 +144,12 @@ class LevelSelectScreen extends ConsumerWidget {
           child: Container(
             decoration: BoxDecoration(
               color: isCompleted
-                  ? diffColor.withValues(alpha: isReplayLocked ? 0.08 : 0.15)
+                  ? diffColor.withValues(alpha: 0.15)
                   : AppTheme.surfaceColor.withValues(alpha: 0.5),
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
                 color: isCompleted
-                    ? diffColor.withValues(alpha: isReplayLocked ? 0.2 : 0.4)
+                    ? diffColor.withValues(alpha: 0.4)
                     : Colors.white.withValues(alpha: 0.08),
                 width: 1.5,
               ),
@@ -180,7 +166,7 @@ class LevelSelectScreen extends ConsumerWidget {
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
                         color: isCompleted
-                            ? diffColor.withValues(alpha: isReplayLocked ? 0.4 : 1.0)
+                            ? diffColor
                             : Colors.white,
                       ),
                     ),
@@ -193,7 +179,7 @@ class LevelSelectScreen extends ConsumerWidget {
                             i < stars ? Icons.star_rounded : Icons.star_border_rounded,
                             size: 10,
                             color: i < stars
-                                ? AppTheme.primaryColor.withValues(alpha: isReplayLocked ? 0.4 : 1.0)
+                                ? AppTheme.primaryColor
                                 : AppTheme.textMuted.withValues(alpha: 0.3),
                           );
                         }),
@@ -204,31 +190,21 @@ class LevelSelectScreen extends ConsumerWidget {
                         style: TextStyle(
                           fontSize: 8,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white.withValues(alpha: 0.5 * (isReplayLocked ? 0.4 : 1.0)),
+                          color: Colors.white.withValues(alpha: 0.5),
                         ),
                       ),
                       Text(
                         '${progress.attempts}x',
                         style: TextStyle(
                           fontSize: 8,
-                          color: Colors.white.withValues(alpha: 0.35 * (isReplayLocked ? 0.4 : 1.0)),
+                          color: Colors.white.withValues(alpha: 0.35),
                         ),
                       ),
                     ],
                   ],
                 ),
-                // Replay lock icon overlay
-                if (isReplayLocked)
-                  Positioned(
-                    top: 4,
-                    right: 4,
-                    child: Icon(
-                      Icons.lock_outline_rounded,
-                      size: 10,
-                      color: Colors.white.withValues(alpha: 0.3),
-                    ),
-                  ),
-                if (isCompleted && !isReplayLocked)
+                // Completed checkmark
+                if (isCompleted)
                   Positioned(
                     top: 4,
                     right: 4,
