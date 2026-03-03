@@ -919,6 +919,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Next'**
   String get next;
+
+  /// No description provided for @autoFillNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto-select Next Letter'**
+  String get autoFillNext;
 }
 
 class _AppLocalizationsDelegate

@@ -164,5 +164,6 @@
   "tutorialCheckBody": "Setelah semua huruf terisi, ketuk \"Periksa\".\nHuruf salah berubah merah — perbaiki!\nGunakan Petunjuk atau Undo jika buntu.",
   "tutorialGoTitle": "Kamu Siap!",
   "tutorialGoBody": "Selesaikan cepat tanpa hint untuk ⭐⭐⭐!\nSelamat bermain! 🧩",
-  "next": "Lanjut"
+  "next": "Lanjut",
+  "autoFillNext": "Otomatis Pilih Huruf Berikutnya"
 }

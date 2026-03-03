@@ -17,6 +17,7 @@ class DailyChallengeService {
   static const _streakKey = 'daily_streak';
   static const _bestStreakKey = 'daily_best_streak';
   static const _lastStreakDateKey = 'daily_last_streak_date';
+  static const _completedDatesKey = 'daily_completed_dates';
 
   final _db = LocalDatabase.instance;
 
@@ -76,6 +77,12 @@ class DailyChallengeService {
     return _db.settingsBox.get(_bestStreakKey, defaultValue: 0);
   }
 
+  /// Get all completed dates (as date strings yyyy-MM-dd)
+  List<String> get completedDates {
+    final dates = _db.settingsBox.get(_completedDatesKey, defaultValue: <String>[]);
+    return List<String>.from(dates);
+  }
+
   /// Complete today's daily challenge
   Future<void> completeDaily(int timeSeconds) async {
     final wasCompleted = isTodayCompleted;
@@ -83,6 +90,15 @@ class DailyChallengeService {
 
     // Save completion
     await _db.settingsBox.put(_completedDateKey, _today);
+
+    // Track completed dates history
+    if (!wasCompleted) {
+      final dates = completedDates;
+      if (!dates.contains(_today)) {
+        dates.add(_today);
+        await _db.settingsBox.put(_completedDatesKey, dates);
+      }
+    }
 
     // Update best time
     if (!wasCompleted || timeSeconds < currentBest) {

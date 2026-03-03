@@ -24,6 +24,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   late bool _soundEnabled;
   late bool _hapticsEnabled;
   late bool _notificationsEnabled;
+  late bool _autoFillEnabled;
 
   @override
   void initState() {
@@ -31,6 +32,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     _soundEnabled = LocalDatabase.instance.getSoundEnabled();
     _hapticsEnabled = LocalDatabase.instance.getHapticsEnabled();
     _notificationsEnabled = NotificationService.instance.isEnabled;
+    _autoFillEnabled = LocalDatabase.instance.getAutoFill();
   }
 
   @override
@@ -108,6 +110,16 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       onChanged: (val) async {
                         setState(() => _notificationsEnabled = val);
                         await NotificationService.instance.setEnabled(val);
+                      },
+                    ),
+                    const SizedBox(height: 8),
+                    _buildToggleTile(
+                      icon: Icons.skip_next_rounded,
+                      title: l10n.autoFillNext,
+                      value: _autoFillEnabled,
+                      onChanged: (val) async {
+                        setState(() => _autoFillEnabled = val);
+                        await LocalDatabase.instance.setAutoFill(val);
                       },
                     ),
                     const SizedBox(height: 8),

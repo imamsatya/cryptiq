@@ -427,4 +427,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get next => 'Next';
+
+  @override
+  String get autoFillNext => 'Auto-select Next Letter';
 }

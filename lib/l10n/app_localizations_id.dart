@@ -427,4 +427,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get next => 'Lanjut';
+
+  @override
+  String get autoFillNext => 'Otomatis Pilih Huruf Berikutnya';
 }

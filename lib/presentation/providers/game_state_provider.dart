@@ -183,10 +183,22 @@ class GameStateNotifier extends StateNotifier<GameState> {
     newAssignments[letter] = digit;
     newUsedDigits.add(digit);
 
+    // Auto-select next unassigned letter or clear selection
+    final autoFill = LocalDatabase.instance.getAutoFill();
+    String? nextLetter;
+    if (autoFill) {
+      final unassigned = state.puzzle.allLetters
+          .where((l) => newAssignments[l] == null && l != letter
+              && !state.hintedLetters.contains(l))
+          .toList();
+      if (unassigned.isNotEmpty) nextLetter = unassigned.first;
+    }
+
     state = state.copyWith(
       assignments: newAssignments,
       usedDigits: newUsedDigits,
-      clearSelectedLetter: true,
+      selectedLetter: nextLetter,
+      clearSelectedLetter: nextLetter == null,
       wrongLetters: {},
       isChecking: false,
     );

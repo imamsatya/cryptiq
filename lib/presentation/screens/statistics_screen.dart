@@ -137,7 +137,23 @@ class StatisticsScreen extends StatelessWidget {
                     const SizedBox(height: 8),
                     _buildDifficultyRow(l10n.hard, 251, 400, AppTheme.hardColor, allProgress),
                     const SizedBox(height: 8),
-                    _buildDifficultyRow(l10n.expert, 401, 500, AppTheme.expertColor, allProgress),
+                    _buildDifficultyRow(l10n.expert, 401, 1000, AppTheme.expertColor, allProgress),
+                    const SizedBox(height: 8),
+                    _buildDifficultyRow('Multi-step', 1001, 1200, const Color(0xFF9C27B0), allProgress),
+
+                    const SizedBox(height: 24),
+
+                    // Daily Challenge Calendar
+                    Text(
+                      l10n.dailyChallenge,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    _buildDailyCalendar(),
                   ],
                 ),
               ),
@@ -250,6 +266,118 @@ class StatisticsScreen extends StatelessWidget {
           const SizedBox(width: 12),
           Text('$completed/$total',
               style: TextStyle(fontSize: 12, color: AppTheme.textSecondary.withValues(alpha: 0.8))),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDailyCalendar() {
+    final completedDates = DailyChallengeService.instance.completedDates.toSet();
+    final now = DateTime.now();
+    final firstDay = DateTime(now.year, now.month, 1);
+    final lastDay = DateTime(now.year, now.month + 1, 0);
+    final startWeekday = firstDay.weekday % 7; // 0=Sun
+
+    final months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    final days = ['S','M','T','W','T','F','S'];
+
+    final completedThisMonth = completedDates.where((d) {
+      return d.startsWith('${now.year}-${now.month.toString().padLeft(2, '0')}');
+    }).length;
+
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: AppTheme.glassDecoration(borderRadius: 16),
+      child: Column(
+        children: [
+          // Month header
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '${months[now.month - 1]} ${now.year}',
+                style: const TextStyle(
+                  fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white),
+              ),
+              Text(
+                '$completedThisMonth / ${lastDay.day}',
+                style: TextStyle(
+                  fontSize: 13, color: AppTheme.textSecondary.withValues(alpha: 0.7)),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+
+          // Day-of-week headers
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: days.map((d) => SizedBox(
+              width: 32,
+              child: Center(child: Text(d,
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w500,
+                    color: AppTheme.textMuted.withValues(alpha: 0.5),
+                  ))),
+            )).toList(),
+          ),
+          const SizedBox(height: 8),
+
+          // Calendar grid
+          ...List.generate(6, (week) {
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: List.generate(7, (dow) {
+                  final dayIndex = week * 7 + dow - startWeekday + 1;
+                  if (dayIndex < 1 || dayIndex > lastDay.day) {
+                    return const SizedBox(width: 32, height: 32);
+                  }
+
+                  final dateStr = '${now.year}-${now.month.toString().padLeft(2, '0')}-${dayIndex.toString().padLeft(2, '0')}';
+                  final isCompleted = completedDates.contains(dateStr);
+                  final isToday = dayIndex == now.day;
+                  final isPast = dayIndex < now.day;
+
+                  return SizedBox(
+                    width: 32,
+                    height: 32,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: isCompleted
+                            ? AppTheme.successColor.withValues(alpha: 0.2)
+                            : isToday
+                                ? AppTheme.primaryColor.withValues(alpha: 0.1)
+                                : null,
+                        border: isToday
+                            ? Border.all(color: AppTheme.primaryColor, width: 2)
+                            : null,
+                      ),
+                      child: Center(
+                        child: isCompleted
+                            ? Icon(Icons.check_rounded,
+                                size: 16, color: AppTheme.successColor)
+                            : Text(
+                                '$dayIndex',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: isToday ? FontWeight.w700 : FontWeight.w400,
+                                  color: isToday
+                                      ? AppTheme.primaryColor
+                                      : isPast
+                                          ? AppTheme.textMuted.withValues(alpha: 0.3)
+                                          : Colors.white.withValues(alpha: 0.5),
+                                ),
+                              ),
+                      ),
+                    ),
+                  );
+                }),
+              ),
+            );
+          }),
         ],
       ),
     );

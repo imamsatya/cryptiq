@@ -178,5 +178,6 @@
   "tutorialCheckBody": "Once all letters have digits, tap \"Check\".\nWrong letters turn red — fix them!\nUse Hints or Undo if you get stuck.",
   "tutorialGoTitle": "You're Ready!",
   "tutorialGoBody": "Solve fast with fewer hints for ⭐⭐⭐!\nGood luck and have fun! 🧩",
-  "next": "Next"
+  "next": "Next",
+  "autoFillNext": "Auto-select Next Letter"
 }
