@@ -585,4 +585,20 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get proThemeHint => 'Buka lebih banyak tema dengan Pro';
+
+  @override
+  String get shareStats => 'Bagikan Statistik';
+
+  @override
+  String get updateAvailable => 'Pembaruan Tersedia';
+
+  @override
+  String get updateBody =>
+      'Versi terbaru CryptiQ tersedia. Perbarui sekarang untuk pengalaman terbaik!';
+
+  @override
+  String get updateNow => 'Perbarui Sekarang';
+
+  @override
+  String get puzzlesSolved => 'Puzzle Diselesaikan';
 }

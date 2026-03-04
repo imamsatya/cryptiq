@@ -585,4 +585,20 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get proThemeHint => 'Unlock more themes with Pro';
+
+  @override
+  String get shareStats => 'Share Stats';
+
+  @override
+  String get updateAvailable => 'Update Available';
+
+  @override
+  String get updateBody =>
+      'A new version of CryptiQ is available. Update now for the best experience!';
+
+  @override
+  String get updateNow => 'Update Now';
+
+  @override
+  String get puzzlesSolved => 'Puzzles Solved';
 }

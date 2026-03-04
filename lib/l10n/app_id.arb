@@ -248,5 +248,10 @@
   "cancel": "Batal",
   "newBadge": "BARU",
   "themePicker": "Tema",
-  "proThemeHint": "Buka lebih banyak tema dengan Pro"
+  "proThemeHint": "Buka lebih banyak tema dengan Pro",
+  "shareStats": "Bagikan Statistik",
+  "updateAvailable": "Pembaruan Tersedia",
+  "updateBody": "Versi terbaru CryptiQ tersedia. Perbarui sekarang untuk pengalaman terbaik!",
+  "updateNow": "Perbarui Sekarang",
+  "puzzlesSolved": "Puzzle Diselesaikan"
 }

@@ -262,5 +262,10 @@
   "cancel": "Cancel",
   "newBadge": "NEW",
   "themePicker": "Theme",
-  "proThemeHint": "Unlock more themes with Pro"
+  "proThemeHint": "Unlock more themes with Pro",
+  "shareStats": "Share Stats",
+  "updateAvailable": "Update Available",
+  "updateBody": "A new version of CryptiQ is available. Update now for the best experience!",
+  "updateNow": "Update Now",
+  "puzzlesSolved": "Puzzles Solved"
 }

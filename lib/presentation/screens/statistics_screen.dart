@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import '../../l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
+import '../widgets/stats_card.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/datasources/local_database.dart';
 import '../../levels/puzzle_generator.dart';
 import '../../core/services/daily_challenge_service.dart';
 
-class StatisticsScreen extends StatelessWidget {
+class StatisticsScreen extends StatefulWidget {
   const StatisticsScreen({super.key});
+
+  @override
+  State<StatisticsScreen> createState() => _StatisticsScreenState();
+}
+
+class _StatisticsScreenState extends State<StatisticsScreen> {
+  final _statsCardKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +32,22 @@ class StatisticsScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
-        child: SafeArea(
+        child: Stack(
+          children: [
+            // Offscreen stats card for image capture
+            Positioned(
+              left: -500,
+              child: StatsCard(
+                repaintKey: _statsCardKey,
+                completed: completed,
+                totalStars: totalStars,
+                maxStars: maxStars,
+                avgTime: avgTime,
+                totalHints: totalHints,
+                currentStreak: db.settingsBox.get('daily_streak', defaultValue: 0),
+              ),
+            ),
+            SafeArea(
           child: Column(
             children: [
               // Header
@@ -48,6 +71,15 @@ class StatisticsScreen extends StatelessWidget {
                         fontSize: 22,
                         fontWeight: FontWeight.w600,
                         color: Colors.white,
+                      ),
+                    ),
+                    const Spacer(),
+                    GestureDetector(
+                      onTap: () => StatsCard.captureAndShare(_statsCardKey),
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: AppTheme.glassDecoration(borderRadius: 12),
+                        child: const Icon(Icons.share_rounded, color: Colors.white, size: 20),
                       ),
                     ),
                   ],
@@ -159,6 +191,8 @@ class StatisticsScreen extends StatelessWidget {
               ),
             ],
           ),
+        ),
+          ],
         ),
       ),
     );

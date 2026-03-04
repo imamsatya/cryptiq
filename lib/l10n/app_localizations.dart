@@ -1195,6 +1195,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unlock more themes with Pro'**
   String get proThemeHint;
+
+  /// No description provided for @shareStats.
+  ///
+  /// In en, this message translates to:
+  /// **'Share Stats'**
+  String get shareStats;
+
+  /// No description provided for @updateAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Available'**
+  String get updateAvailable;
+
+  /// No description provided for @updateBody.
+  ///
+  /// In en, this message translates to:
+  /// **'A new version of CryptiQ is available. Update now for the best experience!'**
+  String get updateBody;
+
+  /// No description provided for @updateNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Now'**
+  String get updateNow;
+
+  /// No description provided for @puzzlesSolved.
+  ///
+  /// In en, this message translates to:
+  /// **'Puzzles Solved'**
+  String get puzzlesSolved;
 }
 
 class _AppLocalizationsDelegate

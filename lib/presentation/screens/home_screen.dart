@@ -3,6 +3,7 @@ import '../../l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/services/update_checker.dart';
 import '../widgets/particle_background.dart';
 import '../../core/services/daily_challenge_service.dart';
 import '../../core/services/achievement_service.dart';
@@ -18,6 +19,26 @@ class HomeScreen extends ConsumerStatefulWidget {
 }
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _checkForUpdates();
+  }
+
+  Future<void> _checkForUpdates() async {
+    final shouldPrompt = await UpdateChecker.instance.shouldPrompt();
+    if (shouldPrompt && mounted) {
+      final l10n = AppLocalizations.of(context)!;
+      UpdateChecker.showUpdateDialog(
+        context,
+        title: l10n.updateAvailable,
+        body: l10n.updateBody,
+        updateText: l10n.updateNow,
+        laterText: l10n.later,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final highestCompleted = LocalDatabase.instance.getHighestCompletedLevel();
