@@ -122,6 +122,7 @@ class LevelSelectScreen extends ConsumerWidget {
         final progress = LocalDatabase.instance.getProgress(levelNum);
         final isCompleted = progress?.isCompleted ?? false;
         final stars = progress?.stars ?? 0;
+        final isNew = !isCompleted && progress == null && levelNum <= endLevel;
 
         final diffColor = switch (difficulty) {
           DifficultyLevel.easy => AppTheme.easyColor,
@@ -219,6 +220,27 @@ class LevelSelectScreen extends ConsumerWidget {
                       Icons.check_circle_rounded,
                       size: 10,
                       color: diffColor.withValues(alpha: 0.6),
+                    ),
+                  ),
+                // NEW badge for unplayed levels
+                if (isNew)
+                  Positioned(
+                    top: 2,
+                    right: 2,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                      decoration: BoxDecoration(
+                        color: AppTheme.primaryColor,
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: Text(
+                        AppLocalizations.of(context)!.newBadge,
+                        style: TextStyle(
+                          fontSize: 7,
+                          fontWeight: FontWeight.w800,
+                          color: AppTheme.backgroundDark,
+                        ),
+                      ),
                     ),
                   ),
               ],
@@ -476,7 +498,35 @@ class LevelSelectScreen extends ConsumerWidget {
             GestureDetector(
               onTap: () {
                 Navigator.pop(ctx);
-                context.push('/game/$levelNum');
+                if (stars >= 3) {
+                  // Confirm replay for ⭐⭐⭐ levels
+                  showDialog(
+                    context: context,
+                    builder: (ctx2) => AlertDialog(
+                      backgroundColor: AppTheme.surfaceColor,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                      title: Text(l10n.replayConfirmTitle,
+                          style: const TextStyle(color: Colors.white, fontSize: 16)),
+                      content: Text(l10n.replayConfirmBody,
+                          style: TextStyle(color: AppTheme.textSecondary, fontSize: 13)),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(ctx2),
+                          child: Text(l10n.cancel, style: TextStyle(color: AppTheme.textMuted)),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(ctx2);
+                            context.push('/game/$levelNum');
+                          },
+                          child: Text(l10n.replay, style: TextStyle(color: AppTheme.primaryColor)),
+                        ),
+                      ],
+                    ),
+                  );
+                } else {
+                  context.push('/game/$levelNum');
+                }
               },
               child: Container(
                 width: double.infinity,

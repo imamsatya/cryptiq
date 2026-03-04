@@ -566,4 +566,17 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get notUsed => 'Belum dipakai';
+
+  @override
+  String get replayConfirmTitle => 'Ulangi level ini?';
+
+  @override
+  String get replayConfirmBody =>
+      'Kamu sudah punya ⭐⭐⭐ di level ini. Skor terbaikmu akan tetap tersimpan.';
+
+  @override
+  String get cancel => 'Batal';
+
+  @override
+  String get newBadge => 'BARU';
 }

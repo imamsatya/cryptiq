@@ -1159,6 +1159,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Not used'**
   String get notUsed;
+
+  /// No description provided for @replayConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Replay this level?'**
+  String get replayConfirmTitle;
+
+  /// No description provided for @replayConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You already have ⭐⭐⭐ on this level. Your best score will be kept.'**
+  String get replayConfirmBody;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @newBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'NEW'**
+  String get newBadge;
 }
 
 class _AppLocalizationsDelegate

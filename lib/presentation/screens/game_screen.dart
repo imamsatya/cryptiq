@@ -21,7 +21,7 @@ class GameScreen extends ConsumerStatefulWidget {
   ConsumerState<GameScreen> createState() => _GameScreenState();
 }
 
-class _GameScreenState extends ConsumerState<GameScreen>
+class _GameScreenState extends ConsumerState<GameScreen> with WidgetsBindingObserver
     with TickerProviderStateMixin {
   late AnimationController _shakeController;
   late Animation<double> _shakeAnimation;
@@ -29,6 +29,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _shakeController = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
@@ -48,7 +49,17 @@ class _GameScreenState extends ConsumerState<GameScreen>
   @override
   void dispose() {
     _shakeController.dispose();
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused) {
+      ref.read(gameStateProvider(widget.levelNumber).notifier).pauseTimer();
+    } else if (state == AppLifecycleState.resumed) {
+      ref.read(gameStateProvider(widget.levelNumber).notifier).resumeTimer();
+    }
   }
 
   @override

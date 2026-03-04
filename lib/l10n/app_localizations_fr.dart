@@ -566,4 +566,17 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get notUsed => 'Not used';
+
+  @override
+  String get replayConfirmTitle => 'Replay this level?';
+
+  @override
+  String get replayConfirmBody =>
+      'You already have ⭐⭐⭐ on this level. Your best score will be kept.';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get newBadge => 'NEW';
 }

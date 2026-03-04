@@ -131,6 +131,14 @@ class GameStateNotifier extends StateNotifier<GameState> {
     Future.microtask(() => _startTimer());
   }
 
+  void pauseTimer() {
+    _timer?.cancel();
+  }
+
+  void resumeTimer() {
+    if (!state.isComplete) _startTimer();
+  }
+
   void _startTimer() {
     _timer?.cancel();
     _timer = Timer.periodic(const Duration(seconds: 1), (_) {
