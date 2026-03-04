@@ -146,7 +146,7 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/multiplayer-game',
       pageBuilder: (context, state) {
-        final extras = state.extra as Map<String, dynamic>;
+        final extras = state.extra as Map<String, dynamic>? ?? {};
         return _transitionPage(
           child: MultiplayerGameScreen(
             playerNames: List<String>.from(extras['names']),
@@ -161,7 +161,7 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/multiplayer-result',
       pageBuilder: (context, state) {
-        final extras = state.extra as Map<String, dynamic>;
+        final extras = state.extra as Map<String, dynamic>? ?? {};
         return _transitionPage(
           child: MultiplayerResultScreen(
             playerNames: List<String>.from(extras['names']),

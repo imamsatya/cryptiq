@@ -22,7 +22,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    _checkForUpdates();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _checkForUpdates());
   }
 
   Future<void> _checkForUpdates() async {
