@@ -3,7 +3,6 @@ import '../../l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:confetti/confetti.dart';
-import 'package:share_plus/share_plus.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/services/ad_service.dart';
 import '../../core/services/audio_service.dart';
@@ -12,6 +11,7 @@ import '../../data/datasources/local_database.dart';
 import '../../core/services/achievement_service.dart';
 import '../../levels/puzzle_generator.dart';
 import '../providers/game_state_provider.dart';
+import '../widgets/score_card.dart';
 
 class ResultScreen extends ConsumerStatefulWidget {
   final int levelNumber;
@@ -33,6 +33,7 @@ class ResultScreen extends ConsumerStatefulWidget {
 
 class _ResultScreenState extends ConsumerState<ResultScreen>
     with SingleTickerProviderStateMixin {
+  final _scoreCardKey = GlobalKey();
   late ConfettiController _confettiController;
   late AnimationController _animController;
   late Animation<double> _scaleAnimation;
@@ -184,6 +185,18 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
             alignment: Alignment.topCenter,
             children: [
               // Confetti
+
+              // Offscreen score card for image capture
+              Positioned(
+                left: -500,
+                child: ScoreCard(
+                  repaintKey: _scoreCardKey,
+                  levelNumber: widget.levelNumber,
+                  timeSeconds: widget.timeSeconds,
+                  hintsUsed: widget.hintsUsed,
+                  stars: widget.stars,
+                ),
+              ),
               ConfettiWidget(
                 confettiController: _confettiController,
                 blastDirectionality: BlastDirectionality.explosive,
@@ -355,13 +368,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                           child: _buildSecondaryButton(
                             icon: Icons.share_rounded,
                             label: l10n.share,
-                            onTap: () {
-                              SharePlus.instance.share(
-                                ShareParams(
-                                  text: 'I solved CryptiQ Level ${widget.levelNumber} with ${widget.stars}⭐ in ${_formatTime(widget.timeSeconds)}! Can you beat it?',
-                                ),
-                              );
-                            },
+                            onTap: () => ScoreCard.captureAndShare(_scoreCardKey),
                           ),
                         ),
                         const SizedBox(width: 12),

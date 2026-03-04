@@ -12,9 +12,16 @@ import 'data/datasources/local_database.dart';
 import 'presentation/router/app_router.dart';
 import 'presentation/providers/theme_provider.dart';
 import 'presentation/providers/locale_provider.dart';
+import 'presentation/widgets/error_screen.dart';
+import 'dart:async';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Friendly error screen instead of red screen of death
+  ErrorWidget.builder = (FlutterErrorDetails details) {
+    return ErrorScreen(details: details);
+  };
 
   // Set preferred orientations
   await SystemChrome.setPreferredOrientations([
@@ -45,7 +52,13 @@ void main() async {
   // Initialize notifications
   await NotificationService.instance.initialize();
 
-  runApp(const ProviderScope(child: CryptiqApp()));
+  // Catch async errors
+  runZonedGuarded(() {
+    runApp(const ProviderScope(child: CryptiqApp()));
+  }, (error, stack) {
+    debugPrint('Uncaught error: $error');
+    debugPrint('$stack');
+  });
 }
 
 class CryptiqApp extends ConsumerWidget {
