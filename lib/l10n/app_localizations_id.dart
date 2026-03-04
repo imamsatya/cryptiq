@@ -579,4 +579,10 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get newBadge => 'BARU';
+
+  @override
+  String get themePicker => 'Tema';
+
+  @override
+  String get proThemeHint => 'Buka lebih banyak tema dengan Pro';
 }

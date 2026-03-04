@@ -80,6 +80,13 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     _buildProCard(isPro, l10n),
                     const SizedBox(height: 20),
 
+                    // Appearance
+                    _buildSectionTitle(l10n.appearance),
+                    const SizedBox(height: 8),
+                    _buildThemePicker(isPro, l10n),
+
+                    const SizedBox(height: 20),
+
                     // Game Settings
                     _buildSectionTitle(l10n.game),
                     const SizedBox(height: 8),
@@ -472,6 +479,88 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         fontWeight: FontWeight.w600,
         color: AppTheme.primaryColor.withValues(alpha: 0.8),
         letterSpacing: 1.5,
+      ),
+    );
+  }
+
+
+  Widget _buildThemePicker(bool isPro, AppLocalizations l10n) {
+    final currentThemeId = ThemeService.instance.selectedThemeId;
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: AppTheme.glassDecoration(borderRadius: 14),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.palette_outlined, color: AppTheme.primaryColor, size: 20),
+              const SizedBox(width: 10),
+              Text(l10n.themePicker,
+                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Colors.white)),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 10,
+            runSpacing: 10,
+            children: ThemePresets.all.map((preset) {
+              final isActive = preset.id == currentThemeId;
+              final isDefault = preset.id == 'navy_gold';
+              final isLocked = !isPro && !isDefault;
+              return GestureDetector(
+                onTap: () {
+                  if (isLocked) {
+                    ScaffoldMessenger.of(context)
+                      ..hideCurrentSnackBar()
+                      ..showSnackBar(SnackBar(
+                        content: Text(l10n.proThemeHint),
+                        behavior: SnackBarBehavior.floating,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                      ));
+                    return;
+                  }
+                  ref.read(themeProvider.notifier).setTheme(preset.id);
+                  setState(() {});
+                },
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      width: 44,
+                      height: 44,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        gradient: LinearGradient(
+                          colors: [preset.backgroundDark, preset.primaryColor],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        border: Border.all(
+                          color: isActive ? Colors.white : Colors.transparent,
+                          width: 2.5,
+                        ),
+                        boxShadow: isActive
+                            ? [BoxShadow(color: preset.primaryColor.withValues(alpha: 0.4), blurRadius: 8)]
+                            : null,
+                      ),
+                      child: isLocked
+                          ? Icon(Icons.lock_rounded, size: 16, color: Colors.white.withValues(alpha: 0.6))
+                          : isActive
+                              ? const Icon(Icons.check_rounded, size: 18, color: Colors.white)
+                              : null,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      preset.emoji,
+                      style: const TextStyle(fontSize: 12),
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
+          ),
+        ],
       ),
     );
   }

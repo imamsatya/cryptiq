@@ -580,4 +580,10 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get newBadge => 'NEW';
+
+  @override
+  String get themePicker => 'Theme';
+
+  @override
+  String get proThemeHint => 'Unlock more themes with Pro';
 }

@@ -21,8 +21,8 @@ class GameScreen extends ConsumerStatefulWidget {
   ConsumerState<GameScreen> createState() => _GameScreenState();
 }
 
-class _GameScreenState extends ConsumerState<GameScreen> with WidgetsBindingObserver
-    with TickerProviderStateMixin {
+class _GameScreenState extends ConsumerState<GameScreen>
+    with TickerProviderStateMixin, WidgetsBindingObserver {
   late AnimationController _shakeController;
   late Animation<double> _shakeAnimation;
 

@@ -1183,6 +1183,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'NEW'**
   String get newBadge;
+
+  /// No description provided for @themePicker.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get themePicker;
+
+  /// No description provided for @proThemeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock more themes with Pro'**
+  String get proThemeHint;
 }
 
 class _AppLocalizationsDelegate

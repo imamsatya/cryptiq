@@ -246,5 +246,7 @@
   "replayConfirmTitle": "Ulangi level ini?",
   "replayConfirmBody": "Kamu sudah punya ⭐⭐⭐ di level ini. Skor terbaikmu akan tetap tersimpan.",
   "cancel": "Batal",
-  "newBadge": "BARU"
+  "newBadge": "BARU",
+  "themePicker": "Tema",
+  "proThemeHint": "Buka lebih banyak tema dengan Pro"
 }

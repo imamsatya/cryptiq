@@ -260,5 +260,7 @@
   "replayConfirmTitle": "Replay this level?",
   "replayConfirmBody": "You already have ⭐⭐⭐ on this level. Your best score will be kept.",
   "cancel": "Cancel",
-  "newBadge": "NEW"
+  "newBadge": "NEW",
+  "themePicker": "Theme",
+  "proThemeHint": "Unlock more themes with Pro"
 }

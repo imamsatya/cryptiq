@@ -3,6 +3,7 @@ import '../../l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
+import '../widgets/particle_background.dart';
 import '../../core/services/daily_challenge_service.dart';
 import '../../core/services/achievement_service.dart';
 import '../../core/services/iap_service.dart';
@@ -23,9 +24,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
-        child: SafeArea(
+      body: ParticleBackground(
+        child: Container(
+          decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
+          child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
@@ -199,6 +201,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               ],
             ),
           ),
+        ),
         ),
       ),
     );
