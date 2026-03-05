@@ -74,7 +74,10 @@ class LocalDatabase {
   bool getHapticsEnabled() => _settingsBox.get(AppConstants.hapticsKey, defaultValue: true);
   int getHintBalance() => _settingsBox.get(AppConstants.hintBalanceKey, defaultValue: 0);
   int getLastPlayedLevel() => _settingsBox.get(AppConstants.lastPlayedLevelKey, defaultValue: 0);
-  bool getProStatus() => _settingsBox.get(AppConstants.proStatusKey, defaultValue: false);
+  bool getProStatus() {
+    if (AppConstants.devProMode) return true; // Dev override
+    return _settingsBox.get(AppConstants.proStatusKey, defaultValue: false);
+  }
 
   Future<void> setSoundEnabled(bool value) => _settingsBox.put(AppConstants.soundKey, value);
   Future<void> setHapticsEnabled(bool value) => _settingsBox.put(AppConstants.hapticsKey, value);
