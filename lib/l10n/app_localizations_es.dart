@@ -663,4 +663,164 @@ class AppLocalizationsEs extends AppLocalizations {
   String shareDailyText(String time, int streak) {
     return '¡Resolví el Desafío Diario de CryptiQ en $time! 🔥 ¡$streak días de racha! ¿Puedes superarlo?\n\n#CryptiQ #DesafíoDiario';
   }
+
+  @override
+  String get achvNoHints10Title => 'Mente aguda';
+
+  @override
+  String get achvStreak30Title => 'Maestro de la racha';
+
+  @override
+  String get achvStreak14Desc => 'Racha de desafíos diarios de 14 días';
+
+  @override
+  String get achvPerfect50Desc => 'Consigue 3 estrellas en 50 niveles';
+
+  @override
+  String get achvFiveHundredLevelsTitle => 'A mitad de camino';
+
+  @override
+  String get achvExpertMasterTitle => 'Criptógrafo experto';
+
+  @override
+  String get achvLightningDesc =>
+      'Resuelve un rompecabezas en menos de 10 segundos';
+
+  @override
+  String get achvFirstSolveDesc => 'Resuelve tu primer rompecabezas';
+
+  @override
+  String get achvExpertMasterDesc => 'Completa todos los niveles de Experto.';
+
+  @override
+  String get achvPerfect50Title => 'Impecable';
+
+  @override
+  String get achvHundredLevelsDesc => 'Completa 100 niveles';
+
+  @override
+  String get achvHundredStarsDesc => 'Gana 100 estrellas';
+
+  @override
+  String get achvHardMasterDesc => 'Completa todos los niveles difíciles.';
+
+  @override
+  String get achvHundredStarsTitle => 'Cazador de estrellas';
+
+  @override
+  String get achvStreak14Title => 'Campeón de dos semanas';
+
+  @override
+  String get achvPerfect10Desc => 'Consigue 3 estrellas en 10 niveles';
+
+  @override
+  String get achvHundredLevelsTitle => 'centurión';
+
+  @override
+  String get achvHardMasterTitle => 'Curtido';
+
+  @override
+  String get achvLightningTitle => 'Rayo rápido';
+
+  @override
+  String get achvTenStarsDesc => 'Gana 10 estrellas';
+
+  @override
+  String get achvFirstSolveTitle => 'Pinitos';
+
+  @override
+  String get achvStreak7Desc => 'Racha de desafíos diarios de 7 días';
+
+  @override
+  String get achvPerfect10Title => 'Perfeccionista';
+
+  @override
+  String get achvMediumMasterDesc => 'Completa todos los niveles medios.';
+
+  @override
+  String get achvSpeedDemonDesc =>
+      'Resuelve un rompecabezas en menos de 15 segundos';
+
+  @override
+  String get achvTenStarsTitle => 'Coleccionista de estrellas';
+
+  @override
+  String get achvFiftyLevelsDesc => 'Completa 50 niveles';
+
+  @override
+  String get achvStreak7Title => 'Semana guerrero';
+
+  @override
+  String get achvNoHints50Desc => 'Resuelve 50 acertijos sin pistas';
+
+  @override
+  String get achvMediumMasterTitle => 'Medio raro';
+
+  @override
+  String get achvSpeedDemonTitle => 'Demonio de velocidad';
+
+  @override
+  String get achvThousandLevelsDesc => 'Completa 1000 niveles';
+
+  @override
+  String get achvFiftyLevelsTitle => 'Entusiasta de los rompecabezas';
+
+  @override
+  String get achvNoHints50Title => 'Genio puro';
+
+  @override
+  String get achvThousandStarsDesc => 'Gana 1000 estrellas';
+
+  @override
+  String get achvThousandLevelsTitle => 'Gran Maestro';
+
+  @override
+  String get achvStreak3Desc => 'Racha de desafíos diarios de 3 días';
+
+  @override
+  String get achvEasyMasterDesc => 'Completa todos los niveles fáciles';
+
+  @override
+  String get achvNoHints10Desc => 'Resuelve 10 acertijos sin pistas';
+
+  @override
+  String get achvStreak100Title => 'imparable';
+
+  @override
+  String get achvStreak3Title => 'En racha';
+
+  @override
+  String get achvThousandStarsTitle => 'Constelación';
+
+  @override
+  String get achvTenLevelsTitle => 'Precalentarse';
+
+  @override
+  String get achvEasyMasterTitle => 'Fácil';
+
+  @override
+  String get achvTenLevelsDesc => 'Completa 10 niveles';
+
+  @override
+  String get achvStreak30Desc => 'Racha de desafíos diarios de 30 días';
+
+  @override
+  String get achvFiveHundredLevelsDesc => 'Completa 500 niveles';
+
+  @override
+  String get achvStreak100Desc => 'Racha de desafíos diarios de 100 días';
+
+  @override
+  String get achvMultiStepFirstTitle => 'Reacción en cadena';
+
+  @override
+  String get achvMultiStepFirstDesc =>
+      'Resuelve tu primer rompecabezas de varios pasos';
+
+  @override
+  String get achvMultiStepAllDesc =>
+      'Completa los 200 rompecabezas de varios pasos.';
+
+  @override
+  String get achvMultiStepAllTitle => 'Rey de la cascada';
 }

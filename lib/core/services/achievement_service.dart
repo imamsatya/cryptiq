@@ -4,15 +4,15 @@ import '../services/daily_challenge_service.dart';
 /// Achievement definition
 class Achievement {
   final String id;
-  final String title;
-  final String description;
+  final String Function(dynamic l10n) getTitle;
+  final String Function(dynamic l10n) getDescription;
   final String icon; // emoji
   final bool Function(AchievementData data) check;
 
   const Achievement({
     required this.id,
-    required this.title,
-    required this.description,
+    required this.getTitle,
+    required this.getDescription,
     required this.icon,
     required this.check,
   });
@@ -63,43 +63,43 @@ class AchievementService {
     // --- Progression ---
     Achievement(
       id: 'first_solve',
-      title: 'First Steps',
-      description: 'Solve your first puzzle',
+      getTitle: (l10n) => l10n.achvFirstSolveTitle,
+      getDescription: (l10n) => l10n.achvFirstSolveDesc,
       icon: '🎯',
       check: (d) => d.completedLevels >= 1,
     ),
     Achievement(
       id: 'ten_levels',
-      title: 'Getting Warmed Up',
-      description: 'Complete 10 levels',
+      getTitle: (l10n) => l10n.achvTenLevelsTitle,
+      getDescription: (l10n) => l10n.achvTenLevelsDesc,
       icon: '🔥',
       check: (d) => d.completedLevels >= 10,
     ),
     Achievement(
       id: 'fifty_levels',
-      title: 'Puzzle Enthusiast',
-      description: 'Complete 50 levels',
+      getTitle: (l10n) => l10n.achvFiftyLevelsTitle,
+      getDescription: (l10n) => l10n.achvFiftyLevelsDesc,
       icon: '💪',
       check: (d) => d.completedLevels >= 50,
     ),
     Achievement(
       id: 'hundred_levels',
-      title: 'Centurion',
-      description: 'Complete 100 levels',
+      getTitle: (l10n) => l10n.achvHundredLevelsTitle,
+      getDescription: (l10n) => l10n.achvHundredLevelsDesc,
       icon: '🏅',
       check: (d) => d.completedLevels >= 100,
     ),
     Achievement(
       id: 'five_hundred_levels',
-      title: 'Half Way There',
-      description: 'Complete 500 levels',
+      getTitle: (l10n) => l10n.achvFiveHundredLevelsTitle,
+      getDescription: (l10n) => l10n.achvFiveHundredLevelsDesc,
       icon: '🌟',
       check: (d) => d.completedLevels >= 500,
     ),
     Achievement(
       id: 'thousand_levels',
-      title: 'Grand Master',
-      description: 'Complete 1000 levels',
+      getTitle: (l10n) => l10n.achvThousandLevelsTitle,
+      getDescription: (l10n) => l10n.achvThousandLevelsDesc,
       icon: '👑',
       check: (d) => d.completedLevels >= 1000,
     ),
@@ -107,22 +107,22 @@ class AchievementService {
     // --- Stars ---
     Achievement(
       id: 'ten_stars',
-      title: 'Star Collector',
-      description: 'Earn 10 stars',
+      getTitle: (l10n) => l10n.achvTenStarsTitle,
+      getDescription: (l10n) => l10n.achvTenStarsDesc,
       icon: '⭐',
       check: (d) => d.totalStars >= 10,
     ),
     Achievement(
       id: 'hundred_stars',
-      title: 'Star Hunter',
-      description: 'Earn 100 stars',
+      getTitle: (l10n) => l10n.achvHundredStarsTitle,
+      getDescription: (l10n) => l10n.achvHundredStarsDesc,
       icon: '🌠',
       check: (d) => d.totalStars >= 100,
     ),
     Achievement(
       id: 'thousand_stars',
-      title: 'Constellation',
-      description: 'Earn 1000 stars',
+      getTitle: (l10n) => l10n.achvThousandStarsTitle,
+      getDescription: (l10n) => l10n.achvThousandStarsDesc,
       icon: '✨',
       check: (d) => d.totalStars >= 1000,
     ),
@@ -130,15 +130,15 @@ class AchievementService {
     // --- Speed ---
     Achievement(
       id: 'speed_demon',
-      title: 'Speed Demon',
-      description: 'Solve a puzzle in under 15 seconds',
+      getTitle: (l10n) => l10n.achvSpeedDemonTitle,
+      getDescription: (l10n) => l10n.achvSpeedDemonDesc,
       icon: '⚡',
       check: (d) => d.fastestTime > 0 && d.fastestTime <= 15,
     ),
     Achievement(
       id: 'lightning',
-      title: 'Lightning Fast',
-      description: 'Solve a puzzle in under 10 seconds',
+      getTitle: (l10n) => l10n.achvLightningTitle,
+      getDescription: (l10n) => l10n.achvLightningDesc,
       icon: '🏎️',
       check: (d) => d.fastestTime > 0 && d.fastestTime <= 10,
     ),
@@ -146,15 +146,15 @@ class AchievementService {
     // --- No Hints ---
     Achievement(
       id: 'no_hints_10',
-      title: 'Sharp Mind',
-      description: 'Solve 10 puzzles without hints',
+      getTitle: (l10n) => l10n.achvNoHints10Title,
+      getDescription: (l10n) => l10n.achvNoHints10Desc,
       icon: '🧠',
       check: (d) => d.noHintLevels >= 10,
     ),
     Achievement(
       id: 'no_hints_50',
-      title: 'Pure Genius',
-      description: 'Solve 50 puzzles without hints',
+      getTitle: (l10n) => l10n.achvNoHints50Title,
+      getDescription: (l10n) => l10n.achvNoHints50Desc,
       icon: '🎓',
       check: (d) => d.noHintLevels >= 50,
     ),
@@ -162,15 +162,15 @@ class AchievementService {
     // --- Perfect ---
     Achievement(
       id: 'perfect_10',
-      title: 'Perfectionist',
-      description: 'Get 3 stars on 10 levels',
+      getTitle: (l10n) => l10n.achvPerfect10Title,
+      getDescription: (l10n) => l10n.achvPerfect10Desc,
       icon: '💎',
       check: (d) => d.perfectLevels >= 10,
     ),
     Achievement(
       id: 'perfect_50',
-      title: 'Flawless',
-      description: 'Get 3 stars on 50 levels',
+      getTitle: (l10n) => l10n.achvPerfect50Title,
+      getDescription: (l10n) => l10n.achvPerfect50Desc,
       icon: '🏆',
       check: (d) => d.perfectLevels >= 50,
     ),
@@ -178,29 +178,29 @@ class AchievementService {
     // --- Difficulty tiers ---
     Achievement(
       id: 'easy_master',
-      title: 'Easy Peasy',
-      description: 'Complete all Easy levels',
+      getTitle: (l10n) => l10n.achvEasyMasterTitle,
+      getDescription: (l10n) => l10n.achvEasyMasterDesc,
       icon: '🟢',
       check: (d) => d.easyCompleted >= 250,
     ),
     Achievement(
       id: 'medium_master',
-      title: 'Medium Rare',
-      description: 'Complete all Medium levels',
+      getTitle: (l10n) => l10n.achvMediumMasterTitle,
+      getDescription: (l10n) => l10n.achvMediumMasterDesc,
       icon: '🟡',
       check: (d) => d.mediumCompleted >= 250,
     ),
     Achievement(
       id: 'hard_master',
-      title: 'Hardened',
-      description: 'Complete all Hard levels',
+      getTitle: (l10n) => l10n.achvHardMasterTitle,
+      getDescription: (l10n) => l10n.achvHardMasterDesc,
       icon: '🟠',
       check: (d) => d.hardCompleted >= 250,
     ),
     Achievement(
       id: 'expert_master',
-      title: 'Expert Cryptographer',
-      description: 'Complete all Expert levels',
+      getTitle: (l10n) => l10n.achvExpertMasterTitle,
+      getDescription: (l10n) => l10n.achvExpertMasterDesc,
       icon: '🔴',
       check: (d) => d.expertCompleted >= 450,
     ),
@@ -208,36 +208,36 @@ class AchievementService {
     // --- Daily streak ---
     Achievement(
       id: 'streak_3',
-      title: 'On a Roll',
-      description: '3 day daily challenge streak',
+      getTitle: (l10n) => l10n.achvStreak3Title,
+      getDescription: (l10n) => l10n.achvStreak3Desc,
       icon: '🔥',
       check: (d) => d.streak >= 3,
     ),
     Achievement(
       id: 'streak_7',
-      title: 'Week Warrior',
-      description: '7 day daily challenge streak',
+      getTitle: (l10n) => l10n.achvStreak7Title,
+      getDescription: (l10n) => l10n.achvStreak7Desc,
       icon: '📅',
       check: (d) => d.streak >= 7,
     ),
     Achievement(
       id: 'streak_14',
-      title: 'Two Week Champion',
-      description: '14 day daily challenge streak',
+      getTitle: (l10n) => l10n.achvStreak14Title,
+      getDescription: (l10n) => l10n.achvStreak14Desc,
       icon: '🏅',
       check: (d) => d.streak >= 14,
     ),
     Achievement(
       id: 'streak_30',
-      title: 'Streak Master',
-      description: '30 day daily challenge streak',
+      getTitle: (l10n) => l10n.achvStreak30Title,
+      getDescription: (l10n) => l10n.achvStreak30Desc,
       icon: '🗓️',
       check: (d) => d.streak >= 30,
     ),
     Achievement(
       id: 'streak_100',
-      title: 'Unstoppable',
-      description: '100 day daily challenge streak',
+      getTitle: (l10n) => l10n.achvStreak100Title,
+      getDescription: (l10n) => l10n.achvStreak100Desc,
       icon: '💯',
       check: (d) => d.streak >= 100,
     ),
@@ -245,15 +245,15 @@ class AchievementService {
     // --- Multi-step ---
     Achievement(
       id: 'multi_step_first',
-      title: 'Chain Reaction',
-      description: 'Solve your first multi-step puzzle',
+      getTitle: (l10n) => l10n.achvMultiStepFirstTitle,
+      getDescription: (l10n) => l10n.achvMultiStepFirstDesc,
       icon: '🔗',
       check: (d) => d.multiStepCompleted >= 1,
     ),
     Achievement(
       id: 'multi_step_all',
-      title: 'Cascade King',
-      description: 'Complete all 200 multi-step puzzles',
+      getTitle: (l10n) => l10n.achvMultiStepAllTitle,
+      getDescription: (l10n) => l10n.achvMultiStepAllDesc,
       icon: '🌊',
       check: (d) => d.multiStepCompleted >= 200,
     ),

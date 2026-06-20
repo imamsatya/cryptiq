@@ -74,7 +74,7 @@ class _DailyResultScreenState extends State<DailyResultScreen>
                   children: [
                     Text(l10n.achievementUnlocked,
                         style: TextStyle(fontSize: 11, color: Colors.white70)),
-                    Text(a.title,
+                    Text(a.getTitle(l10n),
                         style: TextStyle(
                             fontWeight: FontWeight.w600, color: Colors.white)),
                   ],

@@ -661,4 +661,161 @@ class AppLocalizationsHi extends AppLocalizations {
   String shareDailyText(String time, int streak) {
     return 'मैंने CryptiQ की दैनिक चुनौती $time में हल की! 🔥 $streak दिन की श्रृंखला! क्या आप हरा सकते हैं?\n\n#CryptiQ #दैनिकचुनौती';
   }
+
+  @override
+  String get achvNoHints10Title => 'तेज दिमाग';
+
+  @override
+  String get achvStreak30Title => 'स्ट्रीक मास्टर';
+
+  @override
+  String get achvStreak14Desc => '14 दिन की दैनिक चुनौती श्रृंखला';
+
+  @override
+  String get achvPerfect50Desc => '50 स्तरों पर 3 स्टार प्राप्त करें';
+
+  @override
+  String get achvFiveHundredLevelsTitle => 'आधे रास्ते वहाँ';
+
+  @override
+  String get achvExpertMasterTitle => 'विशेषज्ञ क्रिप्टोग्राफर';
+
+  @override
+  String get achvLightningDesc =>
+      'किसी पहेली को 10 सेकंड से कम समय में हल करें';
+
+  @override
+  String get achvFirstSolveDesc => 'अपनी पहली पहेली हल करें';
+
+  @override
+  String get achvExpertMasterDesc => 'सभी विशेषज्ञ स्तरों को पूरा करें';
+
+  @override
+  String get achvPerfect50Title => 'बेदाग';
+
+  @override
+  String get achvHundredLevelsDesc => '100 स्तर पूरे करें';
+
+  @override
+  String get achvHundredStarsDesc => '100 सितारे अर्जित करें';
+
+  @override
+  String get achvHardMasterDesc => 'सभी कठिन स्तरों को पूरा करें';
+
+  @override
+  String get achvHundredStarsTitle => 'स्टार हंटर';
+
+  @override
+  String get achvStreak14Title => 'दो सप्ताह का चैंपियन';
+
+  @override
+  String get achvPerfect10Desc => '10 स्तरों पर 3 स्टार प्राप्त करें';
+
+  @override
+  String get achvHundredLevelsTitle => 'सूबेदार';
+
+  @override
+  String get achvHardMasterTitle => 'कठोर';
+
+  @override
+  String get achvLightningTitle => 'बिजली की तेजी';
+
+  @override
+  String get achvTenStarsDesc => '10 स्टार कमाएँ';
+
+  @override
+  String get achvFirstSolveTitle => 'पहले कदम';
+
+  @override
+  String get achvStreak7Desc => '7 दिन की दैनिक चुनौती श्रृंखला';
+
+  @override
+  String get achvPerfect10Title => 'पूर्णतावादी';
+
+  @override
+  String get achvMediumMasterDesc => 'सभी मध्यम स्तरों को पूरा करें';
+
+  @override
+  String get achvSpeedDemonDesc => '15 सेकंड से कम समय में पहेली हल करें';
+
+  @override
+  String get achvTenStarsTitle => 'स्टार कलेक्टर';
+
+  @override
+  String get achvFiftyLevelsDesc => '50 स्तर पूरे करें';
+
+  @override
+  String get achvStreak7Title => 'सप्ताह योद्धा';
+
+  @override
+  String get achvNoHints50Desc => 'बिना संकेत के 50 पहेलियाँ हल करें';
+
+  @override
+  String get achvMediumMasterTitle => 'दुर्लभ माध्यम';
+
+  @override
+  String get achvSpeedDemonTitle => 'गति दानव';
+
+  @override
+  String get achvThousandLevelsDesc => '1000 स्तर पूरे करें';
+
+  @override
+  String get achvFiftyLevelsTitle => 'पहेली उत्साही';
+
+  @override
+  String get achvNoHints50Title => 'शुद्ध प्रतिभा';
+
+  @override
+  String get achvThousandStarsDesc => '1000 सितारे अर्जित करें';
+
+  @override
+  String get achvThousandLevelsTitle => 'ग्रैंड मास्टर';
+
+  @override
+  String get achvStreak3Desc => '3 दिन की दैनिक चुनौती श्रृंखला';
+
+  @override
+  String get achvEasyMasterDesc => 'सभी आसान स्तरों को पूरा करें';
+
+  @override
+  String get achvNoHints10Desc => 'बिना संकेत के 10 पहेलियाँ हल करें';
+
+  @override
+  String get achvStreak100Title => 'रुक';
+
+  @override
+  String get achvStreak3Title => 'एक रोल पर';
+
+  @override
+  String get achvThousandStarsTitle => 'तारामंडल';
+
+  @override
+  String get achvTenLevelsTitle => 'गर्म होना';
+
+  @override
+  String get achvEasyMasterTitle => 'आसान मटर';
+
+  @override
+  String get achvTenLevelsDesc => '10 स्तर पूरे करें';
+
+  @override
+  String get achvStreak30Desc => '30 दिन की दैनिक चुनौती श्रृंखला';
+
+  @override
+  String get achvFiveHundredLevelsDesc => '500 स्तर पूरे करें';
+
+  @override
+  String get achvStreak100Desc => '100 दिन की दैनिक चुनौती श्रृंखला';
+
+  @override
+  String get achvMultiStepFirstTitle => 'श्रृंखला अभिक्रिया';
+
+  @override
+  String get achvMultiStepFirstDesc => 'अपनी पहली बहु-चरणीय पहेली को हल करें';
+
+  @override
+  String get achvMultiStepAllDesc => 'सभी 200 बहु-चरणीय पहेलियाँ पूरी करें';
+
+  @override
+  String get achvMultiStepAllTitle => 'कैस्केड किंग';
 }

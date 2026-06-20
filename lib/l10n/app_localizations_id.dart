@@ -662,4 +662,164 @@ class AppLocalizationsId extends AppLocalizations {
   String shareDailyText(String time, int streak) {
     return 'Saya menyelesaikan Tantangan Harian CryptiQ dalam $time! 🔥 $streak hari beruntun! Bisakah kamu mengalahkannya?\n\n#CryptiQ #TantanganHarian';
   }
+
+  @override
+  String get achvNoHints10Title => 'Pikiran Tajam';
+
+  @override
+  String get achvStreak30Title => 'Tuan Beruntun';
+
+  @override
+  String get achvStreak14Desc => 'Tantangan harian 14 hari berturut-turut';
+
+  @override
+  String get achvPerfect50Desc => 'Dapatkan 3 bintang di 50 level';
+
+  @override
+  String get achvFiveHundredLevelsTitle => 'Setengah Jalan Ke Sana';
+
+  @override
+  String get achvExpertMasterTitle => 'Ahli Kriptografi';
+
+  @override
+  String get achvLightningDesc =>
+      'Pecahkan teka-teki dalam waktu kurang dari 10 detik';
+
+  @override
+  String get achvFirstSolveDesc => 'Pecahkan teka-teki pertama Anda';
+
+  @override
+  String get achvExpertMasterDesc => 'Selesaikan semua level Pakar';
+
+  @override
+  String get achvPerfect50Title => 'Tanpa cela';
+
+  @override
+  String get achvHundredLevelsDesc => 'Selesaikan 100 level';
+
+  @override
+  String get achvHundredStarsDesc => 'Hasilkan 100 bintang';
+
+  @override
+  String get achvHardMasterDesc => 'Selesaikan semua level Sulit';
+
+  @override
+  String get achvHundredStarsTitle => 'Pemburu Bintang';
+
+  @override
+  String get achvStreak14Title => 'Juara Dua Minggu';
+
+  @override
+  String get achvPerfect10Desc => 'Dapatkan 3 bintang di 10 level';
+
+  @override
+  String get achvHundredLevelsTitle => 'Perwira';
+
+  @override
+  String get achvHardMasterTitle => 'Mengeras';
+
+  @override
+  String get achvLightningTitle => 'Secepat Kilat';
+
+  @override
+  String get achvTenStarsDesc => 'Hasilkan 10 bintang';
+
+  @override
+  String get achvFirstSolveTitle => 'Langkah Pertama';
+
+  @override
+  String get achvStreak7Desc => 'Tantangan harian 7 hari berturut-turut';
+
+  @override
+  String get achvPerfect10Title => 'Perfeksionis';
+
+  @override
+  String get achvMediumMasterDesc => 'Selesaikan semua level Medium';
+
+  @override
+  String get achvSpeedDemonDesc =>
+      'Pecahkan teka-teki dalam waktu kurang dari 15 detik';
+
+  @override
+  String get achvTenStarsTitle => 'Kolektor Bintang';
+
+  @override
+  String get achvFiftyLevelsDesc => 'Selesaikan 50 level';
+
+  @override
+  String get achvStreak7Title => 'Pejuang Minggu';
+
+  @override
+  String get achvNoHints50Desc => 'Pecahkan 50 teka-teki tanpa petunjuk';
+
+  @override
+  String get achvMediumMasterTitle => 'Sedang Langka';
+
+  @override
+  String get achvSpeedDemonTitle => 'Jago ngebut';
+
+  @override
+  String get achvThousandLevelsDesc => 'Selesaikan 1000 level';
+
+  @override
+  String get achvFiftyLevelsTitle => 'Penggemar Teka-teki';
+
+  @override
+  String get achvNoHints50Title => 'Jenius Murni';
+
+  @override
+  String get achvThousandStarsDesc => 'Hasilkan 1000 bintang';
+
+  @override
+  String get achvThousandLevelsTitle => 'Tuan Besar';
+
+  @override
+  String get achvStreak3Desc => 'Tantangan harian 3 hari berturut-turut';
+
+  @override
+  String get achvEasyMasterDesc => 'Selesaikan semua level Mudah';
+
+  @override
+  String get achvNoHints10Desc => 'Pecahkan 10 teka-teki tanpa petunjuk';
+
+  @override
+  String get achvStreak100Title => 'Tak terhentikan';
+
+  @override
+  String get achvStreak3Title => 'Berputar';
+
+  @override
+  String get achvThousandStarsTitle => 'Konstelasi';
+
+  @override
+  String get achvTenLevelsTitle => 'Melakukan Pemanasan';
+
+  @override
+  String get achvEasyMasterTitle => 'Mudah sekali';
+
+  @override
+  String get achvTenLevelsDesc => 'Selesaikan 10 level';
+
+  @override
+  String get achvStreak30Desc => 'Tantangan harian 30 hari berturut-turut';
+
+  @override
+  String get achvFiveHundredLevelsDesc => 'Selesaikan 500 level';
+
+  @override
+  String get achvStreak100Desc => 'Tantangan harian 100 hari berturut-turut';
+
+  @override
+  String get achvMultiStepFirstTitle => 'Reaksi berantai';
+
+  @override
+  String get achvMultiStepFirstDesc =>
+      'Pecahkan teka-teki multi-langkah pertama Anda';
+
+  @override
+  String get achvMultiStepAllDesc =>
+      'Selesaikan semua 200 teka-teki multi-langkah';
+
+  @override
+  String get achvMultiStepAllTitle => 'Raja Bertingkat';
 }

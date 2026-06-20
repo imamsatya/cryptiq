@@ -6,7 +6,13 @@
   "statistics": "आँकड़े",
   "settings": "सेटिंग्स",
   "level": "स्तर {number}",
-  "@level": { "placeholders": { "number": { "type": "int" } } },
+  "@level": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "easy": "आसान",
   "medium": "मध्यम",
   "hard": "कठिन",
@@ -24,7 +30,16 @@
   "hints": "संकेत",
   "bestTime": "सर्वश्रेष्ठ समय",
   "levelsCompleted": "{count}/{total} पूर्ण",
-  "@levelsCompleted": { "placeholders": { "count": { "type": "int" }, "total": { "type": "int" } } },
+  "@levelsCompleted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "totalTime": "कुल समय",
   "averageTime": "औसत",
   "hintsUsed": "उपयोग किए गए संकेत",
@@ -47,13 +62,25 @@
   "back": "वापस",
   "resume": "जारी रखें",
   "stars": "{count} तारे",
-  "@stars": { "placeholders": { "count": { "type": "int" } } },
+  "@stars": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "selectLevel": "स्तर चुनें",
   "badges": "बैज",
   "passAndPlay": "पास एंड प्ले (2-4)",
   "decodeTheLogic": "तर्क को डिकोड करें",
   "continueLevel": "जारी रखें (स्तर {number})",
-  "@continueLevel": { "placeholders": { "number": { "type": "int" } } },
+  "@continueLevel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "selectDifficulty": "कठिनाई चुनें",
   "all": "सभी",
   "completed": "पूर्ण",
@@ -91,9 +118,21 @@
   "noHintsAvailable": "इस पहेली के लिए कोई संकेत नहीं",
   "overallProgress": "कुल प्रगति",
   "roundNumber": "राउंड {number}",
-  "@roundNumber": { "placeholders": { "number": { "type": "int" } } },
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "dayStreak": "{count} दिन की श्रृंखला!",
-  "@dayStreak": { "placeholders": { "count": { "type": "int" } } },
+  "@dayStreak": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "shareResult": "परिणाम साझा करें",
   "dailyComplete": "दैनिक चुनौती पूर्ण!",
   "completeMoreLevels": "दोबारा खेलने के लिए और स्तर पूरे करें",
@@ -129,7 +168,16 @@
   "contact": "संपर्क",
   "lastUpdated": "अंतिम अद्यतन",
   "levelsOf": "{total} में से {completed} स्तर पूर्ण",
-  "@levelsOf": { "placeholders": { "completed": { "type": "int" }, "total": { "type": "int" } } },
+  "@levelsOf": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "tutorialWelcomeTitle": "CryptiQ में आपका स्वागत है!",
   "tutorialWelcomeBody": "प्रत्येक अक्षर एक अद्वितीय अंक (0-9) को दर्शाता है।\nलक्ष्य: पता लगाएँ कि कौन सा अंक किस अक्षर को दर्शाता है\nताकि समीकरण सही हो।",
   "tutorialSelectTitle": "चरण 1: अक्षर चुनें",
@@ -155,10 +203,22 @@
   "skip": "छोड़ें",
   "startPlaying": "खेलना शुरू करें",
   "playerName": "खिलाड़ी {number}",
-  "@playerName": { "placeholders": { "number": { "type": "int" } } },
+  "@playerName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "addPlayer": "खिलाड़ी जोड़ें",
   "roundsLabel": "राउंड: {count}",
-  "@roundsLabel": { "placeholders": { "count": { "type": "int" } } },
+  "@roundsLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "addition": "जोड़ (+)",
   "subtraction": "घटाव (−)",
   "multiply": "गुणा (×)",
@@ -174,7 +234,13 @@
   "privacyStorageBody": "सभी डेटा (प्रगति, सेटिंग्स, उपलब्धियाँ) स्थानीय रूप से संग्रहीत होते हैं। ऐप अनइंस्टॉल करने से सभी स्थानीय डेटा हट जाएगा।",
   "privacyChangesBody": "हम इस नीति को अपडेट कर सकते हैं। परिवर्तनों के बाद निरंतर उपयोग स्वीकृति माना जाएगा।",
   "privacyContactBody": "प्रश्नों के लिए, ईमेल: {email}",
-  "@privacyContactBody": { "placeholders": { "email": { "type": "String" } } },
+  "@privacyContactBody": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
   "multiStepLabel": "बहु-चरण",
   "stars3": "तारे",
   "onboardingHowToPlayBody": "1. अक्षर पर टैप करके चुनें\n2. नंबर (0-9) पर टैप करके निर्दिष्ट करें\n3. प्रत्येक अक्षर का अद्वितीय अंक होना चाहिए\n4. अक्षर को लंबे समय तक दबाकर मिटाएँ",
@@ -183,7 +249,13 @@
   "onboardingDailyBody": "• हर दिन एक नई पहेली\n• रोज़ खेलकर श्रृंखला 🔥 बनाएँ\n• खेलते हुए उपलब्धियाँ अनलॉक करें\n• आसान से विशेषज्ञ तक 1200 स्तर — सब मुफ़्त!",
   "onboardingStarExample": "⭐⭐⭐  बिना संकेत, तेज़\n⭐⭐     1-2 संकेत\n⭐       3+ संकेत",
   "usedBy": "उपयोगकर्ता: {letter}",
-  "@usedBy": { "placeholders": { "letter": { "type": "String" } } },
+  "@usedBy": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
   "notUsed": "अनुपयोगी",
   "replayConfirmTitle": "यह स्तर फिर खेलें?",
   "replayConfirmBody": "इस स्तर पर पहले से ⭐⭐⭐ है। सर्वश्रेष्ठ स्कोर बना रहेगा।",
@@ -198,25 +270,149 @@
   "puzzlesSolved": "हल की गई पहेलियाँ",
   "allDone": "सब हो गया!",
   "hintCount": "संकेत ({count})",
-  "@hintCount": { "placeholders": { "count": { "type": "int" } } },
+  "@hintCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "incorrectTryAgain": "गलत — फिर से प्रयास करें!",
   "playerScored": "{player} ने {score} अंक प्राप्त किए",
-  "@playerScored": { "placeholders": { "player": { "type": "String" }, "score": { "type": "int" } } },
+  "@playerScored": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      },
+      "score": {
+        "type": "int"
+      }
+    }
+  },
   "hintsCount": "{count} संकेत",
-  "@hintsCount": { "placeholders": { "count": { "type": "int" } } },
+  "@hintsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "roundOf": "राउंड {current}/{total}",
-  "@roundOf": { "placeholders": { "current": { "type": "int" }, "total": { "type": "int" } } },
+  "@roundOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "imReady": "मैं तैयार हूँ!",
   "playerWins": "{player} जीता!",
-  "@playerWins": { "placeholders": { "player": { "type": "String" } } },
+  "@playerWins": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
   "playerStatsLine": "{solved}/{total} हल • {time} • {hints} संकेत",
-  "@playerStatsLine": { "placeholders": { "solved": { "type": "int" }, "total": { "type": "int" }, "time": { "type": "String" }, "hints": { "type": "int" } } },
+  "@playerStatsLine": {
+    "placeholders": {
+      "solved": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      },
+      "hints": {
+        "type": "int"
+      }
+    }
+  },
   "scorePts": "{score}अंक",
-  "@scorePts": { "placeholders": { "score": { "type": "int" } } },
+  "@scorePts": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
   "playerNameHint": "खिलाड़ी का नाम",
   "multiStepNote": "बहु-चरण पहेलियाँ केवल कठिन/विशेषज्ञ हैं। कठिनाई अनदेखी होगी।",
   "percentUnlocked": "{percent}% अनलॉक",
-  "@percentUnlocked": { "placeholders": { "percent": { "type": "String" } } },
+  "@percentUnlocked": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
   "shareDailyText": "मैंने CryptiQ की दैनिक चुनौती {time} में हल की! 🔥 {streak} दिन की श्रृंखला! क्या आप हरा सकते हैं?\n\n#CryptiQ #दैनिकचुनौती",
-  "@shareDailyText": { "placeholders": { "time": { "type": "String" }, "streak": { "type": "int" } } }
+  "@shareDailyText": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "streak": {
+        "type": "int"
+      }
+    }
+  },
+  "achvHundredLevelsTitle": "सूबेदार",
+  "achvFiveHundredLevelsTitle": "आधे रास्ते वहाँ",
+  "achvThousandLevelsTitle": "ग्रैंड मास्टर",
+  "achvFiveHundredLevelsDesc": "500 स्तर पूरे करें",
+  "achvTenLevelsDesc": "10 स्तर पूरे करें",
+  "achvFirstSolveTitle": "पहले कदम",
+  "achvTenLevelsTitle": "गर्म होना",
+  "achvHundredLevelsDesc": "100 स्तर पूरे करें",
+  "achvFirstSolveDesc": "अपनी पहली पहेली हल करें",
+  "achvFiftyLevelsTitle": "पहेली उत्साही",
+  "achvThousandLevelsDesc": "1000 स्तर पूरे करें",
+  "achvFiftyLevelsDesc": "50 स्तर पूरे करें",
+  "achvTenStarsTitle": "स्टार कलेक्टर",
+  "achvHundredStarsTitle": "स्टार हंटर",
+  "achvThousandStarsTitle": "तारामंडल",
+  "achvHundredStarsDesc": "100 सितारे अर्जित करें",
+  "achvTenStarsDesc": "10 स्टार कमाएँ",
+  "achvSpeedDemonTitle": "गति दानव",
+  "achvLightningTitle": "बिजली की तेजी",
+  "achvSpeedDemonDesc": "15 सेकंड से कम समय में पहेली हल करें",
+  "achvThousandStarsDesc": "1000 सितारे अर्जित करें",
+  "achvNoHints10Title": "तेज दिमाग",
+  "achvLightningDesc": "किसी पहेली को 10 सेकंड से कम समय में हल करें",
+  "achvPerfect50Title": "बेदाग",
+  "achvNoHints50Desc": "बिना संकेत के 50 पहेलियाँ हल करें",
+  "achvNoHints10Desc": "बिना संकेत के 10 पहेलियाँ हल करें",
+  "achvMediumMasterTitle": "दुर्लभ माध्यम",
+  "achvNoHints50Title": "शुद्ध प्रतिभा",
+  "achvPerfect10Title": "पूर्णतावादी",
+  "achvPerfect10Desc": "10 स्तरों पर 3 स्टार प्राप्त करें",
+  "achvEasyMasterTitle": "आसान मटर",
+  "achvPerfect50Desc": "50 स्तरों पर 3 स्टार प्राप्त करें",
+  "achvEasyMasterDesc": "सभी आसान स्तरों को पूरा करें",
+  "achvStreak3Desc": "3 दिन की दैनिक चुनौती श्रृंखला",
+  "achvHardMasterTitle": "कठोर",
+  "achvHardMasterDesc": "सभी कठिन स्तरों को पूरा करें",
+  "achvExpertMasterDesc": "सभी विशेषज्ञ स्तरों को पूरा करें",
+  "achvMediumMasterDesc": "सभी मध्यम स्तरों को पूरा करें",
+  "achvStreak3Title": "एक रोल पर",
+  "achvExpertMasterTitle": "विशेषज्ञ क्रिप्टोग्राफर",
+  "achvStreak7Title": "सप्ताह योद्धा",
+  "achvStreak7Desc": "7 दिन की दैनिक चुनौती श्रृंखला",
+  "achvStreak14Title": "दो सप्ताह का चैंपियन",
+  "achvMultiStepFirstTitle": "श्रृंखला अभिक्रिया",
+  "achvStreak100Title": "रुक",
+  "achvStreak30Title": "स्ट्रीक मास्टर",
+  "achvStreak100Desc": "100 दिन की दैनिक चुनौती श्रृंखला",
+  "achvStreak14Desc": "14 दिन की दैनिक चुनौती श्रृंखला",
+  "achvMultiStepFirstDesc": "अपनी पहली बहु-चरणीय पहेली को हल करें",
+  "achvStreak30Desc": "30 दिन की दैनिक चुनौती श्रृंखला",
+  "achvMultiStepAllTitle": "कैस्केड किंग",
+  "achvMultiStepAllDesc": "सभी 200 बहु-चरणीय पहेलियाँ पूरी करें"
 }

@@ -651,4 +651,160 @@ class AppLocalizationsZh extends AppLocalizations {
   String shareDailyText(String time, int streak) {
     return '我用$time完成了CryptiQ每日挑战！🔥连续$streak天！你能超越吗？\n\n#CryptiQ #每日挑战';
   }
+
+  @override
+  String get achvNoHints10Title => '敏锐的头脑';
+
+  @override
+  String get achvStreak30Title => '连胜大师';
+
+  @override
+  String get achvStreak14Desc => '14天每日连续挑战';
+
+  @override
+  String get achvPerfect50Desc => '在 50 个关卡中获得 3 颗星';
+
+  @override
+  String get achvFiveHundredLevelsTitle => '一半的路程';
+
+  @override
+  String get achvExpertMasterTitle => '专家密码学家';
+
+  @override
+  String get achvLightningDesc => '在 10 秒内解决一个谜题';
+
+  @override
+  String get achvFirstSolveDesc => '解决你的第一个难题';
+
+  @override
+  String get achvExpertMasterDesc => '完成所有专家级别';
+
+  @override
+  String get achvPerfect50Title => '完美无瑕';
+
+  @override
+  String get achvHundredLevelsDesc => '完成 100 个关卡';
+
+  @override
+  String get achvHundredStarsDesc => '获得 100 颗星';
+
+  @override
+  String get achvHardMasterDesc => '完成所有困难级别';
+
+  @override
+  String get achvHundredStarsTitle => '星际猎人';
+
+  @override
+  String get achvStreak14Title => '两周冠军';
+
+  @override
+  String get achvPerfect10Desc => '在 10 个关卡中获得 3 颗星';
+
+  @override
+  String get achvHundredLevelsTitle => '百夫长';
+
+  @override
+  String get achvHardMasterTitle => '硬化';
+
+  @override
+  String get achvLightningTitle => '快如闪电';
+
+  @override
+  String get achvTenStarsDesc => '获得 10 颗星';
+
+  @override
+  String get achvFirstSolveTitle => '第一步';
+
+  @override
+  String get achvStreak7Desc => '7天每日连续挑战';
+
+  @override
+  String get achvPerfect10Title => '完美主义者';
+
+  @override
+  String get achvMediumMasterDesc => '完成所有中等级别';
+
+  @override
+  String get achvSpeedDemonDesc => '在 15 秒内解决一个谜题';
+
+  @override
+  String get achvTenStarsTitle => '明星收藏家';
+
+  @override
+  String get achvFiftyLevelsDesc => '完成 50 个关卡';
+
+  @override
+  String get achvStreak7Title => '周战士';
+
+  @override
+  String get achvNoHints50Desc => '在没有提示的情况下解决 50 个谜题';
+
+  @override
+  String get achvMediumMasterTitle => '三分熟';
+
+  @override
+  String get achvSpeedDemonTitle => '速度恶魔';
+
+  @override
+  String get achvThousandLevelsDesc => '完成 1000 个关卡';
+
+  @override
+  String get achvFiftyLevelsTitle => '拼图爱好者';
+
+  @override
+  String get achvNoHints50Title => '纯粹的天才';
+
+  @override
+  String get achvThousandStarsDesc => '获得 1000 颗星';
+
+  @override
+  String get achvThousandLevelsTitle => '大师';
+
+  @override
+  String get achvStreak3Desc => '连续 3 天每日挑战';
+
+  @override
+  String get achvEasyMasterDesc => '完成所有简单关卡';
+
+  @override
+  String get achvNoHints10Desc => '在没有提示的情况下解决 10 个谜题';
+
+  @override
+  String get achvStreak100Title => '势不可挡';
+
+  @override
+  String get achvStreak3Title => '滚滚而来';
+
+  @override
+  String get achvThousandStarsTitle => '星座';
+
+  @override
+  String get achvTenLevelsTitle => '热身';
+
+  @override
+  String get achvEasyMasterTitle => '简单的豌豆';
+
+  @override
+  String get achvTenLevelsDesc => '完成 10 个关卡';
+
+  @override
+  String get achvStreak30Desc => '30天每日连续挑战';
+
+  @override
+  String get achvFiveHundredLevelsDesc => '完成 500 个关卡';
+
+  @override
+  String get achvStreak100Desc => '100天每日连续挑战';
+
+  @override
+  String get achvMultiStepFirstTitle => '连锁反应';
+
+  @override
+  String get achvMultiStepFirstDesc => '解决你的第一个多步骤难题';
+
+  @override
+  String get achvMultiStepAllDesc => '完成所有 200 个多步骤谜题';
+
+  @override
+  String get achvMultiStepAllTitle => '层叠王';
 }

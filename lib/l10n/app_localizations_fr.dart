@@ -663,4 +663,162 @@ class AppLocalizationsFr extends AppLocalizations {
   String shareDailyText(String time, int streak) {
     return 'J\'ai résolu le Défi Quotidien CryptiQ en $time ! 🔥 $streak jours de série ! Pouvez-vous faire mieux ?\n\n#CryptiQ #DéfiQuotidien';
   }
+
+  @override
+  String get achvNoHints10Title => 'Esprit vif';
+
+  @override
+  String get achvStreak30Title => 'Maître des séquences';
+
+  @override
+  String get achvStreak14Desc => 'Série de défis quotidiens de 14 jours';
+
+  @override
+  String get achvPerfect50Desc => 'Obtenez 3 étoiles sur 50 niveaux';
+
+  @override
+  String get achvFiveHundredLevelsTitle => 'À mi-chemin';
+
+  @override
+  String get achvExpertMasterTitle => 'Cryptographe expert';
+
+  @override
+  String get achvLightningDesc => 'Résolvez un puzzle en moins de 10 secondes';
+
+  @override
+  String get achvFirstSolveDesc => 'Résolvez votre premier puzzle';
+
+  @override
+  String get achvExpertMasterDesc => 'Terminez tous les niveaux Expert';
+
+  @override
+  String get achvPerfect50Title => 'Impeccable';
+
+  @override
+  String get achvHundredLevelsDesc => 'Terminez 100 niveaux';
+
+  @override
+  String get achvHundredStarsDesc => 'Gagnez 100 étoiles';
+
+  @override
+  String get achvHardMasterDesc => 'Terminez tous les niveaux difficiles';
+
+  @override
+  String get achvHundredStarsTitle => 'Chasseur d\'étoiles';
+
+  @override
+  String get achvStreak14Title => 'Champion de deux semaines';
+
+  @override
+  String get achvPerfect10Desc => 'Obtenez 3 étoiles sur 10 niveaux';
+
+  @override
+  String get achvHundredLevelsTitle => 'Centurion';
+
+  @override
+  String get achvHardMasterTitle => 'Endurci';
+
+  @override
+  String get achvLightningTitle => 'Rapide comme l\'éclair';
+
+  @override
+  String get achvTenStarsDesc => 'Gagnez 10 étoiles';
+
+  @override
+  String get achvFirstSolveTitle => 'Premiers pas';
+
+  @override
+  String get achvStreak7Desc => 'Série de défis quotidiens de 7 jours';
+
+  @override
+  String get achvPerfect10Title => 'Perfectionniste';
+
+  @override
+  String get achvMediumMasterDesc => 'Terminez tous les niveaux moyens';
+
+  @override
+  String get achvSpeedDemonDesc => 'Résolvez un puzzle en moins de 15 secondes';
+
+  @override
+  String get achvTenStarsTitle => 'Collectionneur d\'étoiles';
+
+  @override
+  String get achvFiftyLevelsDesc => 'Terminez 50 niveaux';
+
+  @override
+  String get achvStreak7Title => 'Guerrier de la semaine';
+
+  @override
+  String get achvNoHints50Desc => 'Résolvez 50 énigmes sans indices';
+
+  @override
+  String get achvMediumMasterTitle => 'Moyennement rare';
+
+  @override
+  String get achvSpeedDemonTitle => 'Démon de vitesse';
+
+  @override
+  String get achvThousandLevelsDesc => 'Terminez 1000 niveaux';
+
+  @override
+  String get achvFiftyLevelsTitle => 'Passionné de casse-tête';
+
+  @override
+  String get achvNoHints50Title => 'Un pur génie';
+
+  @override
+  String get achvThousandStarsDesc => 'Gagnez 1000 étoiles';
+
+  @override
+  String get achvThousandLevelsTitle => 'Grand Maître';
+
+  @override
+  String get achvStreak3Desc => 'Série de défis quotidiens de 3 jours';
+
+  @override
+  String get achvEasyMasterDesc => 'Terminez tous les niveaux faciles';
+
+  @override
+  String get achvNoHints10Desc => 'Résolvez 10 énigmes sans indices';
+
+  @override
+  String get achvStreak100Title => 'Inarrêtable';
+
+  @override
+  String get achvStreak3Title => 'Sur une lancée';
+
+  @override
+  String get achvThousandStarsTitle => 'Constellation';
+
+  @override
+  String get achvTenLevelsTitle => 'S\'échauffer';
+
+  @override
+  String get achvEasyMasterTitle => 'Très facile';
+
+  @override
+  String get achvTenLevelsDesc => 'Terminez 10 niveaux';
+
+  @override
+  String get achvStreak30Desc => 'Série de défis quotidiens de 30 jours';
+
+  @override
+  String get achvFiveHundredLevelsDesc => 'Terminez 500 niveaux';
+
+  @override
+  String get achvStreak100Desc => 'Série de défis quotidiens de 100 jours';
+
+  @override
+  String get achvMultiStepFirstTitle => 'Réaction en chaîne';
+
+  @override
+  String get achvMultiStepFirstDesc =>
+      'Résolvez votre premier puzzle en plusieurs étapes';
+
+  @override
+  String get achvMultiStepAllDesc =>
+      'Terminez les 200 puzzles en plusieurs étapes';
+
+  @override
+  String get achvMultiStepAllTitle => 'Roi des Cascades';
 }

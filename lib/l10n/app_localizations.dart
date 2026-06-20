@@ -1309,6 +1309,318 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'I solved today\'s CryptiQ Daily Challenge in {time}! 🔥 {streak} day streak! Can you beat it?\n\n#CryptiQ #DailyChallenge'**
   String shareDailyText(String time, int streak);
+
+  /// No description provided for @achvNoHints10Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Sharp Mind'**
+  String get achvNoHints10Title;
+
+  /// No description provided for @achvStreak30Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Streak Master'**
+  String get achvStreak30Title;
+
+  /// No description provided for @achvStreak14Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'14 day daily challenge streak'**
+  String get achvStreak14Desc;
+
+  /// No description provided for @achvPerfect50Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Get 3 stars on 50 levels'**
+  String get achvPerfect50Desc;
+
+  /// No description provided for @achvFiveHundredLevelsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Half Way There'**
+  String get achvFiveHundredLevelsTitle;
+
+  /// No description provided for @achvExpertMasterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Expert Cryptographer'**
+  String get achvExpertMasterTitle;
+
+  /// No description provided for @achvLightningDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve a puzzle in under 10 seconds'**
+  String get achvLightningDesc;
+
+  /// No description provided for @achvFirstSolveDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve your first puzzle'**
+  String get achvFirstSolveDesc;
+
+  /// No description provided for @achvExpertMasterDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete all Expert levels'**
+  String get achvExpertMasterDesc;
+
+  /// No description provided for @achvPerfect50Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Flawless'**
+  String get achvPerfect50Title;
+
+  /// No description provided for @achvHundredLevelsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete 100 levels'**
+  String get achvHundredLevelsDesc;
+
+  /// No description provided for @achvHundredStarsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Earn 100 stars'**
+  String get achvHundredStarsDesc;
+
+  /// No description provided for @achvHardMasterDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete all Hard levels'**
+  String get achvHardMasterDesc;
+
+  /// No description provided for @achvHundredStarsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Star Hunter'**
+  String get achvHundredStarsTitle;
+
+  /// No description provided for @achvStreak14Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Two Week Champion'**
+  String get achvStreak14Title;
+
+  /// No description provided for @achvPerfect10Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Get 3 stars on 10 levels'**
+  String get achvPerfect10Desc;
+
+  /// No description provided for @achvHundredLevelsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Centurion'**
+  String get achvHundredLevelsTitle;
+
+  /// No description provided for @achvHardMasterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hardened'**
+  String get achvHardMasterTitle;
+
+  /// No description provided for @achvLightningTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Lightning Fast'**
+  String get achvLightningTitle;
+
+  /// No description provided for @achvTenStarsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Earn 10 stars'**
+  String get achvTenStarsDesc;
+
+  /// No description provided for @achvFirstSolveTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'First Steps'**
+  String get achvFirstSolveTitle;
+
+  /// No description provided for @achvStreak7Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'7 day daily challenge streak'**
+  String get achvStreak7Desc;
+
+  /// No description provided for @achvPerfect10Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Perfectionist'**
+  String get achvPerfect10Title;
+
+  /// No description provided for @achvMediumMasterDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete all Medium levels'**
+  String get achvMediumMasterDesc;
+
+  /// No description provided for @achvSpeedDemonDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve a puzzle in under 15 seconds'**
+  String get achvSpeedDemonDesc;
+
+  /// No description provided for @achvTenStarsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Star Collector'**
+  String get achvTenStarsTitle;
+
+  /// No description provided for @achvFiftyLevelsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete 50 levels'**
+  String get achvFiftyLevelsDesc;
+
+  /// No description provided for @achvStreak7Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Week Warrior'**
+  String get achvStreak7Title;
+
+  /// No description provided for @achvNoHints50Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve 50 puzzles without hints'**
+  String get achvNoHints50Desc;
+
+  /// No description provided for @achvMediumMasterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium Rare'**
+  String get achvMediumMasterTitle;
+
+  /// No description provided for @achvSpeedDemonTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Speed Demon'**
+  String get achvSpeedDemonTitle;
+
+  /// No description provided for @achvThousandLevelsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete 1000 levels'**
+  String get achvThousandLevelsDesc;
+
+  /// No description provided for @achvFiftyLevelsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Puzzle Enthusiast'**
+  String get achvFiftyLevelsTitle;
+
+  /// No description provided for @achvNoHints50Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Pure Genius'**
+  String get achvNoHints50Title;
+
+  /// No description provided for @achvThousandStarsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Earn 1000 stars'**
+  String get achvThousandStarsDesc;
+
+  /// No description provided for @achvThousandLevelsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Grand Master'**
+  String get achvThousandLevelsTitle;
+
+  /// No description provided for @achvStreak3Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'3 day daily challenge streak'**
+  String get achvStreak3Desc;
+
+  /// No description provided for @achvEasyMasterDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete all Easy levels'**
+  String get achvEasyMasterDesc;
+
+  /// No description provided for @achvNoHints10Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve 10 puzzles without hints'**
+  String get achvNoHints10Desc;
+
+  /// No description provided for @achvStreak100Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Unstoppable'**
+  String get achvStreak100Title;
+
+  /// No description provided for @achvStreak3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'On a Roll'**
+  String get achvStreak3Title;
+
+  /// No description provided for @achvThousandStarsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Constellation'**
+  String get achvThousandStarsTitle;
+
+  /// No description provided for @achvTenLevelsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Getting Warmed Up'**
+  String get achvTenLevelsTitle;
+
+  /// No description provided for @achvEasyMasterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Easy Peasy'**
+  String get achvEasyMasterTitle;
+
+  /// No description provided for @achvTenLevelsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete 10 levels'**
+  String get achvTenLevelsDesc;
+
+  /// No description provided for @achvStreak30Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'30 day daily challenge streak'**
+  String get achvStreak30Desc;
+
+  /// No description provided for @achvFiveHundredLevelsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete 500 levels'**
+  String get achvFiveHundredLevelsDesc;
+
+  /// No description provided for @achvStreak100Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'100 day daily challenge streak'**
+  String get achvStreak100Desc;
+
+  /// No description provided for @achvMultiStepFirstTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Chain Reaction'**
+  String get achvMultiStepFirstTitle;
+
+  /// No description provided for @achvMultiStepFirstDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Solve your first multi-step puzzle'**
+  String get achvMultiStepFirstDesc;
+
+  /// No description provided for @achvMultiStepAllDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete all 200 multi-step puzzles'**
+  String get achvMultiStepAllDesc;
+
+  /// No description provided for @achvMultiStepAllTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cascade King'**
+  String get achvMultiStepAllTitle;
 }
 
 class _AppLocalizationsDelegate

@@ -655,4 +655,160 @@ class AppLocalizationsKo extends AppLocalizations {
   String shareDailyText(String time, int streak) {
     return 'CryptiQ 일일 챌린지를 $time에 풀었어요! 🔥 $streak일 연속! 당신도 도전해보세요!\n\n#CryptiQ #일일챌린지';
   }
+
+  @override
+  String get achvNoHints10Title => '날카로운 마음';
+
+  @override
+  String get achvStreak30Title => '연속 마스터';
+
+  @override
+  String get achvStreak14Desc => '14일 일일 연속 도전';
+
+  @override
+  String get achvPerfect50Desc => '50레벨에서 별 3개를 획득하세요';
+
+  @override
+  String get achvFiveHundredLevelsTitle => '거기 반쯤';
+
+  @override
+  String get achvExpertMasterTitle => '전문 암호학자';
+
+  @override
+  String get achvLightningDesc => '10초 안에 퍼즐을 풀어보세요';
+
+  @override
+  String get achvFirstSolveDesc => '첫 번째 퍼즐을 풀어보세요';
+
+  @override
+  String get achvExpertMasterDesc => '모든 전문가 레벨을 완료하세요';
+
+  @override
+  String get achvPerfect50Title => '완벽한';
+
+  @override
+  String get achvHundredLevelsDesc => '100개의 레벨을 완료하세요';
+
+  @override
+  String get achvHundredStarsDesc => '별 100개 획득';
+
+  @override
+  String get achvHardMasterDesc => '모든 하드 레벨을 완료하세요';
+
+  @override
+  String get achvHundredStarsTitle => '스타헌터';
+
+  @override
+  String get achvStreak14Title => '2주 챔피언';
+
+  @override
+  String get achvPerfect10Desc => '10개 레벨에서 별 3개를 획득하세요';
+
+  @override
+  String get achvHundredLevelsTitle => '백부장';
+
+  @override
+  String get achvHardMasterTitle => '강화';
+
+  @override
+  String get achvLightningTitle => '번개처럼 빠른';
+
+  @override
+  String get achvTenStarsDesc => '별 10개를 획득하세요';
+
+  @override
+  String get achvFirstSolveTitle => '첫 번째 단계';
+
+  @override
+  String get achvStreak7Desc => '7일 일일 연속 도전';
+
+  @override
+  String get achvPerfect10Title => '완벽주의자';
+
+  @override
+  String get achvMediumMasterDesc => '모든 중간 레벨을 완료하세요';
+
+  @override
+  String get achvSpeedDemonDesc => '15초 안에 퍼즐을 풀어보세요';
+
+  @override
+  String get achvTenStarsTitle => '스타 콜렉터';
+
+  @override
+  String get achvFiftyLevelsDesc => '50개의 레벨을 완료하세요';
+
+  @override
+  String get achvStreak7Title => '주간 전사';
+
+  @override
+  String get achvNoHints50Desc => '힌트 없이 퍼즐 50개를 풀어보세요';
+
+  @override
+  String get achvMediumMasterTitle => '미디엄 레어';
+
+  @override
+  String get achvSpeedDemonTitle => '속도의 악마';
+
+  @override
+  String get achvThousandLevelsDesc => '1000개의 레벨을 완료하세요';
+
+  @override
+  String get achvFiftyLevelsTitle => '퍼즐 매니아';
+
+  @override
+  String get achvNoHints50Title => '순수한 천재';
+
+  @override
+  String get achvThousandStarsDesc => '별 1000개 획득';
+
+  @override
+  String get achvThousandLevelsTitle => '그랜드 마스터';
+
+  @override
+  String get achvStreak3Desc => '3일 연속 일일 도전';
+
+  @override
+  String get achvEasyMasterDesc => '모든 쉬운 레벨을 완료하세요';
+
+  @override
+  String get achvNoHints10Desc => '힌트 없이 퍼즐 10개를 풀어보세요';
+
+  @override
+  String get achvStreak100Title => '멈출 수 없는';
+
+  @override
+  String get achvStreak3Title => '롤에';
+
+  @override
+  String get achvThousandStarsTitle => '별자리';
+
+  @override
+  String get achvTenLevelsTitle => '워밍업하기';
+
+  @override
+  String get achvEasyMasterTitle => '쉬운 Peasy';
+
+  @override
+  String get achvTenLevelsDesc => '10개의 레벨을 완료하세요';
+
+  @override
+  String get achvStreak30Desc => '30일 연속 일일 도전';
+
+  @override
+  String get achvFiveHundredLevelsDesc => '500개의 레벨을 완료하세요';
+
+  @override
+  String get achvStreak100Desc => '100일 연속 일일 도전';
+
+  @override
+  String get achvMultiStepFirstTitle => '연쇄반응';
+
+  @override
+  String get achvMultiStepFirstDesc => '첫 번째 다단계 퍼즐을 풀어보세요';
+
+  @override
+  String get achvMultiStepAllDesc => '200개의 다단계 퍼즐을 모두 완료하세요';
+
+  @override
+  String get achvMultiStepAllTitle => '캐스케이드 킹';
 }

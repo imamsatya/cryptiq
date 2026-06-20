@@ -662,4 +662,160 @@ class AppLocalizationsEn extends AppLocalizations {
   String shareDailyText(String time, int streak) {
     return 'I solved today\'s CryptiQ Daily Challenge in $time! 🔥 $streak day streak! Can you beat it?\n\n#CryptiQ #DailyChallenge';
   }
+
+  @override
+  String get achvNoHints10Title => 'Sharp Mind';
+
+  @override
+  String get achvStreak30Title => 'Streak Master';
+
+  @override
+  String get achvStreak14Desc => '14 day daily challenge streak';
+
+  @override
+  String get achvPerfect50Desc => 'Get 3 stars on 50 levels';
+
+  @override
+  String get achvFiveHundredLevelsTitle => 'Half Way There';
+
+  @override
+  String get achvExpertMasterTitle => 'Expert Cryptographer';
+
+  @override
+  String get achvLightningDesc => 'Solve a puzzle in under 10 seconds';
+
+  @override
+  String get achvFirstSolveDesc => 'Solve your first puzzle';
+
+  @override
+  String get achvExpertMasterDesc => 'Complete all Expert levels';
+
+  @override
+  String get achvPerfect50Title => 'Flawless';
+
+  @override
+  String get achvHundredLevelsDesc => 'Complete 100 levels';
+
+  @override
+  String get achvHundredStarsDesc => 'Earn 100 stars';
+
+  @override
+  String get achvHardMasterDesc => 'Complete all Hard levels';
+
+  @override
+  String get achvHundredStarsTitle => 'Star Hunter';
+
+  @override
+  String get achvStreak14Title => 'Two Week Champion';
+
+  @override
+  String get achvPerfect10Desc => 'Get 3 stars on 10 levels';
+
+  @override
+  String get achvHundredLevelsTitle => 'Centurion';
+
+  @override
+  String get achvHardMasterTitle => 'Hardened';
+
+  @override
+  String get achvLightningTitle => 'Lightning Fast';
+
+  @override
+  String get achvTenStarsDesc => 'Earn 10 stars';
+
+  @override
+  String get achvFirstSolveTitle => 'First Steps';
+
+  @override
+  String get achvStreak7Desc => '7 day daily challenge streak';
+
+  @override
+  String get achvPerfect10Title => 'Perfectionist';
+
+  @override
+  String get achvMediumMasterDesc => 'Complete all Medium levels';
+
+  @override
+  String get achvSpeedDemonDesc => 'Solve a puzzle in under 15 seconds';
+
+  @override
+  String get achvTenStarsTitle => 'Star Collector';
+
+  @override
+  String get achvFiftyLevelsDesc => 'Complete 50 levels';
+
+  @override
+  String get achvStreak7Title => 'Week Warrior';
+
+  @override
+  String get achvNoHints50Desc => 'Solve 50 puzzles without hints';
+
+  @override
+  String get achvMediumMasterTitle => 'Medium Rare';
+
+  @override
+  String get achvSpeedDemonTitle => 'Speed Demon';
+
+  @override
+  String get achvThousandLevelsDesc => 'Complete 1000 levels';
+
+  @override
+  String get achvFiftyLevelsTitle => 'Puzzle Enthusiast';
+
+  @override
+  String get achvNoHints50Title => 'Pure Genius';
+
+  @override
+  String get achvThousandStarsDesc => 'Earn 1000 stars';
+
+  @override
+  String get achvThousandLevelsTitle => 'Grand Master';
+
+  @override
+  String get achvStreak3Desc => '3 day daily challenge streak';
+
+  @override
+  String get achvEasyMasterDesc => 'Complete all Easy levels';
+
+  @override
+  String get achvNoHints10Desc => 'Solve 10 puzzles without hints';
+
+  @override
+  String get achvStreak100Title => 'Unstoppable';
+
+  @override
+  String get achvStreak3Title => 'On a Roll';
+
+  @override
+  String get achvThousandStarsTitle => 'Constellation';
+
+  @override
+  String get achvTenLevelsTitle => 'Getting Warmed Up';
+
+  @override
+  String get achvEasyMasterTitle => 'Easy Peasy';
+
+  @override
+  String get achvTenLevelsDesc => 'Complete 10 levels';
+
+  @override
+  String get achvStreak30Desc => '30 day daily challenge streak';
+
+  @override
+  String get achvFiveHundredLevelsDesc => 'Complete 500 levels';
+
+  @override
+  String get achvStreak100Desc => '100 day daily challenge streak';
+
+  @override
+  String get achvMultiStepFirstTitle => 'Chain Reaction';
+
+  @override
+  String get achvMultiStepFirstDesc => 'Solve your first multi-step puzzle';
+
+  @override
+  String get achvMultiStepAllDesc => 'Complete all 200 multi-step puzzles';
+
+  @override
+  String get achvMultiStepAllTitle => 'Cascade King';
 }

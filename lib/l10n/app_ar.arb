@@ -6,7 +6,13 @@
   "statistics": "الإحصائيات",
   "settings": "الإعدادات",
   "level": "المستوى {number}",
-  "@level": { "placeholders": { "number": { "type": "int" } } },
+  "@level": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "easy": "سهل",
   "medium": "متوسط",
   "hard": "صعب",
@@ -24,7 +30,16 @@
   "hints": "تلميحات",
   "bestTime": "أفضل وقت",
   "levelsCompleted": "{count}/{total} مكتمل",
-  "@levelsCompleted": { "placeholders": { "count": { "type": "int" }, "total": { "type": "int" } } },
+  "@levelsCompleted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "totalTime": "الوقت الكلي",
   "averageTime": "المتوسط",
   "hintsUsed": "التلميحات المستخدمة",
@@ -47,13 +62,25 @@
   "back": "رجوع",
   "resume": "استئناف",
   "stars": "{count} نجوم",
-  "@stars": { "placeholders": { "count": { "type": "int" } } },
+  "@stars": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "selectLevel": "اختر المستوى",
   "badges": "الشارات",
   "passAndPlay": "مرر والعب (2-4)",
   "decodeTheLogic": "فك شفرة المنطق",
   "continueLevel": "متابعة (المستوى {number})",
-  "@continueLevel": { "placeholders": { "number": { "type": "int" } } },
+  "@continueLevel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "selectDifficulty": "اختر الصعوبة",
   "all": "الكل",
   "completed": "مكتمل",
@@ -91,9 +118,21 @@
   "noHintsAvailable": "لا تلميحات لهذا اللغز",
   "overallProgress": "التقدم العام",
   "roundNumber": "الجولة {number}",
-  "@roundNumber": { "placeholders": { "number": { "type": "int" } } },
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "dayStreak": "سلسلة {count} يوم!",
-  "@dayStreak": { "placeholders": { "count": { "type": "int" } } },
+  "@dayStreak": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "shareResult": "مشاركة النتيجة",
   "dailyComplete": "التحدي اليومي مكتمل!",
   "completeMoreLevels": "أكمل المزيد من المستويات للإعادة",
@@ -129,7 +168,16 @@
   "contact": "الاتصال",
   "lastUpdated": "آخر تحديث",
   "levelsOf": "{completed} من {total} مستوى مكتمل",
-  "@levelsOf": { "placeholders": { "completed": { "type": "int" }, "total": { "type": "int" } } },
+  "@levelsOf": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "tutorialWelcomeTitle": "مرحباً بك في CryptiQ!",
   "tutorialWelcomeBody": "كل حرف يمثل رقماً فريداً (0-9).\nهدفك: اكتشف أي رقم يمثل كل حرف\nلتكون المعادلة صحيحة.",
   "tutorialSelectTitle": "الخطوة 1: اختر حرفاً",
@@ -155,10 +203,22 @@
   "skip": "تخطي",
   "startPlaying": "ابدأ اللعب",
   "playerName": "اللاعب {number}",
-  "@playerName": { "placeholders": { "number": { "type": "int" } } },
+  "@playerName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "addPlayer": "إضافة لاعب",
   "roundsLabel": "الجولات: {count}",
-  "@roundsLabel": { "placeholders": { "count": { "type": "int" } } },
+  "@roundsLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "addition": "جمع (+)",
   "subtraction": "طرح (−)",
   "multiply": "ضرب (×)",
@@ -174,7 +234,13 @@
   "privacyStorageBody": "جميع البيانات (التقدم، الإعدادات، الإنجازات) مخزنة محلياً. حذف التطبيق سيزيل جميع البيانات المحلية.",
   "privacyChangesBody": "قد نحدث هذه السياسة. الاستمرار في الاستخدام بعد التغييرات يعتبر قبولاً.",
   "privacyContactBody": "للأسئلة، البريد الإلكتروني: {email}",
-  "@privacyContactBody": { "placeholders": { "email": { "type": "String" } } },
+  "@privacyContactBody": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
   "multiStepLabel": "متعدد الخطوات",
   "stars3": "نجوم",
   "onboardingHowToPlayBody": "1. انقر على حرف لاختياره\n2. انقر على رقم (0-9) لتخصيصه\n3. كل حرف يجب أن يكون له رقم فريد\n4. اضغط طويلاً على حرف لمسحه",
@@ -183,7 +249,13 @@
   "onboardingDailyBody": "• لغز جديد كل يوم\n• ابنِ سلسلتك 🔥 باللعب يومياً\n• افتح الإنجازات أثناء اللعب\n• 1200 مستوى من سهل إلى خبير — كلها مجانية!",
   "onboardingStarExample": "⭐⭐⭐  بدون تلميحات، سريع\n⭐⭐     1-2 تلميحات\n⭐       3+ تلميحات",
   "usedBy": "مستخدم بواسطة: {letter}",
-  "@usedBy": { "placeholders": { "letter": { "type": "String" } } },
+  "@usedBy": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
   "notUsed": "غير مستخدم",
   "replayConfirmTitle": "إعادة هذا المستوى؟",
   "replayConfirmBody": "لديك بالفعل ⭐⭐⭐ في هذا المستوى. أفضل نتيجة ستبقى.",
@@ -198,25 +270,149 @@
   "puzzlesSolved": "الألغاز المحلولة",
   "allDone": "تم الكل!",
   "hintCount": "تلميح ({count})",
-  "@hintCount": { "placeholders": { "count": { "type": "int" } } },
+  "@hintCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "incorrectTryAgain": "خطأ — حاول مجدداً!",
   "playerScored": "{player} حصل على {score} نقطة",
-  "@playerScored": { "placeholders": { "player": { "type": "String" }, "score": { "type": "int" } } },
+  "@playerScored": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      },
+      "score": {
+        "type": "int"
+      }
+    }
+  },
   "hintsCount": "{count} تلميحات",
-  "@hintsCount": { "placeholders": { "count": { "type": "int" } } },
+  "@hintsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "roundOf": "الجولة {current} من {total}",
-  "@roundOf": { "placeholders": { "current": { "type": "int" }, "total": { "type": "int" } } },
+  "@roundOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "imReady": "أنا جاهز!",
   "playerWins": "{player} يفوز!",
-  "@playerWins": { "placeholders": { "player": { "type": "String" } } },
+  "@playerWins": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
   "playerStatsLine": "{solved}/{total} محلول • {time} • {hints} تلميحات",
-  "@playerStatsLine": { "placeholders": { "solved": { "type": "int" }, "total": { "type": "int" }, "time": { "type": "String" }, "hints": { "type": "int" } } },
+  "@playerStatsLine": {
+    "placeholders": {
+      "solved": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      },
+      "hints": {
+        "type": "int"
+      }
+    }
+  },
   "scorePts": "{score}نق",
-  "@scorePts": { "placeholders": { "score": { "type": "int" } } },
+  "@scorePts": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
   "playerNameHint": "اسم اللاعب",
   "multiStepNote": "ألغاز متعددة الخطوات للصعب/الخبير فقط. الصعوبة ستُتجاهل.",
   "percentUnlocked": "{percent}% مفتوح",
-  "@percentUnlocked": { "placeholders": { "percent": { "type": "String" } } },
+  "@percentUnlocked": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
   "shareDailyText": "حللت تحدي CryptiQ اليومي في {time}! 🔥 سلسلة {streak} يوم! هل يمكنك التغلب عليه؟\n\n#CryptiQ #التحدي_اليومي",
-  "@shareDailyText": { "placeholders": { "time": { "type": "String" }, "streak": { "type": "int" } } }
+  "@shareDailyText": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "streak": {
+        "type": "int"
+      }
+    }
+  },
+  "achvFirstSolveDesc": "حل اللغز الأول الخاص بك",
+  "achvHundredLevelsTitle": "سنتوريون",
+  "achvFiftyLevelsTitle": "عشاق اللغز",
+  "achvTenLevelsTitle": "الحصول على الاحماء",
+  "achvFirstSolveTitle": "الخطوات الأولى",
+  "achvTenLevelsDesc": "أكمل 10 مستويات",
+  "achvFiveHundredLevelsTitle": "نصف الطريق هناك",
+  "achvFiveHundredLevelsDesc": "استكمال 500 المستويات",
+  "achvFiftyLevelsDesc": "استكمال 50 المستويات",
+  "achvHundredLevelsDesc": "استكمال 100 المستويات",
+  "achvThousandStarsTitle": "كوكبة",
+  "achvSpeedDemonTitle": "شيطان السرعة",
+  "achvSpeedDemonDesc": "حل اللغز في أقل من 15 ثانية",
+  "achvTenStarsTitle": "جامع النجوم",
+  "achvHundredStarsTitle": "ستار هنتر",
+  "achvTenStarsDesc": "احصل على 10 نجوم",
+  "achvThousandStarsDesc": "احصل على 1000 نجمة",
+  "achvHundredStarsDesc": "احصل على 100 نجمة",
+  "achvLightningDesc": "حل اللغز في أقل من 10 ثواني",
+  "achvPerfect50Title": "بلا عيوب",
+  "achvNoHints10Title": "عقل حاد",
+  "achvThousandLevelsDesc": "استكمال 1000 المستويات",
+  "achvLightningTitle": "بسرعة البرق",
+  "achvThousandLevelsTitle": "جراند ماستر",
+  "achvNoHints50Desc": "حل 50 الألغاز دون تلميحات",
+  "achvNoHints50Title": "عبقرية نقية",
+  "achvNoHints10Desc": "حل 10 ألغاز بدون تلميحات",
+  "achvMediumMasterTitle": "متوسطة نادرة",
+  "achvEasyMasterDesc": "أكمل جميع المستويات السهلة",
+  "achvPerfect10Desc": "احصل على 3 نجوم في 10 مستويات",
+  "achvMediumMasterDesc": "أكمل جميع المستويات المتوسطة",
+  "achvEasyMasterTitle": "سهل بيسي",
+  "achvPerfect50Desc": "احصل على 3 نجوم في 50 مستوى",
+  "achvPerfect10Title": "الكمال",
+  "achvStreak3Desc": "خط التحدي اليومي لمدة 3 أيام",
+  "achvExpertMasterDesc": "أكمل جميع مستويات الخبراء",
+  "achvHardMasterTitle": "تصلب",
+  "achvStreak3Title": "على لفة",
+  "achvStreak14Desc": "خط التحدي اليومي لمدة 14 يومًا",
+  "achvStreak100Title": "لا يمكن وقفها",
+  "achvMultiStepFirstTitle": "التفاعل المتسلسل",
+  "achvExpertMasterTitle": "خبير التشفير",
+  "achvHardMasterDesc": "أكمل جميع المستويات الصعبة",
+  "achvStreak7Title": "محارب الأسبوع",
+  "achvStreak14Title": "بطل اسبوعين",
+  "achvStreak7Desc": "خط التحدي اليومي لمدة 7 أيام",
+  "achvStreak30Desc": "خط التحدي اليومي لمدة 30 يومًا",
+  "achvMultiStepFirstDesc": "حل اللغز الأول متعدد الخطوات",
+  "achvMultiStepAllTitle": "تتالي الملك",
+  "achvStreak30Title": "سيد الخط",
+  "achvStreak100Desc": "100 يوم خط التحدي اليومي",
+  "achvMultiStepAllDesc": "أكمل جميع الألغاز الـ 200 متعددة الخطوات"
 }

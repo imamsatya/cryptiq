@@ -6,7 +6,13 @@
   "statistics": "Estatísticas",
   "settings": "Configurações",
   "level": "Nível {number}",
-  "@level": { "placeholders": { "number": { "type": "int" } } },
+  "@level": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "easy": "Fácil",
   "medium": "Médio",
   "hard": "Difícil",
@@ -24,7 +30,16 @@
   "hints": "Dicas",
   "bestTime": "Melhor Tempo",
   "levelsCompleted": "{count}/{total} completos",
-  "@levelsCompleted": { "placeholders": { "count": { "type": "int" }, "total": { "type": "int" } } },
+  "@levelsCompleted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "totalTime": "Tempo Total",
   "averageTime": "Média",
   "hintsUsed": "Dicas Usadas",
@@ -47,13 +62,25 @@
   "back": "Voltar",
   "resume": "Continuar",
   "stars": "{count} Estrelas",
-  "@stars": { "placeholders": { "count": { "type": "int" } } },
+  "@stars": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "selectLevel": "Escolher Nível",
   "badges": "Medalhas",
   "passAndPlay": "Passar e Jogar (2-4)",
   "decodeTheLogic": "Decifre a Lógica",
   "continueLevel": "Continuar (Nível {number})",
-  "@continueLevel": { "placeholders": { "number": { "type": "int" } } },
+  "@continueLevel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "selectDifficulty": "Escolher Dificuldade",
   "all": "Todos",
   "completed": "Completo",
@@ -91,9 +118,21 @@
   "noHintsAvailable": "Sem dicas para este puzzle",
   "overallProgress": "Progresso Geral",
   "roundNumber": "Rodada {number}",
-  "@roundNumber": { "placeholders": { "number": { "type": "int" } } },
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "dayStreak": "{count} Dias de Sequência!",
-  "@dayStreak": { "placeholders": { "count": { "type": "int" } } },
+  "@dayStreak": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "shareResult": "Compartilhar Resultado",
   "dailyComplete": "Desafio Diário Completo!",
   "completeMoreLevels": "Complete mais níveis para repetir",
@@ -129,7 +168,16 @@
   "contact": "Contato",
   "lastUpdated": "Última Atualização",
   "levelsOf": "{completed} de {total} níveis completos",
-  "@levelsOf": { "placeholders": { "completed": { "type": "int" }, "total": { "type": "int" } } },
+  "@levelsOf": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "tutorialWelcomeTitle": "Bem-vindo ao CryptiQ!",
   "tutorialWelcomeBody": "Cada letra representa um dígito único (0-9).\nSeu objetivo: descobrir qual dígito cada letra representa\npara que a equação esteja correta.",
   "tutorialSelectTitle": "Passo 1: Selecione uma Letra",
@@ -155,10 +203,22 @@
   "skip": "Pular",
   "startPlaying": "Começar a Jogar",
   "playerName": "Jogador {number}",
-  "@playerName": { "placeholders": { "number": { "type": "int" } } },
+  "@playerName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "addPlayer": "Adicionar Jogador",
   "roundsLabel": "Rodadas: {count}",
-  "@roundsLabel": { "placeholders": { "count": { "type": "int" } } },
+  "@roundsLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "addition": "Adição (+)",
   "subtraction": "Subtração (−)",
   "multiply": "Multiplicação (×)",
@@ -174,7 +234,13 @@
   "privacyStorageBody": "Todos os dados (progresso, configurações, conquistas) são armazenados localmente. Desinstalar o app removerá todos os dados locais.",
   "privacyChangesBody": "Podemos atualizar esta política. O uso contínuo após mudanças constitui aceitação.",
   "privacyContactBody": "Para perguntas, email: {email}",
-  "@privacyContactBody": { "placeholders": { "email": { "type": "String" } } },
+  "@privacyContactBody": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
   "multiStepLabel": "Multi-passo",
   "stars3": "Estrelas",
   "onboardingHowToPlayBody": "1. Toque em uma letra para selecioná-la\n2. Toque em um número (0-9) para atribuí-lo\n3. Cada letra deve ter um dígito único\n4. Pressione e segure uma letra para limpá-la",
@@ -183,7 +249,13 @@
   "onboardingDailyBody": "• Um novo puzzle todo dia\n• Construa sua sequência 🔥 jogando diariamente\n• Desbloqueie conquistas enquanto joga\n• 1200 níveis de Fácil a Especialista — todos GRÁTIS!",
   "onboardingStarExample": "⭐⭐⭐  Sem dicas, rápido\n⭐⭐     1-2 dicas\n⭐       3+ dicas",
   "usedBy": "Usado por: {letter}",
-  "@usedBy": { "placeholders": { "letter": { "type": "String" } } },
+  "@usedBy": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
   "notUsed": "Não usado",
   "replayConfirmTitle": "Repetir este nível?",
   "replayConfirmBody": "Você já tem ⭐⭐⭐ neste nível. Sua melhor pontuação será mantida.",
@@ -198,25 +270,149 @@
   "puzzlesSolved": "Puzzles Resolvidos",
   "allDone": "Tudo Pronto!",
   "hintCount": "Dica ({count})",
-  "@hintCount": { "placeholders": { "count": { "type": "int" } } },
+  "@hintCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "incorrectTryAgain": "Incorreto — tente novamente!",
   "playerScored": "{player} marcou {score} pts",
-  "@playerScored": { "placeholders": { "player": { "type": "String" }, "score": { "type": "int" } } },
+  "@playerScored": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      },
+      "score": {
+        "type": "int"
+      }
+    }
+  },
   "hintsCount": "{count} dicas",
-  "@hintsCount": { "placeholders": { "count": { "type": "int" } } },
+  "@hintsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "roundOf": "Rodada {current} de {total}",
-  "@roundOf": { "placeholders": { "current": { "type": "int" }, "total": { "type": "int" } } },
+  "@roundOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "imReady": "Estou Pronto!",
   "playerWins": "{player} Vence!",
-  "@playerWins": { "placeholders": { "player": { "type": "String" } } },
+  "@playerWins": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
   "playerStatsLine": "{solved}/{total} resolvidos • {time} • {hints} dicas",
-  "@playerStatsLine": { "placeholders": { "solved": { "type": "int" }, "total": { "type": "int" }, "time": { "type": "String" }, "hints": { "type": "int" } } },
+  "@playerStatsLine": {
+    "placeholders": {
+      "solved": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      },
+      "hints": {
+        "type": "int"
+      }
+    }
+  },
   "scorePts": "{score}pts",
-  "@scorePts": { "placeholders": { "score": { "type": "int" } } },
+  "@scorePts": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
   "playerNameHint": "Nome do jogador",
   "multiStepNote": "Puzzles multi-passo são apenas Difícil/Especialista. A dificuldade será ignorada.",
   "percentUnlocked": "{percent}% desbloqueado",
-  "@percentUnlocked": { "placeholders": { "percent": { "type": "String" } } },
+  "@percentUnlocked": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
   "shareDailyText": "Resolvi o Desafio Diário do CryptiQ em {time}! 🔥 {streak} dias de sequência! Consegue superar?\n\n#CryptiQ #DesafioDiário",
-  "@shareDailyText": { "placeholders": { "time": { "type": "String" }, "streak": { "type": "int" } } }
+  "@shareDailyText": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "streak": {
+        "type": "int"
+      }
+    }
+  },
+  "achvFirstSolveTitle": "Primeiros passos",
+  "achvFirstSolveDesc": "Resolva seu primeiro quebra-cabeça",
+  "achvTenLevelsTitle": "Aquecendo-se",
+  "achvTenLevelsDesc": "Complete 10 níveis",
+  "achvFiftyLevelsTitle": "Entusiasta de quebra-cabeças",
+  "achvFiftyLevelsDesc": "Complete 50 níveis",
+  "achvHundredLevelsTitle": "Centurião",
+  "achvHundredLevelsDesc": "Complete 100 níveis",
+  "achvFiveHundredLevelsTitle": "A meio caminho",
+  "achvFiveHundredLevelsDesc": "Complete 500 níveis",
+  "achvThousandLevelsTitle": "Grão-Mestre",
+  "achvThousandLevelsDesc": "Complete 1000 níveis",
+  "achvTenStarsTitle": "Colecionador de estrelas",
+  "achvTenStarsDesc": "Ganhe 10 estrelas",
+  "achvHundredStarsTitle": "Caçador de Estrelas",
+  "achvHundredStarsDesc": "Ganhe 100 estrelas",
+  "achvThousandStarsTitle": "Constelação",
+  "achvThousandStarsDesc": "Ganhe 1000 estrelas",
+  "achvSpeedDemonTitle": "Demônio da Velocidade",
+  "achvSpeedDemonDesc": "Resolva um quebra-cabeça em menos de 15 segundos",
+  "achvLightningTitle": "Rápido como um relâmpago",
+  "achvLightningDesc": "Resolva um quebra-cabeça em menos de 10 segundos",
+  "achvNoHints10Title": "Mente Aguçada",
+  "achvNoHints10Desc": "Resolva 10 quebra-cabeças sem dicas",
+  "achvNoHints50Title": "Puro Gênio",
+  "achvNoHints50Desc": "Resolva 50 quebra-cabeças sem dicas",
+  "achvPerfect10Title": "Perfeccionista",
+  "achvPerfect10Desc": "Obtenha 3 estrelas em 10 níveis",
+  "achvPerfect50Title": "Perfeito",
+  "achvPerfect50Desc": "Obtenha 3 estrelas em 50 níveis",
+  "achvEasyMasterTitle": "Fácil",
+  "achvEasyMasterDesc": "Complete todos os níveis fáceis",
+  "achvMediumMasterTitle": "Médio Raro",
+  "achvMediumMasterDesc": "Complete todos os níveis Médios",
+  "achvHardMasterTitle": "Endurecido",
+  "achvHardMasterDesc": "Complete todos os níveis difíceis",
+  "achvExpertMasterTitle": "Criptógrafo especialista",
+  "achvExpertMasterDesc": "Complete todos os níveis de Especialista",
+  "achvStreak3Title": "Em um rolo",
+  "achvStreak3Desc": "Sequência de desafios diários de 3 dias",
+  "achvStreak7Title": "Semana Guerreiro",
+  "achvStreak7Desc": "Sequência de desafios diários de 7 dias",
+  "achvStreak14Title": "Campeão de duas semanas",
+  "achvStreak14Desc": "Sequência de desafios diários de 14 dias",
+  "achvStreak30Title": "Mestre de sequência",
+  "achvStreak30Desc": "Sequência de desafios diários de 30 dias",
+  "achvStreak100Title": "Imparável",
+  "achvStreak100Desc": "Sequência de desafios diários de 100 dias",
+  "achvMultiStepFirstTitle": "Reação em cadeia",
+  "achvMultiStepFirstDesc": "Resolva seu primeiro quebra-cabeça de várias etapas",
+  "achvMultiStepAllTitle": "Rei Cascata",
+  "achvMultiStepAllDesc": "Complete todos os 200 quebra-cabeças de várias etapas"
 }

@@ -6,7 +6,13 @@
   "statistics": "统计",
   "settings": "设置",
   "level": "关卡 {number}",
-  "@level": { "placeholders": { "number": { "type": "int" } } },
+  "@level": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "easy": "简单",
   "medium": "中等",
   "hard": "困难",
@@ -24,7 +30,16 @@
   "hints": "提示",
   "bestTime": "最佳时间",
   "levelsCompleted": "{count}/{total} 已完成",
-  "@levelsCompleted": { "placeholders": { "count": { "type": "int" }, "total": { "type": "int" } } },
+  "@levelsCompleted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "totalTime": "总时间",
   "averageTime": "平均",
   "hintsUsed": "已用提示",
@@ -47,13 +62,25 @@
   "back": "返回",
   "resume": "继续",
   "stars": "{count} 星",
-  "@stars": { "placeholders": { "count": { "type": "int" } } },
+  "@stars": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "selectLevel": "选择关卡",
   "badges": "徽章",
   "passAndPlay": "轮流玩 (2-4)",
   "decodeTheLogic": "破解逻辑",
   "continueLevel": "继续 (关卡 {number})",
-  "@continueLevel": { "placeholders": { "number": { "type": "int" } } },
+  "@continueLevel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "selectDifficulty": "选择难度",
   "all": "全部",
   "completed": "已完成",
@@ -91,9 +118,21 @@
   "noHintsAvailable": "此谜题无提示",
   "overallProgress": "总体进度",
   "roundNumber": "第 {number} 回合",
-  "@roundNumber": { "placeholders": { "number": { "type": "int" } } },
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "dayStreak": "连续 {count} 天！",
-  "@dayStreak": { "placeholders": { "count": { "type": "int" } } },
+  "@dayStreak": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "shareResult": "分享结果",
   "dailyComplete": "每日挑战完成！",
   "completeMoreLevels": "完成更多关卡以重玩",
@@ -129,7 +168,16 @@
   "contact": "联系方式",
   "lastUpdated": "最后更新",
   "levelsOf": "{total}关中完成{completed}关",
-  "@levelsOf": { "placeholders": { "completed": { "type": "int" }, "total": { "type": "int" } } },
+  "@levelsOf": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "tutorialWelcomeTitle": "欢迎来到CryptiQ！",
   "tutorialWelcomeBody": "每个字母代表一个唯一的数字(0-9)。\n目标：找出每个字母代表哪个数字，\n使等式成立。",
   "tutorialSelectTitle": "第1步：选择字母",
@@ -155,10 +203,22 @@
   "skip": "跳过",
   "startPlaying": "开始玩",
   "playerName": "玩家 {number}",
-  "@playerName": { "placeholders": { "number": { "type": "int" } } },
+  "@playerName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "addPlayer": "添加玩家",
   "roundsLabel": "回合: {count}",
-  "@roundsLabel": { "placeholders": { "count": { "type": "int" } } },
+  "@roundsLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "addition": "加法 (+)",
   "subtraction": "减法 (−)",
   "multiply": "乘法 (×)",
@@ -174,7 +234,13 @@
   "privacyStorageBody": "所有数据（进度、设置、成就）都保存在本地。卸载应用将删除所有本地数据。",
   "privacyChangesBody": "我们可能会更新此政策。更改后继续使用即表示接受。",
   "privacyContactBody": "如有疑问，请发送电子邮件: {email}",
-  "@privacyContactBody": { "placeholders": { "email": { "type": "String" } } },
+  "@privacyContactBody": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
   "multiStepLabel": "多步骤",
   "stars3": "星",
   "onboardingHowToPlayBody": "1. 点击字母选择它\n2. 点击数字(0-9)进行分配\n3. 每个字母必须有唯一的数字\n4. 长按字母清除它",
@@ -183,7 +249,13 @@
   "onboardingDailyBody": "• 每天一个新谜题\n• 每天玩来累积连续记录🔥\n• 边玩边解锁成就\n• 从简单到专家1200关 — 全部免费！",
   "onboardingStarExample": "⭐⭐⭐  无提示，快速\n⭐⭐     1-2个提示\n⭐       3+个提示",
   "usedBy": "使用者: {letter}",
-  "@usedBy": { "placeholders": { "letter": { "type": "String" } } },
+  "@usedBy": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
   "notUsed": "未使用",
   "replayConfirmTitle": "重玩此关卡？",
   "replayConfirmBody": "此关卡已有⭐⭐⭐。您的最佳分数将保留。",
@@ -198,25 +270,149 @@
   "puzzlesSolved": "已解谜题",
   "allDone": "全部完成！",
   "hintCount": "提示 ({count})",
-  "@hintCount": { "placeholders": { "count": { "type": "int" } } },
+  "@hintCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "incorrectTryAgain": "错误 — 再试一次！",
   "playerScored": "{player}得了{score}分",
-  "@playerScored": { "placeholders": { "player": { "type": "String" }, "score": { "type": "int" } } },
+  "@playerScored": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      },
+      "score": {
+        "type": "int"
+      }
+    }
+  },
   "hintsCount": "{count}个提示",
-  "@hintsCount": { "placeholders": { "count": { "type": "int" } } },
+  "@hintsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "roundOf": "第{current}/{total}回合",
-  "@roundOf": { "placeholders": { "current": { "type": "int" }, "total": { "type": "int" } } },
+  "@roundOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "imReady": "准备好了！",
   "playerWins": "{player}获胜！",
-  "@playerWins": { "placeholders": { "player": { "type": "String" } } },
+  "@playerWins": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
   "playerStatsLine": "{solved}/{total}完成 • {time} • {hints}个提示",
-  "@playerStatsLine": { "placeholders": { "solved": { "type": "int" }, "total": { "type": "int" }, "time": { "type": "String" }, "hints": { "type": "int" } } },
+  "@playerStatsLine": {
+    "placeholders": {
+      "solved": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      },
+      "hints": {
+        "type": "int"
+      }
+    }
+  },
   "scorePts": "{score}分",
-  "@scorePts": { "placeholders": { "score": { "type": "int" } } },
+  "@scorePts": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
   "playerNameHint": "玩家名称",
   "multiStepNote": "多步骤谜题仅限困难/专家。难度将被忽略。",
   "percentUnlocked": "{percent}% 已解锁",
-  "@percentUnlocked": { "placeholders": { "percent": { "type": "String" } } },
+  "@percentUnlocked": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
   "shareDailyText": "我用{time}完成了CryptiQ每日挑战！🔥连续{streak}天！你能超越吗？\n\n#CryptiQ #每日挑战",
-  "@shareDailyText": { "placeholders": { "time": { "type": "String" }, "streak": { "type": "int" } } }
+  "@shareDailyText": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "streak": {
+        "type": "int"
+      }
+    }
+  },
+  "achvHundredLevelsTitle": "百夫长",
+  "achvFirstSolveTitle": "第一步",
+  "achvFiftyLevelsDesc": "完成 50 个关卡",
+  "achvFiveHundredLevelsTitle": "一半的路程",
+  "achvHundredLevelsDesc": "完成 100 个关卡",
+  "achvFirstSolveDesc": "解决你的第一个难题",
+  "achvFiveHundredLevelsDesc": "完成 500 个关卡",
+  "achvTenLevelsDesc": "完成 10 个关卡",
+  "achvTenLevelsTitle": "热身",
+  "achvFiftyLevelsTitle": "拼图爱好者",
+  "achvThousandLevelsTitle": "大师",
+  "achvThousandLevelsDesc": "完成 1000 个关卡",
+  "achvSpeedDemonTitle": "速度恶魔",
+  "achvThousandStarsTitle": "星座",
+  "achvHundredStarsTitle": "星际猎人",
+  "achvSpeedDemonDesc": "在 15 秒内解决一个谜题",
+  "achvLightningTitle": "快如闪电",
+  "achvThousandStarsDesc": "获得 1000 颗星",
+  "achvPerfect10Title": "完美主义者",
+  "achvNoHints50Title": "纯粹的天才",
+  "achvTenStarsTitle": "明星收藏家",
+  "achvNoHints10Title": "敏锐的头脑",
+  "achvTenStarsDesc": "获得 10 颗星",
+  "achvHundredStarsDesc": "获得 100 颗星",
+  "achvPerfect50Title": "完美无瑕",
+  "achvNoHints10Desc": "在没有提示的情况下解决 10 个谜题",
+  "achvNoHints50Desc": "在没有提示的情况下解决 50 个谜题",
+  "achvEasyMasterTitle": "简单的豌豆",
+  "achvHardMasterTitle": "硬化",
+  "achvExpertMasterTitle": "专家密码学家",
+  "achvEasyMasterDesc": "完成所有简单关卡",
+  "achvPerfect50Desc": "在 50 个关卡中获得 3 颗星",
+  "achvMediumMasterTitle": "三分熟",
+  "achvPerfect10Desc": "在 10 个关卡中获得 3 颗星",
+  "achvLightningDesc": "在 10 秒内解决一个谜题",
+  "achvStreak14Desc": "14天每日连续挑战",
+  "achvMediumMasterDesc": "完成所有中等级别",
+  "achvExpertMasterDesc": "完成所有专家级别",
+  "achvStreak3Desc": "连续 3 天每日挑战",
+  "achvStreak100Title": "势不可挡",
+  "achvMultiStepFirstTitle": "连锁反应",
+  "achvStreak3Title": "滚滚而来",
+  "achvHardMasterDesc": "完成所有困难级别",
+  "achvStreak14Title": "两周冠军",
+  "achvStreak7Desc": "7天每日连续挑战",
+  "achvStreak30Title": "连胜大师",
+  "achvStreak7Title": "周战士",
+  "achvStreak100Desc": "100天每日连续挑战",
+  "achvStreak30Desc": "30天每日连续挑战",
+  "achvMultiStepFirstDesc": "解决你的第一个多步骤难题",
+  "achvMultiStepAllDesc": "完成所有 200 个多步骤谜题",
+  "achvMultiStepAllTitle": "层叠王"
 }

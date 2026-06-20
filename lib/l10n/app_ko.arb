@@ -6,7 +6,13 @@
   "statistics": "통계",
   "settings": "설정",
   "level": "레벨 {number}",
-  "@level": { "placeholders": { "number": { "type": "int" } } },
+  "@level": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "easy": "쉬움",
   "medium": "보통",
   "hard": "어려움",
@@ -24,7 +30,16 @@
   "hints": "힌트",
   "bestTime": "최고 기록",
   "levelsCompleted": "{count}/{total} 완료",
-  "@levelsCompleted": { "placeholders": { "count": { "type": "int" }, "total": { "type": "int" } } },
+  "@levelsCompleted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "totalTime": "총 시간",
   "averageTime": "평균",
   "hintsUsed": "사용한 힌트",
@@ -47,13 +62,25 @@
   "back": "뒤로",
   "resume": "계속하기",
   "stars": "{count} 별",
-  "@stars": { "placeholders": { "count": { "type": "int" } } },
+  "@stars": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "selectLevel": "레벨 선택",
   "badges": "배지",
   "passAndPlay": "패스 앤 플레이 (2-4)",
   "decodeTheLogic": "로직을 해독하라",
   "continueLevel": "계속하기 (레벨 {number})",
-  "@continueLevel": { "placeholders": { "number": { "type": "int" } } },
+  "@continueLevel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "selectDifficulty": "난이도 선택",
   "all": "전체",
   "completed": "완료",
@@ -91,9 +118,21 @@
   "noHintsAvailable": "이 퍼즐에 힌트가 없습니다",
   "overallProgress": "전체 진행",
   "roundNumber": "라운드 {number}",
-  "@roundNumber": { "placeholders": { "number": { "type": "int" } } },
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "dayStreak": "{count}일 연속!",
-  "@dayStreak": { "placeholders": { "count": { "type": "int" } } },
+  "@dayStreak": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "shareResult": "결과 공유",
   "dailyComplete": "일일 챌린지 완료!",
   "completeMoreLevels": "다시하려면 더 많은 레벨 완료",
@@ -129,7 +168,16 @@
   "contact": "연락처",
   "lastUpdated": "최종 업데이트",
   "levelsOf": "{total}레벨 중 {completed}완료",
-  "@levelsOf": { "placeholders": { "completed": { "type": "int" }, "total": { "type": "int" } } },
+  "@levelsOf": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "tutorialWelcomeTitle": "CryptiQ에 오신 것을 환영합니다!",
   "tutorialWelcomeBody": "각 글자는 고유한 숫자(0-9)를 나타냅니다.\n목표: 각 글자가 어떤 숫자를 나타내는지 알아내어\n수식을 올바르게 만드세요.",
   "tutorialSelectTitle": "1단계: 글자 선택",
@@ -155,10 +203,22 @@
   "skip": "건너뛰기",
   "startPlaying": "플레이 시작",
   "playerName": "플레이어 {number}",
-  "@playerName": { "placeholders": { "number": { "type": "int" } } },
+  "@playerName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "addPlayer": "플레이어 추가",
   "roundsLabel": "라운드: {count}",
-  "@roundsLabel": { "placeholders": { "count": { "type": "int" } } },
+  "@roundsLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "addition": "덧셈 (+)",
   "subtraction": "뺄셈 (−)",
   "multiply": "곱셈 (×)",
@@ -174,7 +234,13 @@
   "privacyStorageBody": "모든 데이터(진행, 설정, 업적)는 로컬에 저장됩니다. 앱을 삭제하면 모든 로컬 데이터가 삭제됩니다.",
   "privacyChangesBody": "이 정책은 업데이트될 수 있습니다. 변경 후 계속 사용하면 동의로 간주됩니다.",
   "privacyContactBody": "문의 이메일: {email}",
-  "@privacyContactBody": { "placeholders": { "email": { "type": "String" } } },
+  "@privacyContactBody": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
   "multiStepLabel": "다단계",
   "stars3": "별",
   "onboardingHowToPlayBody": "1. 글자를 탭하여 선택\n2. 숫자(0-9)를 탭하여 할당\n3. 각 글자는 고유한 숫자여야 합니다\n4. 글자를 길게 눌러 지우기",
@@ -183,7 +249,13 @@
   "onboardingDailyBody": "• 매일 새로운 퍼즐\n• 매일 플레이하여 연속 기록 🔥 쌓기\n• 플레이하며 업적 달성\n• 쉬움부터 전문가까지 1200레벨 — 전부 무료!",
   "onboardingStarExample": "⭐⭐⭐  힌트 없이, 빠르게\n⭐⭐     1-2 힌트\n⭐       3+ 힌트",
   "usedBy": "사용 중: {letter}",
-  "@usedBy": { "placeholders": { "letter": { "type": "String" } } },
+  "@usedBy": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
   "notUsed": "사용 안 함",
   "replayConfirmTitle": "이 레벨을 다시하시겠습니까?",
   "replayConfirmBody": "이 레벨에 이미 ⭐⭐⭐가 있습니다. 최고 점수는 유지됩니다.",
@@ -198,25 +270,149 @@
   "puzzlesSolved": "풀은 퍼즐",
   "allDone": "모두 완료!",
   "hintCount": "힌트 ({count})",
-  "@hintCount": { "placeholders": { "count": { "type": "int" } } },
+  "@hintCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "incorrectTryAgain": "오답 — 다시 시도!",
   "playerScored": "{player}이(가) {score}점 획득",
-  "@playerScored": { "placeholders": { "player": { "type": "String" }, "score": { "type": "int" } } },
+  "@playerScored": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      },
+      "score": {
+        "type": "int"
+      }
+    }
+  },
   "hintsCount": "{count}개 힌트",
-  "@hintsCount": { "placeholders": { "count": { "type": "int" } } },
+  "@hintsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "roundOf": "라운드 {current}/{total}",
-  "@roundOf": { "placeholders": { "current": { "type": "int" }, "total": { "type": "int" } } },
+  "@roundOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "imReady": "준비 완료!",
   "playerWins": "{player} 승리!",
-  "@playerWins": { "placeholders": { "player": { "type": "String" } } },
+  "@playerWins": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
   "playerStatsLine": "{solved}/{total} 완료 • {time} • {hints}개 힌트",
-  "@playerStatsLine": { "placeholders": { "solved": { "type": "int" }, "total": { "type": "int" }, "time": { "type": "String" }, "hints": { "type": "int" } } },
+  "@playerStatsLine": {
+    "placeholders": {
+      "solved": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      },
+      "hints": {
+        "type": "int"
+      }
+    }
+  },
   "scorePts": "{score}점",
-  "@scorePts": { "placeholders": { "score": { "type": "int" } } },
+  "@scorePts": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
   "playerNameHint": "플레이어 이름",
   "multiStepNote": "다단계 퍼즐은 어려움/전문가만 가능합니다. 난이도가 무시됩니다.",
   "percentUnlocked": "{percent}% 해제됨",
-  "@percentUnlocked": { "placeholders": { "percent": { "type": "String" } } },
+  "@percentUnlocked": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
   "shareDailyText": "CryptiQ 일일 챌린지를 {time}에 풀었어요! 🔥 {streak}일 연속! 당신도 도전해보세요!\n\n#CryptiQ #일일챌린지",
-  "@shareDailyText": { "placeholders": { "time": { "type": "String" }, "streak": { "type": "int" } } }
+  "@shareDailyText": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "streak": {
+        "type": "int"
+      }
+    }
+  },
+  "achvHundredLevelsDesc": "100개의 레벨을 완료하세요",
+  "achvFiftyLevelsTitle": "퍼즐 매니아",
+  "achvFirstSolveDesc": "첫 번째 퍼즐을 풀어보세요",
+  "achvFirstSolveTitle": "첫 번째 단계",
+  "achvHundredLevelsTitle": "백부장",
+  "achvTenLevelsDesc": "10개의 레벨을 완료하세요",
+  "achvThousandLevelsTitle": "그랜드 마스터",
+  "achvFiveHundredLevelsTitle": "거기 반쯤",
+  "achvThousandLevelsDesc": "1000개의 레벨을 완료하세요",
+  "achvFiftyLevelsDesc": "50개의 레벨을 완료하세요",
+  "achvTenLevelsTitle": "워밍업하기",
+  "achvFiveHundredLevelsDesc": "500개의 레벨을 완료하세요",
+  "achvTenStarsDesc": "별 10개를 획득하세요",
+  "achvHundredStarsDesc": "별 100개 획득",
+  "achvHundredStarsTitle": "스타헌터",
+  "achvThousandStarsTitle": "별자리",
+  "achvThousandStarsDesc": "별 1000개 획득",
+  "achvTenStarsTitle": "스타 콜렉터",
+  "achvLightningTitle": "번개처럼 빠른",
+  "achvSpeedDemonTitle": "속도의 악마",
+  "achvSpeedDemonDesc": "15초 안에 퍼즐을 풀어보세요",
+  "achvLightningDesc": "10초 안에 퍼즐을 풀어보세요",
+  "achvNoHints10Desc": "힌트 없이 퍼즐 10개를 풀어보세요",
+  "achvNoHints50Title": "순수한 천재",
+  "achvNoHints50Desc": "힌트 없이 퍼즐 50개를 풀어보세요",
+  "achvNoHints10Title": "날카로운 마음",
+  "achvPerfect50Desc": "50레벨에서 별 3개를 획득하세요",
+  "achvPerfect50Title": "완벽한",
+  "achvPerfect10Title": "완벽주의자",
+  "achvPerfect10Desc": "10개 레벨에서 별 3개를 획득하세요",
+  "achvEasyMasterTitle": "쉬운 Peasy",
+  "achvEasyMasterDesc": "모든 쉬운 레벨을 완료하세요",
+  "achvExpertMasterTitle": "전문 암호학자",
+  "achvMediumMasterTitle": "미디엄 레어",
+  "achvHardMasterDesc": "모든 하드 레벨을 완료하세요",
+  "achvMediumMasterDesc": "모든 중간 레벨을 완료하세요",
+  "achvHardMasterTitle": "강화",
+  "achvExpertMasterDesc": "모든 전문가 레벨을 완료하세요",
+  "achvStreak3Desc": "3일 연속 일일 도전",
+  "achvStreak7Desc": "7일 일일 연속 도전",
+  "achvStreak3Title": "롤에",
+  "achvStreak7Title": "주간 전사",
+  "achvStreak14Title": "2주 챔피언",
+  "achvStreak14Desc": "14일 일일 연속 도전",
+  "achvStreak30Title": "연속 마스터",
+  "achvStreak30Desc": "30일 연속 일일 도전",
+  "achvStreak100Title": "멈출 수 없는",
+  "achvStreak100Desc": "100일 연속 일일 도전",
+  "achvMultiStepFirstTitle": "연쇄반응",
+  "achvMultiStepAllTitle": "캐스케이드 킹",
+  "achvMultiStepFirstDesc": "첫 번째 다단계 퍼즐을 풀어보세요",
+  "achvMultiStepAllDesc": "200개의 다단계 퍼즐을 모두 완료하세요"
 }

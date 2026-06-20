@@ -6,7 +6,13 @@
   "statistics": "統計",
   "settings": "設定",
   "level": "レベル {number}",
-  "@level": { "placeholders": { "number": { "type": "int" } } },
+  "@level": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "easy": "簡単",
   "medium": "普通",
   "hard": "難しい",
@@ -24,7 +30,16 @@
   "hints": "ヒント",
   "bestTime": "ベストタイム",
   "levelsCompleted": "{count}/{total} クリア",
-  "@levelsCompleted": { "placeholders": { "count": { "type": "int" }, "total": { "type": "int" } } },
+  "@levelsCompleted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "totalTime": "合計時間",
   "averageTime": "平均",
   "hintsUsed": "使用ヒント",
@@ -47,13 +62,25 @@
   "back": "戻る",
   "resume": "再開",
   "stars": "{count} スター",
-  "@stars": { "placeholders": { "count": { "type": "int" } } },
+  "@stars": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "selectLevel": "レベル選択",
   "badges": "バッジ",
   "passAndPlay": "パス＆プレイ (2-4)",
   "decodeTheLogic": "ロジックを解読せよ",
   "continueLevel": "続ける (レベル {number})",
-  "@continueLevel": { "placeholders": { "number": { "type": "int" } } },
+  "@continueLevel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "selectDifficulty": "難易度選択",
   "all": "すべて",
   "completed": "クリア済",
@@ -91,9 +118,21 @@
   "noHintsAvailable": "このパズルにヒントはありません",
   "overallProgress": "全体の進捗",
   "roundNumber": "ラウンド {number}",
-  "@roundNumber": { "placeholders": { "number": { "type": "int" } } },
+  "@roundNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "dayStreak": "{count}日連続！",
-  "@dayStreak": { "placeholders": { "count": { "type": "int" } } },
+  "@dayStreak": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "shareResult": "結果を共有",
   "dailyComplete": "デイリーチャレンジ完了！",
   "completeMoreLevels": "リプレイするにはもっとレベルをクリア",
@@ -129,7 +168,16 @@
   "contact": "連絡先",
   "lastUpdated": "最終更新",
   "levelsOf": "{total}レベル中{completed}クリア",
-  "@levelsOf": { "placeholders": { "completed": { "type": "int" }, "total": { "type": "int" } } },
+  "@levelsOf": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "tutorialWelcomeTitle": "CryptiQへようこそ！",
   "tutorialWelcomeBody": "各文字は一意の数字(0-9)を表します。\n目標：各文字がどの数字を表すかを解き明かし、\n式を正しくしましょう。",
   "tutorialSelectTitle": "ステップ1：文字を選択",
@@ -155,10 +203,22 @@
   "skip": "スキップ",
   "startPlaying": "プレイ開始",
   "playerName": "プレイヤー {number}",
-  "@playerName": { "placeholders": { "number": { "type": "int" } } },
+  "@playerName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
   "addPlayer": "プレイヤー追加",
   "roundsLabel": "ラウンド: {count}",
-  "@roundsLabel": { "placeholders": { "count": { "type": "int" } } },
+  "@roundsLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "addition": "足し算 (+)",
   "subtraction": "引き算 (−)",
   "multiply": "掛け算 (×)",
@@ -174,7 +234,13 @@
   "privacyStorageBody": "すべてのデータ（進捗、設定、実績）はローカルに保存されます。アプリをアンインストールするとすべてのローカルデータが削除されます。",
   "privacyChangesBody": "このポリシーは更新される場合があります。変更後の継続使用は同意とみなされます。",
   "privacyContactBody": "ご質問はメールで: {email}",
-  "@privacyContactBody": { "placeholders": { "email": { "type": "String" } } },
+  "@privacyContactBody": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
   "multiStepLabel": "多段階",
   "stars3": "スター",
   "onboardingHowToPlayBody": "1. 文字をタップして選択\n2. 数字(0-9)をタップして割り当て\n3. 各文字には一意の数字が必要\n4. 文字を長押しでクリア",
@@ -183,7 +249,13 @@
   "onboardingDailyBody": "• 毎日新しいパズル\n• 毎日プレイして連続記録🔥を作ろう\n• プレイしながら実績を解除\n• 簡単からエキスパートまで1200レベル — 全て無料！",
   "onboardingStarExample": "⭐⭐⭐  ヒントなし、速い\n⭐⭐     1-2ヒント\n⭐       3+ヒント",
   "usedBy": "使用中: {letter}",
-  "@usedBy": { "placeholders": { "letter": { "type": "String" } } },
+  "@usedBy": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
   "notUsed": "未使用",
   "replayConfirmTitle": "このレベルをリプレイしますか？",
   "replayConfirmBody": "このレベルはすでに⭐⭐⭐です。ベストスコアは保持されます。",
@@ -198,25 +270,149 @@
   "puzzlesSolved": "解いたパズル",
   "allDone": "全部完了！",
   "hintCount": "ヒント ({count})",
-  "@hintCount": { "placeholders": { "count": { "type": "int" } } },
+  "@hintCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "incorrectTryAgain": "不正解 — もう一度！",
   "playerScored": "{player}が{score}ポイント獲得",
-  "@playerScored": { "placeholders": { "player": { "type": "String" }, "score": { "type": "int" } } },
+  "@playerScored": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      },
+      "score": {
+        "type": "int"
+      }
+    }
+  },
   "hintsCount": "{count}ヒント",
-  "@hintsCount": { "placeholders": { "count": { "type": "int" } } },
+  "@hintsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "roundOf": "ラウンド {current}/{total}",
-  "@roundOf": { "placeholders": { "current": { "type": "int" }, "total": { "type": "int" } } },
+  "@roundOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "imReady": "準備OK！",
   "playerWins": "{player}の勝ち！",
-  "@playerWins": { "placeholders": { "player": { "type": "String" } } },
+  "@playerWins": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
   "playerStatsLine": "{solved}/{total}クリア • {time} • {hints}ヒント",
-  "@playerStatsLine": { "placeholders": { "solved": { "type": "int" }, "total": { "type": "int" }, "time": { "type": "String" }, "hints": { "type": "int" } } },
+  "@playerStatsLine": {
+    "placeholders": {
+      "solved": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      },
+      "hints": {
+        "type": "int"
+      }
+    }
+  },
   "scorePts": "{score}pt",
-  "@scorePts": { "placeholders": { "score": { "type": "int" } } },
+  "@scorePts": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
   "playerNameHint": "プレイヤー名",
   "multiStepNote": "多段階パズルは難しい/エキスパートのみです。難易度は無視されます。",
   "percentUnlocked": "{percent}% 解放済",
-  "@percentUnlocked": { "placeholders": { "percent": { "type": "String" } } },
+  "@percentUnlocked": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
   "shareDailyText": "CryptiQのデイリーチャレンジを{time}でクリア！🔥 {streak}日連続！あなたも挑戦してみて？\n\n#CryptiQ #デイリーチャレンジ",
-  "@shareDailyText": { "placeholders": { "time": { "type": "String" }, "streak": { "type": "int" } } }
+  "@shareDailyText": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "streak": {
+        "type": "int"
+      }
+    }
+  },
+  "achvFiftyLevelsTitle": "パズル愛好家",
+  "achvFiveHundredLevelsDesc": "500 レベルをクリアする",
+  "achvFiftyLevelsDesc": "50 レベルを完了する",
+  "achvTenLevelsTitle": "ウォーミングアップ",
+  "achvFirstSolveTitle": "最初のステップ",
+  "achvHundredLevelsTitle": "センチュリオン",
+  "achvTenLevelsDesc": "10 レベルを完了する",
+  "achvFirstSolveDesc": "最初のパズルを解く",
+  "achvHundredLevelsDesc": "100レベルをクリアする",
+  "achvFiveHundredLevelsTitle": "半分そこまで",
+  "achvHundredStarsTitle": "スターハンター",
+  "achvThousandLevelsTitle": "グランドマスター",
+  "achvThousandLevelsDesc": "1000 レベルをクリアする",
+  "achvTenStarsDesc": "10 つ星を獲得する",
+  "achvTenStarsTitle": "スターコレクター",
+  "achvThousandStarsTitle": "星座",
+  "achvHundredStarsDesc": "100 スターを獲得する",
+  "achvSpeedDemonDesc": "15 秒以内にパズルを解く",
+  "achvThousandStarsDesc": "1000 スターを獲得する",
+  "achvSpeedDemonTitle": "スピードデーモン",
+  "achvPerfect10Title": "完璧主義者",
+  "achvNoHints50Title": "純粋な天才",
+  "achvNoHints10Title": "シャープな心",
+  "achvNoHints10Desc": "ヒントなしで 10 個のパズルを解く",
+  "achvNoHints50Desc": "ヒントなしで 50 個のパズルを解く",
+  "achvLightningTitle": "電光石火の速さ",
+  "achvLightningDesc": "10秒以内にパズルを解く",
+  "achvPerfect10Desc": "10 レベルで 3 つ星を獲得する",
+  "achvPerfect50Title": "完璧",
+  "achvPerfect50Desc": "50 レベルで 3 つ星を獲得",
+  "achvEasyMasterTitle": "イージーピージー",
+  "achvMediumMasterTitle": "ミディアムレア",
+  "achvMediumMasterDesc": "中レベルをすべてクリアする",
+  "achvHardMasterTitle": "硬化した",
+  "achvHardMasterDesc": "すべてのハードレベルをクリアする",
+  "achvEasyMasterDesc": "Easy レベルをすべてクリアする",
+  "achvExpertMasterTitle": "暗号専門家",
+  "achvStreak7Title": "週の戦士",
+  "achvStreak3Title": "オン・ア・ロール",
+  "achvExpertMasterDesc": "すべてのエキスパートレベルをクリアする",
+  "achvStreak3Desc": "3 日間のデイリーチャレンジ連続達成",
+  "achvStreak7Desc": "7日間のデイリーチャレンジ連続達成",
+  "achvStreak14Desc": "14 日間の毎日のチャレンジ連続記録",
+  "achvStreak100Title": "止められない",
+  "achvStreak14Title": "2週間チャンピオン",
+  "achvStreak30Title": "ストリークマスター",
+  "achvStreak30Desc": "毎日 30 日間連続チャレンジ",
+  "achvStreak100Desc": "毎日100日連続チャレンジ達成",
+  "achvMultiStepAllDesc": "200 のマルチステップ パズルをすべて完了する",
+  "achvMultiStepFirstDesc": "初めての複数ステップのパズルを解く",
+  "achvMultiStepFirstTitle": "連鎖反応",
+  "achvMultiStepAllTitle": "カスケードキング"
 }

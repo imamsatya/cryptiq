@@ -654,4 +654,160 @@ class AppLocalizationsJa extends AppLocalizations {
   String shareDailyText(String time, int streak) {
     return 'CryptiQのデイリーチャレンジを$timeでクリア！🔥 $streak日連続！あなたも挑戦してみて？\n\n#CryptiQ #デイリーチャレンジ';
   }
+
+  @override
+  String get achvNoHints10Title => 'シャープな心';
+
+  @override
+  String get achvStreak30Title => 'ストリークマスター';
+
+  @override
+  String get achvStreak14Desc => '14 日間の毎日のチャレンジ連続記録';
+
+  @override
+  String get achvPerfect50Desc => '50 レベルで 3 つ星を獲得';
+
+  @override
+  String get achvFiveHundredLevelsTitle => '半分そこまで';
+
+  @override
+  String get achvExpertMasterTitle => '暗号専門家';
+
+  @override
+  String get achvLightningDesc => '10秒以内にパズルを解く';
+
+  @override
+  String get achvFirstSolveDesc => '最初のパズルを解く';
+
+  @override
+  String get achvExpertMasterDesc => 'すべてのエキスパートレベルをクリアする';
+
+  @override
+  String get achvPerfect50Title => '完璧';
+
+  @override
+  String get achvHundredLevelsDesc => '100レベルをクリアする';
+
+  @override
+  String get achvHundredStarsDesc => '100 スターを獲得する';
+
+  @override
+  String get achvHardMasterDesc => 'すべてのハードレベルをクリアする';
+
+  @override
+  String get achvHundredStarsTitle => 'スターハンター';
+
+  @override
+  String get achvStreak14Title => '2週間チャンピオン';
+
+  @override
+  String get achvPerfect10Desc => '10 レベルで 3 つ星を獲得する';
+
+  @override
+  String get achvHundredLevelsTitle => 'センチュリオン';
+
+  @override
+  String get achvHardMasterTitle => '硬化した';
+
+  @override
+  String get achvLightningTitle => '電光石火の速さ';
+
+  @override
+  String get achvTenStarsDesc => '10 つ星を獲得する';
+
+  @override
+  String get achvFirstSolveTitle => '最初のステップ';
+
+  @override
+  String get achvStreak7Desc => '7日間のデイリーチャレンジ連続達成';
+
+  @override
+  String get achvPerfect10Title => '完璧主義者';
+
+  @override
+  String get achvMediumMasterDesc => '中レベルをすべてクリアする';
+
+  @override
+  String get achvSpeedDemonDesc => '15 秒以内にパズルを解く';
+
+  @override
+  String get achvTenStarsTitle => 'スターコレクター';
+
+  @override
+  String get achvFiftyLevelsDesc => '50 レベルを完了する';
+
+  @override
+  String get achvStreak7Title => '週の戦士';
+
+  @override
+  String get achvNoHints50Desc => 'ヒントなしで 50 個のパズルを解く';
+
+  @override
+  String get achvMediumMasterTitle => 'ミディアムレア';
+
+  @override
+  String get achvSpeedDemonTitle => 'スピードデーモン';
+
+  @override
+  String get achvThousandLevelsDesc => '1000 レベルをクリアする';
+
+  @override
+  String get achvFiftyLevelsTitle => 'パズル愛好家';
+
+  @override
+  String get achvNoHints50Title => '純粋な天才';
+
+  @override
+  String get achvThousandStarsDesc => '1000 スターを獲得する';
+
+  @override
+  String get achvThousandLevelsTitle => 'グランドマスター';
+
+  @override
+  String get achvStreak3Desc => '3 日間のデイリーチャレンジ連続達成';
+
+  @override
+  String get achvEasyMasterDesc => 'Easy レベルをすべてクリアする';
+
+  @override
+  String get achvNoHints10Desc => 'ヒントなしで 10 個のパズルを解く';
+
+  @override
+  String get achvStreak100Title => '止められない';
+
+  @override
+  String get achvStreak3Title => 'オン・ア・ロール';
+
+  @override
+  String get achvThousandStarsTitle => '星座';
+
+  @override
+  String get achvTenLevelsTitle => 'ウォーミングアップ';
+
+  @override
+  String get achvEasyMasterTitle => 'イージーピージー';
+
+  @override
+  String get achvTenLevelsDesc => '10 レベルを完了する';
+
+  @override
+  String get achvStreak30Desc => '毎日 30 日間連続チャレンジ';
+
+  @override
+  String get achvFiveHundredLevelsDesc => '500 レベルをクリアする';
+
+  @override
+  String get achvStreak100Desc => '毎日100日連続チャレンジ達成';
+
+  @override
+  String get achvMultiStepFirstTitle => '連鎖反応';
+
+  @override
+  String get achvMultiStepFirstDesc => '初めての複数ステップのパズルを解く';
+
+  @override
+  String get achvMultiStepAllDesc => '200 のマルチステップ パズルをすべて完了する';
+
+  @override
+  String get achvMultiStepAllTitle => 'カスケードキング';
 }

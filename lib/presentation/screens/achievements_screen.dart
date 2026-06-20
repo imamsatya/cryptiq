@@ -103,7 +103,7 @@ class AchievementsScreen extends StatelessWidget {
                   itemCount: all.length,
                   itemBuilder: (context, index) {
                     final (achievement, isUnlocked) = all[index];
-                    return _buildAchievementTile(achievement, isUnlocked);
+                    return _buildAchievementTile(context, achievement, isUnlocked);
                   },
                 ),
               ),
@@ -114,7 +114,7 @@ class AchievementsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildAchievementTile(Achievement achievement, bool isUnlocked) {
+  Widget _buildAchievementTile(BuildContext context, Achievement achievement, bool isUnlocked) {
     return Container(
       margin: EdgeInsets.only(bottom: 8),
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
@@ -158,7 +158,7 @@ class AchievementsScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  achievement.title,
+                  achievement.getTitle(AppLocalizations.of(context)!),
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
@@ -169,7 +169,7 @@ class AchievementsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  achievement.description,
+                  achievement.getDescription(AppLocalizations.of(context)!),
                   style: TextStyle(
                     fontSize: 12,
                     color: isUnlocked

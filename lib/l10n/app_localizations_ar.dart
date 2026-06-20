@@ -660,4 +660,160 @@ class AppLocalizationsAr extends AppLocalizations {
   String shareDailyText(String time, int streak) {
     return 'حللت تحدي CryptiQ اليومي في $time! 🔥 سلسلة $streak يوم! هل يمكنك التغلب عليه؟\n\n#CryptiQ #التحدي_اليومي';
   }
+
+  @override
+  String get achvNoHints10Title => 'عقل حاد';
+
+  @override
+  String get achvStreak30Title => 'سيد الخط';
+
+  @override
+  String get achvStreak14Desc => 'خط التحدي اليومي لمدة 14 يومًا';
+
+  @override
+  String get achvPerfect50Desc => 'احصل على 3 نجوم في 50 مستوى';
+
+  @override
+  String get achvFiveHundredLevelsTitle => 'نصف الطريق هناك';
+
+  @override
+  String get achvExpertMasterTitle => 'خبير التشفير';
+
+  @override
+  String get achvLightningDesc => 'حل اللغز في أقل من 10 ثواني';
+
+  @override
+  String get achvFirstSolveDesc => 'حل اللغز الأول الخاص بك';
+
+  @override
+  String get achvExpertMasterDesc => 'أكمل جميع مستويات الخبراء';
+
+  @override
+  String get achvPerfect50Title => 'بلا عيوب';
+
+  @override
+  String get achvHundredLevelsDesc => 'استكمال 100 المستويات';
+
+  @override
+  String get achvHundredStarsDesc => 'احصل على 100 نجمة';
+
+  @override
+  String get achvHardMasterDesc => 'أكمل جميع المستويات الصعبة';
+
+  @override
+  String get achvHundredStarsTitle => 'ستار هنتر';
+
+  @override
+  String get achvStreak14Title => 'بطل اسبوعين';
+
+  @override
+  String get achvPerfect10Desc => 'احصل على 3 نجوم في 10 مستويات';
+
+  @override
+  String get achvHundredLevelsTitle => 'سنتوريون';
+
+  @override
+  String get achvHardMasterTitle => 'تصلب';
+
+  @override
+  String get achvLightningTitle => 'بسرعة البرق';
+
+  @override
+  String get achvTenStarsDesc => 'احصل على 10 نجوم';
+
+  @override
+  String get achvFirstSolveTitle => 'الخطوات الأولى';
+
+  @override
+  String get achvStreak7Desc => 'خط التحدي اليومي لمدة 7 أيام';
+
+  @override
+  String get achvPerfect10Title => 'الكمال';
+
+  @override
+  String get achvMediumMasterDesc => 'أكمل جميع المستويات المتوسطة';
+
+  @override
+  String get achvSpeedDemonDesc => 'حل اللغز في أقل من 15 ثانية';
+
+  @override
+  String get achvTenStarsTitle => 'جامع النجوم';
+
+  @override
+  String get achvFiftyLevelsDesc => 'استكمال 50 المستويات';
+
+  @override
+  String get achvStreak7Title => 'محارب الأسبوع';
+
+  @override
+  String get achvNoHints50Desc => 'حل 50 الألغاز دون تلميحات';
+
+  @override
+  String get achvMediumMasterTitle => 'متوسطة نادرة';
+
+  @override
+  String get achvSpeedDemonTitle => 'شيطان السرعة';
+
+  @override
+  String get achvThousandLevelsDesc => 'استكمال 1000 المستويات';
+
+  @override
+  String get achvFiftyLevelsTitle => 'عشاق اللغز';
+
+  @override
+  String get achvNoHints50Title => 'عبقرية نقية';
+
+  @override
+  String get achvThousandStarsDesc => 'احصل على 1000 نجمة';
+
+  @override
+  String get achvThousandLevelsTitle => 'جراند ماستر';
+
+  @override
+  String get achvStreak3Desc => 'خط التحدي اليومي لمدة 3 أيام';
+
+  @override
+  String get achvEasyMasterDesc => 'أكمل جميع المستويات السهلة';
+
+  @override
+  String get achvNoHints10Desc => 'حل 10 ألغاز بدون تلميحات';
+
+  @override
+  String get achvStreak100Title => 'لا يمكن وقفها';
+
+  @override
+  String get achvStreak3Title => 'على لفة';
+
+  @override
+  String get achvThousandStarsTitle => 'كوكبة';
+
+  @override
+  String get achvTenLevelsTitle => 'الحصول على الاحماء';
+
+  @override
+  String get achvEasyMasterTitle => 'سهل بيسي';
+
+  @override
+  String get achvTenLevelsDesc => 'أكمل 10 مستويات';
+
+  @override
+  String get achvStreak30Desc => 'خط التحدي اليومي لمدة 30 يومًا';
+
+  @override
+  String get achvFiveHundredLevelsDesc => 'استكمال 500 المستويات';
+
+  @override
+  String get achvStreak100Desc => '100 يوم خط التحدي اليومي';
+
+  @override
+  String get achvMultiStepFirstTitle => 'التفاعل المتسلسل';
+
+  @override
+  String get achvMultiStepFirstDesc => 'حل اللغز الأول متعدد الخطوات';
+
+  @override
+  String get achvMultiStepAllDesc => 'أكمل جميع الألغاز الـ 200 متعددة الخطوات';
+
+  @override
+  String get achvMultiStepAllTitle => 'تتالي الملك';
 }
