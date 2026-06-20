@@ -18,9 +18,11 @@ class NumberPad extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FittedBox(
-      fit: BoxFit.scaleDown,
-      child: Row(
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(10, (index) {
           final isUsed = usedDigits.contains(index);
@@ -67,6 +69,6 @@ class NumberPad extends StatelessWidget {
           );
         }),
       ),
-    );
+    ));
   }
 }

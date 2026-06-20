@@ -26,10 +26,11 @@ class PuzzleDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (puzzle.isMultiStep) {
-      return _buildMultiStep();
-    }
-    return _buildSingleStep();
+    Widget child = puzzle.isMultiStep ? _buildMultiStep() : _buildSingleStep();
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: child,
+    );
   }
 
   // ================================================================
