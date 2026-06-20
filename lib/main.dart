@@ -15,45 +15,44 @@ import 'presentation/providers/locale_provider.dart';
 import 'presentation/widgets/error_screen.dart';
 import 'dart:async';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+void main() {
+  runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
 
-  // Friendly error screen instead of red screen of death
-  ErrorWidget.builder = (FlutterErrorDetails details) {
-    return ErrorScreen(details: details);
-  };
+    // Friendly error screen instead of red screen of death
+    ErrorWidget.builder = (FlutterErrorDetails details) {
+      return ErrorScreen(details: details);
+    };
 
-  // Set preferred orientations
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
+    // Set preferred orientations
+    await SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
 
-  // Initialize database FIRST (theme reads from it)
-  await LocalDatabase.instance.init();
+    // Initialize database FIRST (theme reads from it)
+    await LocalDatabase.instance.init();
 
-  // Set system UI overlay style (after DB init so theme can read settings)
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    statusBarIconBrightness: Brightness.light,
-    systemNavigationBarColor: AppTheme.backgroundDark,
-    systemNavigationBarIconBrightness: Brightness.light,
-  ));
+    // Set system UI overlay style (after DB init so theme can read settings)
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.light,
+      systemNavigationBarColor: AppTheme.backgroundDark,
+      systemNavigationBarIconBrightness: Brightness.light,
+    ));
 
-  // Initialize audio
-  await AudioService.instance.init();
+    // Initialize audio
+    await AudioService.instance.init();
 
-  // Initialize ads
-  await AdService.instance.initialize();
+    // Initialize ads
+    await AdService.instance.initialize();
 
-  // Initialize in-app purchases
-  await IapService.instance.initialize();
+    // Initialize in-app purchases
+    await IapService.instance.initialize();
 
-  // Initialize notifications
-  await NotificationService.instance.initialize();
+    // Initialize notifications
+    await NotificationService.instance.initialize();
 
-  // Catch async errors
-  runZonedGuarded(() {
     runApp(const ProviderScope(child: CryptiqApp()));
   }, (error, stack) {
     debugPrint('Uncaught error: $error');
