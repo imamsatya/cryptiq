@@ -207,7 +207,7 @@ class _DailyResultScreenState extends State<DailyResultScreen>
                                     style: TextStyle(fontSize: 28)),
                                 const SizedBox(width: 8),
                                 Text(
-                                  '$streak Day Streak!',
+                                  l10n.dayStreak(streak),
                                   style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w700,
@@ -265,11 +265,10 @@ class _DailyResultScreenState extends State<DailyResultScreen>
                           onTap: () {
                             SharePlus.instance.share(
                               ShareParams(
-                                text:
-                                    'I solved today\'s CryptiQ Daily Challenge in '
-                                    '${_formatTime(widget.timeSeconds)}! '
-                                    '🔥 $streak day streak! Can you beat it?\n\n'
-                                    '#CryptiQ #DailyChallenge',
+                                text: l10n.shareDailyText(
+                                  _formatTime(widget.timeSeconds),
+                                  streak,
+                                ),
                               ),
                             );
                           },

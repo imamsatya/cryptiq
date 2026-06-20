@@ -212,7 +212,7 @@ class DailyChallengeScreen extends ConsumerWidget {
                                     color: AppTheme.primaryColor, size: 18),
                                 const SizedBox(width: 6),
                                 Text(
-                                  'Hint (${gameState.hintsUsed})',
+                                  l10n.hintCount(gameState.hintsUsed),
                                   style: const TextStyle(
                                       color: Colors.white, fontSize: 13),
                                 ),

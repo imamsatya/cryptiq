@@ -1225,6 +1225,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Puzzles Solved'**
   String get puzzlesSolved;
+
+  /// No description provided for @allDone.
+  ///
+  /// In en, this message translates to:
+  /// **'All Done!'**
+  String get allDone;
+
+  /// No description provided for @hintCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Hint ({count})'**
+  String hintCount(int count);
+
+  /// No description provided for @incorrectTryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect — try again!'**
+  String get incorrectTryAgain;
+
+  /// No description provided for @playerScored.
+  ///
+  /// In en, this message translates to:
+  /// **'{player} scored {score} pts'**
+  String playerScored(String player, int score);
+
+  /// No description provided for @hintsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} hints'**
+  String hintsCount(int count);
+
+  /// No description provided for @roundOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Round {current} of {total}'**
+  String roundOf(int current, int total);
+
+  /// No description provided for @imReady.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m Ready!'**
+  String get imReady;
+
+  /// No description provided for @playerWins.
+  ///
+  /// In en, this message translates to:
+  /// **'{player} Wins!'**
+  String playerWins(String player);
+
+  /// No description provided for @playerStatsLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{solved}/{total} solved • {time} • {hints} hints'**
+  String playerStatsLine(int solved, int total, String time, int hints);
+
+  /// No description provided for @scorePts.
+  ///
+  /// In en, this message translates to:
+  /// **'{score}pts'**
+  String scorePts(int score);
+
+  /// No description provided for @playerNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Player name'**
+  String get playerNameHint;
+
+  /// No description provided for @multiStepNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Multi-step puzzles are Hard/Expert only. Difficulty will be ignored.'**
+  String get multiStepNote;
+
+  /// No description provided for @percentUnlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}% unlocked'**
+  String percentUnlocked(String percent);
+
+  /// No description provided for @shareDailyText.
+  ///
+  /// In en, this message translates to:
+  /// **'I solved today\'s CryptiQ Daily Challenge in {time}! 🔥 {streak} day streak! Can you beat it?\n\n#CryptiQ #DailyChallenge'**
+  String shareDailyText(String time, int streak);
 }
 
 class _AppLocalizationsDelegate

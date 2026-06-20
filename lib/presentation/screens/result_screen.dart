@@ -262,7 +262,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'Level ${widget.levelNumber}',
+                      l10n.level(widget.levelNumber),
                       style: TextStyle(
                         fontSize: 16,
                         color: AppTheme.textSecondary.withValues(alpha: 0.8),
@@ -437,7 +437,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              hasNext ? l10n.nextLevel : 'All Done!',
+              hasNext ? l10n.nextLevel : l10n.allDone,
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,

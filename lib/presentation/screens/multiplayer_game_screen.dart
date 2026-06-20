@@ -226,8 +226,8 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Text('❌ Incorrect — try again!',
-                style: TextStyle(color: Colors.white)),
+            content: Text('❌ ${AppLocalizations.of(context)!.incorrectTryAgain}',
+                style: const TextStyle(color: Colors.white)),
             backgroundColor: const Color(0xFFE53935),
             behavior: SnackBarBehavior.floating,
             shape: RoundedRectangleBorder(
@@ -350,7 +350,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  '$playerName scored $score pts',
+                  l10n.playerScored(playerName, score),
                   style: const TextStyle(
                     fontSize: 14,
                     color: AppTheme.textSecondary,
@@ -358,7 +358,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '${_formatTime(_elapsedSeconds)} • $_hintsUsed hints',
+                  '${_formatTime(_elapsedSeconds)} • ${l10n.hintsCount(_hintsUsed)}',
                   style: TextStyle(
                     fontSize: 12,
                     color: AppTheme.textMuted.withValues(alpha: 0.7),
@@ -388,7 +388,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                 children: [
                   // Round indicator
                   Text(
-                    'Round ${_currentRound + 1} of ${widget.totalRounds}',
+                    AppLocalizations.of(context)!.roundOf(_currentRound + 1, widget.totalRounds),
                     style: TextStyle(
                       fontSize: 14,
                       color: AppTheme.textSecondary.withValues(alpha: 0.7),
@@ -454,7 +454,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                               color: AppTheme.backgroundDark, size: 24),
                           const SizedBox(width: 8),
                           Text(
-                            "I'm Ready!",
+                            AppLocalizations.of(context)!.imReady,
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
@@ -644,7 +644,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                                 Icon(Icons.lightbulb_outline,
                                     color: AppTheme.primaryColor, size: 18),
                                 const SizedBox(width: 4),
-                                Text('${l10n.hint} ($_hintsUsed)',
+                                Text(l10n.hintCount(_hintsUsed),
                                     style: const TextStyle(
                                         color: Colors.white, fontSize: 13)),
                               ],

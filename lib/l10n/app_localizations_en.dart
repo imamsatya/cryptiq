@@ -601,4 +601,65 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get puzzlesSolved => 'Puzzles Solved';
+
+  @override
+  String get allDone => 'All Done!';
+
+  @override
+  String hintCount(int count) {
+    return 'Hint ($count)';
+  }
+
+  @override
+  String get incorrectTryAgain => 'Incorrect — try again!';
+
+  @override
+  String playerScored(String player, int score) {
+    return '$player scored $score pts';
+  }
+
+  @override
+  String hintsCount(int count) {
+    return '$count hints';
+  }
+
+  @override
+  String roundOf(int current, int total) {
+    return 'Round $current of $total';
+  }
+
+  @override
+  String get imReady => 'I\'m Ready!';
+
+  @override
+  String playerWins(String player) {
+    return '$player Wins!';
+  }
+
+  @override
+  String playerStatsLine(int solved, int total, String time, int hints) {
+    return '$solved/$total solved • $time • $hints hints';
+  }
+
+  @override
+  String scorePts(int score) {
+    return '${score}pts';
+  }
+
+  @override
+  String get playerNameHint => 'Player name';
+
+  @override
+  String get multiStepNote =>
+      'Multi-step puzzles are Hard/Expert only. Difficulty will be ignored.';
+
+  @override
+  String percentUnlocked(String percent) {
+    return '$percent% unlocked';
+  }
+
+  @override
+  String shareDailyText(String time, int streak) {
+    return 'I solved today\'s CryptiQ Daily Challenge in $time! 🔥 $streak day streak! Can you beat it?\n\n#CryptiQ #DailyChallenge';
+  }
 }

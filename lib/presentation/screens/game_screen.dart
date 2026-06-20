@@ -154,6 +154,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
   }
 
   Widget _buildHeader(GameState gameState) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Row(
@@ -179,7 +180,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'Level ${widget.levelNumber}',
+                  l10n.level(widget.levelNumber),
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
@@ -333,28 +334,34 @@ class _GameScreenState extends ConsumerState<GameScreen>
                   borderRadius: 14,
                   borderColor: AppTheme.primaryColor.withValues(alpha: 0.3),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      gameState.nextHintNeedsAd
-                          ? Icons.play_circle_outline_rounded
-                          : Icons.lightbulb_outline_rounded,
-                      color: AppTheme.primaryColor,
-                      size: 20,
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          gameState.nextHintNeedsAd
+                              ? Icons.play_circle_outline_rounded
+                              : Icons.lightbulb_outline_rounded,
+                          color: AppTheme.primaryColor,
+                          size: 20,
+                        ),
+                        SizedBox(width: 8),
+                        Text(
+                          gameState.nextHintNeedsAd
+                              ? '🎬 ${l10n.hint} (1)'
+                              : '${l10n.hint} ($hintsRemaining/$maxHints)',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: AppTheme.primaryColor,
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(width: 8),
-                    Text(
-                      gameState.nextHintNeedsAd
-                          ? '🎬 ${l10n.hint} (1)'
-                          : '${l10n.hint} ($hintsRemaining/$maxHints)',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: AppTheme.primaryColor,
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ),
@@ -437,21 +444,27 @@ class _GameScreenState extends ConsumerState<GameScreen>
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 14),
                 decoration: AppTheme.goldGlowDecoration(borderRadius: 14),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.check_rounded,
-                        color: AppTheme.backgroundDark, size: 22),
-                    const SizedBox(width: 6),
-                    Text(
-                      l10n.check,
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                        color: AppTheme.backgroundDark,
-                      ),
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.check_rounded,
+                            color: AppTheme.backgroundDark, size: 22),
+                        const SizedBox(width: 6),
+                        Text(
+                          l10n.check,
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                            color: AppTheme.backgroundDark,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
@@ -470,18 +483,19 @@ class _GameScreenState extends ConsumerState<GameScreen>
   /// Read-only view of a completed puzzle showing the solution
   Color _getDiffColor() {
     final n = widget.levelNumber;
-    if (n <= 100) return AppTheme.easyColor;
-    if (n <= 250) return AppTheme.mediumColor;
-    if (n <= 400) return AppTheme.hardColor;
+    if (n <= 250) return AppTheme.easyColor;
+    if (n <= 500) return AppTheme.mediumColor;
+    if (n <= 750) return AppTheme.hardColor;
     return AppTheme.expertColor;
   }
 
   String _getDiffLabel() {
+    final l10n = AppLocalizations.of(context)!;
     final n = widget.levelNumber;
-    if (n <= 100) return 'EASY';
-    if (n <= 250) return 'MEDIUM';
-    if (n <= 400) return 'HARD';
-    return 'EXPERT';
+    if (n <= 250) return l10n.easy.toUpperCase();
+    if (n <= 500) return l10n.medium.toUpperCase();
+    if (n <= 750) return l10n.hard.toUpperCase();
+    return l10n.expert.toUpperCase();
   }
 
   Widget _buildViewOnlyScreen(GameState gameState) {

@@ -137,7 +137,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
                           shaderCallback: (bounds) =>
                               AppTheme.goldGradient.createShader(bounds),
                           child: Text(
-                            '${winner.name} Wins!',
+                            l10n.playerWins(winner.name),
                             style: const TextStyle(
                               fontSize: 26,
                               fontWeight: FontWeight.w700,
@@ -252,6 +252,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
   }
 
   Widget _buildRankRow(int rank, _PlayerTotal p) {
+    final l10n = AppLocalizations.of(context)!;
     final color = _playerColor(p.index);
     final isFirst = rank == 1;
 
@@ -314,7 +315,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
                   ),
                 ),
                 Text(
-                  '${p.roundsSolved}/${widget.totalRounds} solved • ${_formatTime(p.totalTime)} • ${p.totalHints} hints',
+                  l10n.playerStatsLine(p.roundsSolved, widget.totalRounds, _formatTime(p.totalTime), p.totalHints),
                   style: TextStyle(
                     fontSize: 11,
                     color: AppTheme.textSecondary.withValues(alpha: 0.7),
@@ -343,6 +344,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
   }
 
   Widget _buildRoundCard(int round) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       margin: const EdgeInsets.only(bottom: 6),
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
@@ -350,7 +352,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Round ${round + 1}',
+          Text(l10n.roundNumber(round + 1),
               style: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w600,
@@ -381,7 +383,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
                   ),
                   Text(
                     pr.solved
-                        ? '${_formatTime(pr.timeSeconds)} • ${pr.hintsUsed}h'
+                        ? '${_formatTime(pr.timeSeconds)} • ${l10n.hintsCount(pr.hintsUsed)}'
                         : '—',
                     style: TextStyle(
                       fontSize: 12,
@@ -390,7 +392,7 @@ class _MultiplayerResultScreenState extends State<MultiplayerResultScreen>
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    '${pr.score}pts',
+                    l10n.scorePts(pr.score),
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,

@@ -267,5 +267,100 @@
   "updateAvailable": "Update Available",
   "updateBody": "A new version of CryptiQ is available. Update now for the best experience!",
   "updateNow": "Update Now",
-  "puzzlesSolved": "Puzzles Solved"
+  "puzzlesSolved": "Puzzles Solved",
+  "allDone": "All Done!",
+  "hintCount": "Hint ({count})",
+  "@hintCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "incorrectTryAgain": "Incorrect — try again!",
+  "playerScored": "{player} scored {score} pts",
+  "@playerScored": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      },
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "hintsCount": "{count} hints",
+  "@hintsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "roundOf": "Round {current} of {total}",
+  "@roundOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "imReady": "I'm Ready!",
+  "playerWins": "{player} Wins!",
+  "@playerWins": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
+  "playerStatsLine": "{solved}/{total} solved • {time} • {hints} hints",
+  "@playerStatsLine": {
+    "placeholders": {
+      "solved": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      },
+      "hints": {
+        "type": "int"
+      }
+    }
+  },
+  "scorePts": "{score}pts",
+  "@scorePts": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "playerNameHint": "Player name",
+  "multiStepNote": "Multi-step puzzles are Hard/Expert only. Difficulty will be ignored.",
+  "percentUnlocked": "{percent}% unlocked",
+  "@percentUnlocked": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "shareDailyText": "I solved today's CryptiQ Daily Challenge in {time}! 🔥 {streak} day streak! Can you beat it?\n\n#CryptiQ #DailyChallenge",
+  "@shareDailyText": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "streak": {
+        "type": "int"
+      }
+    }
+  }
 }

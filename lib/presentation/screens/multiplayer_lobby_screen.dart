@@ -13,35 +13,22 @@ class MultiplayerLobbyScreen extends StatefulWidget {
 
 class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
   final List<TextEditingController> _nameControllers = [
-    TextEditingController(text: 'Player 1'),
-    TextEditingController(text: 'Player 2'),
+    TextEditingController(),
+    TextEditingController(),
   ];
 
   int _rounds = 3;
   String _difficulty = 'mixed';
   String _operation = 'mixed';
 
-  static const _difficulties = {
-    'easy': 'Easy',  // overridden by l10n in build
-    'medium': 'Medium',
-    'hard': 'Hard',
-    'expert': 'Expert',
-    'mixed': 'Mixed',
-  };
-
-  static const _operations = {
-    '+': 'Addition (+)',  // overridden by l10n in build
-    '-': 'Subtraction (−)',
-    '*': 'Multiply (×)',
-    'multi': 'Multi-step',
-    'mixed': 'Mixed',
-  };
+  static const _difficultyKeys = ['easy', 'medium', 'hard', 'expert', 'mixed'];
+  static const _operationKeys = ['+', '-', '*', 'multi', 'mixed'];
 
   void _addPlayer() {
     if (_nameControllers.length < 4) {
       setState(() {
         _nameControllers
-            .add(TextEditingController(text: 'Player ${_nameControllers.length + 1}'));
+            .add(TextEditingController());
       });
     }
   }
@@ -60,7 +47,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
     // Ensure names are not empty
     for (int i = 0; i < names.length; i++) {
       if (names[i].isEmpty) {
-        names[i] = 'Player ${i + 1}';
+        names[i] = AppLocalizations.of(context)!.playerName(i + 1);
       }
     }
     context.push('/multiplayer-game', extra: {
@@ -82,6 +69,21 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+
+    final difficulties = {
+      'easy': l10n.easy,
+      'medium': l10n.medium,
+      'hard': l10n.hard,
+      'expert': l10n.expert,
+      'mixed': l10n.mixed,
+    };
+    final operations = {
+      '+': l10n.addition,
+      '-': l10n.subtraction,
+      '*': l10n.multiply,
+      'multi': l10n.multiStep,
+      'mixed': l10n.mixed,
+    };
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
@@ -157,9 +159,9 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                                   controller: _nameControllers[i],
                                   style: const TextStyle(
                                       color: Colors.white, fontSize: 15),
-                                  decoration: const InputDecoration(
+                                  decoration: InputDecoration(
                                     border: InputBorder.none,
-                                    hintText: 'Player name',
+                                    hintText: l10n.playerNameHint,
                                     hintStyle:
                                         TextStyle(color: AppTheme.textMuted),
                                   ),
@@ -211,7 +213,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                     const SizedBox(height: 24),
 
                     // --- Rounds ---
-                    _sectionTitle('Rounds: $_rounds'),
+                    _sectionTitle(l10n.roundsLabel(_rounds)),
                     SizedBox(height: 4),
                     Container(
                       decoration: AppTheme.glassDecoration(borderRadius: 14),
@@ -241,7 +243,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                     _sectionTitle(l10n.difficulty),
                     const SizedBox(height: 8),
                     _buildChipRow(
-                      options: _difficulties,
+                      options: difficulties,
                       selected: _difficulty,
                       onSelect: (v) => setState(() => _difficulty = v),
                     ),
@@ -253,7 +255,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                       Padding(
                         padding: EdgeInsets.only(top: 6),
                         child: Text(
-                          'ℹ️ Multi-step puzzles are Hard/Expert only. Difficulty will be ignored.',
+                          'ℹ️ ${l10n.multiStepNote}',
                           style: TextStyle(
                             fontSize: 11,
                             color: AppTheme.primaryColor.withValues(alpha: 0.7),
@@ -267,7 +269,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                     _sectionTitle(l10n.operation),
                     const SizedBox(height: 8),
                     _buildChipRow(
-                      options: _operations,
+                      options: operations,
                       selected: _operation,
                       onSelect: (v) => setState(() => _operation = v),
                     ),

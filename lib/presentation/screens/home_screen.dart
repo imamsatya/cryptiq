@@ -110,7 +110,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 _buildMenuButton(
                   context,
                   icon: Icons.grid_view_rounded,
-                  label: l10n.settings.contains('') ? 'Select Level' : 'Select Level',
+                  label: l10n.selectLevel,
                   onTap: () => context.push('/levels'),
                 ),
                 const SizedBox(height: 8),

@@ -253,5 +253,100 @@
   "updateAvailable": "Pembaruan Tersedia",
   "updateBody": "Versi terbaru CryptiQ tersedia. Perbarui sekarang untuk pengalaman terbaik!",
   "updateNow": "Perbarui Sekarang",
-  "puzzlesSolved": "Puzzle Diselesaikan"
+  "puzzlesSolved": "Puzzle Diselesaikan",
+  "allDone": "Selesai Semua!",
+  "hintCount": "Petunjuk ({count})",
+  "@hintCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "incorrectTryAgain": "Salah — coba lagi!",
+  "playerScored": "{player} meraih {score} poin",
+  "@playerScored": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      },
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "hintsCount": "{count} petunjuk",
+  "@hintsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "roundOf": "Ronde {current} dari {total}",
+  "@roundOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "imReady": "Saya Siap!",
+  "playerWins": "{player} Menang!",
+  "@playerWins": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
+  "playerStatsLine": "{solved}/{total} selesai • {time} • {hints} petunjuk",
+  "@playerStatsLine": {
+    "placeholders": {
+      "solved": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "time": {
+        "type": "String"
+      },
+      "hints": {
+        "type": "int"
+      }
+    }
+  },
+  "scorePts": "{score}poin",
+  "@scorePts": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "playerNameHint": "Nama pemain",
+  "multiStepNote": "Puzzle multi-langkah hanya untuk Sulit/Ahli. Kesulitan akan diabaikan.",
+  "percentUnlocked": "{percent}% terbuka",
+  "@percentUnlocked": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "shareDailyText": "Saya menyelesaikan Tantangan Harian CryptiQ dalam {time}! 🔥 {streak} hari beruntun! Bisakah kamu mengalahkannya?\n\n#CryptiQ #TantanganHarian",
+  "@shareDailyText": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "streak": {
+        "type": "int"
+      }
+    }
+  }
 }

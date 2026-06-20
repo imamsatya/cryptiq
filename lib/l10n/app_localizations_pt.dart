@@ -78,7 +78,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String levelsCompleted(int count, int total) {
-    return 'Níveis Concluídos';
+    return '$count/$total completos';
   }
 
   @override
@@ -154,7 +154,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get selectLevel => 'Escolher Nível';
 
   @override
-  String get badges => 'Insígnias';
+  String get badges => 'Medalhas';
 
   @override
   String get passAndPlay => 'Passar e Jogar (2-4)';
@@ -174,7 +174,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get all => 'Todos';
 
   @override
-  String get completed => 'Concluído';
+  String get completed => 'Completo';
 
   @override
   String get locked => 'Bloqueado';
@@ -192,7 +192,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get version => 'Versão';
 
   @override
-  String get contactUs => 'Contato';
+  String get contactUs => 'Contate-nos';
 
   @override
   String get resetProgress => 'Reiniciar Progresso';
@@ -282,14 +282,14 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String dayStreak(int count) {
-    return '$count Dias Seguidos!';
+    return '$count Dias de Sequência!';
   }
 
   @override
-  String get shareResult => 'Compartilhar';
+  String get shareResult => 'Compartilhar Resultado';
 
   @override
-  String get dailyComplete => 'Desafio Diário Concluído!';
+  String get dailyComplete => 'Desafio Diário Completo!';
 
   @override
   String get completeMoreLevels => 'Complete mais níveis para repetir';
@@ -304,302 +304,363 @@ class AppLocalizationsPt extends AppLocalizations {
   String get close => 'Fechar';
 
   @override
-  String get game => 'Game';
+  String get game => 'Jogo';
 
   @override
-  String get soundEffects => 'Sound Effects';
+  String get soundEffects => 'Efeitos Sonoros';
 
   @override
-  String get hapticFeedback => 'Haptic Feedback';
+  String get hapticFeedback => 'Feedback Háptico';
 
   @override
-  String get dailyReminder => 'Daily Reminder';
+  String get dailyReminder => 'Lembrete Diário';
 
   @override
-  String get appearance => 'Appearance';
+  String get appearance => 'Aparência';
 
   @override
-  String get upgradeToPro => 'Upgrade to Pro';
+  String get upgradeToPro => 'Atualizar para Pro';
 
   @override
-  String get noAds => 'No Ads';
+  String get noAds => 'Sem Anúncios';
 
   @override
-  String get allThemes => 'All Themes';
+  String get allThemes => 'Todos os Temas';
 
   @override
-  String get bonusHint => '+1 Bonus Hint';
+  String get bonusHint => '+1 Dica Bônus';
 
   @override
-  String get goPro => 'Go Pro';
+  String get goPro => 'Ser Pro';
 
   @override
   String get proActive => 'CryptiQ Pro ✓';
 
   @override
-  String get byDifficulty => 'By Difficulty';
+  String get byDifficulty => 'Por Dificuldade';
 
   @override
-  String get totalStars => 'Total Stars';
+  String get totalStars => 'Estrelas Totais';
 
   @override
-  String get avgTime => 'Avg. Time';
+  String get avgTime => 'Tempo Médio';
 
   @override
-  String get enjoyingApp => 'Enjoying CryptiQ?';
+  String get enjoyingApp => 'Gostando do CryptiQ?';
 
   @override
   String get rateAppBody =>
-      'If you like the app, please take a moment to rate it!';
+      'Se você gosta do app, reserve um momento para avaliá-lo!';
 
   @override
-  String get noThanks => 'No Thanks';
+  String get noThanks => 'Não, Obrigado';
 
   @override
-  String get later => 'Later';
+  String get later => 'Depois';
 
   @override
-  String get rateNow => 'Rate Now ⭐';
+  String get rateNow => 'Avaliar Agora ⭐';
 
   @override
-  String get undo => 'Undo';
+  String get undo => 'Desfazer';
 
   @override
-  String get overview => 'Overview';
+  String get overview => 'Visão Geral';
 
   @override
-  String get dataCollection => 'Data Collection';
+  String get dataCollection => 'Coleta de Dados';
 
   @override
-  String get thirdPartyServices => 'Third-Party Services';
+  String get thirdPartyServices => 'Serviços de Terceiros';
 
   @override
-  String get dataStorage => 'Data Storage';
+  String get dataStorage => 'Armazenamento de Dados';
 
   @override
-  String get childrenPrivacy => 'Children\'s Privacy';
+  String get childrenPrivacy => 'Privacidade Infantil';
 
   @override
-  String get changes => 'Changes';
+  String get changes => 'Alterações';
 
   @override
-  String get contact => 'Contact';
+  String get contact => 'Contato';
 
   @override
-  String get lastUpdated => 'Last Updated';
+  String get lastUpdated => 'Última Atualização';
 
   @override
   String levelsOf(int completed, int total) {
-    return '$completed of $total levels completed';
+    return '$completed de $total níveis completos';
   }
 
   @override
-  String get tutorialWelcomeTitle => 'Welcome to CryptiQ!';
+  String get tutorialWelcomeTitle => 'Bem-vindo ao CryptiQ!';
 
   @override
   String get tutorialWelcomeBody =>
-      'Each letter represents a unique digit (0-9).\nYour goal: find which digit each letter stands for\nso the equation is correct.';
+      'Cada letra representa um dígito único (0-9).\nSeu objetivo: descobrir qual dígito cada letra representa\npara que a equação esteja correta.';
 
   @override
-  String get tutorialSelectTitle => 'Step 1: Select a Letter';
+  String get tutorialSelectTitle => 'Passo 1: Selecione uma Letra';
 
   @override
   String get tutorialSelectBody =>
-      'Tap on any letter tile in the equation.\nIt will highlight, showing it\'s selected.';
+      'Toque em qualquer letra na equação.\nEla será destacada, mostrando que está selecionada.';
 
   @override
-  String get tutorialAssignTitle => 'Step 2: Assign a Digit';
+  String get tutorialAssignTitle => 'Passo 2: Atribua um Dígito';
 
   @override
   String get tutorialAssignBody =>
-      'Use the number pad to assign a digit (0-9)\nto the selected letter.\nEach digit can only be used once!';
+      'Use o teclado numérico para atribuir um dígito (0-9)\nà letra selecionada.\nCada dígito só pode ser usado uma vez!';
 
   @override
-  String get tutorialCheckTitle => 'Step 3: Check Your Answer';
+  String get tutorialCheckTitle => 'Passo 3: Verifique sua Resposta';
 
   @override
   String get tutorialCheckBody =>
-      'Once all letters have digits, tap \"Check\".\nWrong letters turn red — fix them!\nUse Hints or Undo if you get stuck.';
+      'Quando todas as letras tiverem dígitos, toque \"Verificar\".\nLetras erradas ficam vermelhas — corrija-as!\nUse Dicas ou Desfazer se ficar preso.';
 
   @override
-  String get tutorialGoTitle => 'You\'re Ready!';
+  String get tutorialGoTitle => 'Você está Pronto!';
 
   @override
   String get tutorialGoBody =>
-      'Solve fast with fewer hints for ⭐⭐⭐!\nGood luck and have fun! 🧩';
+      'Resolva rápido com menos dicas para ⭐⭐⭐!\nBoa sorte e divirta-se! 🧩';
 
   @override
-  String get next => 'Next';
+  String get next => 'Próximo';
 
   @override
-  String get autoFillNext => 'Auto-select Next Letter';
+  String get autoFillNext => 'Selecionar Próxima Letra Automaticamente';
 
   @override
-  String get onboardingWelcomeTitle => 'Welcome to CryptiQ!';
+  String get onboardingWelcomeTitle => 'Bem-vindo ao CryptiQ!';
 
   @override
-  String get onboardingWelcomeSubtitle => 'Decode the Logic';
+  String get onboardingWelcomeSubtitle => 'Decifre a Lógica';
 
   @override
   String get onboardingWelcomeBody =>
-      'CryptiQ is a cryptarithm puzzle game where each letter represents a unique digit (0-9).\n\nYour goal: figure out which digit goes with which letter to make the equation true!';
+      'CryptiQ é um jogo de puzzles criptaritméticos onde cada letra representa um dígito único (0-9).\n\nSeu objetivo: descobrir qual dígito corresponde a cada letra para que a equação seja verdadeira!';
 
   @override
-  String get onboardingHowToPlay => 'How to Play';
+  String get onboardingHowToPlay => 'Como Jogar';
 
   @override
-  String get onboardingSelectAssign => 'Select & Assign';
+  String get onboardingSelectAssign => 'Selecionar e Atribuir';
 
   @override
-  String get onboardingExample => 'If S=9, E=5, N=6, D=7\nthen SEND = 9567';
+  String get onboardingExample => 'Se S=9, E=5, N=6, D=7\nentão SEND = 9567';
 
   @override
-  String get onboardingNeedHelp => 'Need Help?';
+  String get onboardingNeedHelp => 'Precisa de Ajuda?';
 
   @override
-  String get onboardingDailyTitle => 'Daily Challenge';
+  String get onboardingDailyTitle => 'Desafio Diário';
 
   @override
-  String get onboardingDailySubtitle => 'Come Back Every Day!';
+  String get onboardingDailySubtitle => 'Volte Todo Dia!';
 
   @override
-  String get onboardingReady => 'Ready? Let\'s go! 🚀';
+  String get onboardingReady => 'Pronto? Vamos lá! 🚀';
 
   @override
-  String get skip => 'Skip';
+  String get skip => 'Pular';
 
   @override
-  String get startPlaying => 'Start Playing';
+  String get startPlaying => 'Começar a Jogar';
 
   @override
   String playerName(int number) {
-    return 'Player $number';
+    return 'Jogador $number';
   }
 
   @override
-  String get addPlayer => 'Add Player';
+  String get addPlayer => 'Adicionar Jogador';
 
   @override
   String roundsLabel(int count) {
-    return 'Rounds: $count';
+    return 'Rodadas: $count';
   }
 
   @override
-  String get addition => 'Addition (+)';
+  String get addition => 'Adição (+)';
 
   @override
-  String get subtraction => 'Subtraction (−)';
+  String get subtraction => 'Subtração (−)';
 
   @override
-  String get multiply => 'Multiply (×)';
+  String get multiply => 'Multiplicação (×)';
 
   @override
-  String get multiStep => 'Multi-step';
+  String get multiStep => 'Multi-passo';
 
   @override
-  String get passDevice => 'Pass the device to this player';
+  String get passDevice => 'Passe o dispositivo para este jogador';
 
   @override
-  String get roundDetails => 'Round Details';
+  String get roundDetails => 'Detalhes da Rodada';
 
   @override
-  String get gaveUp => 'Gave up';
+  String get gaveUp => 'Desistiu';
 
   @override
-  String get beatMyTime => 'Can you beat my time?';
+  String get beatMyTime => 'Consegue superar meu tempo?';
 
   @override
-  String get allLevelsFreeTitle => 'All 1200 Levels FREE';
+  String get allLevelsFreeTitle => 'Todos os 1200 Níveis GRÁTIS';
 
   @override
-  String get allLevelsFreeBody => 'No locked levels, no paywall. Enjoy!';
+  String get allLevelsFreeBody => 'Sem níveis bloqueados. Aproveite!';
 
   @override
   String get privacyOverviewBody =>
-      'We respect your privacy and are committed to protecting your personal information.';
+      'Respeitamos sua privacidade e estamos comprometidos em proteger suas informações pessoais.';
 
   @override
   String get privacyDataBody =>
-      'All game progress is stored locally on your device using offline storage (Hive). We do not require account creation or login.';
+      'Todo o progresso do jogo é armazenado localmente no seu dispositivo usando armazenamento offline (Hive). Não exigimos criação de conta ou login.';
 
   @override
   String get privacyStorageBody =>
-      'All data (game progress, settings, achievements) is stored locally on your device. Uninstalling the app will remove all local data.';
+      'Todos os dados (progresso, configurações, conquistas) são armazenados localmente. Desinstalar o app removerá todos os dados locais.';
 
   @override
   String get privacyChangesBody =>
-      'We may update this policy. Continued use of the app after changes constitutes acceptance.';
+      'Podemos atualizar esta política. O uso contínuo após mudanças constitui aceitação.';
 
   @override
   String privacyContactBody(String email) {
-    return 'For questions, email: $email';
+    return 'Para perguntas, email: $email';
   }
 
   @override
-  String get multiStepLabel => 'Multi-step';
+  String get multiStepLabel => 'Multi-passo';
 
   @override
-  String get stars3 => 'Stars';
+  String get stars3 => 'Estrelas';
 
   @override
   String get onboardingHowToPlayBody =>
-      '1. Tap a letter tile to select it\n2. Tap a number (0-9) to assign it\n3. Each letter must have a unique digit\n4. Long-press a letter to clear it';
+      '1. Toque em uma letra para selecioná-la\n2. Toque em um número (0-9) para atribuí-lo\n3. Cada letra deve ter um dígito único\n4. Pressione e segure uma letra para limpá-la';
 
   @override
-  String get onboardingHelpSubtitle => 'Hints & Checking';
+  String get onboardingHelpSubtitle => 'Dicas e Verificação';
 
   @override
   String get onboardingHelpBody =>
-      '• Tap 💡 Hint to reveal one correct letter\n• Tap ✓ Check to verify your solution\n• Wrong letters glow red, correct ones glow green\n• Try to solve with fewer hints for more ⭐ stars!';
+      '• Toque 💡 Dica para revelar uma letra\n• Toque ✓ Verificar para conferir\n• Letras erradas ficam vermelhas, corretas ficam verdes\n• Resolva com menos dicas para mais ⭐!';
 
   @override
   String get onboardingDailyBody =>
-      '• A new puzzle appears every day\n• Build your streak 🔥 by playing daily\n• Unlock achievements as you play\n• 1200 levels from Easy to Expert — all FREE!';
+      '• Um novo puzzle todo dia\n• Construa sua sequência 🔥 jogando diariamente\n• Desbloqueie conquistas enquanto joga\n• 1200 níveis de Fácil a Especialista — todos GRÁTIS!';
 
   @override
   String get onboardingStarExample =>
-      '⭐⭐⭐  No hints, fast solve\n⭐⭐     1-2 hints\n⭐       3+ hints';
+      '⭐⭐⭐  Sem dicas, rápido\n⭐⭐     1-2 dicas\n⭐       3+ dicas';
 
   @override
   String usedBy(String letter) {
-    return 'Used by: $letter';
+    return 'Usado por: $letter';
   }
 
   @override
-  String get notUsed => 'Not used';
+  String get notUsed => 'Não usado';
 
   @override
-  String get replayConfirmTitle => 'Replay this level?';
+  String get replayConfirmTitle => 'Repetir este nível?';
 
   @override
   String get replayConfirmBody =>
-      'You already have ⭐⭐⭐ on this level. Your best score will be kept.';
+      'Você já tem ⭐⭐⭐ neste nível. Sua melhor pontuação será mantida.';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'Cancelar';
 
   @override
-  String get newBadge => 'NEW';
+  String get newBadge => 'NOVO';
 
   @override
-  String get themePicker => 'Theme';
+  String get themePicker => 'Tema';
 
   @override
-  String get proThemeHint => 'Unlock more themes with Pro';
+  String get proThemeHint => 'Desbloqueie mais temas com Pro';
 
   @override
-  String get shareStats => 'Share Stats';
+  String get shareStats => 'Compartilhar Estatísticas';
 
   @override
-  String get updateAvailable => 'Update Available';
+  String get updateAvailable => 'Atualização Disponível';
 
   @override
   String get updateBody =>
-      'A new version of CryptiQ is available. Update now for the best experience!';
+      'Uma nova versão do CryptiQ está disponível. Atualize agora para a melhor experiência!';
 
   @override
-  String get updateNow => 'Update Now';
+  String get updateNow => 'Atualizar Agora';
 
   @override
-  String get puzzlesSolved => 'Puzzles Solved';
+  String get puzzlesSolved => 'Puzzles Resolvidos';
+
+  @override
+  String get allDone => 'Tudo Pronto!';
+
+  @override
+  String hintCount(int count) {
+    return 'Dica ($count)';
+  }
+
+  @override
+  String get incorrectTryAgain => 'Incorreto — tente novamente!';
+
+  @override
+  String playerScored(String player, int score) {
+    return '$player marcou $score pts';
+  }
+
+  @override
+  String hintsCount(int count) {
+    return '$count dicas';
+  }
+
+  @override
+  String roundOf(int current, int total) {
+    return 'Rodada $current de $total';
+  }
+
+  @override
+  String get imReady => 'Estou Pronto!';
+
+  @override
+  String playerWins(String player) {
+    return '$player Vence!';
+  }
+
+  @override
+  String playerStatsLine(int solved, int total, String time, int hints) {
+    return '$solved/$total resolvidos • $time • $hints dicas';
+  }
+
+  @override
+  String scorePts(int score) {
+    return '${score}pts';
+  }
+
+  @override
+  String get playerNameHint => 'Nome do jogador';
+
+  @override
+  String get multiStepNote =>
+      'Puzzles multi-passo são apenas Difícil/Especialista. A dificuldade será ignorada.';
+
+  @override
+  String percentUnlocked(String percent) {
+    return '$percent% desbloqueado';
+  }
+
+  @override
+  String shareDailyText(String time, int streak) {
+    return 'Resolvi o Desafio Diário do CryptiQ em $time! 🔥 $streak dias de sequência! Consegue superar?\n\n#CryptiQ #DesafioDiário';
+  }
 }

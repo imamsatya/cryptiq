@@ -295,7 +295,7 @@ class LevelSelectScreen extends ConsumerWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
                 decoration: AppTheme.glassDecoration(borderRadius: 8),
                 child: Text(
-                  PuzzleGenerator.getDifficultyName(levelNum),
+                  levelNum <= 250 ? l10n.easy : levelNum <= 500 ? l10n.medium : levelNum <= 750 ? l10n.hard : l10n.expert,
                   style: TextStyle(fontSize: 10, color: AppTheme.textSecondary),
                 ),
               ),

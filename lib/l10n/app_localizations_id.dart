@@ -601,4 +601,65 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get puzzlesSolved => 'Puzzle Diselesaikan';
+
+  @override
+  String get allDone => 'Selesai Semua!';
+
+  @override
+  String hintCount(int count) {
+    return 'Petunjuk ($count)';
+  }
+
+  @override
+  String get incorrectTryAgain => 'Salah — coba lagi!';
+
+  @override
+  String playerScored(String player, int score) {
+    return '$player meraih $score poin';
+  }
+
+  @override
+  String hintsCount(int count) {
+    return '$count petunjuk';
+  }
+
+  @override
+  String roundOf(int current, int total) {
+    return 'Ronde $current dari $total';
+  }
+
+  @override
+  String get imReady => 'Saya Siap!';
+
+  @override
+  String playerWins(String player) {
+    return '$player Menang!';
+  }
+
+  @override
+  String playerStatsLine(int solved, int total, String time, int hints) {
+    return '$solved/$total selesai • $time • $hints petunjuk';
+  }
+
+  @override
+  String scorePts(int score) {
+    return '${score}poin';
+  }
+
+  @override
+  String get playerNameHint => 'Nama pemain';
+
+  @override
+  String get multiStepNote =>
+      'Puzzle multi-langkah hanya untuk Sulit/Ahli. Kesulitan akan diabaikan.';
+
+  @override
+  String percentUnlocked(String percent) {
+    return '$percent% terbuka';
+  }
+
+  @override
+  String shareDailyText(String time, int streak) {
+    return 'Saya menyelesaikan Tantangan Harian CryptiQ dalam $time! 🔥 $streak hari beruntun! Bisakah kamu mengalahkannya?\n\n#CryptiQ #TantanganHarian';
+  }
 }

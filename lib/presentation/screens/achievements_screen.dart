@@ -82,7 +82,7 @@ class AchievementsScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      '${(unlocked / total * 100).toStringAsFixed(0)}% unlocked',
+                      l10n.percentUnlocked((unlocked / total * 100).toStringAsFixed(0)),
                       style: TextStyle(
                         fontSize: 11,
                         color:

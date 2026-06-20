@@ -18,7 +18,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get dailyChallenge => 'दैनिक चुनौती';
 
   @override
-  String get statistics => 'आंकड़े';
+  String get statistics => 'आँकड़े';
 
   @override
   String get settings => 'सेटिंग्स';
@@ -47,13 +47,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get check => 'जाँचें';
 
   @override
-  String get clear => 'मिटाएं';
+  String get clear => 'मिटाएँ';
 
   @override
-  String get clearAll => 'सब मिटाएं';
+  String get clearAll => 'सब मिटाएँ';
 
   @override
-  String get congratulations => 'बधाई हो!';
+  String get congratulations => 'बधाई!';
 
   @override
   String get puzzleSolved => 'पहेली हल!';
@@ -62,7 +62,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get nextLevel => 'अगला स्तर';
 
   @override
-  String get replay => 'फिर से खेलें';
+  String get replay => 'फिर खेलें';
 
   @override
   String get share => 'साझा करें';
@@ -74,21 +74,21 @@ class AppLocalizationsHi extends AppLocalizations {
   String get hints => 'संकेत';
 
   @override
-  String get bestTime => 'सर्वोत्तम समय';
+  String get bestTime => 'सर्वश्रेष्ठ समय';
 
   @override
   String levelsCompleted(int count, int total) {
-    return 'पूर्ण स्तर';
+    return '$count/$total पूर्ण';
   }
 
   @override
   String get totalTime => 'कुल समय';
 
   @override
-  String get averageTime => 'औसत समय';
+  String get averageTime => 'औसत';
 
   @override
-  String get hintsUsed => 'संकेत उपयोग';
+  String get hintsUsed => 'उपयोग किए गए संकेत';
 
   @override
   String get currentStreak => 'वर्तमान श्रृंखला';
@@ -106,28 +106,28 @@ class AppLocalizationsHi extends AppLocalizations {
   String get language => 'भाषा';
 
   @override
-  String get about => 'बारे में';
+  String get about => 'के बारे में';
 
   @override
-  String get privacyPolicy => 'गोपनीयता';
+  String get privacyPolicy => 'गोपनीयता नीति';
 
   @override
   String get rateApp => 'ऐप रेट करें';
 
   @override
-  String get removeAds => 'विज्ञापन हटाएं';
+  String get removeAds => 'विज्ञापन हटाएँ';
 
   @override
-  String get restorePurchase => 'खरीदारी पुनर्स्थापित';
+  String get restorePurchase => 'खरीद पुनर्स्थापित करें';
 
   @override
-  String get tryAgain => 'पुनः प्रयास';
+  String get tryAgain => 'पुनः प्रयास करें';
 
   @override
   String get wrongAnswer => 'गलत उत्तर';
 
   @override
-  String get someDigitsWrong => 'कुछ अंक गलत हैं। पुनः प्रयास करें!';
+  String get someDigitsWrong => 'कुछ अंक गलत हैं। फिर से प्रयास करें!';
 
   @override
   String get allLevelsFree => 'सभी स्तर मुफ़्त!';
@@ -146,7 +146,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String stars(int count) {
-    return '$count सितारे';
+    return '$count तारे';
   }
 
   @override
@@ -156,10 +156,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get badges => 'बैज';
 
   @override
-  String get passAndPlay => 'बारी-बारी खेलें (2-4)';
+  String get passAndPlay => 'पास एंड प्ले (2-4)';
 
   @override
-  String get decodeTheLogic => 'तर्क को सुलझाएं';
+  String get decodeTheLogic => 'तर्क को डिकोड करें';
 
   @override
   String continueLevel(int number) {
@@ -173,7 +173,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get all => 'सभी';
 
   @override
-  String get completed => 'पूरा';
+  String get completed => 'पूर्ण';
 
   @override
   String get locked => 'लॉक';
@@ -185,16 +185,16 @@ class AppLocalizationsHi extends AppLocalizations {
   String get theme => 'थीम';
 
   @override
-  String get replayTutorial => 'ट्यूटोरियल';
+  String get replayTutorial => 'ट्यूटोरियल देखें';
 
   @override
   String get version => 'संस्करण';
 
   @override
-  String get contactUs => 'संपर्क';
+  String get contactUs => 'हमसे संपर्क करें';
 
   @override
-  String get resetProgress => 'रीसेट';
+  String get resetProgress => 'प्रगति रीसेट करें';
 
   @override
   String get correct => 'सही!';
@@ -209,7 +209,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get player => 'खिलाड़ी';
 
   @override
-  String get score => 'अंक';
+  String get score => 'स्कोर';
 
   @override
   String get winner => 'विजेता';
@@ -242,7 +242,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get streak => 'श्रृंखला';
 
   @override
-  String get solvedIn => 'समय में हल';
+  String get solvedIn => 'हल किया';
 
   @override
   String get seconds => 'सेकंड';
@@ -251,7 +251,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get noHintsUsed => 'बिना संकेत';
 
   @override
-  String get playAgain => 'फिर खेलें';
+  String get playAgain => 'फिर से खेलें';
 
   @override
   String get results => 'परिणाम';
@@ -263,13 +263,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get giveUp => 'हार मानें';
 
   @override
-  String get rematch => 'दोबारा खेलें';
+  String get rematch => 'पुनर्मुकाबला';
 
   @override
-  String get achievementUnlocked => 'उपलब्धि खुली!';
+  String get achievementUnlocked => 'उपलब्धि अनलॉक!';
 
   @override
-  String get noHintsAvailable => 'कोई संकेत नहीं बचा';
+  String get noHintsAvailable => 'इस पहेली के लिए कोई संकेत नहीं';
 
   @override
   String get overallProgress => 'कुल प्रगति';
@@ -281,20 +281,20 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String dayStreak(int count) {
-    return '$count दिन लगातार!';
+    return '$count दिन की श्रृंखला!';
   }
 
   @override
   String get shareResult => 'परिणाम साझा करें';
 
   @override
-  String get dailyComplete => 'दैनिक चुनौती पूरी!';
+  String get dailyComplete => 'दैनिक चुनौती पूर्ण!';
 
   @override
-  String get completeMoreLevels => 'फिर से खेलने के लिए अधिक स्तर पूरे करें';
+  String get completeMoreLevels => 'दोबारा खेलने के लिए और स्तर पूरे करें';
 
   @override
-  String get viewSolution => 'उत्तर देखें';
+  String get viewSolution => 'हल देखें';
 
   @override
   String get attempts => 'प्रयास';
@@ -303,302 +303,362 @@ class AppLocalizationsHi extends AppLocalizations {
   String get close => 'बंद करें';
 
   @override
-  String get game => 'Game';
+  String get game => 'खेल';
 
   @override
-  String get soundEffects => 'Sound Effects';
+  String get soundEffects => 'ध्वनि प्रभाव';
 
   @override
-  String get hapticFeedback => 'Haptic Feedback';
+  String get hapticFeedback => 'हैप्टिक फीडबैक';
 
   @override
-  String get dailyReminder => 'Daily Reminder';
+  String get dailyReminder => 'दैनिक अनुस्मारक';
 
   @override
-  String get appearance => 'Appearance';
+  String get appearance => 'दिखावट';
 
   @override
-  String get upgradeToPro => 'Upgrade to Pro';
+  String get upgradeToPro => 'Pro में अपग्रेड करें';
 
   @override
-  String get noAds => 'No Ads';
+  String get noAds => 'विज्ञापन नहीं';
 
   @override
-  String get allThemes => 'All Themes';
+  String get allThemes => 'सभी थीम';
 
   @override
-  String get bonusHint => '+1 Bonus Hint';
+  String get bonusHint => '+1 बोनस संकेत';
 
   @override
-  String get goPro => 'Go Pro';
+  String get goPro => 'Pro बनें';
 
   @override
   String get proActive => 'CryptiQ Pro ✓';
 
   @override
-  String get byDifficulty => 'By Difficulty';
+  String get byDifficulty => 'कठिनाई के अनुसार';
 
   @override
-  String get totalStars => 'Total Stars';
+  String get totalStars => 'कुल तारे';
 
   @override
-  String get avgTime => 'Avg. Time';
+  String get avgTime => 'औसत समय';
 
   @override
-  String get enjoyingApp => 'Enjoying CryptiQ?';
+  String get enjoyingApp => 'CryptiQ पसंद आ रहा है?';
 
   @override
-  String get rateAppBody =>
-      'If you like the app, please take a moment to rate it!';
+  String get rateAppBody => 'अगर ऐप पसंद आया, तो कृपया इसे रेट करें!';
 
   @override
-  String get noThanks => 'No Thanks';
+  String get noThanks => 'नहीं, धन्यवाद';
 
   @override
-  String get later => 'Later';
+  String get later => 'बाद में';
 
   @override
-  String get rateNow => 'Rate Now ⭐';
+  String get rateNow => 'अभी रेट करें ⭐';
 
   @override
-  String get undo => 'Undo';
+  String get undo => 'पूर्ववत करें';
 
   @override
-  String get overview => 'Overview';
+  String get overview => 'अवलोकन';
 
   @override
-  String get dataCollection => 'Data Collection';
+  String get dataCollection => 'डेटा संग्रह';
 
   @override
-  String get thirdPartyServices => 'Third-Party Services';
+  String get thirdPartyServices => 'तृतीय-पक्ष सेवाएँ';
 
   @override
-  String get dataStorage => 'Data Storage';
+  String get dataStorage => 'डेटा भंडारण';
 
   @override
-  String get childrenPrivacy => 'Children\'s Privacy';
+  String get childrenPrivacy => 'बच्चों की गोपनीयता';
 
   @override
-  String get changes => 'Changes';
+  String get changes => 'परिवर्तन';
 
   @override
-  String get contact => 'Contact';
+  String get contact => 'संपर्क';
 
   @override
-  String get lastUpdated => 'Last Updated';
+  String get lastUpdated => 'अंतिम अद्यतन';
 
   @override
   String levelsOf(int completed, int total) {
-    return '$completed of $total levels completed';
+    return '$total में से $completed स्तर पूर्ण';
   }
 
   @override
-  String get tutorialWelcomeTitle => 'Welcome to CryptiQ!';
+  String get tutorialWelcomeTitle => 'CryptiQ में आपका स्वागत है!';
 
   @override
   String get tutorialWelcomeBody =>
-      'Each letter represents a unique digit (0-9).\nYour goal: find which digit each letter stands for\nso the equation is correct.';
+      'प्रत्येक अक्षर एक अद्वितीय अंक (0-9) को दर्शाता है।\nलक्ष्य: पता लगाएँ कि कौन सा अंक किस अक्षर को दर्शाता है\nताकि समीकरण सही हो।';
 
   @override
-  String get tutorialSelectTitle => 'Step 1: Select a Letter';
+  String get tutorialSelectTitle => 'चरण 1: अक्षर चुनें';
 
   @override
   String get tutorialSelectBody =>
-      'Tap on any letter tile in the equation.\nIt will highlight, showing it\'s selected.';
+      'समीकरण में किसी भी अक्षर पर टैप करें।\nयह हाइलाइट होगा जो चयन दर्शाता है।';
 
   @override
-  String get tutorialAssignTitle => 'Step 2: Assign a Digit';
+  String get tutorialAssignTitle => 'चरण 2: अंक निर्दिष्ट करें';
 
   @override
   String get tutorialAssignBody =>
-      'Use the number pad to assign a digit (0-9)\nto the selected letter.\nEach digit can only be used once!';
+      'नंबर पैड का उपयोग करके चयनित अक्षर को\nअंक (0-9) निर्दिष्ट करें।\nप्रत्येक अंक केवल एक बार उपयोग किया जा सकता है!';
 
   @override
-  String get tutorialCheckTitle => 'Step 3: Check Your Answer';
+  String get tutorialCheckTitle => 'चरण 3: उत्तर जाँचें';
 
   @override
   String get tutorialCheckBody =>
-      'Once all letters have digits, tap \"Check\".\nWrong letters turn red — fix them!\nUse Hints or Undo if you get stuck.';
+      'जब सभी अक्षरों में अंक हों, \"जाँचें\" टैप करें।\nगलत अक्षर लाल हो जाते हैं — सुधारें!\nअटक जाएँ तो संकेत या पूर्ववत उपयोग करें।';
 
   @override
-  String get tutorialGoTitle => 'You\'re Ready!';
+  String get tutorialGoTitle => 'आप तैयार हैं!';
 
   @override
   String get tutorialGoBody =>
-      'Solve fast with fewer hints for ⭐⭐⭐!\nGood luck and have fun! 🧩';
+      'कम संकेतों से तेज़ी से हल करें ⭐⭐⭐!\nशुभकामनाएँ और मज़े करें! 🧩';
 
   @override
-  String get next => 'Next';
+  String get next => 'अगला';
 
   @override
-  String get autoFillNext => 'Auto-select Next Letter';
+  String get autoFillNext => 'अगला अक्षर स्वचालित चुनें';
 
   @override
-  String get onboardingWelcomeTitle => 'Welcome to CryptiQ!';
+  String get onboardingWelcomeTitle => 'CryptiQ में आपका स्वागत है!';
 
   @override
-  String get onboardingWelcomeSubtitle => 'Decode the Logic';
+  String get onboardingWelcomeSubtitle => 'तर्क को डिकोड करें';
 
   @override
   String get onboardingWelcomeBody =>
-      'CryptiQ is a cryptarithm puzzle game where each letter represents a unique digit (0-9).\n\nYour goal: figure out which digit goes with which letter to make the equation true!';
+      'CryptiQ एक क्रिप्टारिथमेटिक पहेली खेल है जहाँ प्रत्येक अक्षर एक अद्वितीय अंक (0-9) को दर्शाता है।\n\nलक्ष्य: पता लगाएँ कि कौन सा अंक किस अक्षर से मेल खाता है ताकि समीकरण सत्य हो!';
 
   @override
-  String get onboardingHowToPlay => 'How to Play';
+  String get onboardingHowToPlay => 'कैसे खेलें';
 
   @override
-  String get onboardingSelectAssign => 'Select & Assign';
+  String get onboardingSelectAssign => 'चुनें और निर्दिष्ट करें';
 
   @override
-  String get onboardingExample => 'If S=9, E=5, N=6, D=7\nthen SEND = 9567';
+  String get onboardingExample => 'अगर S=9, E=5, N=6, D=7\nतो SEND = 9567';
 
   @override
-  String get onboardingNeedHelp => 'Need Help?';
+  String get onboardingNeedHelp => 'मदद चाहिए?';
 
   @override
-  String get onboardingDailyTitle => 'Daily Challenge';
+  String get onboardingDailyTitle => 'दैनिक चुनौती';
 
   @override
-  String get onboardingDailySubtitle => 'Come Back Every Day!';
+  String get onboardingDailySubtitle => 'हर दिन वापस आएँ!';
 
   @override
-  String get onboardingReady => 'Ready? Let\'s go! 🚀';
+  String get onboardingReady => 'तैयार हैं? चलें! 🚀';
 
   @override
-  String get skip => 'Skip';
+  String get skip => 'छोड़ें';
 
   @override
-  String get startPlaying => 'Start Playing';
+  String get startPlaying => 'खेलना शुरू करें';
 
   @override
   String playerName(int number) {
-    return 'Player $number';
+    return 'खिलाड़ी $number';
   }
 
   @override
-  String get addPlayer => 'Add Player';
+  String get addPlayer => 'खिलाड़ी जोड़ें';
 
   @override
   String roundsLabel(int count) {
-    return 'Rounds: $count';
+    return 'राउंड: $count';
   }
 
   @override
-  String get addition => 'Addition (+)';
+  String get addition => 'जोड़ (+)';
 
   @override
-  String get subtraction => 'Subtraction (−)';
+  String get subtraction => 'घटाव (−)';
 
   @override
-  String get multiply => 'Multiply (×)';
+  String get multiply => 'गुणा (×)';
 
   @override
-  String get multiStep => 'Multi-step';
+  String get multiStep => 'बहु-चरण';
 
   @override
-  String get passDevice => 'Pass the device to this player';
+  String get passDevice => 'इस खिलाड़ी को डिवाइस दें';
 
   @override
-  String get roundDetails => 'Round Details';
+  String get roundDetails => 'राउंड विवरण';
 
   @override
-  String get gaveUp => 'Gave up';
+  String get gaveUp => 'हार मान ली';
 
   @override
-  String get beatMyTime => 'Can you beat my time?';
+  String get beatMyTime => 'क्या आप मेरा समय हरा सकते हैं?';
 
   @override
-  String get allLevelsFreeTitle => 'All 1200 Levels FREE';
+  String get allLevelsFreeTitle => 'सभी 1200 स्तर मुफ़्त';
 
   @override
-  String get allLevelsFreeBody => 'No locked levels, no paywall. Enjoy!';
+  String get allLevelsFreeBody => 'कोई लॉक स्तर नहीं। आनंद लें!';
 
   @override
   String get privacyOverviewBody =>
-      'We respect your privacy and are committed to protecting your personal information.';
+      'हम आपकी गोपनीयता का सम्मान करते हैं और आपकी व्यक्तिगत जानकारी की सुरक्षा के लिए प्रतिबद्ध हैं।';
 
   @override
   String get privacyDataBody =>
-      'All game progress is stored locally on your device using offline storage (Hive). We do not require account creation or login.';
+      'सभी गेम प्रगति ऑफ़लाइन स्टोरेज (Hive) का उपयोग करके आपके डिवाइस पर स्थानीय रूप से संग्रहीत होती है। हमें खाता बनाने या लॉगिन की आवश्यकता नहीं है।';
 
   @override
   String get privacyStorageBody =>
-      'All data (game progress, settings, achievements) is stored locally on your device. Uninstalling the app will remove all local data.';
+      'सभी डेटा (प्रगति, सेटिंग्स, उपलब्धियाँ) स्थानीय रूप से संग्रहीत होते हैं। ऐप अनइंस्टॉल करने से सभी स्थानीय डेटा हट जाएगा।';
 
   @override
   String get privacyChangesBody =>
-      'We may update this policy. Continued use of the app after changes constitutes acceptance.';
+      'हम इस नीति को अपडेट कर सकते हैं। परिवर्तनों के बाद निरंतर उपयोग स्वीकृति माना जाएगा।';
 
   @override
   String privacyContactBody(String email) {
-    return 'For questions, email: $email';
+    return 'प्रश्नों के लिए, ईमेल: $email';
   }
 
   @override
-  String get multiStepLabel => 'Multi-step';
+  String get multiStepLabel => 'बहु-चरण';
 
   @override
-  String get stars3 => 'Stars';
+  String get stars3 => 'तारे';
 
   @override
   String get onboardingHowToPlayBody =>
-      '1. Tap a letter tile to select it\n2. Tap a number (0-9) to assign it\n3. Each letter must have a unique digit\n4. Long-press a letter to clear it';
+      '1. अक्षर पर टैप करके चुनें\n2. नंबर (0-9) पर टैप करके निर्दिष्ट करें\n3. प्रत्येक अक्षर का अद्वितीय अंक होना चाहिए\n4. अक्षर को लंबे समय तक दबाकर मिटाएँ';
 
   @override
-  String get onboardingHelpSubtitle => 'Hints & Checking';
+  String get onboardingHelpSubtitle => 'संकेत और जाँच';
 
   @override
   String get onboardingHelpBody =>
-      '• Tap 💡 Hint to reveal one correct letter\n• Tap ✓ Check to verify your solution\n• Wrong letters glow red, correct ones glow green\n• Try to solve with fewer hints for more ⭐ stars!';
+      '• 💡 संकेत टैप करके अक्षर प्रकट करें\n• ✓ जाँचें टैप करके चेक करें\n• गलत अक्षर लाल, सही हरे होते हैं\n• कम संकेतों से हल करें ज़्यादा ⭐!';
 
   @override
   String get onboardingDailyBody =>
-      '• A new puzzle appears every day\n• Build your streak 🔥 by playing daily\n• Unlock achievements as you play\n• 1200 levels from Easy to Expert — all FREE!';
+      '• हर दिन एक नई पहेली\n• रोज़ खेलकर श्रृंखला 🔥 बनाएँ\n• खेलते हुए उपलब्धियाँ अनलॉक करें\n• आसान से विशेषज्ञ तक 1200 स्तर — सब मुफ़्त!';
 
   @override
   String get onboardingStarExample =>
-      '⭐⭐⭐  No hints, fast solve\n⭐⭐     1-2 hints\n⭐       3+ hints';
+      '⭐⭐⭐  बिना संकेत, तेज़\n⭐⭐     1-2 संकेत\n⭐       3+ संकेत';
 
   @override
   String usedBy(String letter) {
-    return 'Used by: $letter';
+    return 'उपयोगकर्ता: $letter';
   }
 
   @override
-  String get notUsed => 'Not used';
+  String get notUsed => 'अनुपयोगी';
 
   @override
-  String get replayConfirmTitle => 'Replay this level?';
+  String get replayConfirmTitle => 'यह स्तर फिर खेलें?';
 
   @override
   String get replayConfirmBody =>
-      'You already have ⭐⭐⭐ on this level. Your best score will be kept.';
+      'इस स्तर पर पहले से ⭐⭐⭐ है। सर्वश्रेष्ठ स्कोर बना रहेगा।';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'रद्द करें';
 
   @override
-  String get newBadge => 'NEW';
+  String get newBadge => 'नया';
 
   @override
-  String get themePicker => 'Theme';
+  String get themePicker => 'थीम';
 
   @override
-  String get proThemeHint => 'Unlock more themes with Pro';
+  String get proThemeHint => 'Pro से और थीम अनलॉक करें';
 
   @override
-  String get shareStats => 'Share Stats';
+  String get shareStats => 'आँकड़े साझा करें';
 
   @override
-  String get updateAvailable => 'Update Available';
+  String get updateAvailable => 'अपडेट उपलब्ध';
 
   @override
   String get updateBody =>
-      'A new version of CryptiQ is available. Update now for the best experience!';
+      'CryptiQ का नया संस्करण उपलब्ध है। सर्वश्रेष्ठ अनुभव के लिए अभी अपडेट करें!';
 
   @override
-  String get updateNow => 'Update Now';
+  String get updateNow => 'अभी अपडेट करें';
 
   @override
-  String get puzzlesSolved => 'Puzzles Solved';
+  String get puzzlesSolved => 'हल की गई पहेलियाँ';
+
+  @override
+  String get allDone => 'सब हो गया!';
+
+  @override
+  String hintCount(int count) {
+    return 'संकेत ($count)';
+  }
+
+  @override
+  String get incorrectTryAgain => 'गलत — फिर से प्रयास करें!';
+
+  @override
+  String playerScored(String player, int score) {
+    return '$player ने $score अंक प्राप्त किए';
+  }
+
+  @override
+  String hintsCount(int count) {
+    return '$count संकेत';
+  }
+
+  @override
+  String roundOf(int current, int total) {
+    return 'राउंड $current/$total';
+  }
+
+  @override
+  String get imReady => 'मैं तैयार हूँ!';
+
+  @override
+  String playerWins(String player) {
+    return '$player जीता!';
+  }
+
+  @override
+  String playerStatsLine(int solved, int total, String time, int hints) {
+    return '$solved/$total हल • $time • $hints संकेत';
+  }
+
+  @override
+  String scorePts(int score) {
+    return '$scoreअंक';
+  }
+
+  @override
+  String get playerNameHint => 'खिलाड़ी का नाम';
+
+  @override
+  String get multiStepNote =>
+      'बहु-चरण पहेलियाँ केवल कठिन/विशेषज्ञ हैं। कठिनाई अनदेखी होगी।';
+
+  @override
+  String percentUnlocked(String percent) {
+    return '$percent% अनलॉक';
+  }
+
+  @override
+  String shareDailyText(String time, int streak) {
+    return 'मैंने CryptiQ की दैनिक चुनौती $time में हल की! 🔥 $streak दिन की श्रृंखला! क्या आप हरा सकते हैं?\n\n#CryptiQ #दैनिकचुनौती';
+  }
 }

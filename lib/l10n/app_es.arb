@@ -29,7 +29,13 @@
   "time": "Tiempo",
   "hints": "Pistas",
   "bestTime": "Mejor Tiempo",
-  "levelsCompleted": "Niveles Completados",
+  "levelsCompleted": "{count}/{total} completados",
+  "@levelsCompleted": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
   "totalTime": "Tiempo Total",
   "averageTime": "Promedio",
   "hintsUsed": "Pistas Usadas",
@@ -53,17 +59,16 @@
   "resume": "Continuar",
   "stars": "{count} Estrellas",
   "@stars": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
+    "placeholders": { "count": { "type": "int" } }
   },
   "selectLevel": "Elegir Nivel",
   "badges": "Insignias",
   "passAndPlay": "Pasar y Jugar (2-4)",
   "decodeTheLogic": "Descifra la Lógica",
   "continueLevel": "Continuar (Nivel {number})",
+  "@continueLevel": {
+    "placeholders": { "number": { "type": "int" } }
+  },
   "selectDifficulty": "Elegir Dificultad",
   "all": "Todos",
   "completed": "Completado",
@@ -95,38 +100,173 @@
   "playAgain": "Jugar de Nuevo",
   "results": "Resultados",
   "dailyStreak": "Racha Diaria",
-  "@continueLevel": {
-    "placeholders": {
-      "number": {
-        "type": "int"
-      }
-    }
-  },
   "giveUp": "Rendirse",
   "rematch": "Revancha",
   "achievementUnlocked": "¡Logro Desbloqueado!",
   "noHintsAvailable": "Sin pistas para este puzzle",
   "overallProgress": "Progreso General",
   "roundNumber": "Ronda {number}",
+  "@roundNumber": {
+    "placeholders": { "number": { "type": "int" } }
+  },
   "dayStreak": "¡{count} Días de Racha!",
+  "@dayStreak": {
+    "placeholders": { "count": { "type": "int" } }
+  },
   "shareResult": "Compartir Resultado",
   "dailyComplete": "¡Desafío Diario Completo!",
-  "@roundNumber": {
-    "placeholders": {
-      "number": {
-        "type": "int"
-      }
-    }
-  },
-  "@dayStreak": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "completeMoreLevels": "Completa más niveles para repetir",
   "viewSolution": "Ver Solución",
   "attempts": "Intentos",
-  "close": "Cerrar"
+  "close": "Cerrar",
+  "game": "Juego",
+  "soundEffects": "Efectos de Sonido",
+  "hapticFeedback": "Vibración Háptica",
+  "dailyReminder": "Recordatorio Diario",
+  "appearance": "Apariencia",
+  "upgradeToPro": "Mejorar a Pro",
+  "noAds": "Sin Anuncios",
+  "allThemes": "Todos los Temas",
+  "bonusHint": "+1 Pista Bonus",
+  "goPro": "Ser Pro",
+  "proActive": "CryptiQ Pro ✓",
+  "byDifficulty": "Por Dificultad",
+  "totalStars": "Estrellas Totales",
+  "avgTime": "Tiempo Promedio",
+  "enjoyingApp": "¿Te gusta CryptiQ?",
+  "rateAppBody": "Si te gusta la app, ¡tómate un momento para calificarla!",
+  "noThanks": "No, Gracias",
+  "later": "Después",
+  "rateNow": "Calificar Ahora ⭐",
+  "undo": "Deshacer",
+  "overview": "Resumen",
+  "dataCollection": "Recopilación de Datos",
+  "thirdPartyServices": "Servicios de Terceros",
+  "dataStorage": "Almacenamiento de Datos",
+  "childrenPrivacy": "Privacidad Infantil",
+  "changes": "Cambios",
+  "contact": "Contacto",
+  "lastUpdated": "Última Actualización",
+  "levelsOf": "{completed} de {total} niveles completados",
+  "@levelsOf": {
+    "placeholders": {
+      "completed": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "tutorialWelcomeTitle": "¡Bienvenido a CryptiQ!",
+  "tutorialWelcomeBody": "Cada letra representa un dígito único (0-9).\nTu objetivo: descubrir qué dígito representa cada letra\npara que la ecuación sea correcta.",
+  "tutorialSelectTitle": "Paso 1: Selecciona una Letra",
+  "tutorialSelectBody": "Toca cualquier letra en la ecuación.\nSe resaltará mostrando que está seleccionada.",
+  "tutorialAssignTitle": "Paso 2: Asigna un Dígito",
+  "tutorialAssignBody": "Usa el teclado numérico para asignar un dígito (0-9)\na la letra seleccionada.\n¡Cada dígito solo se puede usar una vez!",
+  "tutorialCheckTitle": "Paso 3: Verifica tu Respuesta",
+  "tutorialCheckBody": "Cuando todas las letras tengan dígitos, toca \"Verificar\".\n¡Las letras incorrectas se vuelven rojas — corrígelas!\nUsa Pistas o Deshacer si te atascas.",
+  "tutorialGoTitle": "¡Estás Listo!",
+  "tutorialGoBody": "¡Resuelve rápido con menos pistas para ⭐⭐⭐!\n¡Buena suerte y diviértete! 🧩",
+  "next": "Siguiente",
+  "autoFillNext": "Seleccionar Siguiente Letra Automáticamente",
+  "onboardingWelcomeTitle": "¡Bienvenido a CryptiQ!",
+  "onboardingWelcomeSubtitle": "Descifra la Lógica",
+  "onboardingWelcomeBody": "CryptiQ es un juego de puzzles criptaritméticos donde cada letra representa un dígito único (0-9).\n\n¡Tu objetivo: descubrir qué dígito corresponde a cada letra para que la ecuación sea verdadera!",
+  "onboardingHowToPlay": "Cómo Jugar",
+  "onboardingSelectAssign": "Seleccionar y Asignar",
+  "onboardingExample": "Si S=9, E=5, N=6, D=7\nentonces SEND = 9567",
+  "onboardingNeedHelp": "¿Necesitas Ayuda?",
+  "onboardingDailyTitle": "Desafío Diario",
+  "onboardingDailySubtitle": "¡Vuelve Cada Día!",
+  "onboardingReady": "¿Listo? ¡Vamos! 🚀",
+  "skip": "Omitir",
+  "startPlaying": "Empezar a Jugar",
+  "playerName": "Jugador {number}",
+  "@playerName": {
+    "placeholders": { "number": { "type": "int" } }
+  },
+  "addPlayer": "Añadir Jugador",
+  "roundsLabel": "Rondas: {count}",
+  "@roundsLabel": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "addition": "Suma (+)",
+  "subtraction": "Resta (−)",
+  "multiply": "Multiplicación (×)",
+  "multiStep": "Multi-paso",
+  "passDevice": "Pasa el dispositivo a este jugador",
+  "roundDetails": "Detalles de Ronda",
+  "gaveUp": "Se rindió",
+  "beatMyTime": "¿Puedes superar mi tiempo?",
+  "allLevelsFreeTitle": "Los 1200 Niveles GRATIS",
+  "allLevelsFreeBody": "Sin niveles bloqueados. ¡Disfruta!",
+  "privacyOverviewBody": "Respetamos tu privacidad y estamos comprometidos a proteger tu información personal.",
+  "privacyDataBody": "Todo el progreso del juego se almacena localmente en tu dispositivo usando almacenamiento offline (Hive). No requerimos creación de cuenta ni inicio de sesión.",
+  "privacyStorageBody": "Todos los datos (progreso, ajustes, logros) se almacenan localmente. Desinstalar la app eliminará todos los datos locales.",
+  "privacyChangesBody": "Podemos actualizar esta política. El uso continuado después de cambios constituye aceptación.",
+  "privacyContactBody": "Para preguntas, email: {email}",
+  "@privacyContactBody": {
+    "placeholders": { "email": { "type": "String" } }
+  },
+  "multiStepLabel": "Multi-paso",
+  "stars3": "Estrellas",
+  "onboardingHowToPlayBody": "1. Toca una letra para seleccionarla\n2. Toca un número (0-9) para asignarlo\n3. Cada letra debe tener un dígito único\n4. Mantén pulsada una letra para borrarla",
+  "onboardingHelpSubtitle": "Pistas y Verificación",
+  "onboardingHelpBody": "• Toca 💡 Pista para revelar una letra\n• Toca ✓ Verificar para comprobar\n• Las letras incorrectas se ponen rojas, las correctas verdes\n• ¡Resuelve con menos pistas para más ⭐!",
+  "onboardingDailyBody": "• Un nuevo puzzle cada día\n• Construye tu racha 🔥 jugando diariamente\n• Desbloquea logros mientras juegas\n• 1200 niveles de Fácil a Experto — ¡todos GRATIS!",
+  "onboardingStarExample": "⭐⭐⭐  Sin pistas, rápido\n⭐⭐     1-2 pistas\n⭐       3+ pistas",
+  "usedBy": "Usado por: {letter}",
+  "@usedBy": {
+    "placeholders": { "letter": { "type": "String" } }
+  },
+  "notUsed": "No usado",
+  "replayConfirmTitle": "¿Repetir este nivel?",
+  "replayConfirmBody": "Ya tienes ⭐⭐⭐ en este nivel. Tu mejor puntuación se mantendrá.",
+  "cancel": "Cancelar",
+  "newBadge": "NUEVO",
+  "themePicker": "Tema",
+  "proThemeHint": "Desbloquea más temas con Pro",
+  "shareStats": "Compartir Estadísticas",
+  "updateAvailable": "Actualización Disponible",
+  "updateBody": "Una nueva versión de CryptiQ está disponible. ¡Actualiza ahora para la mejor experiencia!",
+  "updateNow": "Actualizar Ahora",
+  "puzzlesSolved": "Puzzles Resueltos",
+  "allDone": "¡Todo Listo!",
+  "hintCount": "Pista ({count})",
+  "@hintCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "incorrectTryAgain": "Incorrecto — ¡intenta de nuevo!",
+  "playerScored": "{player} obtuvo {score} pts",
+  "@playerScored": {
+    "placeholders": { "player": { "type": "String" }, "score": { "type": "int" } }
+  },
+  "hintsCount": "{count} pistas",
+  "@hintsCount": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "roundOf": "Ronda {current} de {total}",
+  "@roundOf": {
+    "placeholders": { "current": { "type": "int" }, "total": { "type": "int" } }
+  },
+  "imReady": "¡Estoy Listo!",
+  "playerWins": "¡{player} Gana!",
+  "@playerWins": {
+    "placeholders": { "player": { "type": "String" } }
+  },
+  "playerStatsLine": "{solved}/{total} resueltos • {time} • {hints} pistas",
+  "@playerStatsLine": {
+    "placeholders": { "solved": { "type": "int" }, "total": { "type": "int" }, "time": { "type": "String" }, "hints": { "type": "int" } }
+  },
+  "scorePts": "{score}pts",
+  "@scorePts": {
+    "placeholders": { "score": { "type": "int" } }
+  },
+  "playerNameHint": "Nombre del jugador",
+  "multiStepNote": "Los puzzles multi-paso son solo Difícil/Experto. La dificultad se ignorará.",
+  "percentUnlocked": "{percent}% desbloqueado",
+  "@percentUnlocked": {
+    "placeholders": { "percent": { "type": "String" } }
+  },
+  "shareDailyText": "¡Resolví el Desafío Diario de CryptiQ en {time}! 🔥 ¡{streak} días de racha! ¿Puedes superarlo?\n\n#CryptiQ #DesafíoDiario",
+  "@shareDailyText": {
+    "placeholders": { "time": { "type": "String" }, "streak": { "type": "int" } }
+  }
 }
