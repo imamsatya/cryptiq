@@ -9,6 +9,8 @@ import '../../core/services/audio_service.dart';
 import '../../domain/entities/puzzle.dart';
 import '../../levels/puzzle_generator.dart';
 import '../widgets/puzzle_display.dart';
+import '../widgets/number_pad.dart';
+import '../widgets/letter_tile.dart';
 
 /// Player score for one round
 class PlayerRound {
@@ -484,6 +486,39 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
       ),
     );
   }
+  Widget _buildLetterTiles() {
+    final letters = _currentPuzzle.allLetters;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Wrap(
+        spacing: 8,
+        runSpacing: 8,
+        alignment: WrapAlignment.center,
+        children: letters.map((letter) {
+          final digit = _assignments[letter];
+          final isSelected = _selectedLetter == letter;
+
+          return LetterTile(
+            letter: letter,
+            digit: digit,
+            isSelected: isSelected,
+            isWrong: false,
+            isCorrect: false,
+            isHinted: false,
+            onTap: () {
+              setState(() => _selectedLetter = letter);
+              AudioService.instance.playTap();
+              HapticFeedback.lightImpact();
+            },
+            onLongPress: () {
+              setState(() => _assignments[letter] = null);
+              HapticFeedback.mediumImpact();
+            },
+          );
+        }).toList(),
+      ),
+    );
+  }
 
   Widget _buildGameScreen() {
     final l10n = AppLocalizations.of(context)!;
@@ -577,51 +612,25 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                 ),
               ),
 
+              // Letter tiles
+              _buildLetterTiles(),
+
+              const SizedBox(height: 12),
+
               // Number pad + actions
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   children: [
                     // Number pad
-                    Wrap(
-                      spacing: 6,
-                      runSpacing: 6,
-                      alignment: WrapAlignment.center,
-                      children: List.generate(10, (i) {
-                        final usedByOther = _assignments.values.contains(i);
-                        return GestureDetector(
-                          onTap: _selectedLetter != null
-                              ? () => _assignDigit(i)
-                              : null,
-                          child: Container(
-                            width: 42,
-                            height: 42,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: usedByOther
-                                  ? AppTheme.surfaceColor.withValues(alpha: 0.3)
-                                  : AppTheme.surfaceColor,
-                              border: Border.all(
-                                color: usedByOther
-                                    ? Colors.white.withValues(alpha: 0.05)
-                                    : AppTheme.primaryColor.withValues(alpha: 0.3),
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                '$i',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600,
-                                  color: usedByOther
-                                      ? AppTheme.textMuted
-                                      : Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                        );
-                      }),
+                    NumberPad(
+                      usedDigits: _assignments.values.whereType<int>().toSet(),
+                      onDigitTap: (digit) {
+                        _assignDigit(digit);
+                        AudioService.instance.playTap();
+                        HapticFeedback.selectionClick();
+                      },
+                      enabled: _selectedLetter != null,
                     ),
                     const SizedBox(height: 12),
 
