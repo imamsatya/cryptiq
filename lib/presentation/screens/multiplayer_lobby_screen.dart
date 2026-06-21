@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../../l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
+import '../../data/datasources/local_database.dart';
 
 /// The lobby for Pass & Play multiplayer setup
 class MultiplayerLobbyScreen extends StatefulWidget {
@@ -17,7 +19,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
     TextEditingController(),
   ];
 
-  int _rounds = 3;
+  int _rounds = 2;
   String _difficulty = 'mixed';
   String _operation = 'mixed';
   bool _allowHints = true;
@@ -25,11 +27,64 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
   static const _difficultyKeys = ['easy', 'medium', 'hard', 'expert', 'mixed'];
   static const _operationKeys = ['+', '-', '*', 'multi', 'mixed'];
 
+  void _showProDialog(String message) {
+    HapticFeedback.heavyImpact();
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: AppTheme.surfaceColor,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        title: Row(
+          children: [
+            const Text('👑', style: TextStyle(fontSize: 24)),
+            const SizedBox(width: 8),
+            Text('CryptiQ Pro',
+                style: TextStyle(
+                    color: AppTheme.primaryColor,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 20)),
+          ],
+        ),
+        content: Text(
+          message,
+          style: const TextStyle(color: Colors.white, fontSize: 15),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(AppLocalizations.of(context)!.cancel,
+                style: const TextStyle(color: AppTheme.textMuted)),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppTheme.primaryColor,
+              foregroundColor: AppTheme.backgroundDark,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)),
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+              context.push('/store');
+            },
+            child: Text(AppLocalizations.of(context)!.buyProTitle,
+                style: const TextStyle(fontWeight: FontWeight.w700)),
+          ),
+        ],
+      ),
+    );
+  }
+
   void _addPlayer() {
-    if (_nameControllers.length < 4) {
+    final isPro = LocalDatabase.instance.getProStatus();
+    if (!isPro && _nameControllers.length >= 2) {
+      _showProDialog('Main beramai-ramai lebih seru! Buka batas pemain hingga 6 orang dengan CryptiQ Pro.');
+      return;
+    }
+
+    final maxPlayers = isPro ? 6 : 2;
+    if (_nameControllers.length < maxPlayers) {
       setState(() {
-        _nameControllers
-            .add(TextEditingController());
+        _nameControllers.add(TextEditingController());
       });
     }
   }
@@ -70,6 +125,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isPro = LocalDatabase.instance.getProStatus();
     final l10n = AppLocalizations.of(context)!;
 
     final difficulties = {
@@ -181,7 +237,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                         ),
                       );
                     }),
-                    if (_nameControllers.length < 4)
+                    if (_nameControllers.length < (isPro ? 6 : 4))
                       GestureDetector(
                         onTap: _addPlayer,
                         child: Container(
@@ -207,6 +263,10 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                                   fontSize: 14,
                                 ),
                               ),
+                              if (!isPro && _nameControllers.length >= 2) ...[
+                                SizedBox(width: 6),
+                                Text('👑', style: TextStyle(fontSize: 14)),
+                              ],
                             ],
                           ),
                         ),
@@ -230,11 +290,18 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                         child: Slider(
                           value: _rounds.toDouble(),
                           min: 1,
-                          max: 7,
-                          divisions: 6,
+                          max: 10,
+                          divisions: 9,
                           label: '$_rounds',
-                          onChanged: (v) =>
-                              setState(() => _rounds = v.round()),
+                          onChanged: (v) {
+                            final val = v.round();
+                            if (!isPro && val > 2) {
+                              _showProDialog('Tambah keseruan! Mainkan hingga 10 ronde dengan CryptiQ Pro.');
+                              setState(() => _rounds = 2);
+                            } else {
+                              setState(() => _rounds = val);
+                            }
+                          },
                         ),
                       ),
                     ),

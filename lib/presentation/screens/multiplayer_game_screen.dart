@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/services/audio_service.dart';
+import '../../core/services/ad_service.dart';
 import '../../domain/entities/puzzle.dart';
 import '../../levels/puzzle_generator.dart';
 import '../widgets/puzzle_display.dart';
@@ -298,6 +299,11 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
       });
     } else {
       // All players done this round
+      // Show Interstitial Ad before moving to next round or results
+      if (AdService.instance.isInitialized) {
+        await AdService.instance.showInterstitial();
+      }
+
       final nextRound = _currentRound + 1;
       if (nextRound < widget.totalRounds) {
         // Next round
