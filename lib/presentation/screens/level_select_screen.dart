@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../../l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -8,6 +9,7 @@ import '../../domain/entities/puzzle.dart';
 import '../../levels/puzzle_generator.dart';
 import '../../data/datasources/local_database.dart';
 import '../../domain/entities/user_progress.dart';
+import '../../core/constants/app_constants.dart';
 
 class LevelSelectScreen extends ConsumerWidget {
   const LevelSelectScreen({super.key});
@@ -120,9 +122,11 @@ class LevelSelectScreen extends ConsumerWidget {
       itemBuilder: (context, index) {
         final levelNum = startLevel + index;
         final progress = LocalDatabase.instance.getProgress(levelNum);
+        final highestCompleted = LocalDatabase.instance.getHighestCompletedLevel();
         final isCompleted = progress?.isCompleted ?? false;
         final stars = progress?.stars ?? 0;
-        final isNew = !isCompleted && progress == null && levelNum <= endLevel;
+        final isLocked = levelNum > highestCompleted + 1 && !AppConstants.devProMode;
+        final isNew = !isCompleted && !isLocked && progress == null && levelNum <= endLevel;
 
         final diffColor = switch (difficulty) {
           DifficultyLevel.easy => AppTheme.easyColor,
@@ -133,6 +137,10 @@ class LevelSelectScreen extends ConsumerWidget {
 
         return GestureDetector(
           onTap: () {
+            if (isLocked) {
+              HapticFeedback.lightImpact();
+              return;
+            }
             if (!isCompleted) {
               context.push('/game/$levelNum');
               return;
@@ -145,8 +153,10 @@ class LevelSelectScreen extends ConsumerWidget {
               : null,
           child: Container(
             decoration: BoxDecoration(
-              color: isCompleted
-                  ? diffColor.withValues(alpha: 0.15)
+              color: isLocked
+                  ? AppTheme.surfaceColor.withValues(alpha: 0.2)
+                  : isCompleted
+                      ? diffColor.withValues(alpha: 0.15)
                   : AppTheme.surfaceColor.withValues(alpha: 0.5),
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
@@ -166,16 +176,23 @@ class LevelSelectScreen extends ConsumerWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          '$levelNum',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w600,
-                            color: isCompleted
-                                ? diffColor
-                                : Colors.white,
+                        if (isLocked)
+                          Icon(
+                            Icons.lock_rounded,
+                            color: Colors.white.withValues(alpha: 0.2),
+                            size: 20,
+                          )
+                        else
+                          Text(
+                            '$levelNum',
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                              color: isCompleted
+                                  ? diffColor
+                                  : Colors.white,
+                            ),
                           ),
-                        ),
                         if (isCompleted) ...[
                           const SizedBox(height: 1),
                           Row(
