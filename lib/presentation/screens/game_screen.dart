@@ -131,14 +131,6 @@ class _GameScreenState extends ConsumerState<GameScreen>
                     AudioService.instance.playTap();
                     HapticFeedback.selectionClick();
                   },
-                  onClearTap: () {
-                    final selected = gameState.selectedLetter;
-                    if (selected != null) {
-                      ref.read(gameStateProvider(widget.levelNumber).notifier).clearLetter(selected);
-                      AudioService.instance.playTap();
-                      HapticFeedback.selectionClick();
-                    }
-                  },
                   enabled: gameState.selectedLetter != null && !gameState.isComplete,
                 ),
               ),
@@ -378,21 +370,26 @@ class _GameScreenState extends ConsumerState<GameScreen>
 
           const SizedBox(width: 8),
 
-          // Clear button
+          // Clear (Eraser) button
           GestureDetector(
-            onTap: gameState.isComplete
+            onTap: (gameState.isComplete || gameState.selectedLetter == null)
                 ? null
                 : () {
-                    ref
-                        .read(gameStateProvider(widget.levelNumber).notifier)
-                        .clearAll();
-                    HapticFeedback.lightImpact();
+                    final selected = gameState.selectedLetter;
+                    if (selected != null) {
+                      ref.read(gameStateProvider(widget.levelNumber).notifier).clearLetter(selected);
+                      AudioService.instance.playTap();
+                      HapticFeedback.lightImpact();
+                    }
                   },
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
               decoration: AppTheme.glassDecoration(borderRadius: 14),
-              child: const Icon(Icons.refresh_rounded,
-                  color: AppTheme.textSecondary, size: 22),
+              child: Icon(Icons.backspace_outlined,
+                  color: (gameState.isComplete || gameState.selectedLetter == null)
+                      ? AppTheme.textSecondary.withValues(alpha: 0.3)
+                      : Colors.redAccent.withValues(alpha: 0.8), 
+                  size: 22),
             ),
           ),
 

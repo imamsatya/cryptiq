@@ -653,15 +653,6 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                         AudioService.instance.playTap();
                         HapticFeedback.selectionClick();
                       },
-                      onClearTap: () {
-                        if (_selectedLetter != null) {
-                          setState(() {
-                            _assignments[_selectedLetter!] = null;
-                          });
-                          AudioService.instance.playTap();
-                          HapticFeedback.selectionClick();
-                        }
-                      },
                       enabled: _selectedLetter != null,
                     ),
                     const SizedBox(height: 12),
@@ -706,6 +697,28 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                           ),
                           const SizedBox(width: 8),
                         ],
+                        // Eraser
+                        GestureDetector(
+                          onTap: _selectedLetter == null
+                              ? null
+                              : () {
+                                  setState(() {
+                                    _assignments[_selectedLetter!] = null;
+                                  });
+                                  AudioService.instance.playTap();
+                                  HapticFeedback.lightImpact();
+                                },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 14),
+                            decoration: AppTheme.glassDecoration(borderRadius: 12),
+                            child: Icon(Icons.backspace_outlined,
+                                color: _selectedLetter == null
+                                    ? AppTheme.textSecondary.withValues(alpha: 0.3)
+                                    : Colors.redAccent.withValues(alpha: 0.8),
+                                size: 18),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
                         // Check
                         Expanded(
                           child: GestureDetector(

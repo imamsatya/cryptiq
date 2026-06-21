@@ -173,14 +173,6 @@ class DailyChallengeScreen extends ConsumerWidget {
                       AudioService.instance.playTap();
                       HapticFeedback.selectionClick();
                     },
-                    onClearTap: () {
-                      final selected = gameState.selectedLetter;
-                      if (selected != null) {
-                        ref.read(dailyGameStateProvider.notifier).clearLetter(selected);
-                        AudioService.instance.playTap();
-                        HapticFeedback.selectionClick();
-                      }
-                    },
                     onDigitLongPress: (digit) {
                       final entry = gameState.assignments.entries
                           .where((e) => e.value == digit)
@@ -235,17 +227,26 @@ class DailyChallengeScreen extends ConsumerWidget {
                         ),
                       ),
                       const SizedBox(width: 8),
-                      // Clear button
+                      // Clear (Eraser) button
                       GestureDetector(
-                        onTap: () {
-                          ref.read(dailyGameStateProvider.notifier).clearAll();
-                          HapticFeedback.lightImpact();
-                        },
+                        onTap: (gameState.isComplete || gameState.selectedLetter == null)
+                            ? null
+                            : () {
+                                final selected = gameState.selectedLetter;
+                                if (selected != null) {
+                                  ref.read(dailyGameStateProvider.notifier).clearLetter(selected);
+                                  AudioService.instance.playTap();
+                                  HapticFeedback.lightImpact();
+                                }
+                              },
                         child: Container(
                           padding: const EdgeInsets.all(14),
                           decoration: AppTheme.glassDecoration(borderRadius: 14),
-                          child: const Icon(Icons.refresh_rounded,
-                              color: Colors.white, size: 20),
+                          child: Icon(Icons.backspace_outlined,
+                              color: (gameState.isComplete || gameState.selectedLetter == null)
+                                  ? AppTheme.textSecondary.withValues(alpha: 0.3)
+                                  : Colors.redAccent.withValues(alpha: 0.8),
+                              size: 20),
                         ),
                       ),
                       const SizedBox(width: 8),
