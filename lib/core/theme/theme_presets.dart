@@ -116,16 +116,16 @@ class ThemePresets {
     surfaceLight: Color(0xFF4D2339),
   );
 
-  static const candyPink = ThemePreset(
-    id: 'candy_pink',
-    name: 'Candy Pink',
-    emoji: '🌸',
-    primaryColor: Color(0xFFFF85A2),
-    secondaryColor: Color(0xFFFF5277),
-    backgroundDark: Color(0xFF1E0A11),
-    backgroundLight: Color(0xFF33111C),
-    surfaceColor: Color(0xFF471829),
-    surfaceLight: Color(0xFF5C2037),
+  static const sunsetOrange = ThemePreset(
+    id: 'sunset_orange',
+    name: 'Sunset Orange',
+    emoji: '🌅',
+    primaryColor: Color(0xFFFF9800),
+    secondaryColor: Color(0xFFFF5722),
+    backgroundDark: Color(0xFF1F110B),
+    backgroundLight: Color(0xFF331C12),
+    surfaceColor: Color(0xFF47281A),
+    surfaceLight: Color(0xFF5C3422),
   );
 
   static const List<ThemePreset> all = [
@@ -134,7 +134,7 @@ class ThemePresets {
     midnightPurple,
     forestGreen,
     roseGold,
-    candyPink,
+    sunsetOrange,
   ];
 
   static ThemePreset getById(String id) {
