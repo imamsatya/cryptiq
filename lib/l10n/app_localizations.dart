@@ -242,6 +242,12 @@ abstract class AppLocalizations {
   /// **'Hints'**
   String get hints;
 
+  /// No description provided for @allowHints.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow Hints'**
+  String get allowHints;
+
   /// No description provided for @bestTime.
   ///
   /// In en, this message translates to:

@@ -74,6 +74,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get hints => 'संकेत';
 
   @override
+  String get allowHints => 'Allow Hints';
+
+  @override
   String get bestTime => 'सर्वश्रेष्ठ समय';
 
   @override

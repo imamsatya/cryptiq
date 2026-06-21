@@ -33,6 +33,7 @@ class MultiplayerGameScreen extends StatefulWidget {
   final int totalRounds;
   final String difficulty;
   final String operation;
+  final bool allowHints;
 
   const MultiplayerGameScreen({
     super.key,
@@ -40,6 +41,7 @@ class MultiplayerGameScreen extends StatefulWidget {
     required this.totalRounds,
     required this.difficulty,
     required this.operation,
+    required this.allowHints,
   });
 
   @override
@@ -641,26 +643,28 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                         ),
                         const SizedBox(width: 8),
                         // Hint
-                        GestureDetector(
-                          onTap: _useHint,
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 12, horizontal: 14),
-                            decoration:
-                                AppTheme.glassDecoration(borderRadius: 12),
-                            child: Row(
-                              children: [
-                                Icon(Icons.lightbulb_outline,
-                                    color: AppTheme.primaryColor, size: 18),
-                                const SizedBox(width: 4),
-                                Text(l10n.hintCount(_hintsUsed),
-                                    style: const TextStyle(
-                                        color: Colors.white, fontSize: 13)),
-                              ],
+                        if (widget.allowHints) ...[
+                          GestureDetector(
+                            onTap: _useHint,
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 12, horizontal: 14),
+                              decoration:
+                                  AppTheme.glassDecoration(borderRadius: 12),
+                              child: Row(
+                                children: [
+                                  Icon(Icons.lightbulb_outline,
+                                      color: AppTheme.primaryColor, size: 18),
+                                  const SizedBox(width: 4),
+                                  Text(l10n.hintCount(_hintsUsed),
+                                      style: const TextStyle(
+                                          color: Colors.white, fontSize: 13)),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(width: 8),
+                          const SizedBox(width: 8),
+                        ],
                         // Check
                         Expanded(
                           child: GestureDetector(

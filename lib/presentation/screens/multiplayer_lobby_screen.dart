@@ -20,6 +20,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
   int _rounds = 3;
   String _difficulty = 'mixed';
   String _operation = 'mixed';
+  bool _allowHints = true;
 
   static const _difficultyKeys = ['easy', 'medium', 'hard', 'expert', 'mixed'];
   static const _operationKeys = ['+', '-', '*', 'multi', 'mixed'];
@@ -55,6 +56,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
       'rounds': _rounds,
       'difficulty': _difficulty,
       'operation': _operation,
+      'allowHints': _allowHints,
     });
   }
 
@@ -272,6 +274,37 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                       options: operations,
                       selected: _operation,
                       onSelect: (v) => setState(() => _operation = v),
+                    ),
+
+                    const SizedBox(height: 24),
+
+                    // --- Allow Hints ---
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      decoration: AppTheme.glassDecoration(borderRadius: 14),
+                      child: Row(
+                        children: [
+                          Icon(Icons.lightbulb_outline_rounded,
+                              color: AppTheme.primaryColor, size: 22),
+                          const SizedBox(width: 14),
+                          Expanded(
+                            child: Text(
+                              l10n.allowHints,
+                              style: const TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white),
+                            ),
+                          ),
+                          Switch(
+                            value: _allowHints,
+                            onChanged: (val) => setState(() => _allowHints = val),
+                            activeTrackColor: AppTheme.primaryColor,
+                            activeThumbColor: Colors.white,
+                            inactiveTrackColor: AppTheme.surfaceColor,
+                          ),
+                        ],
+                      ),
                     ),
 
                     const SizedBox(height: 32),

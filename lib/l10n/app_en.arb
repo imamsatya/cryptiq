@@ -28,6 +28,7 @@
   "share": "Share",
   "time": "Time",
   "hints": "Hints",
+  "allowHints": "Allow Hints",
   "bestTime": "Best Time",
   "levelsCompleted": "{count}/{total} completed",
   "totalTime": "Total Time",

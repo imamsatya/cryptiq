@@ -74,6 +74,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get hints => 'تلميحات';
 
   @override
+  String get allowHints => 'Allow Hints';
+
+  @override
   String get bestTime => 'أفضل وقت';
 
   @override

@@ -74,6 +74,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get hints => '提示';
 
   @override
+  String get allowHints => 'Allow Hints';
+
+  @override
   String get bestTime => '最佳时间';
 
   @override

@@ -74,6 +74,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get hints => 'Pistas';
 
   @override
+  String get allowHints => 'Allow Hints';
+
+  @override
   String get bestTime => 'Mejor Tiempo';
 
   @override

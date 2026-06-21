@@ -74,6 +74,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get hints => 'Petunjuk';
 
   @override
+  String get allowHints => 'Izinkan Bantuan (Hints)';
+
+  @override
   String get bestTime => 'Waktu Terbaik';
 
   @override

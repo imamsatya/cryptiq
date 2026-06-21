@@ -153,6 +153,7 @@ final appRouter = GoRouter(
             totalRounds: extras['rounds'],
             difficulty: extras['difficulty'],
             operation: extras['operation'],
+            allowHints: extras['allowHints'] ?? true,
           ),
           state: state,
         );

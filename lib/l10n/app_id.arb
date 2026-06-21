@@ -21,6 +21,7 @@
   "share": "Bagikan",
   "time": "Waktu",
   "hints": "Petunjuk",
+  "allowHints": "Izinkan Bantuan (Hints)",
   "bestTime": "Waktu Terbaik",
   "levelsCompleted": "{count}/{total} selesai",
   "totalTime": "Total Waktu",

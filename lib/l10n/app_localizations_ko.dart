@@ -74,6 +74,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get hints => '힌트';
 
   @override
+  String get allowHints => 'Allow Hints';
+
+  @override
   String get bestTime => '최고 기록';
 
   @override
