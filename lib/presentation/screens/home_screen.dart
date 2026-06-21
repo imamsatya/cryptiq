@@ -44,6 +44,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   Widget build(BuildContext context) {
     ref.watch(themeProvider); // Ensure screen rebuilds when theme changes
     final highestCompleted = LocalDatabase.instance.getHighestCompletedLevel();
+    final totalCompleted = LocalDatabase.instance.getCompletedLevelsCount();
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
@@ -99,7 +100,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 // Completion progress
                 Center(
                   child: Text(
-                    l10n.levelsCompleted(highestCompleted, PuzzleGenerator.totalPuzzles),
+                    l10n.levelsCompleted(totalCompleted, PuzzleGenerator.totalPuzzles),
                     style: TextStyle(
                       fontSize: 12,
                       color: AppTheme.textSecondary.withValues(alpha: 0.6),
