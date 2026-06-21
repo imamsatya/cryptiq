@@ -7,6 +7,8 @@ class AppConstants {
   static const String appVersion = '1.0.0';
   static const String packageName = 'com.cryptiq.app';
   static const String contactEmail = 'cryptiq.app@gmail.com';
+  static const String privacyPolicyUrl = 'https://cryptiq.vercel.app';
+  static const String playStoreUrl = 'https://play.google.com/store/apps/details?id=com.cryptiq.app';
 
   // ⚡ Developer Mode — set to false before production/Play Store release!
   static const bool devProMode = false;  // Forces Pro status ON for testing

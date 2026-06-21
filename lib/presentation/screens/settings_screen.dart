@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/theme/theme_presets.dart';
 import '../../core/services/audio_service.dart';
@@ -206,9 +207,13 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     _buildTapTile(
                       icon: Icons.privacy_tip_outlined,
                       title: l10n.privacyPolicy,
-                      onTap: () {
-                        context.push('/privacy');
-                      },
+                      onTap: () => _launchUrl(AppConstants.privacyPolicyUrl),
+                    ),
+                    const SizedBox(height: 8),
+                    _buildTapTile(
+                      icon: Icons.star_rate_rounded,
+                      title: 'Rate Us', // TODO: Add to l10n later if needed
+                      onTap: () => _launchUrl(AppConstants.playStoreUrl),
                     ),
 
                     const SizedBox(height: 32),
@@ -567,5 +572,16 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
       ),
     );
+  }
+
+  Future<void> _launchUrl(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    try {
+      if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+        debugPrint('Could not launch $url');
+      }
+    } catch (e) {
+      debugPrint('Error launching url: $e');
+    }
   }
 }
