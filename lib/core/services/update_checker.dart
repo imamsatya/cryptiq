@@ -14,12 +14,9 @@ class UpdateChecker {
   /// Check if an update prompt should be shown.
   /// Returns true if the user hasn't dismissed the current prompt.
   Future<bool> shouldPrompt() async {
-    final info = await PackageInfo.fromPlatform();
-    final currentVersion = info.version;
-    final dismissed = LocalDatabase.instance.settingsBox
-        .get(_dismissedVersionKey, defaultValue: '');
-    // Don't re-prompt if user already dismissed this version
-    return dismissed != currentVersion;
+    // Disabled for MVP since there is no remote API to check against.
+    // Otherwise it will incorrectly prompt on every new installation.
+    return false;
   }
 
   /// Mark the current version as dismissed (user tapped "Later")
