@@ -32,7 +32,11 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
 
     if (mounted) {
       setState(() => _isLoading = false);
-      if (!success && !iap.purchasePending) {
+      if (success) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('CryptiQ Pro Activated!')),
+        );
+      } else if (!iap.purchasePending) {
         // Only show error if not pending (user might have just cancelled)
       }
     }

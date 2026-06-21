@@ -67,6 +67,13 @@ class IapService {
 
   /// Purchase Go Pro.
   Future<bool> purchasePro() async {
+    if (kDebugMode || kIsWeb) {
+      debugPrint('IapService: DEV MODE - Mocking successful purchase!');
+      LocalDatabase.instance.setProStatus(true);
+      AdService.instance.disposeBanner();
+      return true;
+    }
+
     if (!_isAvailable || _proProduct == null) {
       debugPrint('IapService: Cannot purchase — store or product unavailable');
       return false;
