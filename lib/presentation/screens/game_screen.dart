@@ -11,6 +11,7 @@ import '../widgets/puzzle_display.dart';
 import '../widgets/letter_tile.dart';
 import '../widgets/number_pad.dart';
 import '../widgets/tutorial_overlay.dart';
+import '../../data/datasources/local_database.dart';
 
 class GameScreen extends ConsumerStatefulWidget {
   final int levelNumber;
@@ -350,7 +351,9 @@ class _GameScreenState extends ConsumerState<GameScreen>
                         Text(
                           gameState.nextHintNeedsAd
                               ? '🎬 ${l10n.hint} (1)'
-                              : '${l10n.hint} ($hintsRemaining/$maxHints)',
+                              : LocalDatabase.instance.getProStatus()
+                                  ? '${l10n.hint} (∞)'
+                                  : '${l10n.hint} ($hintsRemaining/$maxHints)',
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,

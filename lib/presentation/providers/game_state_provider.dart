@@ -41,6 +41,9 @@ class GameState {
 
   /// Total hints allowed: 30% of hidden letters + pro bonus
   int get maxHints {
+    final isPro = LocalDatabase.instance.getProStatus();
+    if (isPro) return puzzle.solution.length; // Pro: Infinite hints (all letters)
+
     final letterCount = puzzle.allLetters.length;
     if (letterCount < AppConstants.minLettersForHint) return 0;
     final base = math.max(1, (letterCount * AppConstants.hintPercentage).floor());
