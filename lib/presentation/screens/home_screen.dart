@@ -28,17 +28,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   Future<void> _checkForUpdates() async {
-    final shouldPrompt = await UpdateChecker.instance.shouldPrompt();
-    if (shouldPrompt && mounted) {
-      final l10n = AppLocalizations.of(context)!;
-      UpdateChecker.showUpdateDialog(
-        context,
-        title: l10n.updateAvailable,
-        body: l10n.updateBody,
-        updateText: l10n.updateNow,
-        laterText: l10n.later,
-      );
-    }
+    await UpdateChecker.instance.checkForUpdates();
   }
 
   @override
