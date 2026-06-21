@@ -12,6 +12,7 @@ import '../../core/services/achievement_service.dart';
 import '../../levels/puzzle_generator.dart';
 import '../providers/game_state_provider.dart';
 import '../widgets/score_card.dart';
+import '../widgets/ad_banner_widget.dart';
 
 class ResultScreen extends ConsumerStatefulWidget {
   final int levelNumber;
@@ -383,6 +384,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                     ),
 
                     const Spacer(),
+                    if (!AdService.instance.isPro) const AdBannerWidget(),
                   ],
                 ),
               ),

@@ -43,6 +43,11 @@ class AdService {
       debugPrint('AdService: Ads disabled or user is Pro');
       return;
     }
+    if (kIsWeb) {
+      debugPrint('AdService: Web detected, mocking ads for testing');
+      _isInitialized = true;
+      return;
+    }
     try {
       await MobileAds.instance.initialize();
       _isInitialized = true;
@@ -59,6 +64,11 @@ class AdService {
   void loadBanner({required AdSize size, required Function(bool) onLoaded}) {
     if (!_shouldShowAds()) {
       onLoaded(false);
+      return;
+    }
+    if (kIsWeb) {
+      _isBannerLoaded = true;
+      onLoaded(true);
       return;
     }
 
@@ -143,6 +153,12 @@ class AdService {
 
   /// Show interstitial ad. Returns true if shown.
   Future<bool> showInterstitial() async {
+    if (kIsWeb) {
+      debugPrint('AdService: (Web Mock) Showing Interstitial... Done.');
+      _recordAdShown();
+      return true;
+    }
+
     if (_interstitialAd == null) {
       _preloadInterstitial();
       return false;
@@ -198,10 +214,15 @@ class AdService {
     );
   }
 
-  bool get isRewardedReady => _rewardedAd != null && _shouldShowAds();
+  bool get isRewardedReady => (kIsWeb && _shouldShowAds()) || (_rewardedAd != null && _shouldShowAds());
 
   /// Show rewarded ad. Returns true if user earned reward.
   Future<bool> showRewarded() async {
+    if (kIsWeb) {
+      debugPrint('AdService: (Web Mock) Showing Rewarded... Done.');
+      return true;
+    }
+
     if (_rewardedAd == null) {
       _preloadRewarded();
       return false;

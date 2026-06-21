@@ -6,6 +6,7 @@ import '../../core/theme/app_theme.dart';
 import '../providers/theme_provider.dart';
 import '../../core/services/update_checker.dart';
 import '../widgets/particle_background.dart';
+import '../widgets/ad_banner_widget.dart';
 import '../../core/services/daily_challenge_service.dart';
 import '../../core/services/achievement_service.dart';
 import '../../core/services/iap_service.dart';
@@ -221,6 +222,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   ),
                   textAlign: TextAlign.center,
                 ),
+                const SizedBox(height: 16),
+                const AdBannerWidget(),
                 const SizedBox(height: 16),
               ],
             ),
