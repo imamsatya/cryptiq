@@ -9,7 +9,7 @@ class AppConstants {
   static const String contactEmail = 'cryptiq.app@gmail.com';
 
   // ⚡ Developer Mode — set to false before production/Play Store release!
-  static const bool devProMode = false;  // Forces Pro status ON for testing
+  static const bool devProMode = true;  // Forces Pro status ON for testing
 
   // Game Config
   static const int totalLevels = 1200;
