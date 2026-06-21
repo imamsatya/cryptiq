@@ -341,15 +341,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-  Widget _buildPlayButton(BuildContext context, int lastPlayed) {
+  Widget _buildPlayButton(BuildContext context, int highestCompleted) {
     final l10n = AppLocalizations.of(context)!;
-    final nextLevel = lastPlayed > 0 ? lastPlayed + 1 : 1;
-    final isResume = lastPlayed > 0;
+    final isAllCompleted = highestCompleted >= PuzzleGenerator.totalPuzzles;
+    final nextLevel = isAllCompleted ? 1 : highestCompleted + 1;
+    final isResume = highestCompleted > 0 && !isAllCompleted;
 
     return GestureDetector(
       onTap: () {
-        final level = nextLevel > PuzzleGenerator.totalPuzzles ? 1 : nextLevel;
-        context.push('/game/$level');
+        if (isAllCompleted) {
+          context.push('/levels');
+        } else {
+          context.push('/game/$nextLevel');
+        }
       },
       child: Container(
         width: double.infinity,
@@ -359,13 +363,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-              isResume ? Icons.play_arrow_rounded : Icons.play_arrow_rounded,
+              isAllCompleted ? Icons.emoji_events_rounded : Icons.play_arrow_rounded,
               color: AppTheme.backgroundDark,
               size: 28,
             ),
             const SizedBox(width: 8),
             Text(
-              isResume ? l10n.continueLevel(nextLevel) : l10n.play,
+              isAllCompleted ? l10n.allDone : (isResume ? l10n.continueLevel(nextLevel) : l10n.play),
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w700,
