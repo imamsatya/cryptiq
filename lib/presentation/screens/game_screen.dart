@@ -296,7 +296,6 @@ class _GameScreenState extends ConsumerState<GameScreen>
                         if (used) {
                           AudioService.instance.playTap();
                           HapticFeedback.mediumImpact();
-                          setState(() {});
                         }
                       } else if (gameState.nextHintNeedsAd) {
                         // Last hint — watch ad first
@@ -307,7 +306,6 @@ class _GameScreenState extends ConsumerState<GameScreen>
                             notifier.unlockLastHint();
                             AudioService.instance.playTap();
                             HapticFeedback.mediumImpact();
-                            setState(() {});
                           }
                         } else {
                           if (mounted) {
