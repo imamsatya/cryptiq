@@ -86,10 +86,6 @@ class PrivacyPolicyScreen extends StatelessWidget {
                           l10n.changes,
                           l10n.privacyChangesBody,
                         ),
-                        _section(
-                          l10n.contact,
-                          l10n.privacyContactBody(AppConstants.contactEmail),
-                        ),
                       ],
                     ),
                   ),

@@ -293,15 +293,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       icon: Icons.privacy_tip_outlined,
                       title: l10n.privacyPolicy,
                       onTap: () {
-                        // TODO: Open privacy policy URL
-                      },
-                    ),
-                    const SizedBox(height: 8),
-                    _buildTapTile(
-                      icon: Icons.email_outlined,
-                      title: l10n.contactUs,
-                      onTap: () {
-                        // TODO: Open email
+                        context.push('/privacy');
                       },
                     ),
 
