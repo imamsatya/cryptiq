@@ -34,7 +34,7 @@ class AppConstants {
   static const int threeStarMaxTimeExpert = 300;
 
   // Ads — Interstitial trigger (OR logic)
-  static const bool adsEnabled = false;  // Enable when AdMob IDs are configured
+  static const bool adsEnabled = true;  // Test ads are enabled for release testing
   static const int minLevelsBetweenAds = 3;         // Condition A: min levels
   static const int minSecondsBetweenAdsShort = 120;  // Condition A: min 2 min
   static const int minSecondsBetweenAdsLong = 240;   // Condition B: 4 min auto-trigger
