@@ -427,6 +427,18 @@ class _GameScreenState extends ConsumerState<GameScreen>
                       final currentTime = gameState.elapsedSeconds;
                       final currentHints = gameState.hintsUsed;
                       final currentStars = gameState.calculateStars();
+                      final unassignedCount = gameState.assignments.values.where((v) => v == null).length;
+                      if (unassignedCount > 0) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(l10n.fillAllLetters),
+                            duration: Duration(seconds: 2),
+                          ),
+                        );
+                        HapticFeedback.lightImpact();
+                        return;
+                      }
+
                       final correct = await notifier.checkSolution();
                       if (correct) {
                         AudioService.instance.playCorrect();
@@ -440,6 +452,13 @@ class _GameScreenState extends ConsumerState<GameScreen>
                         AudioService.instance.playError();
                         HapticFeedback.heavyImpact();
                         _shakeController.forward(from: 0);
+                        
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(l10n.incorrectTryAgain),
+                            duration: Duration(seconds: 2),
+                          ),
+                        );
                       }
                     },
               child: Container(

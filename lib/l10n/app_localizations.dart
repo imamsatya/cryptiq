@@ -356,6 +356,12 @@ abstract class AppLocalizations {
   /// **'Some digits are incorrect. Try again!'**
   String get someDigitsWrong;
 
+  /// No description provided for @fillAllLetters.
+  ///
+  /// In en, this message translates to:
+  /// **'Please fill all letters first!'**
+  String get fillAllLetters;
+
   /// No description provided for @allLevelsFree.
   ///
   /// In en, this message translates to:

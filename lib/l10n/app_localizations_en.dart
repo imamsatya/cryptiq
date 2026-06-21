@@ -133,6 +133,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get someDigitsWrong => 'Some digits are incorrect. Try again!';
 
   @override
+  String get fillAllLetters => 'Please fill all letters first!';
+
+  @override
   String get allLevelsFree => 'All levels are FREE!';
 
   @override

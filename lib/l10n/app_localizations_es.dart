@@ -134,6 +134,9 @@ class AppLocalizationsEs extends AppLocalizations {
       '¡Algunos dígitos son incorrectos. Intenta de nuevo!';
 
   @override
+  String get fillAllLetters => 'Please fill all letters first!';
+
+  @override
   String get allLevelsFree => '¡Todos los niveles son GRATIS!';
 
   @override

@@ -133,6 +133,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get someDigitsWrong => '일부 숫자가 틀렸습니다. 다시 시도해주세요!';
 
   @override
+  String get fillAllLetters => 'Please fill all letters first!';
+
+  @override
   String get allLevelsFree => '모든 레벨 무료!';
 
   @override

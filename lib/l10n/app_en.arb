@@ -47,6 +47,7 @@
   "tryAgain": "Try Again",
   "wrongAnswer": "Wrong Answer",
   "someDigitsWrong": "Some digits are incorrect. Try again!",
+  "fillAllLetters": "Please fill all letters first!",
   "allLevelsFree": "All levels are FREE!",
   "noLockedLevels": "No locked levels, ever.",
   "home": "Home",

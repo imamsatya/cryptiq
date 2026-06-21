@@ -133,6 +133,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get someDigitsWrong => '部分数字不正确。请再试！';
 
   @override
+  String get fillAllLetters => 'Please fill all letters first!';
+
+  @override
   String get allLevelsFree => '所有关卡免费！';
 
   @override
