@@ -46,7 +46,7 @@ class _LetterTileState extends State<LetterTile>
     _scaleAnim = TweenSequence<double>([
       TweenSequenceItem(tween: Tween(begin: 1.0, end: 1.25), weight: 40),
       TweenSequenceItem(tween: Tween(begin: 1.25, end: 1.0), weight: 60),
-    ]).animate(CurvedAnimation(parent: _hintAnimCtrl, curve: Curves.easeOutBack));
+    ]).animate(CurvedAnimation(parent: _hintAnimCtrl, curve: Curves.easeInOut));
     _glowAnim = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(parent: _hintAnimCtrl, curve: Curves.easeOut),
     );
