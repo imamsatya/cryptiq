@@ -44,7 +44,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                 maxStars: maxStars,
                 avgTime: avgTime,
                 totalHints: totalHints,
-                currentStreak: db.settingsBox.get('daily_streak', defaultValue: 0),
+                currentStreak: DailyChallengeService.instance.streak,
               ),
             ),
             SafeArea(
