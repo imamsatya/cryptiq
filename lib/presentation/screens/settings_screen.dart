@@ -327,9 +327,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () async {
-                    await IapService.instance.purchasePro();
-                    if (mounted) setState(() {});
+                  onPressed: () {
+                    AudioService.instance.playTap();
+                    context.push('/store');
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
@@ -340,25 +340,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   ),
                   child: Text(l10n.upgradeToPro,
                       style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
-                ),
-              ),
-              const SizedBox(height: 8),
-              Center(
-                child: GestureDetector(
-                  onTap: () async {
-                    await IapService.instance.restorePurchases();
-                    await Future.delayed(const Duration(seconds: 1));
-                    if (mounted) setState(() {});
-                  },
-                  child: Text(
-                    l10n.restorePurchase,
-                    style: TextStyle(
-                      fontSize: 13,
-                      color: Colors.white.withValues(alpha: 0.7),
-                      decoration: TextDecoration.underline,
-                      decorationColor: Colors.white.withValues(alpha: 0.5),
-                    ),
-                  ),
                 ),
               ),
             ],
