@@ -159,7 +159,7 @@ class LevelSelectScreen extends ConsumerWidget {
         final isPro = LocalDatabase.instance.getProStatus();
         final isCompleted = progress?.isCompleted ?? false;
         final stars = progress?.stars ?? 0;
-        final isLocked = levelNum > highestCompleted + 1 && !isPro;
+        final isLocked = levelNum > highestCompleted + 1 && !isPro && !AppConstants.devUnlockAllLevels;
         final isNew = !isCompleted && !isLocked && progress == null && levelNum <= endLevel;
 
         final diffColor = switch (difficulty) {
