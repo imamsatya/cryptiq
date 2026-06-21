@@ -449,7 +449,7 @@ abstract class AppLocalizations {
   /// No description provided for @passAndPlay.
   ///
   /// In en, this message translates to:
-  /// **'Pass & Play (2-4)'**
+  /// **'Pass & Play'**
   String get passAndPlay;
 
   /// No description provided for @decodeTheLogic.

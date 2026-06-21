@@ -180,7 +180,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get badges => 'बैज';
 
   @override
-  String get passAndPlay => 'पास एंड प्ले (2-4)';
+  String get passAndPlay => 'पास एंड प्ले';
 
   @override
   String get decodeTheLogic => 'तर्क को डिकोड करें';

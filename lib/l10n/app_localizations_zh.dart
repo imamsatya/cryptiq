@@ -180,7 +180,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get badges => '徽章';
 
   @override
-  String get passAndPlay => '轮流玩 (2-4)';
+  String get passAndPlay => '轮流玩';
 
   @override
   String get decodeTheLogic => '破解逻辑';

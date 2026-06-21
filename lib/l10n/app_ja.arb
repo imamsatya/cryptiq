@@ -71,7 +71,7 @@
   },
   "selectLevel": "レベル選択",
   "badges": "バッジ",
-  "passAndPlay": "パス＆プレイ (2-4)",
+  "passAndPlay": "パス＆プレイ",
   "decodeTheLogic": "ロジックを解読せよ",
   "continueLevel": "続ける (レベル {number})",
   "@continueLevel": {

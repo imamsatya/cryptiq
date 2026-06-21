@@ -180,7 +180,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get badges => 'Lencana';
 
   @override
-  String get passAndPlay => 'Main Bergantian (2-4)';
+  String get passAndPlay => 'Main Bergantian';
 
   @override
   String get decodeTheLogic => 'Pecahkan Logika';

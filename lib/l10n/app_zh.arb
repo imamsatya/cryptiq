@@ -71,7 +71,7 @@
   },
   "selectLevel": "选择关卡",
   "badges": "徽章",
-  "passAndPlay": "轮流玩 (2-4)",
+  "passAndPlay": "轮流玩",
   "decodeTheLogic": "破解逻辑",
   "continueLevel": "继续 (关卡 {number})",
   "@continueLevel": {

@@ -71,7 +71,7 @@
   },
   "selectLevel": "레벨 선택",
   "badges": "배지",
-  "passAndPlay": "패스 앤 플레이 (2-4)",
+  "passAndPlay": "패스 앤 플레이",
   "decodeTheLogic": "로직을 해독하라",
   "continueLevel": "계속하기 (레벨 {number})",
   "@continueLevel": {

@@ -71,7 +71,7 @@
   },
   "selectLevel": "Choisir Niveau",
   "badges": "Badges",
-  "passAndPlay": "Passer et Jouer (2-4)",
+  "passAndPlay": "Passer et Jouer",
   "decodeTheLogic": "Déchiffrez la Logique",
   "continueLevel": "Continuer (Niveau {number})",
   "@continueLevel": {

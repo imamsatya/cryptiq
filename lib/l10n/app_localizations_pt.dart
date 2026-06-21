@@ -181,7 +181,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get badges => 'Medalhas';
 
   @override
-  String get passAndPlay => 'Passar e Jogar (2-4)';
+  String get passAndPlay => 'Passar e Jogar';
 
   @override
   String get decodeTheLogic => 'Decifre a Lógica';

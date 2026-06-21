@@ -180,7 +180,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get badges => 'الشارات';
 
   @override
-  String get passAndPlay => 'مرر والعب (2-4)';
+  String get passAndPlay => 'مرر والعب';
 
   @override
   String get decodeTheLogic => 'فك شفرة المنطق';

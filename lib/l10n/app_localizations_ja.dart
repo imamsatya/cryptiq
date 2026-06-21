@@ -180,7 +180,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get badges => 'バッジ';
 
   @override
-  String get passAndPlay => 'パス＆プレイ (2-4)';
+  String get passAndPlay => 'パス＆プレイ';
 
   @override
   String get decodeTheLogic => 'ロジックを解読せよ';

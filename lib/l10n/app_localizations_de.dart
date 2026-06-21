@@ -181,7 +181,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get badges => 'Abzeichen';
 
   @override
-  String get passAndPlay => 'Weitergeben & Spielen (2-4)';
+  String get passAndPlay => 'Weitergeben & Spielen';
 
   @override
   String get decodeTheLogic => 'Entschlüssle die Logik';

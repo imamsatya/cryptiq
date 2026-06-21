@@ -180,7 +180,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get badges => 'Badges';
 
   @override
-  String get passAndPlay => 'Pass & Play (2-4)';
+  String get passAndPlay => 'Pass & Play';
 
   @override
   String get decodeTheLogic => 'Decode the Logic';

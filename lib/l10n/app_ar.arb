@@ -71,7 +71,7 @@
   },
   "selectLevel": "اختر المستوى",
   "badges": "الشارات",
-  "passAndPlay": "مرر والعب (2-4)",
+  "passAndPlay": "مرر والعب",
   "decodeTheLogic": "فك شفرة المنطق",
   "continueLevel": "متابعة (المستوى {number})",
   "@continueLevel": {

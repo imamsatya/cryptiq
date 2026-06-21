@@ -71,7 +71,7 @@
   },
   "selectLevel": "स्तर चुनें",
   "badges": "बैज",
-  "passAndPlay": "पास एंड प्ले (2-4)",
+  "passAndPlay": "पास एंड प्ले",
   "decodeTheLogic": "तर्क को डिकोड करें",
   "continueLevel": "जारी रखें (स्तर {number})",
   "@continueLevel": {

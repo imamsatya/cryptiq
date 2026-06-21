@@ -71,7 +71,7 @@
   },
   "selectLevel": "Level Wählen",
   "badges": "Abzeichen",
-  "passAndPlay": "Weitergeben & Spielen (2-4)",
+  "passAndPlay": "Weitergeben & Spielen",
   "decodeTheLogic": "Entschlüssle die Logik",
   "continueLevel": "Fortsetzen (Level {number})",
   "@continueLevel": {

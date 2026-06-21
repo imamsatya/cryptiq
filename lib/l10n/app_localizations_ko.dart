@@ -180,7 +180,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get badges => '배지';
 
   @override
-  String get passAndPlay => '패스 앤 플레이 (2-4)';
+  String get passAndPlay => '패스 앤 플레이';
 
   @override
   String get decodeTheLogic => '로직을 해독하라';
