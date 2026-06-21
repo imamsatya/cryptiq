@@ -133,6 +133,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     _buildIconButton(
+                      icon: Icons.storefront_rounded,
+                      tooltip: l10n.storeTitle ?? 'Store',
+                      onTap: () => context.push('/store'),
+                    ),
+                    const SizedBox(width: 16),
+                    _buildIconButton(
                       icon: Icons.bar_chart_rounded,
                       tooltip: l10n.statistics,
                       onTap: () => context.push('/statistics'),
@@ -158,9 +164,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 // Go Pro banner (only for non-pro users)
                 if (!LocalDatabase.instance.getProStatus())
                   GestureDetector(
-                    onTap: () async {
-                      await IapService.instance.purchasePro();
-                      if (mounted) setState(() {});
+                    onTap: () {
+                      context.push('/store');
                     },
                     child: Container(
                       width: double.infinity,

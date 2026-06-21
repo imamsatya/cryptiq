@@ -338,6 +338,42 @@ abstract class AppLocalizations {
   /// **'Restore Purchase'**
   String get restorePurchase;
 
+  /// No description provided for @storeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Store'**
+  String get storeTitle;
+
+  /// No description provided for @proActiveDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'All premium features unlocked!'**
+  String get proActiveDesc;
+
+  /// No description provided for @proDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove all ads forever and support the developer.'**
+  String get proDesc;
+
+  /// No description provided for @purchased.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchased'**
+  String get purchased;
+
+  /// No description provided for @restorePurchases.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore Purchases'**
+  String get restorePurchases;
+
+  /// No description provided for @purchasesRestored.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchases restored'**
+  String get purchasesRestored;
+
   /// No description provided for @tryAgain.
   ///
   /// In en, this message translates to:

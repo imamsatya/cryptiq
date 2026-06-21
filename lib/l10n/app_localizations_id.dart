@@ -124,6 +124,24 @@ class AppLocalizationsId extends AppLocalizations {
   String get restorePurchase => 'Pulihkan Pembelian';
 
   @override
+  String get storeTitle => 'Toko';
+
+  @override
+  String get proActiveDesc => 'Semua fitur premium terbuka!';
+
+  @override
+  String get proDesc => 'Hapus iklan selamanya dan dukung developer.';
+
+  @override
+  String get purchased => 'Telah Dibeli';
+
+  @override
+  String get restorePurchases => 'Pulihkan Pembelian';
+
+  @override
+  String get purchasesRestored => 'Pembelian dipulihkan';
+
+  @override
   String get tryAgain => 'Coba Lagi';
 
   @override

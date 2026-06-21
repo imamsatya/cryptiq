@@ -50,6 +50,16 @@ class LevelSelectScreen extends ConsumerWidget {
                           color: Colors.white,
                         ),
                       ),
+                      const Spacer(),
+                      GestureDetector(
+                        onTap: () => context.push('/store'),
+                        child: Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: AppTheme.glassDecoration(borderRadius: 12),
+                          child: const Icon(Icons.storefront_rounded,
+                              color: Colors.white, size: 22),
+                        ),
+                      ),
                     ],
                   ),
                 ),

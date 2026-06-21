@@ -14,6 +14,7 @@ import '../screens/multiplayer_lobby_screen.dart';
 import '../screens/multiplayer_game_screen.dart';
 import '../screens/multiplayer_result_screen.dart';
 import '../screens/privacy_policy_screen.dart';
+import '../screens/store_screen.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -59,6 +60,11 @@ final appRouter = GoRouter(
       path: '/',
       pageBuilder: (context, state) =>
           _transitionPage(child: const HomeScreen(), state: state),
+    ),
+    GoRoute(
+      path: '/store',
+      pageBuilder: (context, state) =>
+          _transitionPage(child: const StoreScreen(), state: state),
     ),
     GoRoute(
       path: '/onboarding',

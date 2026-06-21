@@ -124,6 +124,24 @@ class AppLocalizationsZh extends AppLocalizations {
   String get restorePurchase => '恢复购买';
 
   @override
+  String get storeTitle => 'Store';
+
+  @override
+  String get proActiveDesc => 'All premium features unlocked!';
+
+  @override
+  String get proDesc => 'Remove all ads forever and support the developer.';
+
+  @override
+  String get purchased => 'Purchased';
+
+  @override
+  String get restorePurchases => 'Restore Purchases';
+
+  @override
+  String get purchasesRestored => 'Purchases restored';
+
+  @override
   String get tryAgain => '再试一次';
 
   @override
