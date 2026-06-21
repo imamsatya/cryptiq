@@ -28,14 +28,14 @@ class DailyChallengeScreen extends ConsumerWidget {
             children: [
               // Top bar
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                 child: Row(
                   children: [
                     // Back button
                     GestureDetector(
                       onTap: () { if (context.canPop()) { context.pop(); } else { context.go('/'); } },
                       child: Container(
-                        padding: const EdgeInsets.all(8),
+                        padding: const EdgeInsets.all(6),
                         decoration: AppTheme.glassDecoration(borderRadius: 12),
                         child: const Icon(Icons.arrow_back_rounded,
                             color: Colors.white, size: 20),
@@ -43,31 +43,36 @@ class DailyChallengeScreen extends ConsumerWidget {
                     ),
                     const Spacer(),
                     // Title
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      decoration: AppTheme.glassDecoration(borderRadius: 20),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(Icons.today_rounded,
-                              color: AppTheme.primaryColor, size: 18),
-                          const SizedBox(width: 6),
-                          Text(
-                            l10n.dailyChallenge,
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
+                    Flexible(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                        decoration: AppTheme.glassDecoration(borderRadius: 20),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(Icons.today_rounded,
+                                color: AppTheme.primaryColor, size: 16),
+                            const SizedBox(width: 4),
+                            Flexible(
+                              child: Text(
+                                l10n.dailyChallenge,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                    const SizedBox(width: 8),
+                    const SizedBox(width: 6),
                     // Streak badge
                     if (DailyChallengeService.instance.streak > 0)
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
                         decoration: BoxDecoration(
                           color: Colors.orange.withValues(alpha: 0.2),
                           borderRadius: BorderRadius.circular(10),
@@ -81,18 +86,18 @@ class DailyChallengeScreen extends ConsumerWidget {
                     const Spacer(),
                     // Timer
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                       decoration: AppTheme.glassDecoration(borderRadius: 12),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Icon(Icons.timer_outlined,
-                              color: AppTheme.primaryColor, size: 16),
+                              color: AppTheme.primaryColor, size: 14),
                           const SizedBox(width: 4),
                           Text(
                             _formatTime(gameState.elapsedSeconds),
                             style: const TextStyle(
-                              fontSize: 14,
+                              fontSize: 13,
                               fontWeight: FontWeight.w600,
                               color: Colors.white,
                               fontFeatures: [FontFeature.tabularFigures()],
