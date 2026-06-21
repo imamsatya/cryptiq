@@ -36,81 +36,13 @@
 
 ### 🔴 Kritis (Harus Diperbaiki Sebelum Release)
 
-#### 1. Difficulty Range Tidak Konsisten
-Terdapat **3 definisi berbeda** untuk range difficulty di seluruh codebase:
-
-| Lokasi | Easy | Medium | Hard | Expert |
-|--------|------|--------|------|--------|
-| `app_constants.dart` | 1-250 | 251-500 | 501-750 | 751-1200 |
-| `game_screen.dart` (`_getDiffColor/Label`) | 1-100 | 101-250 | 251-400 | 401+ |
-| `statistics_screen.dart` (`_buildDifficultyRow`) | 1-100 | 101-250 | 251-400 | 401-1000 |
-| `puzzle_generator.dart` (`getDifficultyName`) | 1-250 | 251-500 | 501-750 | 751+ |
-
-**Dampak**: Label difficulty salah tampil di header game screen. Statistics screen menunjukkan breakdown yang salah (total hanya 1200, bukan 1200). Level 1001-1200 diperlakukan terpisah di statistics tapi bukan di tempat lain.
-
-**File terdampak**:
-- `lib/presentation/screens/game_screen.dart` (baris 471-485)
-- `lib/presentation/screens/statistics_screen.dart` (baris 166-174)
-
-#### 2. Developer Mode Masih Aktif
-```dart
-// app_constants.dart:12
-static const bool devProMode = true;  // ⚠️ HARUS false sebelum release!
-```
-**Dampak**: Semua user secara otomatis mendapat status Pro gratis → IAP tidak bisa di-test secara nyata, semua theme terbuka, semua hint gratis.
-
-#### 3. Ads Dinonaktifkan
-```dart
-// app_constants.dart:37
-static const bool adsEnabled = false;  // ⚠️ Enable saat AdMob ID sudah benar
-```
-**Dampak**: Tidak ada banner/interstitial/rewarded ads meskipun kode sudah lengkap. Ad Unit ID masih menggunakan **TEST ID** dari Google.
-
-#### 4. Package Name Mismatch
-- `app_constants.dart`: `com.cryptiq.app`
-- `build.gradle.kts`: `com.cryptiq.cryptiq`
-
-**Dampak**: Bisa menyebabkan masalah saat publish ke Play Store, push notification channel, dan IAP product ID.
+Semua isu kritis sudah diperbaiki! ✅
 
 ---
 
 ### 🟡 Sedang (Perlu Diperbaiki)
 
-#### 5. Hardcoded Strings di Multiplayer
-Beberapa string di multiplayer screen belum menggunakan localization:
-- `"I'm Ready!"` (multiplayer_game_screen.dart:457)
-- `"Round X of Y"` (multiplayer_game_screen.dart:391)
-- `"scored X pts"` (multiplayer_game_screen.dart:354)
-- `"X hints"` (multiplayer_game_screen.dart:361)
-- `"Incorrect — try again!"` (multiplayer_game_screen.dart:229)
-- `"Hint (X)"` di daily challenge (daily_challenge_screen.dart:215)
-
-#### 6. TODO Items Belum Diimplementasi
-| File | Baris | TODO |
-|------|-------|------|
-| `result_screen.dart` | 117 | Open store listing (rate app) |
-| `settings_screen.dart` | 296 | Open privacy policy URL |
-| `settings_screen.dart` | 304 | Open email/contact |
-
-#### 7. Multiplayer Solution Verification Terlalu Ketat
-Di `multiplayer_game_screen.dart`, solusi diverifikasi dengan membandingkan **exact assignment** terhadap solution map:
-```dart
-if (_assignments[entry.key] != entry.value) { correct = false; }
-```
-Sedangkan di single player (`game_screen.dart`), verifikasi menggunakan `puzzle.verifySolution()` yang memeriksa **apakah hasilnya benar secara matematis**. Ini berarti puzzle dengan multiple valid solutions bisa ditolak di multiplayer meskipun jawabannya benar.
-
-#### 8. Multiplayer Hint Tidak Ada Batasan
-Di mode multiplayer, `_useHint()` tidak punya limit — pemain bisa unlimited hint. Ini tidak fair untuk kompetisi.
-
-#### 9. `AudioService` Menggunakan Single AudioPlayer
-Semua efek suara menggunakan satu instance `AudioPlayer`, sehingga jika `playTap()` dipanggil saat `playSuccess()` sedang bermain, suara bisa terpotong.
-
-#### 10. Statistics Screen Streak Langsung Baca dari Hive
-```dart
-// statistics_screen.dart:47
-currentStreak: db.settingsBox.get('daily_streak', defaultValue: 0),
-```
-Ini langsung baca Hive tanpa melalui `DailyChallengeService.instance.streak`, yang seharusnya memvalidasi apakah streak masih aktif (cek apakah last date = today/yesterday). Akibatnya **streak yang sudah kadaluarsa masih bisa tampil di stats card**.
+Semua isu level sedang sudah diperbaiki! ✅
 
 ---
 
