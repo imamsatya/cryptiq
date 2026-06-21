@@ -173,6 +173,14 @@ class DailyChallengeScreen extends ConsumerWidget {
                       AudioService.instance.playTap();
                       HapticFeedback.selectionClick();
                     },
+                    onClearTap: () {
+                      final selected = gameState.selectedLetter;
+                      if (selected != null) {
+                        ref.read(dailyGameStateProvider.notifier).clearLetter(selected);
+                        AudioService.instance.playTap();
+                        HapticFeedback.selectionClick();
+                      }
+                    },
                     onDigitLongPress: (digit) {
                       final entry = gameState.assignments.entries
                           .where((e) => e.value == digit)

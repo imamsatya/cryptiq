@@ -131,6 +131,14 @@ class _GameScreenState extends ConsumerState<GameScreen>
                     AudioService.instance.playTap();
                     HapticFeedback.selectionClick();
                   },
+                  onClearTap: () {
+                    final selected = gameState.selectedLetter;
+                    if (selected != null) {
+                      ref.read(gameStateProvider(widget.levelNumber).notifier).clearLetter(selected);
+                      AudioService.instance.playTap();
+                      HapticFeedback.selectionClick();
+                    }
+                  },
                   enabled: gameState.selectedLetter != null && !gameState.isComplete,
                 ),
               ),

@@ -653,6 +653,15 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                         AudioService.instance.playTap();
                         HapticFeedback.selectionClick();
                       },
+                      onClearTap: () {
+                        if (_selectedLetter != null) {
+                          setState(() {
+                            _assignments[_selectedLetter!] = null;
+                          });
+                          AudioService.instance.playTap();
+                          HapticFeedback.selectionClick();
+                        }
+                      },
                       enabled: _selectedLetter != null,
                     ),
                     const SizedBox(height: 12),
