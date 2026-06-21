@@ -357,6 +357,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get rateAppBody => '앱이 마음에 드시면 잠시 시간을 내어 평가해 주세요!';
 
   @override
+  String get levelSelectHint =>
+      '💡 Tip: Tap to play, long-press a completed level for details.';
+
+  @override
   String get noThanks => '아니요';
 
   @override

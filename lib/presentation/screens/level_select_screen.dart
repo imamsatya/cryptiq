@@ -82,6 +82,21 @@ class LevelSelectScreen extends ConsumerWidget {
                 ),
 
                 const SizedBox(height: 12),
+                
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                    l10n.levelSelectHint,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 11,
+                      color: AppTheme.textSecondary.withValues(alpha: 0.8),
+                      height: 1.3,
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 4),
 
                 // Level grids
                 Expanded(

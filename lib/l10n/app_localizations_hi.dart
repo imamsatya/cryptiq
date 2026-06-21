@@ -357,6 +357,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get rateAppBody => 'अगर ऐप पसंद आया, तो कृपया इसे रेट करें!';
 
   @override
+  String get levelSelectHint =>
+      '💡 Tip: Tap to play, long-press a completed level for details.';
+
+  @override
   String get noThanks => 'नहीं, धन्यवाद';
 
   @override

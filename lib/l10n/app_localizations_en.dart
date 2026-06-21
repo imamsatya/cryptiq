@@ -355,7 +355,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get rateAppBody =>
-      'If you like the app, please take a moment to rate it!';
+      'If you enjoy playing CryptiQ, would you mind taking a moment to rate it? It won\'t take more than a minute. Thanks for your support!';
+
+  @override
+  String get levelSelectHint =>
+      '💡 Tip: Tap to play, long-press a completed level for details.';
 
   @override
   String get noThanks => 'No Thanks';

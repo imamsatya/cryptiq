@@ -358,6 +358,10 @@ class AppLocalizationsId extends AppLocalizations {
       'Jika kamu suka aplikasi ini, luangkan waktu untuk menilai!';
 
   @override
+  String get levelSelectHint =>
+      '💡 Tips: Tekan untuk main, tahan (hold) level yang selesai untuk detail.';
+
+  @override
   String get noThanks => 'Tidak, Terima Kasih';
 
   @override

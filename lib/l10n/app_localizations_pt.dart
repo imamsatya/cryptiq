@@ -359,6 +359,10 @@ class AppLocalizationsPt extends AppLocalizations {
       'Se você gosta do app, reserve um momento para avaliá-lo!';
 
   @override
+  String get levelSelectHint =>
+      '💡 Tip: Tap to play, long-press a completed level for details.';
+
+  @override
   String get noThanks => 'Não, Obrigado';
 
   @override

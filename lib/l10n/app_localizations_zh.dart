@@ -357,6 +357,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get rateAppBody => '如果您喜欢这个应用，请花一点时间给个评价！';
 
   @override
+  String get levelSelectHint =>
+      '💡 Tip: Tap to play, long-press a completed level for details.';
+
+  @override
   String get noThanks => '不了，谢谢';
 
   @override

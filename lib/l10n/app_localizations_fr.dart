@@ -359,6 +359,10 @@ class AppLocalizationsFr extends AppLocalizations {
       'Si vous aimez l\'app, prenez un moment pour la noter !';
 
   @override
+  String get levelSelectHint =>
+      '💡 Tip: Tap to play, long-press a completed level for details.';
+
+  @override
   String get noThanks => 'Non Merci';
 
   @override

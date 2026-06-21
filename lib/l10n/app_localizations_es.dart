@@ -359,6 +359,10 @@ class AppLocalizationsEs extends AppLocalizations {
       'Si te gusta la app, ¡tómate un momento para calificarla!';
 
   @override
+  String get levelSelectHint =>
+      '💡 Tip: Tap to play, long-press a completed level for details.';
+
+  @override
   String get noThanks => 'No, Gracias';
 
   @override

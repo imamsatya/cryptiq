@@ -357,6 +357,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get rateAppBody => 'アプリが気に入ったら、ぜひ評価してください！';
 
   @override
+  String get levelSelectHint =>
+      '💡 Tip: Tap to play, long-press a completed level for details.';
+
+  @override
   String get noThanks => 'いいえ';
 
   @override

@@ -785,8 +785,14 @@ abstract class AppLocalizations {
   /// No description provided for @rateAppBody.
   ///
   /// In en, this message translates to:
-  /// **'If you like the app, please take a moment to rate it!'**
+  /// **'If you enjoy playing CryptiQ, would you mind taking a moment to rate it? It won\'t take more than a minute. Thanks for your support!'**
   String get rateAppBody;
+
+  /// No description provided for @levelSelectHint.
+  ///
+  /// In en, this message translates to:
+  /// **'💡 Tip: Tap to play, long-press a completed level for details.'**
+  String get levelSelectHint;
 
   /// No description provided for @noThanks.
   ///
