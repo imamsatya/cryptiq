@@ -73,6 +73,6 @@ class AppConstants {
   static const int rateAppAfterLevels = 10; // Show after completing 10 levels
 
   // IAP Product IDs
-  static const String proProductId = 'cryptiq_pro';
+  static const String proProductId = 'com.cryptiq.pro';
   static const double proPrice = 2.99;
 }
