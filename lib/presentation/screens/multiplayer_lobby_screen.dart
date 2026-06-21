@@ -96,7 +96,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
               Navigator.pop(context);
               context.push('/store');
             },
-            child: Text(AppLocalizations.of(context)!.buyProTitle,
+            child: Text(AppLocalizations.of(context)!.upgradeToPro,
                 style: const TextStyle(fontWeight: FontWeight.w700)),
           ),
         ],
