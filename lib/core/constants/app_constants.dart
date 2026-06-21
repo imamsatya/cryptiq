@@ -42,6 +42,12 @@ class AppConstants {
   static const int skipAdsForFirstNLevels = 5;       // No ads for first 5 levels
 
   // Ad Unit IDs (replace with real IDs before release)
+  // --- REAL IDs (DO NOT USE DURING DEVELOPMENT) ---
+  // App ID: ca-app-pub-6136140113407207~2849912239
+  // Banner: ca-app-pub-6136140113407207/9211040525
+  // Interstitial: ca-app-pub-6136140113407207/8827897144
+  // Rewarded: ca-app-pub-6136140113407207/3268448702
+  // ------------------------------------------------
   static const String bannerAdUnitId = 'ca-app-pub-3940256099942544/6300978111';         // TEST
   static const String interstitialAdUnitId = 'ca-app-pub-3940256099942544/1033173712';   // TEST
   static const String rewardedAdUnitId = 'ca-app-pub-3940256099942544/5224354917';       // TEST
