@@ -27,6 +27,36 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
   static const _difficultyKeys = ['easy', 'medium', 'hard', 'expert', 'mixed'];
   static const _operationKeys = ['+', '-', '*', 'multi', 'mixed'];
 
+  @override
+  void initState() {
+    super.initState();
+    _loadPreviousConfig();
+  }
+
+  void _loadPreviousConfig() {
+    final box = LocalDatabase.instance.settingsBox;
+    final isPro = LocalDatabase.instance.getProStatus();
+
+    final savedNames = box.get('mp_names') as List<dynamic>?;
+    if (savedNames != null && savedNames.isNotEmpty) {
+      _nameControllers.clear();
+      final maxPlayers = isPro ? 6 : 2;
+      for (int i = 0; i < savedNames.length && i < maxPlayers; i++) {
+        _nameControllers.add(TextEditingController(text: savedNames[i].toString()));
+      }
+      while (_nameControllers.length < 2) {
+        _nameControllers.add(TextEditingController());
+      }
+    }
+
+    _rounds = box.get('mp_rounds', defaultValue: 2);
+    if (!isPro && _rounds > 2) _rounds = 2;
+
+    _difficulty = box.get('mp_difficulty', defaultValue: 'mixed');
+    _operation = box.get('mp_operation', defaultValue: 'mixed');
+    _allowHints = box.get('mp_allowHints', defaultValue: true);
+  }
+
   void _showProDialog(String message) {
     HapticFeedback.heavyImpact();
     showDialog(
@@ -106,6 +136,14 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
         names[i] = AppLocalizations.of(context)!.playerName(i + 1);
       }
     }
+    // Save to settings
+    final box = LocalDatabase.instance.settingsBox;
+    box.put('mp_names', names);
+    box.put('mp_rounds', _rounds);
+    box.put('mp_difficulty', _difficulty);
+    box.put('mp_operation', _operation);
+    box.put('mp_allowHints', _allowHints);
+
     context.push('/multiplayer-game', extra: {
       'names': names,
       'rounds': _rounds,
