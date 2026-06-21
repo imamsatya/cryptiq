@@ -470,10 +470,13 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
           children: [
             Icon(icon, color: AppTheme.textSecondary, size: 20),
             const SizedBox(height: 4),
-            Text(label,
-                style: TextStyle(
-                    fontSize: 11,
-                    color: AppTheme.textSecondary.withValues(alpha: 0.8))),
+            Text(
+              label,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 11,
+                  color: AppTheme.textSecondary.withValues(alpha: 0.8)),
+            ),
           ],
         ),
       ),
