@@ -170,6 +170,21 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
   }
 
   void _useHint() {
+    if (_hintsUsed >= 3) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('❌ ${AppLocalizations.of(context)!.noHintsAvailable}',
+              style: const TextStyle(color: Colors.white)),
+          backgroundColor: const Color(0xFFE53935),
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12)),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+      return;
+    }
+
     final unassigned = _currentPuzzle.solution.keys
         .where((l) => _assignments[l] == null)
         .toList();
@@ -195,13 +210,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
     }
 
     // Verify solution
-    bool correct = true;
-    for (final entry in _currentPuzzle.solution.entries) {
-      if (_assignments[entry.key] != entry.value) {
-        correct = false;
-        break;
-      }
-    }
+    bool correct = _currentPuzzle.verifySolution(_assignments.cast<String, int>());
 
     if (correct) {
       AudioService.instance.playCorrect();
