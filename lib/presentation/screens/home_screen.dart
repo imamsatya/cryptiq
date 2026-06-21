@@ -3,6 +3,7 @@ import '../../l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
+import '../providers/theme_provider.dart';
 import '../../core/services/update_checker.dart';
 import '../widgets/particle_background.dart';
 import '../../core/services/daily_challenge_service.dart';
@@ -41,6 +42,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ref.watch(themeProvider); // Ensure screen rebuilds when theme changes
     final highestCompleted = LocalDatabase.instance.getHighestCompletedLevel();
     final l10n = AppLocalizations.of(context)!;
 
