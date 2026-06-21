@@ -1,4 +1,4 @@
-package com.cryptiq.cryptiq
+package com.cryptiq.app
 
 import io.flutter.embedding.android.FlutterActivity
 

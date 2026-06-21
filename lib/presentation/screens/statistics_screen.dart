@@ -169,9 +169,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                     const SizedBox(height: 8),
                     _buildDifficultyRow(l10n.hard, 501, 750, AppTheme.hardColor, allProgress),
                     const SizedBox(height: 8),
-                    _buildDifficultyRow(l10n.expert, 751, 1000, AppTheme.expertColor, allProgress),
-                    const SizedBox(height: 8),
-                    _buildDifficultyRow(l10n.multiStepLabel, 1001, 1200, const Color(0xFF9C27B0), allProgress),
+                    _buildDifficultyRow(l10n.expert, 751, 1200, AppTheme.expertColor, allProgress),
 
                     const SizedBox(height: 24),
 
