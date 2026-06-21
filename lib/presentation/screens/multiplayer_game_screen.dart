@@ -189,15 +189,38 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
       return;
     }
 
-    final unassigned = _currentPuzzle.solution.keys
-        .where((l) => _assignments[l] == null)
-        .toList();
-    if (unassigned.isEmpty) return;
+    String? targetLetter;
 
-    final rng = Random();
-    final letter = unassigned[rng.nextInt(unassigned.length)];
+    // Priority 1: First unassigned letter
+    for (final letter in _currentPuzzle.solution.keys) {
+      if (_assignments[letter] == null) {
+        targetLetter = letter;
+        break;
+      }
+    }
+
+    // Priority 2: First wrongly assigned letter
+    if (targetLetter == null) {
+      for (final letter in _currentPuzzle.solution.keys) {
+        if (_assignments[letter] != _currentPuzzle.solution[letter]) {
+          targetLetter = letter;
+          break;
+        }
+      }
+    }
+
+    if (targetLetter == null) return; // All correct, no hint needed
+
+    final correctDigit = _currentPuzzle.solution[targetLetter];
+
     setState(() {
-      _assignments[letter] = _currentPuzzle.solution[letter];
+      // Clear the digit from any other letter
+      for (final l in _currentPuzzle.solution.keys) {
+        if (_assignments[l] == correctDigit && l != targetLetter) {
+          _assignments[l] = null;
+        }
+      }
+      _assignments[targetLetter!] = correctDigit;
       _hintsUsed++;
     });
   }
