@@ -41,17 +41,14 @@ void main() {
       systemNavigationBarIconBrightness: Brightness.light,
     ));
 
-    // Initialize audio
+    // Initialize audio (critical for first frame state)
     await AudioService.instance.init();
 
-    // Initialize ads
-    await AdService.instance.initialize();
-
-    // Initialize in-app purchases
-    await IapService.instance.initialize();
-
-    // Initialize notifications
-    await NotificationService.instance.initialize();
+    // Initialize ads, IAP, and notifications in the background 
+    // without blocking the app startup to prevent splash screen hangs.
+    AdService.instance.initialize();
+    IapService.instance.initialize();
+    NotificationService.instance.initialize();
 
     runApp(const ProviderScope(child: CryptiqApp()));
   }, (error, stack) {

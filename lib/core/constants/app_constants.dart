@@ -12,7 +12,7 @@ class AppConstants {
 
   // ⚡ Developer Mode — set to false before production/Play Store release!
   static const bool devProMode = false;  // Forces Pro status ON for testing
-  static const bool devUnlockAllLevels = true; // Unlock all levels in free mode for testing
+  static const bool devUnlockAllLevels = false; // Unlock all levels in free mode for testing
 
   // Game Config
   static const int totalLevels = 1200;
