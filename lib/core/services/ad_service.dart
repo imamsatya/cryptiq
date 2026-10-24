@@ -153,6 +153,9 @@ class AdService {
 
   /// Show interstitial ad. Returns true if shown.
   Future<bool> showInterstitial() async {
+    // Also covers an ad preloaded before the user bought Pro this session.
+    if (!_shouldShowAds()) return false;
+
     if (kIsWeb) {
       debugPrint('AdService: (Web Mock) Showing Interstitial... Done.');
       _recordAdShown();
