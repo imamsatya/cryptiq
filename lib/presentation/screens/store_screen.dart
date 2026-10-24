@@ -51,7 +51,7 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
     if (mounted) {
       setState(() => _isLoading = false);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.purchasesRestored ?? 'Purchases restored')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.purchasesRestored)),
       );
     }
   }
@@ -94,7 +94,7 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
                           foregroundColor: AppTheme.textSecondary,
                         ),
                         child: Text(
-                          l10n.restorePurchases ?? 'Restore Purchases',
+                          l10n.restorePurchases,
                           style: const TextStyle(
                             decoration: TextDecoration.underline,
                             fontSize: 14,
@@ -133,7 +133,7 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
           ),
           const SizedBox(width: 8),
           Text(
-            l10n.storeTitle ?? 'Store',
+            l10n.storeTitle,
             style: const TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
@@ -187,8 +187,8 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
             const SizedBox(height: 12),
             Text(
               isPro
-                  ? (l10n.proActiveDesc ?? 'All premium features unlocked!')
-                  : (l10n.proDesc ?? 'Remove all ads forever and support the developer.'),
+                  ? l10n.proActiveDesc
+                  : l10n.proDesc,
               style: TextStyle(
                 fontSize: 15,
                 color: AppTheme.textSecondary,
@@ -214,7 +214,7 @@ class _StoreScreenState extends ConsumerState<StoreScreen> {
                   ),
                 ),
                 child: Text(
-                  isPro ? (l10n.purchased ?? 'Purchased') : priceStr,
+                  isPro ? l10n.purchased : priceStr,
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,

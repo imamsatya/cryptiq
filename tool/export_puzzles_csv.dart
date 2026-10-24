@@ -39,9 +39,6 @@ void main() {
     // Format operator for display
     final opDisplay = operator == '×' ? 'x' : operator;
     
-    // Build equation string for readable column
-    final equation = '${ops.join(' $opDisplay ')} = $result';
-    
     final op1 = ops.isNotEmpty ? ops[0] : '';
     final op2 = ops.length > 1 ? ops[1] : '';
     final op3 = ops.length > 2 ? ops[2] : '';

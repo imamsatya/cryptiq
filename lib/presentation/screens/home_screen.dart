@@ -12,7 +12,6 @@ import '../widgets/particle_background.dart';
 import '../widgets/ad_banner_widget.dart';
 import '../../core/services/daily_challenge_service.dart';
 import '../../core/services/achievement_service.dart';
-import '../../core/services/iap_service.dart';
 import '../../data/datasources/local_database.dart';
 import '../../levels/puzzle_generator.dart';
 
@@ -129,7 +128,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   children: [
                     _buildIconButton(
                       icon: Icons.storefront_rounded,
-                      tooltip: l10n.storeTitle ?? 'Store',
+                      tooltip: l10n.storeTitle,
                       onTap: () => context.push('/store'),
                     ),
                     const SizedBox(width: 16),

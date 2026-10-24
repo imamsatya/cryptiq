@@ -543,18 +543,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     );
   }
 
-  Widget _colorDot(Color color) {
-    return Container(
-      width: 14,
-      height: 14,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: color,
-        border: Border.all(color: Colors.white.withValues(alpha: 0.2)),
-      ),
-    );
-  }
-
   Future<void> _launchUrl(String urlString) async {
     final Uri url = Uri.parse(urlString);
     try {

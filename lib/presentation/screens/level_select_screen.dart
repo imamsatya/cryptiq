@@ -10,7 +10,6 @@ import '../../levels/puzzle_generator.dart';
 import '../../data/datasources/local_database.dart';
 import '../../domain/entities/user_progress.dart';
 import '../../core/constants/app_constants.dart';
-import '../../core/services/ad_service.dart';
 import '../widgets/ad_banner_widget.dart';
 
 class LevelSelectScreen extends ConsumerWidget {
