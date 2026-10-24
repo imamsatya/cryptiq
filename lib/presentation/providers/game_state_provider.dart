@@ -169,6 +169,8 @@ class GameStateNotifier extends StateNotifier<GameState> {
 
     final letter = state.selectedLetter!;
     if (state.hintedLetters.contains(letter)) return;
+    // A hinted digit stays with its letter: taking it would empty a locked letter.
+    if (state.hintedLetters.any((h) => state.assignments[h] == digit)) return;
 
     // Save undo snapshot before change
     _pushUndo();
@@ -410,7 +412,6 @@ class GameStateNotifier extends StateNotifier<GameState> {
   void _pushUndo() {
     _undoStack.add(_UndoSnapshot(
       assignments: Map<String, int?>.from(state.assignments),
-      usedDigits: Set<int>.from(state.usedDigits),
     ));
     if (_undoStack.length > _maxUndoSteps) {
       _undoStack.removeAt(0);
@@ -419,13 +420,22 @@ class GameStateNotifier extends StateNotifier<GameState> {
 
   bool get canUndo => _undoStack.isNotEmpty && !state.isComplete;
 
-  /// Undo the last assignment
+  /// Undo the last assignment. Hinted letters stay revealed even when the
+  /// snapshot predates the hint — otherwise they'd be emptied but still
+  /// locked, and the puzzle could no longer be completed.
   void undo() {
     if (!canUndo) return;
-    final snapshot = _undoStack.removeLast();
+    final assignments = Map<String, int?>.from(_undoStack.removeLast().assignments);
+    for (final letter in state.hintedLetters) {
+      final digit = state.puzzle.solution[letter]!;
+      for (final other in assignments.keys.toList()) {
+        if (assignments[other] == digit) assignments[other] = null;
+      }
+      assignments[letter] = digit;
+    }
     state = state.copyWith(
-      assignments: snapshot.assignments,
-      usedDigits: snapshot.usedDigits,
+      assignments: assignments,
+      usedDigits: assignments.values.whereType<int>().toSet(),
       clearSelectedLetter: true,
       wrongLetters: {},
       isChecking: false,
@@ -442,8 +452,7 @@ class GameStateNotifier extends StateNotifier<GameState> {
 /// Snapshot for undo stack
 class _UndoSnapshot {
   final Map<String, int?> assignments;
-  final Set<int> usedDigits;
-  const _UndoSnapshot({required this.assignments, required this.usedDigits});
+  const _UndoSnapshot({required this.assignments});
 }
 
 /// Provider family for game state per level
