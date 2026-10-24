@@ -12,11 +12,39 @@ import '../widgets/number_pad.dart';
 import '../widgets/letter_tile.dart';
 import '../widgets/top_error.dart';
 
-class DailyChallengeScreen extends ConsumerWidget {
+class DailyChallengeScreen extends ConsumerStatefulWidget {
   const DailyChallengeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<DailyChallengeScreen> createState() => _DailyChallengeScreenState();
+}
+
+class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen>
+    with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  /// Pause the timer while the app is in the background, like GameScreen.
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused) {
+      ref.read(dailyGameStateProvider.notifier).pauseTimer();
+    } else if (state == AppLifecycleState.resumed) {
+      ref.read(dailyGameStateProvider.notifier).resumeTimer();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final gameState = ref.watch(dailyGameStateProvider);
     final puzzle = gameState.puzzle;
 
