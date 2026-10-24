@@ -571,7 +571,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get onboardingHowToPlayBody =>
-      '1. Tap a letter tile to select it\n2. Tap a number (0-9) to assign it\n3. Each letter must have a unique digit\n4. Long-press a letter to clear it';
+      '1. Tap a letter tile to select it\n2. Tap a number (0-9) to assign it\n3. Each letter must have a unique digit\n4. A number can\'t start with 0\n5. Long-press a letter to clear it';
 
   @override
   String get onboardingHelpSubtitle => 'Hints & Checking';
@@ -855,4 +855,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get proUnlockRounds =>
       'Even more fun! Play up to 10 rounds with CryptiQ Pro.';
+
+  @override
+  String get leadingZeroError => 'Numbers can\'t start with 0 — try again!';
 }

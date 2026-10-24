@@ -570,7 +570,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get onboardingHowToPlayBody =>
-      '1. انقر على حرف لاختياره\n2. انقر على رقم (0-9) لتخصيصه\n3. كل حرف يجب أن يكون له رقم فريد\n4. اضغط طويلاً على حرف لمسحه';
+      '1. انقر على حرف لاختياره\n2. انقر على رقم (0-9) لتخصيصه\n3. كل حرف يجب أن يكون له رقم فريد\n4. لا يمكن أن يبدأ العدد بالرقم 0\n5. اضغط طويلاً على حرف لمسحه';
 
   @override
   String get onboardingHelpSubtitle => 'التلميحات والتحقق';
@@ -852,4 +852,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get proUnlockRounds => 'متعة أكبر! العب حتى 10 جولات مع CryptiQ Pro.';
+
+  @override
+  String get leadingZeroError => 'لا يمكن أن يبدأ العدد بـ 0 — حاول مرة أخرى!';
 }

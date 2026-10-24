@@ -228,7 +228,7 @@
   },
   "multiStepLabel": "Multi-langkah",
   "stars3": "Bintang",
-  "onboardingHowToPlayBody": "1. Ketuk huruf untuk memilihnya\n2. Ketuk angka (0-9) untuk mengisinya\n3. Setiap huruf harus memiliki digit unik\n4. Tekan lama huruf untuk menghapus",
+  "onboardingHowToPlayBody": "1. Ketuk huruf untuk memilihnya\n2. Ketuk angka (0-9) untuk mengisinya\n3. Setiap huruf harus memiliki digit unik\n4. Angka tidak boleh diawali 0\n5. Tekan lama huruf untuk menghapus",
   "onboardingHelpSubtitle": "Petunjuk & Pemeriksaan",
   "onboardingHelpBody": "• Ketuk 💡 Petunjuk untuk membuka satu huruf\n• Ketuk ✓ Periksa untuk cek jawaban\n• Huruf salah merah, benar hijau\n• Selesaikan tanpa hint untuk ⭐ lebih banyak!",
   "onboardingDailyBody": "• Puzzle baru setiap hari\n• Bangun streak 🔥 dengan bermain harian\n• Buka pencapaian saat bermain\n• 1200 level dari Mudah ke Ahli — semua GRATIS!",
@@ -411,5 +411,6 @@
   "achvStreak100Desc": "Tantangan harian 100 hari berturut-turut",
   "achvMultiStepAllDesc": "Selesaikan semua 200 teka-teki multi-langkah",
   "proUnlockPlayers": "Main beramai-ramai lebih seru! Buka batas pemain hingga 6 orang dengan CryptiQ Pro.",
-  "proUnlockRounds": "Tambah keseruan! Mainkan hingga 10 ronde dengan CryptiQ Pro."
+  "proUnlockRounds": "Tambah keseruan! Mainkan hingga 10 ronde dengan CryptiQ Pro.",
+  "leadingZeroError": "Angka tidak boleh diawali 0 — coba lagi!"
 }

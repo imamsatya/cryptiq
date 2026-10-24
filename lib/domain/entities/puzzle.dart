@@ -121,24 +121,35 @@ class CryptarithmPuzzle extends Equatable {
 
   /// Verify if a given assignment is correct for ALL steps.
   bool verifySolution(Map<String, int> assignment) {
+    return _isCompleteAndDistinct(assignment) &&
+        !_hasLeadingZero(assignment) &&
+        _equationsHold(assignment);
+  }
+
+  /// True when [assignment] makes every equation hold but a multi-digit
+  /// number starts with 0 (e.g. 1 × 4 = 04) — the only rule it breaks is
+  /// "no leading zeros", so the player should be told that, not just "wrong".
+  bool failsOnlyOnLeadingZero(Map<String, int> assignment) {
+    return _isCompleteAndDistinct(assignment) &&
+        _hasLeadingZero(assignment) &&
+        _equationsHold(assignment);
+  }
+
+  bool _isCompleteAndDistinct(Map<String, int> assignment) {
     final letters = allLetters;
     if (assignment.length != letters.length) return false;
+    if (!letters.every(assignment.containsKey)) return false;
+    return assignment.values.toSet().length == assignment.length;
+  }
 
-    final usedDigits = assignment.values.toSet();
-    if (usedDigits.length != assignment.length) return false;
+  bool _hasLeadingZero(Map<String, int> assignment) =>
+      leadingLetters.any((letter) => assignment[letter] == 0);
 
-    for (final letter in leadingLetters) {
-      if (assignment[letter] == 0) return false;
-    }
-
+  bool _equationsHold(Map<String, int> assignment) {
     if (isMultiStep) {
-      for (final step in steps) {
-        if (!_verifyStep(step, assignment)) return false;
-      }
-      return true;
-    } else {
-      return _verifySingle(assignment);
+      return steps.every((step) => _verifyStep(step, assignment));
     }
+    return _verifySingle(assignment);
   }
 
   bool _verifySingle(Map<String, int> assignment) {

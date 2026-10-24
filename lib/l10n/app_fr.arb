@@ -243,7 +243,7 @@
   },
   "multiStepLabel": "Multi-étapes",
   "stars3": "Étoiles",
-  "onboardingHowToPlayBody": "1. Touchez une lettre pour la sélectionner\n2. Touchez un chiffre (0-9) pour l'assigner\n3. Chaque lettre doit avoir un chiffre unique\n4. Appuyez longuement sur une lettre pour l'effacer",
+  "onboardingHowToPlayBody": "1. Touchez une lettre pour la sélectionner\n2. Touchez un chiffre (0-9) pour l'assigner\n3. Chaque lettre doit avoir un chiffre unique\n4. Un nombre ne peut pas commencer par 0\n5. Appuyez longuement sur une lettre pour l'effacer",
   "onboardingHelpSubtitle": "Indices et Vérification",
   "onboardingHelpBody": "• Touchez 💡 Indice pour révéler une lettre\n• Touchez ✓ Vérifier pour contrôler\n• Les lettres incorrectes deviennent rouges, les correctes vertes\n• Résolvez avec moins d'indices pour plus d'⭐ !",
   "onboardingDailyBody": "• Un nouveau puzzle chaque jour\n• Construisez votre série 🔥 en jouant quotidiennement\n• Débloquez des succès en jouant\n• 1200 niveaux de Facile à Expert — tous GRATUITS !",
@@ -425,5 +425,6 @@
   "restorePurchases": "Restaurer les achats",
   "storeTitle": "Boutique",
   "proUnlockPlayers": "Plus de joueurs, plus de fun ! Débloquez jusqu'à 6 joueurs avec CryptiQ Pro.",
-  "proUnlockRounds": "Encore plus de fun ! Jouez jusqu'à 10 manches avec CryptiQ Pro."
+  "proUnlockRounds": "Encore plus de fun ! Jouez jusqu'à 10 manches avec CryptiQ Pro.",
+  "leadingZeroError": "Un nombre ne peut pas commencer par 0. Réessayez !"
 }

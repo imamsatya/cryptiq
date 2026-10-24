@@ -574,7 +574,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get onboardingHowToPlayBody =>
-      '1. Touchez une lettre pour la sélectionner\n2. Touchez un chiffre (0-9) pour l\'assigner\n3. Chaque lettre doit avoir un chiffre unique\n4. Appuyez longuement sur une lettre pour l\'effacer';
+      '1. Touchez une lettre pour la sélectionner\n2. Touchez un chiffre (0-9) pour l\'assigner\n3. Chaque lettre doit avoir un chiffre unique\n4. Un nombre ne peut pas commencer par 0\n5. Appuyez longuement sur une lettre pour l\'effacer';
 
   @override
   String get onboardingHelpSubtitle => 'Indices et Vérification';
@@ -860,4 +860,8 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get proUnlockRounds =>
       'Encore plus de fun ! Jouez jusqu\'à 10 manches avec CryptiQ Pro.';
+
+  @override
+  String get leadingZeroError =>
+      'Un nombre ne peut pas commencer par 0. Réessayez !';
 }

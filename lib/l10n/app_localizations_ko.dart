@@ -566,7 +566,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get onboardingHowToPlayBody =>
-      '1. 글자를 탭하여 선택\n2. 숫자(0-9)를 탭하여 할당\n3. 각 글자는 고유한 숫자여야 합니다\n4. 글자를 길게 눌러 지우기';
+      '1. 글자를 탭하여 선택\n2. 숫자(0-9)를 탭하여 할당\n3. 각 글자는 고유한 숫자여야 합니다\n4. 숫자는 0으로 시작할 수 없습니다\n5. 글자를 길게 눌러 지우기';
 
   @override
   String get onboardingHelpSubtitle => '힌트와 확인';
@@ -845,4 +845,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get proUnlockRounds => '더 큰 재미! CryptiQ Pro로 최대 10라운드까지 플레이하세요.';
+
+  @override
+  String get leadingZeroError => '숫자는 0으로 시작할 수 없어요. 다시 시도하세요!';
 }

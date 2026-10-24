@@ -11,6 +11,7 @@ import '../widgets/puzzle_display.dart';
 import '../widgets/letter_tile.dart';
 import '../widgets/number_pad.dart';
 import '../widgets/tutorial_overlay.dart';
+import '../widgets/top_error.dart';
 import '../../data/datasources/local_database.dart';
 
 class GameScreen extends ConsumerStatefulWidget {
@@ -434,7 +435,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
                       final currentStars = gameState.calculateStars();
                       final unassignedCount = gameState.assignments.values.where((v) => v == null).length;
                       if (unassignedCount > 0) {
-                        _showTopError(l10n.fillAllLetters);
+                        showTopError(context, l10n.fillAllLetters);
                         HapticFeedback.lightImpact();
                         return;
                       }
@@ -452,8 +453,11 @@ class _GameScreenState extends ConsumerState<GameScreen>
                         AudioService.instance.playError();
                         HapticFeedback.heavyImpact();
                         _shakeController.forward(from: 0);
-                        
-                        _showTopError(l10n.incorrectTryAgain);
+                        if (!mounted) return;
+                        final answer = gameState.assignments.map((k, v) => MapEntry(k, v!));
+                        showTopError(context, gameState.puzzle.failsOnlyOnLeadingZero(answer)
+                            ? l10n.leadingZeroError
+                            : l10n.incorrectTryAgain);
                       }
                     },
               child: Container(
@@ -673,31 +677,6 @@ class _GameScreenState extends ConsumerState<GameScreen>
             ],
           ),
         ),
-      ),
-    );
-  }
-  void _showTopError(String message) {
-    ScaffoldMessenger.of(context).clearSnackBars();
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.error_outline_rounded, color: Colors.white, size: 20),
-            const SizedBox(width: 8),
-            Text(message, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500)),
-          ],
-        ),
-        backgroundColor: AppTheme.errorColor.withValues(alpha: 0.95),
-        behavior: SnackBarBehavior.floating,
-        elevation: 0,
-        margin: EdgeInsets.only(
-          bottom: MediaQuery.of(context).size.height - 140,
-          left: 40,
-          right: 40,
-        ),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        duration: const Duration(seconds: 2),
       ),
     );
   }

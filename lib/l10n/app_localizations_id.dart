@@ -571,7 +571,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get onboardingHowToPlayBody =>
-      '1. Ketuk huruf untuk memilihnya\n2. Ketuk angka (0-9) untuk mengisinya\n3. Setiap huruf harus memiliki digit unik\n4. Tekan lama huruf untuk menghapus';
+      '1. Ketuk huruf untuk memilihnya\n2. Ketuk angka (0-9) untuk mengisinya\n3. Setiap huruf harus memiliki digit unik\n4. Angka tidak boleh diawali 0\n5. Tekan lama huruf untuk menghapus';
 
   @override
   String get onboardingHelpSubtitle => 'Petunjuk & Pemeriksaan';
@@ -859,4 +859,7 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get proUnlockRounds =>
       'Tambah keseruan! Mainkan hingga 10 ronde dengan CryptiQ Pro.';
+
+  @override
+  String get leadingZeroError => 'Angka tidak boleh diawali 0 — coba lagi!';
 }

@@ -1175,7 +1175,7 @@ abstract class AppLocalizations {
   /// No description provided for @onboardingHowToPlayBody.
   ///
   /// In en, this message translates to:
-  /// **'1. Tap a letter tile to select it\n2. Tap a number (0-9) to assign it\n3. Each letter must have a unique digit\n4. Long-press a letter to clear it'**
+  /// **'1. Tap a letter tile to select it\n2. Tap a number (0-9) to assign it\n3. Each letter must have a unique digit\n4. A number can\'t start with 0\n5. Long-press a letter to clear it'**
   String get onboardingHowToPlayBody;
 
   /// No description provided for @onboardingHelpSubtitle.
@@ -1687,6 +1687,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Even more fun! Play up to 10 rounds with CryptiQ Pro.'**
   String get proUnlockRounds;
+
+  /// No description provided for @leadingZeroError.
+  ///
+  /// In en, this message translates to:
+  /// **'Numbers can\'t start with 0 — try again!'**
+  String get leadingZeroError;
 }
 
 class _AppLocalizationsDelegate

@@ -243,7 +243,7 @@
   },
   "multiStepLabel": "多段階",
   "stars3": "スター",
-  "onboardingHowToPlayBody": "1. 文字をタップして選択\n2. 数字(0-9)をタップして割り当て\n3. 各文字には一意の数字が必要\n4. 文字を長押しでクリア",
+  "onboardingHowToPlayBody": "1. 文字をタップして選択\n2. 数字(0-9)をタップして割り当て\n3. 各文字には一意の数字が必要\n4. 数の先頭に0は使えません\n5. 文字を長押しでクリア",
   "onboardingHelpSubtitle": "ヒントと確認",
   "onboardingHelpBody": "• 💡ヒントをタップで文字を表示\n• ✓確認をタップでチェック\n• 間違った文字は赤、正しい文字は緑\n• ヒントを少なく解くほど⭐が多い！",
   "onboardingDailyBody": "• 毎日新しいパズル\n• 毎日プレイして連続記録🔥を作ろう\n• プレイしながら実績を解除\n• 簡単からエキスパートまで1200レベル — 全て無料！",
@@ -425,5 +425,6 @@
   "restorePurchases": "購入を復元",
   "storeTitle": "ストア",
   "proUnlockPlayers": "大人数ならもっと楽しい！CryptiQ Proで最大6人まで遊べます。",
-  "proUnlockRounds": "もっと楽しく！CryptiQ Proで最大10ラウンドまでプレイできます。"
+  "proUnlockRounds": "もっと楽しく！CryptiQ Proで最大10ラウンドまでプレイできます。",
+  "leadingZeroError": "数の先頭に0は使えません。もう一度！"
 }

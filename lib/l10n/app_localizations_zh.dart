@@ -561,7 +561,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get onboardingHowToPlayBody =>
-      '1. 点击字母选择它\n2. 点击数字(0-9)进行分配\n3. 每个字母必须有唯一的数字\n4. 长按字母清除它';
+      '1. 点击字母选择它\n2. 点击数字(0-9)进行分配\n3. 每个字母必须有唯一的数字\n4. 数字不能以0开头\n5. 长按字母清除它';
 
   @override
   String get onboardingHelpSubtitle => '提示和检查';
@@ -840,4 +840,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get proUnlockRounds => '更多乐趣！升级 CryptiQ Pro，最多可玩 10 轮。';
+
+  @override
+  String get leadingZeroError => '数字不能以0开头，请再试一次！';
 }

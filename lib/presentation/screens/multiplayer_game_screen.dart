@@ -12,6 +12,7 @@ import '../../levels/puzzle_generator.dart';
 import '../widgets/puzzle_display.dart';
 import '../widgets/number_pad.dart';
 import '../widgets/letter_tile.dart';
+import '../widgets/top_error.dart';
 
 /// Player score for one round
 class PlayerRound {
@@ -233,12 +234,15 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
     // Check if all letters assigned
     final allFilled = _assignments.values.every((v) => v != null);
     if (!allFilled) {
+      showTopError(context, AppLocalizations.of(context)!.fillAllLetters);
+      HapticFeedback.lightImpact();
       _isChecking = false;
       return;
     }
 
     // Verify solution
-    bool correct = _currentPuzzle.verifySolution(_assignments.cast<String, int>());
+    final answer = _assignments.cast<String, int>();
+    bool correct = _currentPuzzle.verifySolution(answer);
 
     if (correct) {
       AudioService.instance.playCorrect();
@@ -261,17 +265,10 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
       AudioService.instance.playError();
       HapticFeedback.heavyImpact();
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('❌ ${AppLocalizations.of(context)!.incorrectTryAgain}',
-                style: const TextStyle(color: Colors.white)),
-            backgroundColor: const Color(0xFFE53935),
-            behavior: SnackBarBehavior.floating,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12)),
-            duration: const Duration(seconds: 2),
-          ),
-        );
+        final l10n = AppLocalizations.of(context)!;
+        showTopError(context, _currentPuzzle.failsOnlyOnLeadingZero(answer)
+            ? l10n.leadingZeroError
+            : l10n.incorrectTryAgain);
       }
     }
     _isChecking = false;

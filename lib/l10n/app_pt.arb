@@ -243,7 +243,7 @@
   },
   "multiStepLabel": "Multi-passo",
   "stars3": "Estrelas",
-  "onboardingHowToPlayBody": "1. Toque em uma letra para selecioná-la\n2. Toque em um número (0-9) para atribuí-lo\n3. Cada letra deve ter um dígito único\n4. Pressione e segure uma letra para limpá-la",
+  "onboardingHowToPlayBody": "1. Toque em uma letra para selecioná-la\n2. Toque em um número (0-9) para atribuí-lo\n3. Cada letra deve ter um dígito único\n4. Um número não pode começar com 0\n5. Pressione e segure uma letra para limpá-la",
   "onboardingHelpSubtitle": "Dicas e Verificação",
   "onboardingHelpBody": "• Toque 💡 Dica para revelar uma letra\n• Toque ✓ Verificar para conferir\n• Letras erradas ficam vermelhas, corretas ficam verdes\n• Resolva com menos dicas para mais ⭐!",
   "onboardingDailyBody": "• Um novo puzzle todo dia\n• Construa sua sequência 🔥 jogando diariamente\n• Desbloqueie conquistas enquanto joga\n• 1200 níveis de Fácil a Especialista — todos GRÁTIS!",
@@ -425,5 +425,6 @@
   "restorePurchases": "Restaurar compras",
   "storeTitle": "Loja",
   "proUnlockPlayers": "Mais jogadores, mais diversão! Desbloqueie até 6 jogadores com o CryptiQ Pro.",
-  "proUnlockRounds": "Ainda mais diversão! Jogue até 10 rodadas com o CryptiQ Pro."
+  "proUnlockRounds": "Ainda mais diversão! Jogue até 10 rodadas com o CryptiQ Pro.",
+  "leadingZeroError": "Os números não podem começar com 0. Tente novamente!"
 }

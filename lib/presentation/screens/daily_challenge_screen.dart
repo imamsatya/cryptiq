@@ -10,6 +10,7 @@ import '../providers/daily_challenge_provider.dart';
 import '../widgets/puzzle_display.dart';
 import '../widgets/number_pad.dart';
 import '../widgets/letter_tile.dart';
+import '../widgets/top_error.dart';
 
 class DailyChallengeScreen extends ConsumerWidget {
   const DailyChallengeScreen({super.key});
@@ -258,8 +259,14 @@ class DailyChallengeScreen extends ConsumerWidget {
                             final notifier =
                                 ref.read(dailyGameStateProvider.notifier);
                             final navigator = GoRouter.of(context);
-                            final currentTime = ref.read(dailyGameStateProvider).elapsedSeconds;
-                            final currentHints = ref.read(dailyGameStateProvider).hintsUsed;
+                            final current = ref.read(dailyGameStateProvider);
+                            final currentTime = current.elapsedSeconds;
+                            final currentHints = current.hintsUsed;
+                            if (current.assignments.values.contains(null)) {
+                              showTopError(context, l10n.fillAllLetters);
+                              HapticFeedback.lightImpact();
+                              return;
+                            }
                             final correct = await notifier.checkSolution();
                             if (correct) {
                               AudioService.instance.playCorrect();
@@ -272,6 +279,11 @@ class DailyChallengeScreen extends ConsumerWidget {
                             } else {
                               AudioService.instance.playError();
                               HapticFeedback.heavyImpact();
+                              if (!context.mounted) return;
+                              final answer = current.assignments.map((k, v) => MapEntry(k, v!));
+                              showTopError(context, current.puzzle.failsOnlyOnLeadingZero(answer)
+                                  ? l10n.leadingZeroError
+                                  : l10n.incorrectTryAgain);
                             }
                           },
                           child: Container(

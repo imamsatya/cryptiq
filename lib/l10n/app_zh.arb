@@ -243,7 +243,7 @@
   },
   "multiStepLabel": "多步骤",
   "stars3": "星",
-  "onboardingHowToPlayBody": "1. 点击字母选择它\n2. 点击数字(0-9)进行分配\n3. 每个字母必须有唯一的数字\n4. 长按字母清除它",
+  "onboardingHowToPlayBody": "1. 点击字母选择它\n2. 点击数字(0-9)进行分配\n3. 每个字母必须有唯一的数字\n4. 数字不能以0开头\n5. 长按字母清除它",
   "onboardingHelpSubtitle": "提示和检查",
   "onboardingHelpBody": "• 点击💡提示揭示一个字母\n• 点击✓检查来验证\n• 错误的字母变红，正确的变绿\n• 使用更少的提示获得更多⭐！",
   "onboardingDailyBody": "• 每天一个新谜题\n• 每天玩来累积连续记录🔥\n• 边玩边解锁成就\n• 从简单到专家1200关 — 全部免费！",
@@ -425,5 +425,6 @@
   "restorePurchases": "恢复购买",
   "storeTitle": "商店",
   "proUnlockPlayers": "人越多越好玩！升级 CryptiQ Pro，最多可 6 人同玩。",
-  "proUnlockRounds": "更多乐趣！升级 CryptiQ Pro，最多可玩 10 轮。"
+  "proUnlockRounds": "更多乐趣！升级 CryptiQ Pro，最多可玩 10 轮。",
+  "leadingZeroError": "数字不能以0开头，请再试一次！"
 }

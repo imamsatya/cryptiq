@@ -243,7 +243,7 @@
   },
   "multiStepLabel": "Mehrstufig",
   "stars3": "Sterne",
-  "onboardingHowToPlayBody": "1. Tippe auf einen Buchstaben zum Auswählen\n2. Tippe auf eine Zahl (0-9) zum Zuweisen\n3. Jeder Buchstabe muss eine eindeutige Ziffer haben\n4. Halte einen Buchstaben gedrückt zum Löschen",
+  "onboardingHowToPlayBody": "1. Tippe auf einen Buchstaben zum Auswählen\n2. Tippe auf eine Zahl (0-9) zum Zuweisen\n3. Jeder Buchstabe muss eine eindeutige Ziffer haben\n4. Eine Zahl darf nicht mit 0 beginnen\n5. Halte einen Buchstaben gedrückt zum Löschen",
   "onboardingHelpSubtitle": "Hinweise und Prüfung",
   "onboardingHelpBody": "• Tippe 💡 Hinweis um einen Buchstaben aufzudecken\n• Tippe ✓ Prüfen zum Überprüfen\n• Falsche Buchstaben werden rot, richtige grün\n• Löse mit weniger Hinweisen für mehr ⭐!",
   "onboardingDailyBody": "• Jeden Tag ein neues Puzzle\n• Baue deine Serie 🔥 durch tägliches Spielen auf\n• Schalte Erfolge frei während du spielst\n• 1200 Level von Leicht bis Experte — alle GRATIS!",
@@ -425,5 +425,6 @@
   "restorePurchases": "Käufe wiederherstellen",
   "storeTitle": "Shop",
   "proUnlockPlayers": "Mehr Spieler, mehr Spaß! Schalte mit CryptiQ Pro bis zu 6 Spieler frei.",
-  "proUnlockRounds": "Noch mehr Spaß! Spiele mit CryptiQ Pro bis zu 10 Runden."
+  "proUnlockRounds": "Noch mehr Spaß! Spiele mit CryptiQ Pro bis zu 10 Runden.",
+  "leadingZeroError": "Zahlen dürfen nicht mit 0 beginnen – versuch es nochmal!"
 }

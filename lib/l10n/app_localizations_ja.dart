@@ -564,7 +564,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get onboardingHowToPlayBody =>
-      '1. 文字をタップして選択\n2. 数字(0-9)をタップして割り当て\n3. 各文字には一意の数字が必要\n4. 文字を長押しでクリア';
+      '1. 文字をタップして選択\n2. 数字(0-9)をタップして割り当て\n3. 各文字には一意の数字が必要\n4. 数の先頭に0は使えません\n5. 文字を長押しでクリア';
 
   @override
   String get onboardingHelpSubtitle => 'ヒントと確認';
@@ -843,4 +843,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get proUnlockRounds => 'もっと楽しく！CryptiQ Proで最大10ラウンドまでプレイできます。';
+
+  @override
+  String get leadingZeroError => '数の先頭に0は使えません。もう一度！';
 }
