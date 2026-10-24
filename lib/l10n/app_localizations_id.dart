@@ -874,4 +874,16 @@ class AppLocalizationsId extends AppLocalizations {
   String levelLocked(int level) {
     return '🔒 Selesaikan level $level untuk membuka level ini';
   }
+
+  @override
+  String get notifTitle => '🧩 Tantangan Harian Siap!';
+
+  @override
+  String notifBodyStreak(int streak) {
+    return '🔥 Kamu sudah $streak hari beruntun! Jangan sampai putus!';
+  }
+
+  @override
+  String get notifBodyDefault =>
+      'Puzzle baru menantimu. Bisakah kamu memecahkannya?';
 }

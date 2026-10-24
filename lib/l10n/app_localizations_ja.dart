@@ -857,4 +857,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String levelLocked(int level) {
     return '🔒 レベル$levelをクリアすると解放されます';
   }
+
+  @override
+  String get notifTitle => '🧩 デイリーチャレンジの準備ができました！';
+
+  @override
+  String notifBodyStreak(int streak) {
+    return '🔥 $streak日連続中！記録を途切れさせないで！';
+  }
+
+  @override
+  String get notifBodyDefault => '新しいパズルが待っています。解けるかな？';
 }

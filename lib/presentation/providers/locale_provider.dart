@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/services/notification_service.dart';
 import '../../data/datasources/local_database.dart';
 import '../../l10n/app_localizations.dart';
 
@@ -59,6 +60,7 @@ class LocaleNotifier extends StateNotifier<Locale?> {
     final db = LocalDatabase.instance;
     await db.settingsBox.put(_localeKey, code);
     state = code == 'system' ? null : Locale(code);
+    NotificationService.instance.scheduleDailyReminder(); // text follows the language
   }
 
   String get selectedCode {

@@ -877,4 +877,15 @@ class AppLocalizationsDe extends AppLocalizations {
   String levelLocked(int level) {
     return '🔒 Schließe Level $level ab, um dieses freizuschalten';
   }
+
+  @override
+  String get notifTitle => '🧩 Tägliche Herausforderung bereit!';
+
+  @override
+  String notifBodyStreak(int streak) {
+    return '🔥 Deine Serie: $streak Tage! Lass sie nicht abreißen!';
+  }
+
+  @override
+  String get notifBodyDefault => 'Ein neues Rätsel wartet. Kannst du es lösen?';
 }

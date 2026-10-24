@@ -429,5 +429,8 @@
   "leadingZeroError": "数字不能以0开头，请再试一次！",
   "answer": "答案",
   "multiplyNote": "没有“简单”难度的乘法谜题，将使用“中等”难度的谜题。",
-  "levelLocked": "🔒 完成第{level}关即可解锁"
+  "levelLocked": "🔒 完成第{level}关即可解锁",
+  "notifTitle": "🧩 每日挑战已就绪！",
+  "notifBodyStreak": "🔥 你已连续 {streak} 天！别让它中断！",
+  "notifBodyDefault": "新谜题等着你，你能解开吗？"
 }

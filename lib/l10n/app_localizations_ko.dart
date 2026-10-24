@@ -859,4 +859,15 @@ class AppLocalizationsKo extends AppLocalizations {
   String levelLocked(int level) {
     return '🔒 레벨 $level을(를) 완료하면 열립니다';
   }
+
+  @override
+  String get notifTitle => '🧩 일일 챌린지가 준비됐어요!';
+
+  @override
+  String notifBodyStreak(int streak) {
+    return '🔥 $streak일 연속 중이에요! 기록을 이어가세요!';
+  }
+
+  @override
+  String get notifBodyDefault => '새로운 퍼즐이 기다리고 있어요. 풀 수 있을까요?';
 }

@@ -429,5 +429,8 @@
   "leadingZeroError": "Un nombre ne peut pas commencer par 0. Réessayez !",
   "answer": "Réponse",
   "multiplyNote": "Il n'y a pas de multiplication en Facile : des puzzles Moyen seront utilisés.",
-  "levelLocked": "🔒 Terminez le niveau {level} pour débloquer celui-ci"
+  "levelLocked": "🔒 Terminez le niveau {level} pour débloquer celui-ci",
+  "notifTitle": "🧩 Le Défi Quotidien est prêt !",
+  "notifBodyStreak": "🔥 Vous êtes à {streak} jours de série ! Ne la brisez pas !",
+  "notifBodyDefault": "Un nouveau puzzle vous attend. Saurez-vous le résoudre ?"
 }

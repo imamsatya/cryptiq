@@ -7,6 +7,7 @@ import '../../core/theme/app_theme.dart';
 import '../providers/theme_provider.dart';
 import '../providers/progress_provider.dart';
 import '../../core/services/update_checker.dart';
+import '../../core/services/notification_service.dart';
 import '../widgets/particle_background.dart';
 import '../widgets/ad_banner_widget.dart';
 import '../../core/services/daily_challenge_service.dart';
@@ -26,11 +27,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _checkForUpdates());
+    WidgetsBinding.instance.addPostFrameCallback((_) => _onFirstFrame());
   }
 
-  Future<void> _checkForUpdates() async {
+  Future<void> _onFirstFrame() async {
     await UpdateChecker.instance.checkForUpdates();
+    // Android 13+ blocks the daily reminder until notifications are allowed
+    await NotificationService.instance.requestPermissionOnce();
   }
 
   @override

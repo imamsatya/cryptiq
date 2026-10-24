@@ -124,8 +124,9 @@ class DailyChallengeService {
       await _db.settingsBox.put(_streakKey, newStreak);
       await _db.settingsBox.put(_lastStreakDateKey, _today);
 
-      // Cancel today's notification since challenge completed
-      NotificationService.instance.cancelDailyReminder();
+      // Today is done: move the reminder to tomorrow (cancelling it left no
+      // reminder at all on the next day the user forgot to open the app)
+      NotificationService.instance.scheduleDailyReminder();
 
       // Update best streak
       final currentBestStreak = _db.settingsBox.get(_bestStreakKey, defaultValue: 0) as int;

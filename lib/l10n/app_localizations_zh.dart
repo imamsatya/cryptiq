@@ -854,4 +854,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String levelLocked(int level) {
     return '🔒 完成第$level关即可解锁';
   }
+
+  @override
+  String get notifTitle => '🧩 每日挑战已就绪！';
+
+  @override
+  String notifBodyStreak(int streak) {
+    return '🔥 你已连续 $streak 天！别让它中断！';
+  }
+
+  @override
+  String get notifBodyDefault => '新谜题等着你，你能解开吗？';
 }

@@ -870,4 +870,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String levelLocked(int level) {
     return '🔒 Complete level $level to unlock this one';
   }
+
+  @override
+  String get notifTitle => '🧩 Daily Challenge Ready!';
+
+  @override
+  String notifBodyStreak(int streak) {
+    return '🔥 You have a $streak-day streak! Don\'t break it!';
+  }
+
+  @override
+  String get notifBodyDefault => 'A new puzzle awaits. Can you solve it?';
 }

@@ -415,5 +415,8 @@
   "leadingZeroError": "Angka tidak boleh diawali 0 — coba lagi!",
   "answer": "Jawaban",
   "multiplyNote": "Tidak ada puzzle perkalian tingkat Mudah — puzzle tingkat Sedang yang akan dipakai.",
-  "levelLocked": "🔒 Selesaikan level {level} untuk membuka level ini"
+  "levelLocked": "🔒 Selesaikan level {level} untuk membuka level ini",
+  "notifTitle": "🧩 Tantangan Harian Siap!",
+  "notifBodyStreak": "🔥 Kamu sudah {streak} hari beruntun! Jangan sampai putus!",
+  "notifBodyDefault": "Puzzle baru menantimu. Bisakah kamu memecahkannya?"
 }

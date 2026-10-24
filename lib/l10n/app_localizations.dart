@@ -1711,6 +1711,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'🔒 Complete level {level} to unlock this one'**
   String levelLocked(int level);
+
+  /// No description provided for @notifTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'🧩 Daily Challenge Ready!'**
+  String get notifTitle;
+
+  /// No description provided for @notifBodyStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'🔥 You have a {streak}-day streak! Don\'t break it!'**
+  String notifBodyStreak(int streak);
+
+  /// No description provided for @notifBodyDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'A new puzzle awaits. Can you solve it?'**
+  String get notifBodyDefault;
 }
 
 class _AppLocalizationsDelegate

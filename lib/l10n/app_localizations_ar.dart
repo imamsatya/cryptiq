@@ -867,4 +867,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String levelLocked(int level) {
     return '🔒 أكمل المستوى $level لفتح هذا المستوى';
   }
+
+  @override
+  String get notifTitle => '🧩 التحدي اليومي جاهز!';
+
+  @override
+  String notifBodyStreak(int streak) {
+    return '🔥 لديك سلسلة $streak يوم! لا تقطعها!';
+  }
+
+  @override
+  String get notifBodyDefault => 'لغز جديد بانتظارك. هل يمكنك حله؟';
 }

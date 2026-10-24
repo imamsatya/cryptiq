@@ -429,5 +429,8 @@
   "leadingZeroError": "Zahlen dürfen nicht mit 0 beginnen – versuch es nochmal!",
   "answer": "Lösung",
   "multiplyNote": "Es gibt keine Multiplikation in Leicht – es werden Puzzles der Stufe Mittel verwendet.",
-  "levelLocked": "🔒 Schließe Level {level} ab, um dieses freizuschalten"
+  "levelLocked": "🔒 Schließe Level {level} ab, um dieses freizuschalten",
+  "notifTitle": "🧩 Tägliche Herausforderung bereit!",
+  "notifBodyStreak": "🔥 Deine Serie: {streak} Tage! Lass sie nicht abreißen!",
+  "notifBodyDefault": "Ein neues Rätsel wartet. Kannst du es lösen?"
 }

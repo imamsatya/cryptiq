@@ -872,4 +872,16 @@ class AppLocalizationsHi extends AppLocalizations {
   String levelLocked(int level) {
     return '🔒 इसे अनलॉक करने के लिए स्तर $level पूरा करें';
   }
+
+  @override
+  String get notifTitle => '🧩 दैनिक चुनौती तैयार है!';
+
+  @override
+  String notifBodyStreak(int streak) {
+    return '🔥 आपकी $streak दिन की श्रृंखला चल रही है! इसे टूटने न दें!';
+  }
+
+  @override
+  String get notifBodyDefault =>
+      'एक नई पहेली आपका इंतज़ार कर रही है। क्या आप इसे हल कर सकते हैं?';
 }

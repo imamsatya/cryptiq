@@ -429,5 +429,8 @@
   "leadingZeroError": "Los números no pueden empezar por 0. ¡Inténtalo de nuevo!",
   "answer": "Respuesta",
   "multiplyNote": "No hay multiplicaciones en Fácil: se usarán puzzles de nivel Medio.",
-  "levelLocked": "🔒 Completa el nivel {level} para desbloquear este"
+  "levelLocked": "🔒 Completa el nivel {level} para desbloquear este",
+  "notifTitle": "🧩 ¡Desafío Diario listo!",
+  "notifBodyStreak": "🔥 ¡Llevas {streak} días de racha! ¡No la pierdas!",
+  "notifBodyDefault": "Te espera un nuevo puzzle. ¿Podrás resolverlo?"
 }

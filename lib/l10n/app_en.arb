@@ -436,5 +436,15 @@
         "type": "int"
       }
     }
-  }
+  },
+  "notifTitle": "🧩 Daily Challenge Ready!",
+  "notifBodyStreak": "🔥 You have a {streak}-day streak! Don't break it!",
+  "@notifBodyStreak": {
+    "placeholders": {
+      "streak": {
+        "type": "int"
+      }
+    }
+  },
+  "notifBodyDefault": "A new puzzle awaits. Can you solve it?"
 }

@@ -876,4 +876,16 @@ class AppLocalizationsFr extends AppLocalizations {
   String levelLocked(int level) {
     return '🔒 Terminez le niveau $level pour débloquer celui-ci';
   }
+
+  @override
+  String get notifTitle => '🧩 Le Défi Quotidien est prêt !';
+
+  @override
+  String notifBodyStreak(int streak) {
+    return '🔥 Vous êtes à $streak jours de série ! Ne la brisez pas !';
+  }
+
+  @override
+  String get notifBodyDefault =>
+      'Un nouveau puzzle vous attend. Saurez-vous le résoudre ?';
 }
