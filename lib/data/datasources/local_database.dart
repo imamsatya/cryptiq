@@ -87,6 +87,8 @@ class LocalDatabase {
   // Rate app
   String getRateAppStatus() => _settingsBox.get(AppConstants.rateAppKey, defaultValue: 'none');
   Future<void> setRateAppStatus(String value) => _settingsBox.put(AppConstants.rateAppKey, value);
+  int getRateAppNextLevel() => _settingsBox.get(AppConstants.rateAppNextLevelKey, defaultValue: 0);
+  Future<void> setRateAppNextLevel(int value) => _settingsBox.put(AppConstants.rateAppNextLevelKey, value);
 
   // Auto-fill next letter
   bool getAutoFill() => _settingsBox.get('auto_fill_enabled', defaultValue: false);

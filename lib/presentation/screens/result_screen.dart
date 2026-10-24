@@ -3,6 +3,7 @@ import '../../l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:confetti/confetti.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/services/ad_service.dart';
 import '../../core/services/audio_service.dart';
@@ -82,6 +83,8 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
 
     final completed = db.getHighestCompletedLevel();
     if (completed < AppConstants.rateAppAfterLevels) return;
+    // After "Later", wait a while instead of asking after every level
+    if (status == 'later' && completed < db.getRateAppNextLevel()) return;
 
     // Show rate dialog
     showDialog(
@@ -107,6 +110,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
           TextButton(
             onPressed: () {
               db.setRateAppStatus('later');
+              db.setRateAppNextLevel(completed + AppConstants.rateAppRemindAfterLevels);
               Navigator.pop(ctx);
             },
             child: Text(l10n.later,
@@ -116,7 +120,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
             onPressed: () {
               db.setRateAppStatus('rated');
               Navigator.pop(ctx);
-              // TODO: Open store listing
+              _openStoreListing();
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: AppTheme.primaryColor,
@@ -127,6 +131,17 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
         ],
       ),
     );
+  }
+
+  Future<void> _openStoreListing() async {
+    final url = Uri.parse(AppConstants.playStoreUrl);
+    try {
+      if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+        debugPrint('Could not launch $url');
+      }
+    } catch (e) {
+      debugPrint('Error launching url: $e');
+    }
   }
 
   Future<void> _checkAchievements() async {

@@ -67,6 +67,8 @@ class AppConstants {
   static const int notificationHour = 19; // 7 PM daily reminder
   static const String rateAppKey = 'rate_app_status'; // 'none', 'later', 'never', 'rated'
   static const int rateAppAfterLevels = 10; // Show after completing 10 levels
+  static const String rateAppNextLevelKey = 'rate_app_next_level'; // ask again at this level after "Later"
+  static const int rateAppRemindAfterLevels = 20;
 
   // IAP Product IDs
   static const String proProductId = 'com.cryptiq.pro';
