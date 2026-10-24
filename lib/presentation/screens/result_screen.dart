@@ -11,6 +11,7 @@ import '../../data/datasources/local_database.dart';
 import '../../core/services/achievement_service.dart';
 import '../../levels/puzzle_generator.dart';
 import '../providers/game_state_provider.dart';
+import '../providers/progress_provider.dart';
 import '../widgets/score_card.dart';
 import '../widgets/ad_banner_widget.dart';
 
@@ -377,7 +378,10 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                           child: _buildSecondaryButton(
                             icon: Icons.home_rounded,
                             label: l10n.home,
-                            onTap: () => context.go('/'),
+                            onTap: () {
+                              ref.invalidate(completedLevelsProvider);
+                              context.go('/');
+                            },
                           ),
                         ),
                       ],
@@ -421,6 +425,7 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
       onTap: hasNext
           ? () {
               ref.invalidate(gameStateProvider(widget.levelNumber));
+              ref.invalidate(completedLevelsProvider);
               context.pop(); // pop result
               context.pop(); // pop completed game
               context.push('/game/$nextLevel');
