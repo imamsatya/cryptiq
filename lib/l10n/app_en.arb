@@ -55,7 +55,7 @@
   "someDigitsWrong": "Some digits are incorrect. Try again!",
   "fillAllLetters": "Please fill all letters first!",
   "allLevelsFree": "All levels are FREE!",
-  "noLockedLevels": "No locked levels, ever.",
+  "noLockedLevels": "Unlock every level just by playing.",
   "home": "Home",
   "back": "Back",
   "resume": "Resume",
@@ -227,7 +227,7 @@
   "gaveUp": "Gave up",
   "beatMyTime": "Can you beat my time?",
   "allLevelsFreeTitle": "All 1200 Levels FREE",
-  "allLevelsFreeBody": "No locked levels, no paywall. Enjoy!",
+  "allLevelsFreeBody": "No paywall — levels unlock as you play. Enjoy!",
   "privacyOverviewBody": "We respect your privacy and are committed to protecting your personal information.",
   "privacyDataBody": "All game progress is stored locally on your device using offline storage (Hive). We do not require account creation or login.",
   "privacyStorageBody": "All data (game progress, settings, achievements) is stored locally on your device. Uninstalling the app will remove all local data.",
@@ -423,5 +423,7 @@
   "achvMultiStepFirstTitle": "Chain Reaction",
   "achvMultiStepFirstDesc": "Solve your first multi-step puzzle",
   "achvMultiStepAllDesc": "Complete all 200 multi-step puzzles",
-  "achvMultiStepAllTitle": "Cascade King"
+  "achvMultiStepAllTitle": "Cascade King",
+  "proUnlockPlayers": "More players, more fun! Unlock up to 6 players with CryptiQ Pro.",
+  "proUnlockRounds": "Even more fun! Play up to 10 rounds with CryptiQ Pro."
 }

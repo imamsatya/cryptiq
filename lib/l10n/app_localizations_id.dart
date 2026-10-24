@@ -157,7 +157,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get allLevelsFree => 'Semua level GRATIS!';
 
   @override
-  String get noLockedLevels => 'Tidak ada level terkunci, selamanya.';
+  String get noLockedLevels => 'Buka semua level cukup dengan bermain.';
 
   @override
   String get home => 'Beranda';
@@ -539,7 +539,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get allLevelsFreeTitle => 'Semua 1200 Level GRATIS';
 
   @override
-  String get allLevelsFreeBody => 'Tidak ada level terkunci. Nikmati!';
+  String get allLevelsFreeBody =>
+      'Tanpa paywall — level terbuka seiring kamu bermain. Nikmati!';
 
   @override
   String get privacyOverviewBody =>
@@ -850,4 +851,12 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get achvMultiStepAllTitle => 'Raja Bertingkat';
+
+  @override
+  String get proUnlockPlayers =>
+      'Main beramai-ramai lebih seru! Buka batas pemain hingga 6 orang dengan CryptiQ Pro.';
+
+  @override
+  String get proUnlockRounds =>
+      'Tambah keseruan! Mainkan hingga 10 ronde dengan CryptiQ Pro.';
 }

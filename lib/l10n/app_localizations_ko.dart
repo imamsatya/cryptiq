@@ -74,7 +74,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get hints => '힌트';
 
   @override
-  String get allowHints => 'Allow Hints';
+  String get allowHints => '힌트 허용';
 
   @override
   String get bestTime => '최고 기록';
@@ -124,22 +124,22 @@ class AppLocalizationsKo extends AppLocalizations {
   String get restorePurchase => '구매 복원';
 
   @override
-  String get storeTitle => 'Store';
+  String get storeTitle => '상점';
 
   @override
-  String get proActiveDesc => 'All premium features unlocked!';
+  String get proActiveDesc => '모든 프리미엄 기능이 잠금 해제되었습니다!';
 
   @override
-  String get proDesc => 'Remove all ads forever and support the developer.';
+  String get proDesc => '모든 광고를 영구히 제거하고 개발자를 응원하세요.';
 
   @override
-  String get purchased => 'Purchased';
+  String get purchased => '구매 완료';
 
   @override
-  String get restorePurchases => 'Restore Purchases';
+  String get restorePurchases => '구매 복원';
 
   @override
-  String get purchasesRestored => 'Purchases restored';
+  String get purchasesRestored => '구매가 복원되었습니다';
 
   @override
   String get tryAgain => '다시 시도';
@@ -151,13 +151,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get someDigitsWrong => '일부 숫자가 틀렸습니다. 다시 시도해주세요!';
 
   @override
-  String get fillAllLetters => 'Please fill all letters first!';
+  String get fillAllLetters => '먼저 모든 글자를 채워주세요!';
 
   @override
   String get allLevelsFree => '모든 레벨 무료!';
 
   @override
-  String get noLockedLevels => '잠긴 레벨 없음.';
+  String get noLockedLevels => '플레이만 해도 모든 레벨이 열립니다.';
 
   @override
   String get home => '홈';
@@ -376,7 +376,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get levelSelectHint =>
-      '💡 Tip: Tap to play, long-press a completed level for details.';
+      '💡 팁: 탭하여 플레이하고, 완료한 레벨을 길게 누르면 상세 정보를 볼 수 있어요.';
 
   @override
   String get noThanks => '아니요';
@@ -536,7 +536,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get allLevelsFreeTitle => '1200 레벨 전부 무료';
 
   @override
-  String get allLevelsFreeBody => '잠긴 레벨 없음. 즐기세요!';
+  String get allLevelsFreeBody => '결제 장벽이 없어요. 플레이하면 레벨이 열립니다. 즐기세요!';
 
   @override
   String get privacyOverviewBody => '우리는 귀하의 개인정보를 존중하며 보호하기 위해 최선을 다합니다.';
@@ -839,4 +839,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get achvMultiStepAllTitle => '캐스케이드 킹';
+
+  @override
+  String get proUnlockPlayers => '함께하면 더 즐거워요! CryptiQ Pro로 최대 6명까지 플레이하세요.';
+
+  @override
+  String get proUnlockRounds => '더 큰 재미! CryptiQ Pro로 최대 10라운드까지 플레이하세요.';
 }

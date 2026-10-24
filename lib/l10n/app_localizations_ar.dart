@@ -74,7 +74,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get hints => 'تلميحات';
 
   @override
-  String get allowHints => 'Allow Hints';
+  String get allowHints => 'السماح بالتلميحات';
 
   @override
   String get bestTime => 'أفضل وقت';
@@ -124,22 +124,22 @@ class AppLocalizationsAr extends AppLocalizations {
   String get restorePurchase => 'استعادة الشراء';
 
   @override
-  String get storeTitle => 'Store';
+  String get storeTitle => 'المتجر';
 
   @override
-  String get proActiveDesc => 'All premium features unlocked!';
+  String get proActiveDesc => 'تم فتح جميع الميزات المميزة!';
 
   @override
-  String get proDesc => 'Remove all ads forever and support the developer.';
+  String get proDesc => 'أزل جميع الإعلانات إلى الأبد وادعم المطوّر.';
 
   @override
-  String get purchased => 'Purchased';
+  String get purchased => 'تم الشراء';
 
   @override
-  String get restorePurchases => 'Restore Purchases';
+  String get restorePurchases => 'استعادة المشتريات';
 
   @override
-  String get purchasesRestored => 'Purchases restored';
+  String get purchasesRestored => 'تمت استعادة المشتريات';
 
   @override
   String get tryAgain => 'حاول مجدداً';
@@ -151,13 +151,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get someDigitsWrong => 'بعض الأرقام خاطئة. حاول مجدداً!';
 
   @override
-  String get fillAllLetters => 'Please fill all letters first!';
+  String get fillAllLetters => 'يرجى ملء جميع الحروف أولاً!';
 
   @override
   String get allLevelsFree => 'جميع المستويات مجانية!';
 
   @override
-  String get noLockedLevels => 'لا مستويات مقفلة، أبداً.';
+  String get noLockedLevels => 'افتح كل المستويات بمجرد اللعب.';
 
   @override
   String get home => 'الرئيسية';
@@ -376,7 +376,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get levelSelectHint =>
-      '💡 Tip: Tap to play, long-press a completed level for details.';
+      '💡 نصيحة: انقر للعب، واضغط مطولاً على مستوى مكتمل لعرض التفاصيل.';
 
   @override
   String get noThanks => 'لا، شكراً';
@@ -538,7 +538,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get allLevelsFreeTitle => 'جميع 1200 مستوى مجانية';
 
   @override
-  String get allLevelsFreeBody => 'لا مستويات مقفلة. استمتع!';
+  String get allLevelsFreeBody =>
+      'بلا حواجز دفع — تُفتح المستويات أثناء اللعب. استمتع!';
 
   @override
   String get privacyOverviewBody =>
@@ -844,4 +845,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get achvMultiStepAllTitle => 'تتالي الملك';
+
+  @override
+  String get proUnlockPlayers =>
+      'لاعبون أكثر، متعة أكبر! افتح حتى 6 لاعبين مع CryptiQ Pro.';
+
+  @override
+  String get proUnlockRounds => 'متعة أكبر! العب حتى 10 جولات مع CryptiQ Pro.';
 }

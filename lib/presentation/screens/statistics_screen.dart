@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import '../widgets/stats_card.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/datasources/local_database.dart';
@@ -310,8 +311,8 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
     final lastDay = DateTime(now.year, now.month + 1, 0);
     final startWeekday = firstDay.weekday % 7; // 0=Sun
 
-    final months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    final days = ['S','M','T','W','T','F','S'];
+    final monthYear = DateFormat.yMMM(Localizations.localeOf(context).toString()).format(now);
+    final days = MaterialLocalizations.of(context).narrowWeekdays; // Sunday first
 
     final completedThisMonth = completedDates.where((d) {
       return d.startsWith('${now.year}-${now.month.toString().padLeft(2, '0')}');
@@ -327,7 +328,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '${months[now.month - 1]} ${now.year}',
+                monthYear,
                 style: const TextStyle(
                   fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white),
               ),

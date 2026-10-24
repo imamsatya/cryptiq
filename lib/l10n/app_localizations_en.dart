@@ -157,7 +157,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get allLevelsFree => 'All levels are FREE!';
 
   @override
-  String get noLockedLevels => 'No locked levels, ever.';
+  String get noLockedLevels => 'Unlock every level just by playing.';
 
   @override
   String get home => 'Home';
@@ -539,7 +539,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get allLevelsFreeTitle => 'All 1200 Levels FREE';
 
   @override
-  String get allLevelsFreeBody => 'No locked levels, no paywall. Enjoy!';
+  String get allLevelsFreeBody =>
+      'No paywall — levels unlock as you play. Enjoy!';
 
   @override
   String get privacyOverviewBody =>
@@ -846,4 +847,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get achvMultiStepAllTitle => 'Cascade King';
+
+  @override
+  String get proUnlockPlayers =>
+      'More players, more fun! Unlock up to 6 players with CryptiQ Pro.';
+
+  @override
+  String get proUnlockRounds =>
+      'Even more fun! Play up to 10 rounds with CryptiQ Pro.';
 }

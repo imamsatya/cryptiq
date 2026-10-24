@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import '../../core/theme/app_theme.dart';
 import '../providers/theme_provider.dart';
 import '../providers/progress_provider.dart';
@@ -265,9 +266,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final daily = DailyChallengeService.instance;
     final isCompleted = daily.isTodayCompleted;
     final streak = daily.streak;
-    final now = DateTime.now();
-    final months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    final dateStr = '${now.day} ${months[now.month - 1]} ${now.year}';
+    final dateStr = DateFormat.yMMMd(Localizations.localeOf(context).toString())
+        .format(DateTime.now());
 
     return GestureDetector(
       onTap: () => context.push('/daily'),

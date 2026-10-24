@@ -48,7 +48,7 @@
   "someDigitsWrong": "Beberapa digit tidak benar. Coba lagi!",
   "fillAllLetters": "Harap isi semua huruf terlebih dahulu!",
   "allLevelsFree": "Semua level GRATIS!",
-  "noLockedLevels": "Tidak ada level terkunci, selamanya.",
+  "noLockedLevels": "Buka semua level cukup dengan bermain.",
   "home": "Beranda",
   "back": "Kembali",
   "resume": "Lanjutkan",
@@ -213,7 +213,7 @@
   "gaveUp": "Menyerah",
   "beatMyTime": "Bisakah kamu mengalahkan waktuku?",
   "allLevelsFreeTitle": "Semua 1200 Level GRATIS",
-  "allLevelsFreeBody": "Tidak ada level terkunci. Nikmati!",
+  "allLevelsFreeBody": "Tanpa paywall — level terbuka seiring kamu bermain. Nikmati!",
   "privacyOverviewBody": "Kami menghormati privasi Anda dan berkomitmen melindungi informasi pribadi Anda.",
   "privacyDataBody": "Semua progress game disimpan secara lokal di perangkat Anda menggunakan penyimpanan offline (Hive). Kami tidak memerlukan pembuatan akun atau login.",
   "privacyStorageBody": "Semua data (progress game, pengaturan, pencapaian) disimpan secara lokal di perangkat Anda. Menghapus aplikasi akan menghapus semua data lokal.",
@@ -409,5 +409,7 @@
   "achvMultiStepAllTitle": "Raja Bertingkat",
   "achvMultiStepFirstDesc": "Pecahkan teka-teki multi-langkah pertama Anda",
   "achvStreak100Desc": "Tantangan harian 100 hari berturut-turut",
-  "achvMultiStepAllDesc": "Selesaikan semua 200 teka-teki multi-langkah"
+  "achvMultiStepAllDesc": "Selesaikan semua 200 teka-teki multi-langkah",
+  "proUnlockPlayers": "Main beramai-ramai lebih seru! Buka batas pemain hingga 6 orang dengan CryptiQ Pro.",
+  "proUnlockRounds": "Tambah keseruan! Mainkan hingga 10 ronde dengan CryptiQ Pro."
 }

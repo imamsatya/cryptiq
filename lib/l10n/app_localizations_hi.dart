@@ -74,7 +74,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get hints => 'संकेत';
 
   @override
-  String get allowHints => 'Allow Hints';
+  String get allowHints => 'संकेतों की अनुमति दें';
 
   @override
   String get bestTime => 'सर्वश्रेष्ठ समय';
@@ -124,22 +124,23 @@ class AppLocalizationsHi extends AppLocalizations {
   String get restorePurchase => 'खरीद पुनर्स्थापित करें';
 
   @override
-  String get storeTitle => 'Store';
+  String get storeTitle => 'स्टोर';
 
   @override
-  String get proActiveDesc => 'All premium features unlocked!';
+  String get proActiveDesc => 'सभी प्रीमियम सुविधाएँ अनलॉक हो गईं!';
 
   @override
-  String get proDesc => 'Remove all ads forever and support the developer.';
+  String get proDesc =>
+      'सभी विज्ञापन हमेशा के लिए हटाएँ और डेवलपर का समर्थन करें।';
 
   @override
-  String get purchased => 'Purchased';
+  String get purchased => 'खरीदा गया';
 
   @override
-  String get restorePurchases => 'Restore Purchases';
+  String get restorePurchases => 'खरीदारी बहाल करें';
 
   @override
-  String get purchasesRestored => 'Purchases restored';
+  String get purchasesRestored => 'खरीदारी बहाल की गई';
 
   @override
   String get tryAgain => 'पुनः प्रयास करें';
@@ -151,13 +152,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get someDigitsWrong => 'कुछ अंक गलत हैं। फिर से प्रयास करें!';
 
   @override
-  String get fillAllLetters => 'Please fill all letters first!';
+  String get fillAllLetters => 'पहले सभी अक्षर भरें!';
 
   @override
   String get allLevelsFree => 'सभी स्तर मुफ़्त!';
 
   @override
-  String get noLockedLevels => 'कोई लॉक स्तर नहीं।';
+  String get noLockedLevels => 'बस खेलकर हर स्तर अनलॉक करें।';
 
   @override
   String get home => 'होम';
@@ -376,7 +377,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get levelSelectHint =>
-      '💡 Tip: Tap to play, long-press a completed level for details.';
+      '💡 सुझाव: खेलने के लिए टैप करें, विवरण के लिए पूरे किए गए स्तर को देर तक दबाएँ।';
 
   @override
   String get noThanks => 'नहीं, धन्यवाद';
@@ -538,7 +539,8 @@ class AppLocalizationsHi extends AppLocalizations {
   String get allLevelsFreeTitle => 'सभी 1200 स्तर मुफ़्त';
 
   @override
-  String get allLevelsFreeBody => 'कोई लॉक स्तर नहीं। आनंद लें!';
+  String get allLevelsFreeBody =>
+      'कोई पेवॉल नहीं — खेलते-खेलते स्तर अनलॉक होते हैं। आनंद लें!';
 
   @override
   String get privacyOverviewBody =>
@@ -846,4 +848,12 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get achvMultiStepAllTitle => 'कैस्केड किंग';
+
+  @override
+  String get proUnlockPlayers =>
+      'ज़्यादा खिलाड़ी, ज़्यादा मज़ा! CryptiQ Pro के साथ 6 खिलाड़ियों तक अनलॉक करें।';
+
+  @override
+  String get proUnlockRounds =>
+      'और भी मज़ा! CryptiQ Pro के साथ 10 राउंड तक खेलें।';
 }

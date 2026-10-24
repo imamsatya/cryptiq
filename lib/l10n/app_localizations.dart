@@ -407,7 +407,7 @@ abstract class AppLocalizations {
   /// No description provided for @noLockedLevels.
   ///
   /// In en, this message translates to:
-  /// **'No locked levels, ever.'**
+  /// **'Unlock every level just by playing.'**
   String get noLockedLevels;
 
   /// No description provided for @home.
@@ -1127,7 +1127,7 @@ abstract class AppLocalizations {
   /// No description provided for @allLevelsFreeBody.
   ///
   /// In en, this message translates to:
-  /// **'No locked levels, no paywall. Enjoy!'**
+  /// **'No paywall — levels unlock as you play. Enjoy!'**
   String get allLevelsFreeBody;
 
   /// No description provided for @privacyOverviewBody.
@@ -1675,6 +1675,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cascade King'**
   String get achvMultiStepAllTitle;
+
+  /// No description provided for @proUnlockPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'More players, more fun! Unlock up to 6 players with CryptiQ Pro.'**
+  String get proUnlockPlayers;
+
+  /// No description provided for @proUnlockRounds.
+  ///
+  /// In en, this message translates to:
+  /// **'Even more fun! Play up to 10 rounds with CryptiQ Pro.'**
+  String get proUnlockRounds;
 }
 
 class _AppLocalizationsDelegate

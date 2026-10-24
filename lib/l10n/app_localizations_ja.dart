@@ -74,7 +74,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get hints => 'ヒント';
 
   @override
-  String get allowHints => 'Allow Hints';
+  String get allowHints => 'ヒントを許可';
 
   @override
   String get bestTime => 'ベストタイム';
@@ -124,22 +124,22 @@ class AppLocalizationsJa extends AppLocalizations {
   String get restorePurchase => '購入を復元';
 
   @override
-  String get storeTitle => 'Store';
+  String get storeTitle => 'ストア';
 
   @override
-  String get proActiveDesc => 'All premium features unlocked!';
+  String get proActiveDesc => 'すべてのプレミアム機能が解放されました！';
 
   @override
-  String get proDesc => 'Remove all ads forever and support the developer.';
+  String get proDesc => '広告を永久に削除して、開発者を応援しよう。';
 
   @override
-  String get purchased => 'Purchased';
+  String get purchased => '購入済み';
 
   @override
-  String get restorePurchases => 'Restore Purchases';
+  String get restorePurchases => '購入を復元';
 
   @override
-  String get purchasesRestored => 'Purchases restored';
+  String get purchasesRestored => '購入を復元しました';
 
   @override
   String get tryAgain => 'もう一度';
@@ -151,13 +151,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get someDigitsWrong => '一部の数字が間違っています。もう一度お試しください！';
 
   @override
-  String get fillAllLetters => 'Please fill all letters first!';
+  String get fillAllLetters => '先にすべての文字を埋めてください！';
 
   @override
   String get allLevelsFree => '全レベル無料！';
 
   @override
-  String get noLockedLevels => 'ロックされたレベルはありません。';
+  String get noLockedLevels => 'プレイするだけで全レベルを解放できます。';
 
   @override
   String get home => 'ホーム';
@@ -375,8 +375,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get rateAppBody => 'アプリが気に入ったら、ぜひ評価してください！';
 
   @override
-  String get levelSelectHint =>
-      '💡 Tip: Tap to play, long-press a completed level for details.';
+  String get levelSelectHint => '💡 ヒント：タップでプレイ、クリア済みのレベルを長押しで詳細を表示。';
 
   @override
   String get noThanks => 'いいえ';
@@ -536,7 +535,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get allLevelsFreeTitle => '全1200レベル無料';
 
   @override
-  String get allLevelsFreeBody => 'ロックされたレベルはありません。お楽しみください！';
+  String get allLevelsFreeBody => '課金の壁はありません。プレイするとレベルが解放されます。お楽しみください！';
 
   @override
   String get privacyOverviewBody => '私たちはあなたのプライバシーを尊重し、個人情報の保護に努めています。';
@@ -838,4 +837,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get achvMultiStepAllTitle => 'カスケードキング';
+
+  @override
+  String get proUnlockPlayers => '大人数ならもっと楽しい！CryptiQ Proで最大6人まで遊べます。';
+
+  @override
+  String get proUnlockRounds => 'もっと楽しく！CryptiQ Proで最大10ラウンドまでプレイできます。';
 }

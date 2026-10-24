@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:confetti/confetti.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../core/theme/app_theme.dart';
@@ -112,12 +113,8 @@ class _DailyResultScreenState extends State<DailyResultScreen>
   @override
   Widget build(BuildContext context) {
     final streak = DailyChallengeService.instance.streak;
-    final now = DateTime.now();
-    final months = [
-      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-    ];
-    final dateStr = '${now.day} ${months[now.month - 1]} ${now.year}';
+    final dateStr = DateFormat.yMMMd(Localizations.localeOf(context).toString())
+        .format(DateTime.now());
 
     final l10n = AppLocalizations.of(context)!;
     return Scaffold(

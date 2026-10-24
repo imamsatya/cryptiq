@@ -107,7 +107,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
   void _addPlayer() {
     final isPro = LocalDatabase.instance.getProStatus();
     if (!isPro && _nameControllers.length >= 2) {
-      _showProDialog('Main beramai-ramai lebih seru! Buka batas pemain hingga 6 orang dengan CryptiQ Pro.');
+      _showProDialog(AppLocalizations.of(context)!.proUnlockPlayers);
       return;
     }
 
@@ -334,7 +334,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                           onChanged: (v) {
                             final val = v.round();
                             if (!isPro && val > 2) {
-                              _showProDialog('Tambah keseruan! Mainkan hingga 10 ronde dengan CryptiQ Pro.');
+                              _showProDialog(l10n.proUnlockRounds);
                               setState(() => _rounds = 2);
                             } else {
                               setState(() => _rounds = val);

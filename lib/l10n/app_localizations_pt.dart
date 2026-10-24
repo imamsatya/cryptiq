@@ -74,7 +74,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get hints => 'Dicas';
 
   @override
-  String get allowHints => 'Allow Hints';
+  String get allowHints => 'Permitir dicas';
 
   @override
   String get bestTime => 'Melhor Tempo';
@@ -124,22 +124,23 @@ class AppLocalizationsPt extends AppLocalizations {
   String get restorePurchase => 'Restaurar Compra';
 
   @override
-  String get storeTitle => 'Store';
+  String get storeTitle => 'Loja';
 
   @override
-  String get proActiveDesc => 'All premium features unlocked!';
+  String get proActiveDesc => 'Todos os recursos premium desbloqueados!';
 
   @override
-  String get proDesc => 'Remove all ads forever and support the developer.';
+  String get proDesc =>
+      'Remova todos os anúncios para sempre e apoie o desenvolvedor.';
 
   @override
-  String get purchased => 'Purchased';
+  String get purchased => 'Comprado';
 
   @override
-  String get restorePurchases => 'Restore Purchases';
+  String get restorePurchases => 'Restaurar compras';
 
   @override
-  String get purchasesRestored => 'Purchases restored';
+  String get purchasesRestored => 'Compras restauradas';
 
   @override
   String get tryAgain => 'Tentar Novamente';
@@ -152,13 +153,13 @@ class AppLocalizationsPt extends AppLocalizations {
       'Alguns dígitos estão incorretos. Tente novamente!';
 
   @override
-  String get fillAllLetters => 'Please fill all letters first!';
+  String get fillAllLetters => 'Preencha todas as letras primeiro!';
 
   @override
   String get allLevelsFree => 'Todos os níveis são GRÁTIS!';
 
   @override
-  String get noLockedLevels => 'Sem níveis bloqueados, nunca.';
+  String get noLockedLevels => 'Desbloqueie todos os níveis apenas jogando.';
 
   @override
   String get home => 'Início';
@@ -378,7 +379,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get levelSelectHint =>
-      '💡 Tip: Tap to play, long-press a completed level for details.';
+      '💡 Dica: toque para jogar; pressione e segure um nível concluído para ver detalhes.';
 
   @override
   String get noThanks => 'Não, Obrigado';
@@ -540,7 +541,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get allLevelsFreeTitle => 'Todos os 1200 Níveis GRÁTIS';
 
   @override
-  String get allLevelsFreeBody => 'Sem níveis bloqueados. Aproveite!';
+  String get allLevelsFreeBody =>
+      'Sem paywall: os níveis são desbloqueados enquanto você joga. Aproveite!';
 
   @override
   String get privacyOverviewBody =>
@@ -851,4 +853,12 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get achvMultiStepAllTitle => 'Rei Cascata';
+
+  @override
+  String get proUnlockPlayers =>
+      'Mais jogadores, mais diversão! Desbloqueie até 6 jogadores com o CryptiQ Pro.';
+
+  @override
+  String get proUnlockRounds =>
+      'Ainda mais diversão! Jogue até 10 rodadas com o CryptiQ Pro.';
 }

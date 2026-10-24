@@ -74,7 +74,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get hints => '提示';
 
   @override
-  String get allowHints => 'Allow Hints';
+  String get allowHints => '允许提示';
 
   @override
   String get bestTime => '最佳时间';
@@ -124,22 +124,22 @@ class AppLocalizationsZh extends AppLocalizations {
   String get restorePurchase => '恢复购买';
 
   @override
-  String get storeTitle => 'Store';
+  String get storeTitle => '商店';
 
   @override
-  String get proActiveDesc => 'All premium features unlocked!';
+  String get proActiveDesc => '所有高级功能已解锁！';
 
   @override
-  String get proDesc => 'Remove all ads forever and support the developer.';
+  String get proDesc => '永久移除所有广告，并支持开发者。';
 
   @override
-  String get purchased => 'Purchased';
+  String get purchased => '已购买';
 
   @override
-  String get restorePurchases => 'Restore Purchases';
+  String get restorePurchases => '恢复购买';
 
   @override
-  String get purchasesRestored => 'Purchases restored';
+  String get purchasesRestored => '购买已恢复';
 
   @override
   String get tryAgain => '再试一次';
@@ -151,13 +151,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get someDigitsWrong => '部分数字不正确。请再试！';
 
   @override
-  String get fillAllLetters => 'Please fill all letters first!';
+  String get fillAllLetters => '请先填满所有字母！';
 
   @override
   String get allLevelsFree => '所有关卡免费！';
 
   @override
-  String get noLockedLevels => '没有锁定的关卡。';
+  String get noLockedLevels => '只需游玩即可解锁所有关卡。';
 
   @override
   String get home => '主页';
@@ -375,8 +375,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get rateAppBody => '如果您喜欢这个应用，请花一点时间给个评价！';
 
   @override
-  String get levelSelectHint =>
-      '💡 Tip: Tap to play, long-press a completed level for details.';
+  String get levelSelectHint => '💡 提示：点击开始游戏，长按已完成的关卡查看详情。';
 
   @override
   String get noThanks => '不了，谢谢';
@@ -535,7 +534,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get allLevelsFreeTitle => '全部1200关免费';
 
   @override
-  String get allLevelsFreeBody => '没有锁定的关卡。尽情享受！';
+  String get allLevelsFreeBody => '没有付费墙，关卡随游玩解锁。尽情享受！';
 
   @override
   String get privacyOverviewBody => '我们尊重您的隐私，致力于保护您的个人信息。';
@@ -835,4 +834,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get achvMultiStepAllTitle => '层叠王';
+
+  @override
+  String get proUnlockPlayers => '人越多越好玩！升级 CryptiQ Pro，最多可 6 人同玩。';
+
+  @override
+  String get proUnlockRounds => '更多乐趣！升级 CryptiQ Pro，最多可玩 10 轮。';
 }
