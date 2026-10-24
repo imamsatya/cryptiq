@@ -849,4 +849,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get multiplyNote => '没有“简单”难度的乘法谜题，将使用“中等”难度的谜题。';
+
+  @override
+  String levelLocked(int level) {
+    return '🔒 完成第$level关即可解锁';
+  }
 }

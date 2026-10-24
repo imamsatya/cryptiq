@@ -428,5 +428,6 @@
   "proUnlockRounds": "Noch mehr Spaß! Spiele mit CryptiQ Pro bis zu 10 Runden.",
   "leadingZeroError": "Zahlen dürfen nicht mit 0 beginnen – versuch es nochmal!",
   "answer": "Lösung",
-  "multiplyNote": "Es gibt keine Multiplikation in Leicht – es werden Puzzles der Stufe Mittel verwendet."
+  "multiplyNote": "Es gibt keine Multiplikation in Leicht – es werden Puzzles der Stufe Mittel verwendet.",
+  "levelLocked": "🔒 Schließe Level {level} ab, um dieses freizuschalten"
 }

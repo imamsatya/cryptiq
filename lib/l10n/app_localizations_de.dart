@@ -872,4 +872,9 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get multiplyNote =>
       'Es gibt keine Multiplikation in Leicht – es werden Puzzles der Stufe Mittel verwendet.';
+
+  @override
+  String levelLocked(int level) {
+    return '🔒 Schließe Level $level ab, um dieses freizuschalten';
+  }
 }

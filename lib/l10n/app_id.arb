@@ -414,5 +414,6 @@
   "proUnlockRounds": "Tambah keseruan! Mainkan hingga 10 ronde dengan CryptiQ Pro.",
   "leadingZeroError": "Angka tidak boleh diawali 0 — coba lagi!",
   "answer": "Jawaban",
-  "multiplyNote": "Tidak ada puzzle perkalian tingkat Mudah — puzzle tingkat Sedang yang akan dipakai."
+  "multiplyNote": "Tidak ada puzzle perkalian tingkat Mudah — puzzle tingkat Sedang yang akan dipakai.",
+  "levelLocked": "🔒 Selesaikan level {level} untuk membuka level ini"
 }

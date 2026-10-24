@@ -428,5 +428,13 @@
   "proUnlockRounds": "Even more fun! Play up to 10 rounds with CryptiQ Pro.",
   "leadingZeroError": "Numbers can't start with 0 — try again!",
   "answer": "Answer",
-  "multiplyNote": "There are no Easy multiplication puzzles — Medium ones will be used."
+  "multiplyNote": "There are no Easy multiplication puzzles — Medium ones will be used.",
+  "levelLocked": "🔒 Complete level {level} to unlock this one",
+  "@levelLocked": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  }
 }

@@ -173,6 +173,7 @@ class LevelSelectScreen extends ConsumerWidget {
           onTap: () {
             if (isLocked) {
               HapticFeedback.lightImpact();
+              _showLockedHint(context, levelNum);
               return;
             }
             if (!isCompleted) {
@@ -306,6 +307,23 @@ class LevelSelectScreen extends ConsumerWidget {
     final m = seconds ~/ 60;
     final s = seconds % 60;
     return '${m.toString().padLeft(2, '0')}:${s.toString().padLeft(2, '0')}';
+  }
+
+  /// Explains why a level is locked; Pro unlocks every level.
+  void _showLockedHint(BuildContext context, int levelNum) {
+    final l10n = AppLocalizations.of(context)!;
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(
+        content: Text(l10n.levelLocked(levelNum - 1)),
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        duration: const Duration(seconds: 3),
+        action: SnackBarAction(
+          label: l10n.goPro,
+          onPressed: () => context.push('/store'),
+        ),
+      ));
   }
 
   void _showLevelDetailSheet(BuildContext context, int levelNum, UserProgress progress) {

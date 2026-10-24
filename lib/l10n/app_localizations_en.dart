@@ -865,4 +865,9 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get multiplyNote =>
       'There are no Easy multiplication puzzles — Medium ones will be used.';
+
+  @override
+  String levelLocked(int level) {
+    return '🔒 Complete level $level to unlock this one';
+  }
 }

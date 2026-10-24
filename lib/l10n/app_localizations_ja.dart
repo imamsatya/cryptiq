@@ -852,4 +852,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get multiplyNote => '「簡単」の掛け算パズルはありません。「普通」のパズルを使用します。';
+
+  @override
+  String levelLocked(int level) {
+    return '🔒 レベル$levelをクリアすると解放されます';
+  }
 }

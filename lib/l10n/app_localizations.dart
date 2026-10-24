@@ -1705,6 +1705,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'There are no Easy multiplication puzzles — Medium ones will be used.'**
   String get multiplyNote;
+
+  /// No description provided for @levelLocked.
+  ///
+  /// In en, this message translates to:
+  /// **'🔒 Complete level {level} to unlock this one'**
+  String levelLocked(int level);
 }
 
 class _AppLocalizationsDelegate

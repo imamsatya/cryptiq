@@ -428,5 +428,6 @@
   "proUnlockRounds": "更多乐趣！升级 CryptiQ Pro，最多可玩 10 轮。",
   "leadingZeroError": "数字不能以0开头，请再试一次！",
   "answer": "答案",
-  "multiplyNote": "没有“简单”难度的乘法谜题，将使用“中等”难度的谜题。"
+  "multiplyNote": "没有“简单”难度的乘法谜题，将使用“中等”难度的谜题。",
+  "levelLocked": "🔒 完成第{level}关即可解锁"
 }

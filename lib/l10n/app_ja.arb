@@ -428,5 +428,6 @@
   "proUnlockRounds": "もっと楽しく！CryptiQ Proで最大10ラウンドまでプレイできます。",
   "leadingZeroError": "数の先頭に0は使えません。もう一度！",
   "answer": "答え",
-  "multiplyNote": "「簡単」の掛け算パズルはありません。「普通」のパズルを使用します。"
+  "multiplyNote": "「簡単」の掛け算パズルはありません。「普通」のパズルを使用します。",
+  "levelLocked": "🔒 レベル{level}をクリアすると解放されます"
 }

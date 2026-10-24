@@ -869,4 +869,9 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get multiplyNote =>
       'Tidak ada puzzle perkalian tingkat Mudah — puzzle tingkat Sedang yang akan dipakai.';
+
+  @override
+  String levelLocked(int level) {
+    return '🔒 Selesaikan level $level untuk membuka level ini';
+  }
 }

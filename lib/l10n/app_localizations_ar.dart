@@ -862,4 +862,9 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get multiplyNote =>
       'لا توجد ألغاز ضرب في المستوى السهل — ستُستخدم ألغاز المستوى المتوسط.';
+
+  @override
+  String levelLocked(int level) {
+    return '🔒 أكمل المستوى $level لفتح هذا المستوى';
+  }
 }

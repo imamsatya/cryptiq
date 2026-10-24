@@ -854,4 +854,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get multiplyNote => '\'쉬움\' 곱셈 퍼즐은 없어요. \'보통\' 퍼즐이 사용됩니다.';
+
+  @override
+  String levelLocked(int level) {
+    return '🔒 레벨 $level을(를) 완료하면 열립니다';
+  }
 }

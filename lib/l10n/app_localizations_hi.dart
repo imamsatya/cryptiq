@@ -867,4 +867,9 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get multiplyNote =>
       'आसान स्तर में गुणा पहेलियाँ नहीं हैं — मध्यम पहेलियाँ इस्तेमाल होंगी।';
+
+  @override
+  String levelLocked(int level) {
+    return '🔒 इसे अनलॉक करने के लिए स्तर $level पूरा करें';
+  }
 }

@@ -428,5 +428,6 @@
   "proUnlockRounds": "Encore plus de fun ! Jouez jusqu'à 10 manches avec CryptiQ Pro.",
   "leadingZeroError": "Un nombre ne peut pas commencer par 0. Réessayez !",
   "answer": "Réponse",
-  "multiplyNote": "Il n'y a pas de multiplication en Facile : des puzzles Moyen seront utilisés."
+  "multiplyNote": "Il n'y a pas de multiplication en Facile : des puzzles Moyen seront utilisés.",
+  "levelLocked": "🔒 Terminez le niveau {level} pour débloquer celui-ci"
 }
