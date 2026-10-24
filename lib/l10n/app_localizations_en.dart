@@ -858,4 +858,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get leadingZeroError => 'Numbers can\'t start with 0 — try again!';
+
+  @override
+  String get answer => 'Answer';
+
+  @override
+  String get multiplyNote =>
+      'There are no Easy multiplication puzzles — Medium ones will be used.';
 }

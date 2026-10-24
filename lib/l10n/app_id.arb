@@ -412,5 +412,7 @@
   "achvMultiStepAllDesc": "Selesaikan semua 200 teka-teki multi-langkah",
   "proUnlockPlayers": "Main beramai-ramai lebih seru! Buka batas pemain hingga 6 orang dengan CryptiQ Pro.",
   "proUnlockRounds": "Tambah keseruan! Mainkan hingga 10 ronde dengan CryptiQ Pro.",
-  "leadingZeroError": "Angka tidak boleh diawali 0 — coba lagi!"
+  "leadingZeroError": "Angka tidak boleh diawali 0 — coba lagi!",
+  "answer": "Jawaban",
+  "multiplyNote": "Tidak ada puzzle perkalian tingkat Mudah — puzzle tingkat Sedang yang akan dipakai."
 }

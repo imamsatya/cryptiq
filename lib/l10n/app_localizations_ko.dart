@@ -848,4 +848,10 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get leadingZeroError => '숫자는 0으로 시작할 수 없어요. 다시 시도하세요!';
+
+  @override
+  String get answer => '정답';
+
+  @override
+  String get multiplyNote => '\'쉬움\' 곱셈 퍼즐은 없어요. \'보통\' 퍼즐이 사용됩니다.';
 }

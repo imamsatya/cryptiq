@@ -1693,6 +1693,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Numbers can\'t start with 0 — try again!'**
   String get leadingZeroError;
+
+  /// No description provided for @answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer'**
+  String get answer;
+
+  /// No description provided for @multiplyNote.
+  ///
+  /// In en, this message translates to:
+  /// **'There are no Easy multiplication puzzles — Medium ones will be used.'**
+  String get multiplyNote;
 }
 
 class _AppLocalizationsDelegate

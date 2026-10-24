@@ -846,4 +846,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get leadingZeroError => '数の先頭に0は使えません。もう一度！';
+
+  @override
+  String get answer => '答え';
+
+  @override
+  String get multiplyNote => '「簡単」の掛け算パズルはありません。「普通」のパズルを使用します。';
 }

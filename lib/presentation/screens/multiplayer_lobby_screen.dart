@@ -24,9 +24,6 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
   String _operation = 'mixed';
   bool _allowHints = true;
 
-  static const _difficultyKeys = ['easy', 'medium', 'hard', 'expert', 'mixed'];
-  static const _operationKeys = ['+', '-', '*', 'multi', 'mixed'];
-
   @override
   void initState() {
     super.initState();
@@ -54,6 +51,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
 
     _difficulty = box.get('mp_difficulty', defaultValue: 'mixed');
     _operation = box.get('mp_operation', defaultValue: 'mixed');
+    if (_operation == '*') _operation = '×'; // key saved by 1.0.1 and earlier
     _allowHints = box.get('mp_allowHints', defaultValue: true);
   }
 
@@ -176,7 +174,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
     final operations = {
       '+': l10n.addition,
       '-': l10n.subtraction,
-      '*': l10n.multiply,
+      '×': l10n.multiply, // must match the operator in puzzle data
       'multi': l10n.multiStep,
       'mixed': l10n.mixed,
     };
@@ -363,6 +361,17 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
                         padding: EdgeInsets.only(top: 6),
                         child: Text(
                           'ℹ️ ${l10n.multiStepNote}',
+                          style: TextStyle(
+                            fontSize: 11,
+                            color: AppTheme.primaryColor.withValues(alpha: 0.7),
+                          ),
+                        ),
+                      ),
+                    if (_operation == '×' && _difficulty == 'easy')
+                      Padding(
+                        padding: EdgeInsets.only(top: 6),
+                        child: Text(
+                          'ℹ️ ${l10n.multiplyNote}',
                           style: TextStyle(
                             fontSize: 11,
                             color: AppTheme.primaryColor.withValues(alpha: 0.7),

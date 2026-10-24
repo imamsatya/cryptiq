@@ -865,4 +865,11 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get leadingZeroError =>
       'Zahlen dürfen nicht mit 0 beginnen – versuch es nochmal!';
+
+  @override
+  String get answer => 'Lösung';
+
+  @override
+  String get multiplyNote =>
+      'Es gibt keine Multiplikation in Leicht – es werden Puzzles der Stufe Mittel verwendet.';
 }

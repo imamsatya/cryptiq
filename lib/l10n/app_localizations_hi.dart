@@ -860,4 +860,11 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get leadingZeroError =>
       'संख्या 0 से शुरू नहीं हो सकती — फिर से कोशिश करें!';
+
+  @override
+  String get answer => 'उत्तर';
+
+  @override
+  String get multiplyNote =>
+      'आसान स्तर में गुणा पहेलियाँ नहीं हैं — मध्यम पहेलियाँ इस्तेमाल होंगी।';
 }

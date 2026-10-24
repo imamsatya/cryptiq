@@ -426,5 +426,7 @@
   "storeTitle": "Loja",
   "proUnlockPlayers": "Mais jogadores, mais diversão! Desbloqueie até 6 jogadores com o CryptiQ Pro.",
   "proUnlockRounds": "Ainda mais diversão! Jogue até 10 rodadas com o CryptiQ Pro.",
-  "leadingZeroError": "Os números não podem começar com 0. Tente novamente!"
+  "leadingZeroError": "Os números não podem começar com 0. Tente novamente!",
+  "answer": "Resposta",
+  "multiplyNote": "Não há multiplicações no nível Fácil — serão usados puzzles do nível Médio."
 }

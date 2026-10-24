@@ -64,6 +64,8 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
   Timer? _timer;
   bool _showHandoff = true; // show handoff screen between turns
   bool _showSuccess = false; // show success overlay
+  bool _showRoundAnswer = false; // reveal the answer once everyone has played
+  bool _finishingRound = false;
   bool _isChecking = false;
 
   // Results: [round][player] = score
@@ -83,38 +85,13 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
   }
 
   List<CryptarithmPuzzle> _generatePuzzles() {
-    final all = PuzzleGenerator.allPuzzles;
-    final rng = Random();
-
-    // Filter by settings
-    var candidates = all.where((p) {
-      // Operation filter first (multistep ignores difficulty)
-      if (widget.operation == 'multi') {
-        // Only multistep puzzles, ignore difficulty
-        return p.steps.isNotEmpty;
-      }
-      // Difficulty filter
-      if (widget.difficulty != 'mixed') {
-        final d = widget.difficulty;
-        if (d == 'easy' && p.difficulty != DifficultyLevel.easy) return false;
-        if (d == 'medium' && p.difficulty != DifficultyLevel.medium) return false;
-        if (d == 'hard' && p.difficulty != DifficultyLevel.hard) return false;
-        if (d == 'expert' && p.difficulty != DifficultyLevel.expert) return false;
-      }
-      // Single-step operation filter
-      if (widget.operation != 'mixed') {
-        if (p.steps.isNotEmpty) return false;
-        if (p.operator != widget.operation) return false;
-      }
-      return true;
-    }).toList();
-
-    if (candidates.length < widget.totalRounds) {
-      candidates = all; // fallback
-    }
-
-    candidates.shuffle(rng);
-    return candidates.take(widget.totalRounds).toList();
+    final candidates = PuzzleGenerator.multiplayerCandidates(
+      difficulty: widget.difficulty,
+      operation: widget.operation,
+    )..shuffle(Random());
+    // Fewer puzzles than rounds: repeat them rather than dropping the filters.
+    return List.generate(
+        widget.totalRounds, (i) => candidates[i % candidates.length]);
   }
 
   void _resetAssignments() {
@@ -295,33 +272,42 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
         _resetAssignments();
       });
     } else {
-      // All players done this round
-      // Show Interstitial Ad before moving to next round or results
-      if (AdService.instance.isInitialized) {
-        await AdService.instance.showInterstitial();
-      }
-
-      final nextRound = _currentRound + 1;
-      if (nextRound < widget.totalRounds) {
-        // Next round
-        setState(() {
-          _currentRound = nextRound;
-          _currentPlayerIndex = 0;
-          _currentPuzzle = _puzzles[nextRound];
-          _showHandoff = true;
-          _resetAssignments();
-        });
-      } else {
-        // Game over — go to results
-        if (mounted) {
-          context.go('/multiplayer-result', extra: {
-            'names': widget.playerNames,
-            'results': _results,
-            'rounds': widget.totalRounds,
-          });
-        }
-      }
+      // All players done this round: reveal the answer. Not on Give Up —
+      // the next player still has to solve the same puzzle.
+      setState(() => _showRoundAnswer = true);
     }
+  }
+
+  Future<void> _finishRound() async {
+    if (_finishingRound) return;
+    _finishingRound = true;
+
+    // Show Interstitial Ad before moving to next round or results
+    if (AdService.instance.isInitialized) {
+      await AdService.instance.showInterstitial();
+    }
+    if (!mounted) return;
+
+    final nextRound = _currentRound + 1;
+    if (nextRound < widget.totalRounds) {
+      // Next round
+      setState(() {
+        _currentRound = nextRound;
+        _currentPlayerIndex = 0;
+        _currentPuzzle = _puzzles[nextRound];
+        _showRoundAnswer = false;
+        _showHandoff = true;
+        _resetAssignments();
+      });
+    } else {
+      // Game over — go to results
+      context.go('/multiplayer-result', extra: {
+        'names': widget.playerNames,
+        'results': _results,
+        'rounds': widget.totalRounds,
+      });
+    }
+    _finishingRound = false;
   }
 
   @override
@@ -332,6 +318,9 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (_showRoundAnswer) {
+      return _buildRoundAnswerScreen();
+    }
     if (_showHandoff) {
       return _buildHandoffScreen();
     }
@@ -407,6 +396,115 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildRoundAnswerScreen() {
+    final l10n = AppLocalizations.of(context)!;
+    final puzzle = _currentPuzzle;
+
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(gradient: AppTheme.backgroundGradient),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+            child: Column(
+              children: [
+                Text(
+                  l10n.roundOf(_currentRound + 1, widget.totalRounds),
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: AppTheme.textSecondary.withValues(alpha: 0.7),
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  l10n.answer,
+                  style: const TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 16),
+
+                // Puzzle with the solution filled in
+                Expanded(
+                  child: PuzzleDisplay(
+                    puzzle: puzzle,
+                    assignments: Map<String, int?>.from(puzzle.solution),
+                    selectedLetter: null,
+                    onLetterTap: (_) {},
+                    wrongLetters: const {},
+                    correctLetters: puzzle.solution.keys.toSet(),
+                    hintedLetters: const {},
+                  ),
+                ),
+                const SizedBox(height: 16),
+
+                // How each player did this round
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  alignment: WrapAlignment.center,
+                  children: [
+                    for (int i = 0; i < widget.playerNames.length; i++)
+                      _buildRoundResultChip(i),
+                  ],
+                ),
+                const SizedBox(height: 24),
+
+                // Next button
+                GestureDetector(
+                  onTap: _finishRound,
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    decoration: AppTheme.goldGlowDecoration(borderRadius: 18),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          l10n.next,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            color: AppTheme.backgroundDark,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Icon(Icons.arrow_forward_rounded,
+                            color: AppTheme.backgroundDark, size: 22),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildRoundResultChip(int playerIndex) {
+    final l10n = AppLocalizations.of(context)!;
+    final result = _results[_currentRound][playerIndex];
+    final solved = result?.solved ?? false;
+    final color = _playerColor(playerIndex);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: color.withValues(alpha: 0.15),
+        border: Border.all(color: color.withValues(alpha: 0.5)),
+      ),
+      child: Text(
+        '${widget.playerNames[playerIndex]}  '
+        '${solved ? '✓ ${_formatTime(result!.timeSeconds)}' : '✗ ${l10n.gaveUp}'}',
+        style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: color),
       ),
     );
   }

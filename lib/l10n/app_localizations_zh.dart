@@ -843,4 +843,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get leadingZeroError => '数字不能以0开头，请再试一次！';
+
+  @override
+  String get answer => '答案';
+
+  @override
+  String get multiplyNote => '没有“简单”难度的乘法谜题，将使用“中等”难度的谜题。';
 }

@@ -426,5 +426,7 @@
   "achvMultiStepAllTitle": "Cascade King",
   "proUnlockPlayers": "More players, more fun! Unlock up to 6 players with CryptiQ Pro.",
   "proUnlockRounds": "Even more fun! Play up to 10 rounds with CryptiQ Pro.",
-  "leadingZeroError": "Numbers can't start with 0 — try again!"
+  "leadingZeroError": "Numbers can't start with 0 — try again!",
+  "answer": "Answer",
+  "multiplyNote": "There are no Easy multiplication puzzles — Medium ones will be used."
 }

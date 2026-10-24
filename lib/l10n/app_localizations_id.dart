@@ -862,4 +862,11 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get leadingZeroError => 'Angka tidak boleh diawali 0 — coba lagi!';
+
+  @override
+  String get answer => 'Jawaban';
+
+  @override
+  String get multiplyNote =>
+      'Tidak ada puzzle perkalian tingkat Mudah — puzzle tingkat Sedang yang akan dipakai.';
 }

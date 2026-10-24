@@ -855,4 +855,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get leadingZeroError => 'لا يمكن أن يبدأ العدد بـ 0 — حاول مرة أخرى!';
+
+  @override
+  String get answer => 'الإجابة';
+
+  @override
+  String get multiplyNote =>
+      'لا توجد ألغاز ضرب في المستوى السهل — ستُستخدم ألغاز المستوى المتوسط.';
 }

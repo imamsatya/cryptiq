@@ -79,6 +79,45 @@ class PuzzleGenerator {
     });
   }
 
+  /// Puzzles for a Pass & Play game. [difficulty] is easy|medium|hard|expert|
+  /// mixed and [operation] is +|-|×|multi|mixed. The filters are never
+  /// dropped: a combination with no puzzles (Easy ×) uses the nearest
+  /// difficulty instead.
+  static List<CryptarithmPuzzle> multiplayerCandidates({
+    required String difficulty,
+    required String operation,
+  }) {
+    final op = operation == '*' ? '×' : operation; // '*' was saved by 1.0.1
+    final pool = allPuzzles.where((p) {
+      if (p.allLetters.length < 3) return false; // too trivial to race on
+      return switch (op) {
+        'multi' => p.isMultiStep,
+        'mixed' => true,
+        _ => !p.isMultiStep && p.operator == op,
+      };
+    }).toList();
+    if (pool.isEmpty) {
+      return allPuzzles.where((p) => p.allLetters.length >= 3).toList();
+    }
+
+    // Multi-step puzzles are all Expert, so their difficulty is ignored.
+    final selected = DifficultyLevel.values.asNameMap()[difficulty];
+    if (op == 'multi' || selected == null) return pool;
+
+    // Nearest difficulty first; harder before easier on ties.
+    final order = DifficultyLevel.values.toList()
+      ..sort((a, b) {
+        final da = (a.index - selected.index).abs();
+        final db = (b.index - selected.index).abs();
+        return da != db ? da.compareTo(db) : b.index.compareTo(a.index);
+      });
+    for (final d in order) {
+      final match = pool.where((p) => p.difficulty == d).toList();
+      if (match.isNotEmpty) return match;
+    }
+    return pool;
+  }
+
   static String getDifficultyName(int levelNumber) {
     if (levelNumber <= 250) return 'Easy';
     if (levelNumber <= 500) return 'Medium';
