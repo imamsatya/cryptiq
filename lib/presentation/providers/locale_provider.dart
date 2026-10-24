@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../data/datasources/local_database.dart';
+import '../../l10n/app_localizations.dart';
+
+/// Supported locales with English first. When the device language has no
+/// translation (e.g. Russian), Flutter falls back to the first supported
+/// locale — and the generated list is alphabetical, which would be Arabic.
+final appSupportedLocales = <Locale>[
+  const Locale('en'),
+  ...AppLocalizations.supportedLocales.where((l) => l.languageCode != 'en'),
+];
 
 /// Language options with display names and flags
 class LanguageOption {

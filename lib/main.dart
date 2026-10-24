@@ -78,7 +78,7 @@ class CryptiqApp extends ConsumerWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: AppLocalizations.supportedLocales,
+      supportedLocales: appSupportedLocales,
     );
   }
 }
