@@ -164,36 +164,66 @@ class NotificationService {
     // tz.local is never set (it defaults to UTC), so schedule the local
     // wall-clock time as an absolute UTC time. After a DST change the repeat
     // drifts by an hour until the app next reschedules it.
-    await _plugin.zonedSchedule(
-      _reminderId,
-      strings.notifTitle,
-      streak > 0 ? strings.notifBodyStreak(streak) : strings.notifBodyDefault,
-      tz.TZDateTime.from(next, tz.UTC),
-      details,
-      androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
-    );
-    await _plugin.zonedSchedule(
-      _repeatingReminderId,
-      strings.notifTitle,
-      strings.notifBodyDefault,
-      tz.TZDateTime.from(dayAfter, tz.UTC),
-      details,
-      androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
-      matchDateTimeComponents: DateTimeComponents.time, // Repeat daily
-    );
+    //
+    // Both calls are wrapped: the plugin's own scheduled-notifications cache
+    // round-trip (Gson TypeToken) can throw "Missing type parameter" on some
+    // Android versions, and one failing must not stop the other from trying.
+    final scheduledNext = await _scheduleQuietly(() => _plugin.zonedSchedule(
+          _reminderId,
+          strings.notifTitle,
+          streak > 0 ? strings.notifBodyStreak(streak) : strings.notifBodyDefault,
+          tz.TZDateTime.from(next, tz.UTC),
+          details,
+          androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+          uiLocalNotificationDateInterpretation:
+              UILocalNotificationDateInterpretation.absoluteTime,
+        ));
+    final scheduledRepeat = await _scheduleQuietly(() => _plugin.zonedSchedule(
+          _repeatingReminderId,
+          strings.notifTitle,
+          strings.notifBodyDefault,
+          tz.TZDateTime.from(dayAfter, tz.UTC),
+          details,
+          androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+          uiLocalNotificationDateInterpretation:
+              UILocalNotificationDateInterpretation.absoluteTime,
+          matchDateTimeComponents: DateTimeComponents.time, // Repeat daily
+        ));
 
-    debugPrint('NotificationService: Next reminder at $next');
+    if (scheduledNext && scheduledRepeat) {
+      debugPrint('NotificationService: Next reminder at $next');
+    } else {
+      debugPrint('NotificationService: reminder scheduling failed on this '
+          'device (plugin error) — no reminder will fire');
+    }
+  }
+
+  Future<bool> _scheduleQuietly(Future<void> Function() schedule) async {
+    try {
+      await schedule();
+      return true;
+    } catch (e) {
+      debugPrint('NotificationService: zonedSchedule failed, ignoring: $e');
+      return false;
+    }
   }
 
   /// Cancel the scheduled reminders
   Future<void> cancelDailyReminder() async {
     if (!_isInitialized) return;
-    await _plugin.cancel(_reminderId);
-    await _plugin.cancel(_repeatingReminderId);
+    // The plugin can throw "Missing type parameter" when cancelling an id
+    // that was never scheduled (e.g. right after a fresh install) — a known
+    // flutter_local_notifications quirk. Don't let it block scheduling below.
+    await _cancelQuietly(_reminderId);
+    await _cancelQuietly(_repeatingReminderId);
+  }
+
+  Future<void> _cancelQuietly(int id) async {
+    try {
+      await _plugin.cancel(id);
+    } catch (e) {
+      debugPrint('NotificationService: cancel($id) failed, ignoring: $e');
+    }
   }
 
   /// Cancel all notifications
