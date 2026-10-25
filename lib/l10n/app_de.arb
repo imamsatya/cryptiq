@@ -438,5 +438,9 @@
   "unlimitedHints": "Unbegrenzte Hinweise",
   "allLevelsUnlocked": "Alle Level freigeschaltet",
   "proMorePlayers": "Weitergeben & Spielen: bis zu 6 Spieler, 10 Runden",
-  "hintAdUnavailable": "Das Hinweis-Video ist gerade nicht verfügbar. Prüfe deine Verbindung und versuch es erneut."
+  "hintAdUnavailable": "Das Hinweis-Video ist gerade nicht verfügbar. Prüfe deine Verbindung und versuch es erneut.",
+  "proActivated": "CryptiQ Pro aktiviert! Danke für deine Unterstützung.",
+  "purchasePending": "Zahlung ausstehend. Pro wird freigeschaltet, sobald sie abgeschlossen ist.",
+  "purchaseFailed": "Der Kauf konnte nicht abgeschlossen werden. Bitte versuch es erneut.",
+  "noPurchasesToRestore": "Für dieses Google-Konto wurde kein Pro-Kauf gefunden."
 }

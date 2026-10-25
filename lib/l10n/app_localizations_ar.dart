@@ -901,4 +901,17 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get hintAdUnavailable =>
       'فيديو التلميح غير متاح الآن. تحقق من اتصالك وحاول مرة أخرى.';
+
+  @override
+  String get proActivated => 'تم تفعيل CryptiQ Pro! شكرًا لدعمك.';
+
+  @override
+  String get purchasePending => 'الدفع قيد الانتظار. سيُفعَّل Pro فور اكتماله.';
+
+  @override
+  String get purchaseFailed => 'تعذّر إتمام الشراء. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get noPurchasesToRestore =>
+      'لم يتم العثور على شراء سابق لـ Pro لحساب Google هذا.';
 }

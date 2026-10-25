@@ -891,4 +891,16 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get hintAdUnavailable => '지금은 힌트 영상을 볼 수 없어요. 연결 상태를 확인한 뒤 다시 시도하세요.';
+
+  @override
+  String get proActivated => 'CryptiQ Pro가 활성화되었어요! 응원해 주셔서 감사합니다.';
+
+  @override
+  String get purchasePending => '결제 대기 중이에요. 결제가 완료되면 Pro가 활성화됩니다.';
+
+  @override
+  String get purchaseFailed => '구매를 완료하지 못했어요. 다시 시도해 주세요.';
+
+  @override
+  String get noPurchasesToRestore => '이 Google 계정으로 구매한 Pro가 없어요.';
 }

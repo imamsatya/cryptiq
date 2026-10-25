@@ -459,5 +459,9 @@
   "unlimitedHints": "Unlimited Hints",
   "allLevelsUnlocked": "All Levels Unlocked",
   "proMorePlayers": "Pass & Play: up to 6 players, 10 rounds",
-  "hintAdUnavailable": "The hint video isn't available right now. Check your connection and try again."
+  "hintAdUnavailable": "The hint video isn't available right now. Check your connection and try again.",
+  "proActivated": "CryptiQ Pro activated! Thank you for your support.",
+  "purchasePending": "Payment pending. Pro will unlock as soon as it completes.",
+  "purchaseFailed": "The purchase couldn't be completed. Please try again.",
+  "noPurchasesToRestore": "No previous Pro purchase found for this Google account."
 }

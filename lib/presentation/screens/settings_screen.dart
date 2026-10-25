@@ -334,9 +334,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     AudioService.instance.playTap();
-                    context.push('/store');
+                    await context.push('/store');
+                    if (mounted) setState(() {}); // show Pro as active after a purchase
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,

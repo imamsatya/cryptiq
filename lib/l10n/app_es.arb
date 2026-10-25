@@ -438,5 +438,9 @@
   "unlimitedHints": "Pistas ilimitadas",
   "allLevelsUnlocked": "Todos los niveles desbloqueados",
   "proMorePlayers": "Pasar y Jugar: hasta 6 jugadores y 10 rondas",
-  "hintAdUnavailable": "El video de la pista no está disponible ahora. Revisa tu conexión e inténtalo de nuevo."
+  "hintAdUnavailable": "El video de la pista no está disponible ahora. Revisa tu conexión e inténtalo de nuevo.",
+  "proActivated": "¡CryptiQ Pro activado! Gracias por tu apoyo.",
+  "purchasePending": "Pago pendiente. Pro se desbloqueará en cuanto se complete.",
+  "purchaseFailed": "No se pudo completar la compra. Inténtalo de nuevo.",
+  "noPurchasesToRestore": "No se encontró ninguna compra de Pro para esta cuenta de Google."
 }

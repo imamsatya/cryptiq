@@ -885,4 +885,16 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get hintAdUnavailable => '提示视频暂时无法播放。请检查网络连接后重试。';
+
+  @override
+  String get proActivated => 'CryptiQ Pro 已激活！感谢你的支持。';
+
+  @override
+  String get purchasePending => '付款处理中。完成后将立即解锁 Pro。';
+
+  @override
+  String get purchaseFailed => '无法完成购买，请重试。';
+
+  @override
+  String get noPurchasesToRestore => '未找到此 Google 账号的 Pro 购买记录。';
 }

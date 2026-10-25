@@ -438,5 +438,9 @@
   "unlimitedHints": "无限提示",
   "allLevelsUnlocked": "解锁全部关卡",
   "proMorePlayers": "轮流玩：最多6人、10轮",
-  "hintAdUnavailable": "提示视频暂时无法播放。请检查网络连接后重试。"
+  "hintAdUnavailable": "提示视频暂时无法播放。请检查网络连接后重试。",
+  "proActivated": "CryptiQ Pro 已激活！感谢你的支持。",
+  "purchasePending": "付款处理中。完成后将立即解锁 Pro。",
+  "purchaseFailed": "无法完成购买，请重试。",
+  "noPurchasesToRestore": "未找到此 Google 账号的 Pro 购买记录。"
 }

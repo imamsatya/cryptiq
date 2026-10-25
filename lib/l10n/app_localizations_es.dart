@@ -911,4 +911,19 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get hintAdUnavailable =>
       'El video de la pista no está disponible ahora. Revisa tu conexión e inténtalo de nuevo.';
+
+  @override
+  String get proActivated => '¡CryptiQ Pro activado! Gracias por tu apoyo.';
+
+  @override
+  String get purchasePending =>
+      'Pago pendiente. Pro se desbloqueará en cuanto se complete.';
+
+  @override
+  String get purchaseFailed =>
+      'No se pudo completar la compra. Inténtalo de nuevo.';
+
+  @override
+  String get noPurchasesToRestore =>
+      'No se encontró ninguna compra de Pro para esta cuenta de Google.';
 }

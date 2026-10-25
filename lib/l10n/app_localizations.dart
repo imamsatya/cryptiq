@@ -1765,6 +1765,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The hint video isn\'t available right now. Check your connection and try again.'**
   String get hintAdUnavailable;
+
+  /// No description provided for @proActivated.
+  ///
+  /// In en, this message translates to:
+  /// **'CryptiQ Pro activated! Thank you for your support.'**
+  String get proActivated;
+
+  /// No description provided for @purchasePending.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment pending. Pro will unlock as soon as it completes.'**
+  String get purchasePending;
+
+  /// No description provided for @purchaseFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The purchase couldn\'t be completed. Please try again.'**
+  String get purchaseFailed;
+
+  /// No description provided for @noPurchasesToRestore.
+  ///
+  /// In en, this message translates to:
+  /// **'No previous Pro purchase found for this Google account.'**
+  String get noPurchasesToRestore;
 }
 
 class _AppLocalizationsDelegate

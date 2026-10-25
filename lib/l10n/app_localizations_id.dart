@@ -909,4 +909,19 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get hintAdUnavailable =>
       'Video hint belum tersedia. Periksa koneksi internetmu lalu coba lagi.';
+
+  @override
+  String get proActivated => 'CryptiQ Pro aktif! Terima kasih atas dukunganmu.';
+
+  @override
+  String get purchasePending =>
+      'Pembayaran tertunda. Pro akan aktif begitu pembayaran selesai.';
+
+  @override
+  String get purchaseFailed =>
+      'Pembelian tidak dapat diselesaikan. Silakan coba lagi.';
+
+  @override
+  String get noPurchasesToRestore =>
+      'Tidak ada pembelian Pro sebelumnya untuk akun Google ini.';
 }

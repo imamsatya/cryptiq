@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -15,44 +16,79 @@ class StoreScreen extends ConsumerStatefulWidget {
 
 class _StoreScreenState extends ConsumerState<StoreScreen> {
   bool _isLoading = false;
+  bool _restoring = false;
+  StreamSubscription<IapEvent>? _iapEvents;
+
+  @override
+  void initState() {
+    super.initState();
+    _iapEvents = IapService.instance.events.listen(_onIapEvent);
+  }
+
+  @override
+  void dispose() {
+    _iapEvents?.cancel();
+    super.dispose();
+  }
+
+  void _showMessage(String message) {
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  /// Purchase results arrive here, after the Play dialog closes (or later,
+  /// for pending payments) — not when purchasePro() returns.
+  void _onIapEvent(IapEvent event) {
+    if (!mounted || _restoring) return;
+    final l10n = AppLocalizations.of(context)!;
+    setState(() => _isLoading = false);
+    switch (event) {
+      case IapEvent.activated:
+        _showMessage(l10n.proActivated);
+      case IapEvent.pending:
+        _showMessage(l10n.purchasePending);
+      case IapEvent.failed:
+        _showMessage(l10n.purchaseFailed);
+      case IapEvent.canceled:
+        break;
+    }
+  }
 
   void _handlePurchase() async {
     final iap = IapService.instance;
+    final l10n = AppLocalizations.of(context)!;
     if (iap.isPro) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.proActive)),
-      );
+      _showMessage(l10n.proActive);
       return;
     }
 
     AudioService.instance.playTap();
     setState(() => _isLoading = true);
 
-    final success = await iap.purchasePro();
-
-    if (mounted) {
+    final started = await iap.purchasePro();
+    if (!started && mounted) {
       setState(() => _isLoading = false);
-      if (success) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('CryptiQ Pro Activated!')),
-        );
-      } else if (!iap.purchasePending) {
-        // Only show error if not pending (user might have just cancelled)
-      }
+      _showMessage(l10n.purchaseFailed);
     }
   }
 
   void _handleRestore() async {
+    final l10n = AppLocalizations.of(context)!;
     AudioService.instance.playTap();
-    setState(() => _isLoading = true);
+    setState(() {
+      _isLoading = true;
+      _restoring = true;
+    });
 
-    await IapService.instance.restorePurchases();
+    final restored = await IapService.instance.restorePurchases();
 
     if (mounted) {
-      setState(() => _isLoading = false);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.purchasesRestored)),
-      );
+      setState(() {
+        _isLoading = false;
+        _restoring = false;
+      });
+      _showMessage(restored ? l10n.purchasesRestored : l10n.noPurchasesToRestore);
     }
   }
 

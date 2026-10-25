@@ -438,5 +438,9 @@
   "unlimitedHints": "Indices illimités",
   "allLevelsUnlocked": "Tous les niveaux débloqués",
   "proMorePlayers": "Passer et Jouer : jusqu'à 6 joueurs, 10 manches",
-  "hintAdUnavailable": "La vidéo de l'indice n'est pas disponible pour le moment. Vérifiez votre connexion et réessayez."
+  "hintAdUnavailable": "La vidéo de l'indice n'est pas disponible pour le moment. Vérifiez votre connexion et réessayez.",
+  "proActivated": "CryptiQ Pro activé ! Merci pour votre soutien.",
+  "purchasePending": "Paiement en attente. Pro sera débloqué dès qu'il sera finalisé.",
+  "purchaseFailed": "L'achat n'a pas pu aboutir. Veuillez réessayer.",
+  "noPurchasesToRestore": "Aucun achat Pro trouvé pour ce compte Google."
 }

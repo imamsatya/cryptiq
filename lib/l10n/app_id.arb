@@ -424,5 +424,9 @@
   "unlimitedHints": "Hint Tanpa Batas",
   "allLevelsUnlocked": "Semua Level Terbuka",
   "proMorePlayers": "Main Bergantian: hingga 6 pemain, 10 ronde",
-  "hintAdUnavailable": "Video hint belum tersedia. Periksa koneksi internetmu lalu coba lagi."
+  "hintAdUnavailable": "Video hint belum tersedia. Periksa koneksi internetmu lalu coba lagi.",
+  "proActivated": "CryptiQ Pro aktif! Terima kasih atas dukunganmu.",
+  "purchasePending": "Pembayaran tertunda. Pro akan aktif begitu pembayaran selesai.",
+  "purchaseFailed": "Pembelian tidak dapat diselesaikan. Silakan coba lagi.",
+  "noPurchasesToRestore": "Tidak ada pembelian Pro sebelumnya untuk akun Google ini."
 }

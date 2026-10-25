@@ -29,6 +29,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) => _onFirstFrame());
   }
 
+  /// Rebuild on return so the Go Pro banner disappears after a purchase.
+  Future<void> _openStore() async {
+    await context.push('/store');
+    if (mounted) setState(() {});
+  }
+
   Future<void> _onFirstFrame() async {
     await UpdateChecker.instance.checkForUpdates();
     // Android 13+ blocks the daily reminder until notifications are allowed
@@ -129,7 +135,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     _buildIconButton(
                       icon: Icons.storefront_rounded,
                       tooltip: l10n.storeTitle,
-                      onTap: () => context.push('/store'),
+                      onTap: _openStore,
                     ),
                     const SizedBox(width: 16),
                     _buildIconButton(
@@ -159,7 +165,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 if (!LocalDatabase.instance.getProStatus())
                   GestureDetector(
                     onTap: () {
-                      context.push('/store');
+                      _openStore();
                     },
                     child: Container(
                       width: double.infinity,

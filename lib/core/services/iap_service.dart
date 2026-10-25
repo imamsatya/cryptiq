@@ -5,6 +5,9 @@ import '../constants/app_constants.dart';
 import '../../data/datasources/local_database.dart';
 import 'ad_service.dart';
 
+/// Outcome of a purchase, reported on [IapService.events].
+enum IapEvent { activated, pending, canceled, failed }
+
 /// Manages Go Pro in-app purchase.
 ///
 /// Benefits:
@@ -13,20 +16,32 @@ import 'ad_service.dart';
 /// - All premium themes unlocked
 /// - Pass & Play with up to 6 players and 10 rounds
 class IapService {
-  IapService._();
-  static final IapService instance = IapService._();
+  IapService._(this._iap, {required this.mockPurchases});
+  static final IapService instance = IapService._(InAppPurchase.instance,
+      mockPurchases: kDebugMode || kIsWeb);
 
-  final InAppPurchase _iap = InAppPurchase.instance;
+  @visibleForTesting
+  factory IapService.forTesting(InAppPurchase iap) =>
+      IapService._(iap, mockPurchases: false);
+
+  final InAppPurchase _iap;
+
+  /// Debug and web builds can't reach Google Play: purchases succeed at once.
+  final bool mockPurchases;
+
   StreamSubscription<List<PurchaseDetails>>? _subscription;
+  final _events = StreamController<IapEvent>.broadcast();
 
   bool _isAvailable = false;
   ProductDetails? _proProduct;
-  bool _purchasePending = false;
 
   bool get isAvailable => _isAvailable;
   bool get isPro => LocalDatabase.instance.getProStatus();
-  bool get purchasePending => _purchasePending;
   ProductDetails? get proProduct => _proProduct;
+
+  /// Purchase results. A purchase completes after [purchasePro] returns —
+  /// sometimes much later (pending payments), or on the next app start.
+  Stream<IapEvent> get events => _events.stream;
 
   String get proPriceString => _proProduct?.price ?? '\$${AppConstants.proPrice}';
 
@@ -52,6 +67,17 @@ class IapService {
 
     // Load product details
     await _loadProducts();
+
+    // Deliver purchases that completed while the app was closed (e.g. a
+    // pending payment) and acknowledge them: Google Play refunds purchases
+    // that aren't acknowledged within 3 days.
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      try {
+        await _iap.restorePurchases();
+      } catch (e) {
+        debugPrint('IapService: Startup restore failed: $e');
+      }
+    }
     debugPrint('IapService: Initialized');
   }
 
@@ -66,12 +92,12 @@ class IapService {
     }
   }
 
-  /// Purchase Go Pro.
+  /// Starts the Google Play purchase flow. Returns false if it couldn't be
+  /// started; otherwise the outcome arrives on [events].
   Future<bool> purchasePro() async {
-    if (kDebugMode || kIsWeb) {
+    if (mockPurchases) {
       debugPrint('IapService: DEV MODE - Mocking successful purchase!');
-      LocalDatabase.instance.setProStatus(true);
-      AdService.instance.disposeBanner();
+      _activate();
       return true;
     }
 
@@ -80,23 +106,35 @@ class IapService {
       return false;
     }
 
-    _purchasePending = true;
-
-    final purchaseParam = PurchaseParam(productDetails: _proProduct!);
     try {
-      await _iap.buyNonConsumable(purchaseParam: purchaseParam);
-      return true;
+      return await _iap.buyNonConsumable(
+          purchaseParam: PurchaseParam(productDetails: _proProduct!));
     } catch (e) {
       debugPrint('IapService: Purchase failed: $e');
-      _purchasePending = false;
       return false;
     }
   }
 
-  /// Restore previous purchases.
-  Future<void> restorePurchases() async {
-    if (!_isAvailable) return;
-    await _iap.restorePurchases();
+  /// Asks Google Play for past purchases. Returns whether Pro is active
+  /// afterwards; restored purchases arrive on the purchase stream, so this
+  /// waits up to [timeout] for them.
+  Future<bool> restorePurchases({Duration timeout = const Duration(seconds: 5)}) async {
+    if (isPro) return true;
+    if (!_isAvailable) return false;
+
+    final restored = Completer<bool>();
+    final sub = events.listen((e) {
+      if (e == IapEvent.activated && !restored.isCompleted) restored.complete(true);
+    });
+    try {
+      await _iap.restorePurchases();
+      return await restored.future.timeout(timeout, onTimeout: () => isPro);
+    } catch (e) {
+      debugPrint('IapService: Restore failed: $e');
+      return isPro;
+    } finally {
+      await sub.cancel();
+    }
   }
 
   void _onPurchaseUpdate(List<PurchaseDetails> purchaseDetailsList) {
@@ -106,18 +144,20 @@ class IapService {
       switch (purchase.status) {
         case PurchaseStatus.purchased:
         case PurchaseStatus.restored:
-          _verifyAndDeliver(purchase);
+          // For now, trust the store receipt. Add server-side verification for production.
+          _activate();
           break;
         case PurchaseStatus.error:
           debugPrint('IapService: Purchase error: ${purchase.error}');
-          _purchasePending = false;
+          _events.add(IapEvent.failed);
           break;
         case PurchaseStatus.canceled:
           debugPrint('IapService: Purchase canceled');
-          _purchasePending = false;
+          _events.add(IapEvent.canceled);
           break;
         case PurchaseStatus.pending:
           debugPrint('IapService: Purchase pending');
+          _events.add(IapEvent.pending);
           break;
       }
 
@@ -127,17 +167,16 @@ class IapService {
     }
   }
 
-  void _verifyAndDeliver(PurchaseDetails purchase) {
-    // For now, trust the store receipt. Add server-side verification for production.
+  void _activate() {
     LocalDatabase.instance.setProStatus(true);
-    _purchasePending = false;
-
     // Reinitialize ad service to disable ads
     AdService.instance.disposeBanner();
+    _events.add(IapEvent.activated);
     debugPrint('IapService: Pro activated! Ads disabled.');
   }
 
   void dispose() {
     _subscription?.cancel();
+    _events.close();
   }
 }

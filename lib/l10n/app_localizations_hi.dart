@@ -906,4 +906,20 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get hintAdUnavailable =>
       'संकेत वीडियो अभी उपलब्ध नहीं है। अपना कनेक्शन जाँचें और फिर से कोशिश करें।';
+
+  @override
+  String get proActivated =>
+      'CryptiQ Pro सक्रिय हो गया! आपके समर्थन के लिए धन्यवाद।';
+
+  @override
+  String get purchasePending =>
+      'भुगतान लंबित है। पूरा होते ही Pro अनलॉक हो जाएगा।';
+
+  @override
+  String get purchaseFailed =>
+      'खरीदारी पूरी नहीं हो सकी। कृपया फिर से कोशिश करें।';
+
+  @override
+  String get noPurchasesToRestore =>
+      'इस Google खाते के लिए कोई पिछली Pro खरीदारी नहीं मिली।';
 }

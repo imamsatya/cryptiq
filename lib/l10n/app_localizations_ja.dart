@@ -888,4 +888,16 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get hintAdUnavailable => 'ヒント動画は現在利用できません。接続を確認して、もう一度お試しください。';
+
+  @override
+  String get proActivated => 'CryptiQ Proが有効になりました！ご支援ありがとうございます。';
+
+  @override
+  String get purchasePending => '支払いが保留中です。完了するとProが有効になります。';
+
+  @override
+  String get purchaseFailed => '購入を完了できませんでした。もう一度お試しください。';
+
+  @override
+  String get noPurchasesToRestore => 'このGoogleアカウントでのPro購入履歴はありません。';
 }
