@@ -52,7 +52,8 @@ class MultiplayerGameScreen extends StatefulWidget {
   State<MultiplayerGameScreen> createState() => _MultiplayerGameScreenState();
 }
 
-class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
+class _MultiplayerGameScreenState extends State<MultiplayerGameScreen>
+    with WidgetsBindingObserver {
   // Game state
   int _currentRound = 0;
   int _currentPlayerIndex = 0;
@@ -82,6 +83,21 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
     _puzzles = _generatePuzzles();
     _currentPuzzle = _puzzles[0];
     _resetAssignments();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  bool _resumeTimerOnForeground = false;
+
+  /// Pause the current player's timer while the app is in the background.
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused) {
+      _resumeTimerOnForeground = _timer?.isActive ?? false;
+      _stopTimer();
+    } else if (state == AppLifecycleState.resumed && _resumeTimerOnForeground) {
+      _resumeTimerOnForeground = false;
+      _startTimer();
+    }
   }
 
   List<CryptarithmPuzzle> _generatePuzzles() {
@@ -312,6 +328,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _timer?.cancel();
     super.dispose();
   }
