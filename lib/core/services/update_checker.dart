@@ -7,10 +7,16 @@ class UpdateChecker {
   UpdateChecker._();
   static final instance = UpdateChecker._();
 
+  bool _checkedThisSession = false;
+
   /// Check if an update is available on Google Play and force it.
+  /// Once per app session: the home screen is rebuilt after every level, and
+  /// a user who dismissed the update shouldn't be shown it again each time.
   Future<void> checkForUpdates() async {
     // In-App Updates are only supported on Android.
     if (kIsWeb || !Platform.isAndroid) return;
+    if (_checkedThisSession) return;
+    _checkedThisSession = true;
 
     try {
       final updateInfo = await InAppUpdate.checkForUpdate();
