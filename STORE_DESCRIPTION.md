@@ -1,9 +1,9 @@
 # Google Play Store Listing (ASO)
 
-Gunakan teks di bawah ini untuk mengisi formulir di Google Play Console:
+Gunakan teks di bawah ini untuk mengisi formulir di Google Play Console. Versi terbaru dalam 11 bahasa (termasuk English yang diperbarui) ada di `STORE_LISTING_TRANSLATIONS.md`.
 
 ## App name
-CryptiQ: Cryptarithm Puzzles
+CryptiQ: Math Logic Puzzles
 
 ## Short description
 Decode words to numbers. The ultimate cryptarithm & math puzzle game!
