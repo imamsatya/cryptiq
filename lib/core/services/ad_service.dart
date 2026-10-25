@@ -32,6 +32,7 @@ class AdService {
 
   // --- Rewarded ---
   RewardedAd? _rewardedAd;
+  bool _rewardedLoading = false;
 
   // --- Pro status ---
   bool get isPro => LocalDatabase.instance.getProStatus();
@@ -199,22 +200,31 @@ class AdService {
   // ==========  REWARDED  ==========
 
   void _preloadRewarded() {
-    if (!_shouldShowAds()) return;
+    if (!_shouldShowAds() || _rewardedLoading) return;
+    _rewardedLoading = true;
 
     RewardedAd.load(
       adUnitId: AppConstants.rewardedAdUnitId,
       request: const AdRequest(),
       rewardedAdLoadCallback: RewardedAdLoadCallback(
         onAdLoaded: (ad) {
+          _rewardedLoading = false;
           _rewardedAd = ad;
           debugPrint('AdService: Rewarded preloaded');
         },
         onAdFailedToLoad: (error) {
           debugPrint('AdService: Rewarded preload failed: ${error.message}');
+          _rewardedLoading = false;
           _rewardedAd = null;
         },
       ),
     );
+  }
+
+  /// Retry loading after a failed load (e.g. the device was offline):
+  /// otherwise nothing reloads the ad until one is shown.
+  void loadRewardedIfNeeded() {
+    if (!kIsWeb && _rewardedAd == null) _preloadRewarded();
   }
 
   bool get isRewardedReady => (kIsWeb && _shouldShowAds()) || (_rewardedAd != null && _shouldShowAds());

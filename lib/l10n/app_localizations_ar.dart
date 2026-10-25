@@ -897,4 +897,8 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get proMorePlayers => 'مرر والعب: حتى 6 لاعبين و10 جولات';
+
+  @override
+  String get hintAdUnavailable =>
+      'فيديو التلميح غير متاح الآن. تحقق من اتصالك وحاول مرة أخرى.';
 }

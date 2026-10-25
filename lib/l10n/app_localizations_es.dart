@@ -907,4 +907,8 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get proMorePlayers => 'Pasar y Jugar: hasta 6 jugadores y 10 rondas';
+
+  @override
+  String get hintAdUnavailable =>
+      'El video de la pista no está disponible ahora. Revisa tu conexión e inténtalo de nuevo.';
 }

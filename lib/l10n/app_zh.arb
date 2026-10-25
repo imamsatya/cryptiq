@@ -437,5 +437,6 @@
   "shareStatsText": "🧩 我的 CryptiQ 战绩，你能做得更好吗？",
   "unlimitedHints": "无限提示",
   "allLevelsUnlocked": "解锁全部关卡",
-  "proMorePlayers": "轮流玩：最多6人、10轮"
+  "proMorePlayers": "轮流玩：最多6人、10轮",
+  "hintAdUnavailable": "提示视频暂时无法播放。请检查网络连接后重试。"
 }

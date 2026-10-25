@@ -437,5 +437,6 @@
   "shareStatsText": "🧩 제 CryptiQ 기록이에요. 더 잘할 수 있나요?",
   "unlimitedHints": "무제한 힌트",
   "allLevelsUnlocked": "모든 레벨 잠금 해제",
-  "proMorePlayers": "패스 앤 플레이: 최대 6명, 10라운드"
+  "proMorePlayers": "패스 앤 플레이: 최대 6명, 10라운드",
+  "hintAdUnavailable": "지금은 힌트 영상을 볼 수 없어요. 연결 상태를 확인한 뒤 다시 시도하세요."
 }

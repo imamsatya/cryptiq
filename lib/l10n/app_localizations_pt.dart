@@ -907,4 +907,8 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get proMorePlayers => 'Passar e Jogar: até 6 jogadores e 10 rodadas';
+
+  @override
+  String get hintAdUnavailable =>
+      'O vídeo da dica não está disponível agora. Verifique sua conexão e tente novamente.';
 }

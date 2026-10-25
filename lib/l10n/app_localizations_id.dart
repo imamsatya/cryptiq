@@ -905,4 +905,8 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get proMorePlayers => 'Main Bergantian: hingga 6 pemain, 10 ronde';
+
+  @override
+  String get hintAdUnavailable =>
+      'Video hint belum tersedia. Periksa koneksi internetmu lalu coba lagi.';
 }

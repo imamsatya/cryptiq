@@ -310,10 +310,11 @@ class _GameScreenState extends ConsumerState<GameScreen>
                             Haptics.mediumImpact();
                           }
                         } else {
+                          adService.loadRewardedIfNeeded();
                           if (mounted) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text(l10n.noHintsAvailable),
+                                content: Text(l10n.hintAdUnavailable),
                                 duration: Duration(seconds: 2),
                               ),
                             );

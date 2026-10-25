@@ -885,4 +885,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get proMorePlayers => 'パス＆プレイ：最大6人・10ラウンド';
+
+  @override
+  String get hintAdUnavailable => 'ヒント動画は現在利用できません。接続を確認して、もう一度お試しください。';
 }

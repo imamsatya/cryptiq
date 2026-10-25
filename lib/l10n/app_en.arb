@@ -458,5 +458,6 @@
   "shareStatsText": "🧩 My CryptiQ stats — think you can do better?",
   "unlimitedHints": "Unlimited Hints",
   "allLevelsUnlocked": "All Levels Unlocked",
-  "proMorePlayers": "Pass & Play: up to 6 players, 10 rounds"
+  "proMorePlayers": "Pass & Play: up to 6 players, 10 rounds",
+  "hintAdUnavailable": "The hint video isn't available right now. Check your connection and try again."
 }

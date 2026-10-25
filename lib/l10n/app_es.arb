@@ -437,5 +437,6 @@
   "shareStatsText": "🧩 Mis estadísticas de CryptiQ. ¿Crees que puedes hacerlo mejor?",
   "unlimitedHints": "Pistas ilimitadas",
   "allLevelsUnlocked": "Todos los niveles desbloqueados",
-  "proMorePlayers": "Pasar y Jugar: hasta 6 jugadores y 10 rondas"
+  "proMorePlayers": "Pasar y Jugar: hasta 6 jugadores y 10 rondas",
+  "hintAdUnavailable": "El video de la pista no está disponible ahora. Revisa tu conexión e inténtalo de nuevo."
 }

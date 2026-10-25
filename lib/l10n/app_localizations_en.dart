@@ -899,4 +899,8 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get proMorePlayers => 'Pass & Play: up to 6 players, 10 rounds';
+
+  @override
+  String get hintAdUnavailable =>
+      'The hint video isn\'t available right now. Check your connection and try again.';
 }

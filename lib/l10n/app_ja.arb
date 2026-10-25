@@ -437,5 +437,6 @@
   "shareStatsText": "🧩 私のCryptiQの記録。これを超えられる？",
   "unlimitedHints": "ヒント無制限",
   "allLevelsUnlocked": "全レベル解放",
-  "proMorePlayers": "パス＆プレイ：最大6人・10ラウンド"
+  "proMorePlayers": "パス＆プレイ：最大6人・10ラウンド",
+  "hintAdUnavailable": "ヒント動画は現在利用できません。接続を確認して、もう一度お試しください。"
 }

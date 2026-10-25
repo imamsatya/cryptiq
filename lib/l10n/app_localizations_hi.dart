@@ -902,4 +902,8 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get proMorePlayers => 'पास एंड प्ले: 6 खिलाड़ी तक, 10 राउंड';
+
+  @override
+  String get hintAdUnavailable =>
+      'संकेत वीडियो अभी उपलब्ध नहीं है। अपना कनेक्शन जाँचें और फिर से कोशिश करें।';
 }

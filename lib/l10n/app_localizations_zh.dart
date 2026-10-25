@@ -882,4 +882,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get proMorePlayers => '轮流玩：最多6人、10轮';
+
+  @override
+  String get hintAdUnavailable => '提示视频暂时无法播放。请检查网络连接后重试。';
 }

@@ -907,4 +907,8 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get proMorePlayers =>
       'Passer et Jouer : jusqu\'à 6 joueurs, 10 manches';
+
+  @override
+  String get hintAdUnavailable =>
+      'La vidéo de l\'indice n\'est pas disponible pour le moment. Vérifiez votre connexion et réessayez.';
 }

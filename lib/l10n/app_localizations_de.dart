@@ -907,4 +907,8 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get proMorePlayers =>
       'Weitergeben & Spielen: bis zu 6 Spieler, 10 Runden';
+
+  @override
+  String get hintAdUnavailable =>
+      'Das Hinweis-Video ist gerade nicht verfügbar. Prüfe deine Verbindung und versuch es erneut.';
 }

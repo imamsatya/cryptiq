@@ -888,4 +888,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get proMorePlayers => '패스 앤 플레이: 최대 6명, 10라운드';
+
+  @override
+  String get hintAdUnavailable => '지금은 힌트 영상을 볼 수 없어요. 연결 상태를 확인한 뒤 다시 시도하세요.';
 }

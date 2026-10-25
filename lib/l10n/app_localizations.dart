@@ -1759,6 +1759,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pass & Play: up to 6 players, 10 rounds'**
   String get proMorePlayers;
+
+  /// No description provided for @hintAdUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'The hint video isn\'t available right now. Check your connection and try again.'**
+  String get hintAdUnavailable;
 }
 
 class _AppLocalizationsDelegate
