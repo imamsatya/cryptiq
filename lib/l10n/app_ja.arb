@@ -443,5 +443,13 @@
   "purchasePending": "支払いが保留中です。完了するとProが有効になります。",
   "purchaseFailed": "購入を完了できませんでした。もう一度お試しください。",
   "noPurchasesToRestore": "このGoogleアカウントでのPro購入履歴はありません。",
-  "adPrivacyOptions": "広告のプライバシー設定"
+  "adPrivacyOptions": "広告のプライバシー設定",
+  "reviveCard": "🔥 {streak}日連続記録を復活",
+  "reviveTitle": "{streak}日連続の記録を守りますか？",
+  "reviveBody": "昨日のデイリーチャレンジを逃しました。短い動画を見ると連続記録を守れます。",
+  "reviveBodyPro": "昨日のデイリーチャレンジを逃しました。Proメンバーは無料で連続記録を復活できます。",
+  "reviveWatch": "動画を見る",
+  "reviveRestore": "記録を復活",
+  "reviveDone": "🔥 記録が復活しました：{streak}日！今日のチャレンジをプレイしよう。",
+  "videoUnavailable": "動画は現在利用できません。接続を確認して、もう一度お試しください。"
 }

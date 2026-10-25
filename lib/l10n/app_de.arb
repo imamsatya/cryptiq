@@ -443,5 +443,13 @@
   "purchasePending": "Zahlung ausstehend. Pro wird freigeschaltet, sobald sie abgeschlossen ist.",
   "purchaseFailed": "Der Kauf konnte nicht abgeschlossen werden. Bitte versuch es erneut.",
   "noPurchasesToRestore": "Für dieses Google-Konto wurde kein Pro-Kauf gefunden.",
-  "adPrivacyOptions": "Datenschutzoptionen für Werbung"
+  "adPrivacyOptions": "Datenschutzoptionen für Werbung",
+  "reviveCard": "Rette deine 🔥 {streak}-Tage-Serie",
+  "reviveTitle": "Deine {streak}-Tage-Serie retten?",
+  "reviveBody": "Du hast die gestrige Herausforderung verpasst. Sieh dir ein kurzes Video an, um deine Serie zu halten.",
+  "reviveBodyPro": "Du hast die gestrige Herausforderung verpasst. Als Pro-Mitglied kannst du deine Serie kostenlos retten.",
+  "reviveWatch": "Video ansehen",
+  "reviveRestore": "Serie retten",
+  "reviveDone": "🔥 Serie gerettet: {streak} Tage! Spiel jetzt die heutige Herausforderung.",
+  "videoUnavailable": "Das Video ist gerade nicht verfügbar. Prüfe deine Verbindung und versuch es erneut."
 }

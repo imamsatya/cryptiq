@@ -900,4 +900,34 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get adPrivacyOptions => '广告隐私选项';
+
+  @override
+  String reviveCard(int streak) {
+    return '恢复你的 🔥 $streak 天连续纪录';
+  }
+
+  @override
+  String reviveTitle(int streak) {
+    return '要保住你的 $streak 天连续纪录吗？';
+  }
+
+  @override
+  String get reviveBody => '你错过了昨天的每日挑战。观看一段短视频即可保住连续纪录。';
+
+  @override
+  String get reviveBodyPro => '你错过了昨天的每日挑战。作为 Pro 会员，你可以免费恢复连续纪录。';
+
+  @override
+  String get reviveWatch => '观看视频';
+
+  @override
+  String get reviveRestore => '恢复纪录';
+
+  @override
+  String reviveDone(int streak) {
+    return '🔥 连续纪录已恢复：$streak 天！现在来完成今天的挑战吧。';
+  }
+
+  @override
+  String get videoUnavailable => '视频暂时无法播放。请检查网络连接后重试。';
 }

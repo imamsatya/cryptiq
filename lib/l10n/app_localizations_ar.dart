@@ -917,4 +917,37 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get adPrivacyOptions => 'خيارات خصوصية الإعلانات';
+
+  @override
+  String reviveCard(int streak) {
+    return 'استعد سلسلة 🔥 $streak يوم';
+  }
+
+  @override
+  String reviveTitle(int streak) {
+    return 'هل تريد إنقاذ سلسلة $streak يوم؟';
+  }
+
+  @override
+  String get reviveBody =>
+      'فاتك التحدي اليومي أمس. شاهد فيديو قصيرًا للحفاظ على سلسلتك.';
+
+  @override
+  String get reviveBodyPro =>
+      'فاتك التحدي اليومي أمس. بصفتك عضوًا في Pro يمكنك استعادة سلسلتك مجانًا.';
+
+  @override
+  String get reviveWatch => 'شاهد الفيديو';
+
+  @override
+  String get reviveRestore => 'استعادة السلسلة';
+
+  @override
+  String reviveDone(int streak) {
+    return '🔥 تمت استعادة السلسلة: $streak يوم! العب تحدي اليوم الآن.';
+  }
+
+  @override
+  String get videoUnavailable =>
+      'الفيديو غير متاح الآن. تحقق من اتصالك وحاول مرة أخرى.';
 }

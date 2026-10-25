@@ -443,5 +443,13 @@
   "purchasePending": "Pago pendiente. Pro se desbloqueará en cuanto se complete.",
   "purchaseFailed": "No se pudo completar la compra. Inténtalo de nuevo.",
   "noPurchasesToRestore": "No se encontró ninguna compra de Pro para esta cuenta de Google.",
-  "adPrivacyOptions": "Opciones de privacidad de anuncios"
+  "adPrivacyOptions": "Opciones de privacidad de anuncios",
+  "reviveCard": "Recupera tu racha de 🔥 {streak} días",
+  "reviveTitle": "¿Salvar tu racha de {streak} días?",
+  "reviveBody": "Te perdiste el desafío diario de ayer. Mira un video corto para mantener tu racha.",
+  "reviveBodyPro": "Te perdiste el desafío diario de ayer. Como usuario Pro, puedes recuperar tu racha gratis.",
+  "reviveWatch": "Ver video",
+  "reviveRestore": "Recuperar racha",
+  "reviveDone": "🔥 ¡Racha recuperada: {streak} días! Ahora juega el desafío de hoy.",
+  "videoUnavailable": "El video no está disponible ahora. Revisa tu conexión e inténtalo de nuevo."
 }

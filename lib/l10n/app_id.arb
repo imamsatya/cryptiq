@@ -429,5 +429,13 @@
   "purchasePending": "Pembayaran tertunda. Pro akan aktif begitu pembayaran selesai.",
   "purchaseFailed": "Pembelian tidak dapat diselesaikan. Silakan coba lagi.",
   "noPurchasesToRestore": "Tidak ada pembelian Pro sebelumnya untuk akun Google ini.",
-  "adPrivacyOptions": "Opsi Privasi Iklan"
+  "adPrivacyOptions": "Opsi Privasi Iklan",
+  "reviveCard": "Pulihkan streak 🔥 {streak} hari",
+  "reviveTitle": "Selamatkan streak {streak} harimu?",
+  "reviveBody": "Kamu melewatkan Tantangan Harian kemarin. Tonton video singkat agar streak-mu tidak putus.",
+  "reviveBodyPro": "Kamu melewatkan Tantangan Harian kemarin. Sebagai pengguna Pro, kamu bisa memulihkan streak secara gratis.",
+  "reviveWatch": "Tonton video",
+  "reviveRestore": "Pulihkan streak",
+  "reviveDone": "🔥 Streak pulih: {streak} hari! Sekarang mainkan tantangan hari ini.",
+  "videoUnavailable": "Video belum tersedia. Periksa koneksi internetmu lalu coba lagi."
 }

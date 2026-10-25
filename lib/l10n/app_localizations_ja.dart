@@ -903,4 +903,34 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get adPrivacyOptions => '広告のプライバシー設定';
+
+  @override
+  String reviveCard(int streak) {
+    return '🔥 $streak日連続記録を復活';
+  }
+
+  @override
+  String reviveTitle(int streak) {
+    return '$streak日連続の記録を守りますか？';
+  }
+
+  @override
+  String get reviveBody => '昨日のデイリーチャレンジを逃しました。短い動画を見ると連続記録を守れます。';
+
+  @override
+  String get reviveBodyPro => '昨日のデイリーチャレンジを逃しました。Proメンバーは無料で連続記録を復活できます。';
+
+  @override
+  String get reviveWatch => '動画を見る';
+
+  @override
+  String get reviveRestore => '記録を復活';
+
+  @override
+  String reviveDone(int streak) {
+    return '🔥 記録が復活しました：$streak日！今日のチャレンジをプレイしよう。';
+  }
+
+  @override
+  String get videoUnavailable => '動画は現在利用できません。接続を確認して、もう一度お試しください。';
 }

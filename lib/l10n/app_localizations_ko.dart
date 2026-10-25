@@ -906,4 +906,34 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get adPrivacyOptions => '광고 개인정보 옵션';
+
+  @override
+  String reviveCard(int streak) {
+    return '🔥 $streak일 연속 기록 복구하기';
+  }
+
+  @override
+  String reviveTitle(int streak) {
+    return '$streak일 연속 기록을 지킬까요?';
+  }
+
+  @override
+  String get reviveBody => '어제 일일 챌린지를 놓쳤어요. 짧은 영상을 보면 연속 기록을 이어갈 수 있어요.';
+
+  @override
+  String get reviveBodyPro => '어제 일일 챌린지를 놓쳤어요. Pro 회원은 무료로 연속 기록을 복구할 수 있어요.';
+
+  @override
+  String get reviveWatch => '영상 보기';
+
+  @override
+  String get reviveRestore => '기록 복구';
+
+  @override
+  String reviveDone(int streak) {
+    return '🔥 연속 기록 복구: $streak일! 이제 오늘의 챌린지를 플레이하세요.';
+  }
+
+  @override
+  String get videoUnavailable => '지금은 영상을 볼 수 없어요. 연결 상태를 확인한 뒤 다시 시도하세요.';
 }

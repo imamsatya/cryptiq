@@ -443,5 +443,13 @@
   "purchasePending": "Pagamento pendente. O Pro será liberado assim que for concluído.",
   "purchaseFailed": "Não foi possível concluir a compra. Tente novamente.",
   "noPurchasesToRestore": "Nenhuma compra do Pro encontrada para esta conta do Google.",
-  "adPrivacyOptions": "Opções de privacidade de anúncios"
+  "adPrivacyOptions": "Opções de privacidade de anúncios",
+  "reviveCard": "Recupere sua sequência de 🔥 {streak} dias",
+  "reviveTitle": "Salvar sua sequência de {streak} dias?",
+  "reviveBody": "Você perdeu o Desafio Diário de ontem. Assista a um vídeo curto para manter sua sequência.",
+  "reviveBodyPro": "Você perdeu o Desafio Diário de ontem. Como usuário Pro, você pode recuperar sua sequência de graça.",
+  "reviveWatch": "Assistir vídeo",
+  "reviveRestore": "Recuperar sequência",
+  "reviveDone": "🔥 Sequência recuperada: {streak} dias! Agora jogue o desafio de hoje.",
+  "videoUnavailable": "O vídeo não está disponível agora. Verifique sua conexão e tente novamente."
 }

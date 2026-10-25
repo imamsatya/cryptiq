@@ -443,5 +443,13 @@
   "purchasePending": "Paiement en attente. Pro sera débloqué dès qu'il sera finalisé.",
   "purchaseFailed": "L'achat n'a pas pu aboutir. Veuillez réessayer.",
   "noPurchasesToRestore": "Aucun achat Pro trouvé pour ce compte Google.",
-  "adPrivacyOptions": "Options de confidentialité des annonces"
+  "adPrivacyOptions": "Options de confidentialité des annonces",
+  "reviveCard": "Récupérez votre série de 🔥 {streak} jours",
+  "reviveTitle": "Sauver votre série de {streak} jours ?",
+  "reviveBody": "Vous avez manqué le défi d'hier. Regardez une courte vidéo pour conserver votre série.",
+  "reviveBodyPro": "Vous avez manqué le défi d'hier. En tant que membre Pro, vous pouvez récupérer votre série gratuitement.",
+  "reviveWatch": "Regarder la vidéo",
+  "reviveRestore": "Récupérer la série",
+  "reviveDone": "🔥 Série récupérée : {streak} jours ! Jouez maintenant le défi du jour.",
+  "videoUnavailable": "La vidéo n'est pas disponible pour le moment. Vérifiez votre connexion et réessayez."
 }

@@ -443,5 +443,13 @@
   "purchasePending": "결제 대기 중이에요. 결제가 완료되면 Pro가 활성화됩니다.",
   "purchaseFailed": "구매를 완료하지 못했어요. 다시 시도해 주세요.",
   "noPurchasesToRestore": "이 Google 계정으로 구매한 Pro가 없어요.",
-  "adPrivacyOptions": "광고 개인정보 옵션"
+  "adPrivacyOptions": "광고 개인정보 옵션",
+  "reviveCard": "🔥 {streak}일 연속 기록 복구하기",
+  "reviveTitle": "{streak}일 연속 기록을 지킬까요?",
+  "reviveBody": "어제 일일 챌린지를 놓쳤어요. 짧은 영상을 보면 연속 기록을 이어갈 수 있어요.",
+  "reviveBodyPro": "어제 일일 챌린지를 놓쳤어요. Pro 회원은 무료로 연속 기록을 복구할 수 있어요.",
+  "reviveWatch": "영상 보기",
+  "reviveRestore": "기록 복구",
+  "reviveDone": "🔥 연속 기록 복구: {streak}일! 이제 오늘의 챌린지를 플레이하세요.",
+  "videoUnavailable": "지금은 영상을 볼 수 없어요. 연결 상태를 확인한 뒤 다시 시도하세요."
 }

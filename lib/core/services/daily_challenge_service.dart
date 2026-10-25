@@ -1,5 +1,6 @@
 import 'notification_service.dart';
 import 'dart:math';
+import 'package:flutter/foundation.dart';
 import '../../data/datasources/local_database.dart';
 import '../../levels/puzzle_generator.dart';
 import '../../domain/entities/puzzle.dart';
@@ -18,8 +19,18 @@ class DailyChallengeService {
   static const _bestStreakKey = 'daily_best_streak';
   static const _lastStreakDateKey = 'daily_last_streak_date';
   static const _completedDatesKey = 'daily_completed_dates';
+  static const _lastReviveDateKey = 'daily_last_revive_date';
+  static const _reviveDismissedDateKey = 'daily_revive_dismissed_date';
+
+  /// Smallest streak worth offering to revive, and how often a revive is allowed.
+  static const minRevivableStreak = 2;
+  static const reviveCooldownDays = 7;
 
   final _db = LocalDatabase.instance;
+
+  /// Current time; replaced in tests.
+  @visibleForTesting
+  DateTime Function() clock = DateTime.now;
 
   /// Date string (yyyy-MM-dd) of [d]'s calendar day
   static String dateKey(DateTime d) =>
@@ -38,15 +49,15 @@ class DailyChallengeService {
           .inDays;
 
   /// Get today's date string (yyyy-MM-dd)
-  String get _today => dateKey(DateTime.now());
+  String get _today => dateKey(clock());
 
-  String get _yesterday => yesterdayKey(DateTime.now());
+  String get _yesterday => yesterdayKey(clock());
 
   /// Get today's daily challenge puzzle.
   /// Uses date as seed → same puzzle for everyone on the same day.
   CryptarithmPuzzle getDailyPuzzle() {
     // Seed from date: days since epoch
-    final daysSinceEpoch = dayNumber(DateTime.now());
+    final daysSinceEpoch = dayNumber(clock());
     final rng = Random(daysSinceEpoch * 7 + 42);
 
     // Pick from medium-hard range (levels 251-1000) for interesting puzzles
@@ -143,6 +154,48 @@ class DailyChallengeService {
         await _db.settingsBox.put(_bestStreakKey, newStreak);
       }
     }
+  }
+
+  // ==========  REVIVE STREAK  ==========
+
+  /// The streak that can be restored today, or 0 if there is none.
+  ///
+  /// Only when exactly one day was missed (the last completion was the day
+  /// before yesterday), today's challenge isn't done yet — completing it would
+  /// restart the streak at 1 — and no revive was used in the last
+  /// [reviveCooldownDays] days.
+  int get revivableStreak {
+    final now = clock();
+    final dayBeforeYesterday = dateKey(DateTime(now.year, now.month, now.day - 2));
+    final lastDate = _db.settingsBox.get(_lastStreakDateKey, defaultValue: '');
+    final stored = _db.settingsBox.get(_streakKey, defaultValue: 0) as int;
+    if (lastDate != dayBeforeYesterday || isTodayCompleted) return 0;
+    if (stored < minRevivableStreak) return 0;
+
+    final lastRevive = _db.settingsBox.get(_lastReviveDateKey, defaultValue: '') as String;
+    if (lastRevive.isNotEmpty) {
+      final daysSince = dayNumber(now) - dayNumber(DateTime.parse(lastRevive));
+      if (daysSince < reviveCooldownDays) return 0;
+    }
+    return stored;
+  }
+
+  /// Whether to offer the revive now (not after the user declined it today).
+  bool get shouldOfferRevive =>
+      revivableStreak > 0 &&
+      _db.settingsBox.get(_reviveDismissedDateKey, defaultValue: '') != _today;
+
+  /// User declined the offer: don't ask again today.
+  Future<void> dismissRevive() => _db.settingsBox.put(_reviveDismissedDateKey, _today);
+
+  /// Restores the streak by treating yesterday as played. Yesterday is not
+  /// added to the completed-days calendar: the puzzle wasn't actually solved.
+  Future<bool> reviveStreak() async {
+    if (revivableStreak == 0) return false;
+    await _db.settingsBox.put(_lastStreakDateKey, _yesterday);
+    await _db.settingsBox.put(_lastReviveDateKey, _today);
+    NotificationService.instance.scheduleDailyReminder(); // streak text again
+    return true;
   }
 }
 

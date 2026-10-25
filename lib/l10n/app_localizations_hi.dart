@@ -925,4 +925,37 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get adPrivacyOptions => 'विज्ञापन गोपनीयता विकल्प';
+
+  @override
+  String reviveCard(int streak) {
+    return 'अपनी 🔥 $streak दिन की श्रृंखला वापस पाएँ';
+  }
+
+  @override
+  String reviveTitle(int streak) {
+    return 'अपनी $streak दिन की श्रृंखला बचाएँ?';
+  }
+
+  @override
+  String get reviveBody =>
+      'आपने कल की दैनिक चुनौती छोड़ दी। अपनी श्रृंखला जारी रखने के लिए एक छोटा वीडियो देखें।';
+
+  @override
+  String get reviveBodyPro =>
+      'आपने कल की दैनिक चुनौती छोड़ दी। Pro सदस्य के रूप में आप अपनी श्रृंखला मुफ़्त में वापस पा सकते हैं।';
+
+  @override
+  String get reviveWatch => 'वीडियो देखें';
+
+  @override
+  String get reviveRestore => 'श्रृंखला वापस पाएँ';
+
+  @override
+  String reviveDone(int streak) {
+    return '🔥 श्रृंखला वापस मिल गई: $streak दिन! अब आज की चुनौती खेलें।';
+  }
+
+  @override
+  String get videoUnavailable =>
+      'वीडियो अभी उपलब्ध नहीं है। अपना कनेक्शन जाँचें और फिर से कोशिश करें।';
 }

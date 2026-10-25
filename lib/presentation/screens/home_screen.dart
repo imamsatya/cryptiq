@@ -12,6 +12,7 @@ import '../widgets/particle_background.dart';
 import '../widgets/ad_banner_widget.dart';
 import '../../core/services/daily_challenge_service.dart';
 import '../../core/services/achievement_service.dart';
+import '../../core/services/ad_service.dart';
 import '../../data/datasources/local_database.dart';
 import '../../levels/puzzle_generator.dart';
 
@@ -274,11 +275,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final daily = DailyChallengeService.instance;
     final isCompleted = daily.isTodayCompleted;
     final streak = daily.streak;
+    final revivable = daily.shouldOfferRevive ? daily.revivableStreak : 0;
     final dateStr = DateFormat.yMMMd(Localizations.localeOf(context).toString())
         .format(DateTime.now());
 
     return GestureDetector(
-      onTap: () => context.push('/daily'),
+      onTap: _openDaily,
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
@@ -323,13 +325,27 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       color: isCompleted ? AppTheme.successColor : Colors.white,
                     ),
                   ),
-                  Text(
-                    dateStr,
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: AppTheme.textSecondary.withValues(alpha: 0.7),
+                  // A streak missed yesterday can be restored: say so in place
+                  // of the date (no extra height; Home doesn't scroll).
+                  if (revivable > 0)
+                    Text(
+                      l10n.reviveCard(revivable),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.orange,
+                      ),
+                    )
+                  else
+                    Text(
+                      dateStr,
+                      style: TextStyle(
+                        fontSize: 11,
+                        color: AppTheme.textSecondary.withValues(alpha: 0.7),
+                      ),
                     ),
-                  ),
                 ],
               ),
             ),
@@ -347,6 +363,88 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         ),
       ),
     );
+  }
+
+  /// Offers to revive a streak broken yesterday before opening the Daily
+  /// Challenge: once today's challenge is played the old streak is gone.
+  Future<void> _openDaily() async {
+    final daily = DailyChallengeService.instance;
+    if (daily.shouldOfferRevive) {
+      final proceed = await _offerRevive(daily.revivableStreak);
+      if (!proceed || !mounted) return;
+    }
+    context.push('/daily');
+  }
+
+  /// Shows the revive dialog. Returns false if the user backed out (or the
+  /// video couldn't play), true once they restored or declined the streak.
+  Future<bool> _offerRevive(int streak) async {
+    final l10n = AppLocalizations.of(context)!;
+    final isPro = LocalDatabase.instance.getProStatus();
+    final restore = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: AppTheme.surfaceColor,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        title: Text(l10n.reviveTitle(streak),
+            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600)),
+        content: Text(
+          isPro ? l10n.reviveBodyPro : l10n.reviveBody,
+          style: TextStyle(color: Colors.white.withValues(alpha: 0.7)),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: Text(l10n.noThanks,
+                style: TextStyle(color: Colors.white.withValues(alpha: 0.5))),
+          ),
+          ElevatedButton.icon(
+            onPressed: () => Navigator.pop(ctx, true),
+            icon: Icon(isPro
+                ? Icons.local_fire_department_rounded
+                : Icons.play_circle_outline_rounded),
+            label: Text(isPro ? l10n.reviveRestore : l10n.reviveWatch),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppTheme.primaryColor,
+              foregroundColor: AppTheme.backgroundDark,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            ),
+          ),
+        ],
+      ),
+    );
+    if (!mounted || restore == null) return false;
+    final daily = DailyChallengeService.instance;
+    if (!restore) {
+      await daily.dismissRevive();
+      if (mounted) setState(() {});
+      return true;
+    }
+
+    if (!isPro) {
+      final ads = AdService.instance;
+      if (!ads.isRewardedReady) {
+        ads.loadRewardedIfNeeded();
+        _showSnack(l10n.videoUnavailable);
+        return false;
+      }
+      if (!await ads.showRewarded()) return false; // closed before the reward
+    }
+    await daily.reviveStreak();
+    if (!mounted) return false;
+    setState(() {});
+    _showSnack(l10n.reviveDone(streak));
+    return true;
+  }
+
+  void _showSnack(String message) {
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(
+        content: Text(message),
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      ));
   }
 
   Widget _buildPlayButton(BuildContext context, int highestCompleted) {

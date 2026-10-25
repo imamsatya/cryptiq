@@ -1795,6 +1795,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Ad Privacy Options'**
   String get adPrivacyOptions;
+
+  /// No description provided for @reviveCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore your 🔥 {streak}-day streak'**
+  String reviveCard(int streak);
+
+  /// No description provided for @reviveTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Save your {streak}-day streak?'**
+  String reviveTitle(int streak);
+
+  /// No description provided for @reviveBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You missed yesterday\'s Daily Challenge. Watch a short video to keep your streak going.'**
+  String get reviveBody;
+
+  /// No description provided for @reviveBodyPro.
+  ///
+  /// In en, this message translates to:
+  /// **'You missed yesterday\'s Daily Challenge. As a Pro member, you can restore your streak for free.'**
+  String get reviveBodyPro;
+
+  /// No description provided for @reviveWatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Watch video'**
+  String get reviveWatch;
+
+  /// No description provided for @reviveRestore.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore streak'**
+  String get reviveRestore;
+
+  /// No description provided for @reviveDone.
+  ///
+  /// In en, this message translates to:
+  /// **'🔥 Streak restored: {streak} days! Now play today\'s challenge.'**
+  String reviveDone(int streak);
+
+  /// No description provided for @videoUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'The video isn\'t available right now. Check your connection and try again.'**
+  String get videoUnavailable;
 }
 
 class _AppLocalizationsDelegate

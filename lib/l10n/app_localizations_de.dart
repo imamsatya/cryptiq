@@ -930,4 +930,37 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get adPrivacyOptions => 'Datenschutzoptionen für Werbung';
+
+  @override
+  String reviveCard(int streak) {
+    return 'Rette deine 🔥 $streak-Tage-Serie';
+  }
+
+  @override
+  String reviveTitle(int streak) {
+    return 'Deine $streak-Tage-Serie retten?';
+  }
+
+  @override
+  String get reviveBody =>
+      'Du hast die gestrige Herausforderung verpasst. Sieh dir ein kurzes Video an, um deine Serie zu halten.';
+
+  @override
+  String get reviveBodyPro =>
+      'Du hast die gestrige Herausforderung verpasst. Als Pro-Mitglied kannst du deine Serie kostenlos retten.';
+
+  @override
+  String get reviveWatch => 'Video ansehen';
+
+  @override
+  String get reviveRestore => 'Serie retten';
+
+  @override
+  String reviveDone(int streak) {
+    return '🔥 Serie gerettet: $streak Tage! Spiel jetzt die heutige Herausforderung.';
+  }
+
+  @override
+  String get videoUnavailable =>
+      'Das Video ist gerade nicht verfügbar. Prüfe deine Verbindung und versuch es erneut.';
 }
