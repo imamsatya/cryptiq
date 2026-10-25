@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../../l10n/app_localizations.dart';
-import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/services/haptics.dart';
 import '../../core/services/audio_service.dart';
 import '../../core/services/ad_service.dart';
 import '../../domain/entities/puzzle.dart';
@@ -212,7 +212,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
     final allFilled = _assignments.values.every((v) => v != null);
     if (!allFilled) {
       showTopError(context, AppLocalizations.of(context)!.fillAllLetters);
-      HapticFeedback.lightImpact();
+      Haptics.lightImpact();
       _isChecking = false;
       return;
     }
@@ -223,7 +223,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
 
     if (correct) {
       AudioService.instance.playCorrect();
-      HapticFeedback.heavyImpact();
+      Haptics.heavyImpact();
       _stopTimer();
 
       _results[_currentRound][_currentPlayerIndex] = PlayerRound(
@@ -240,7 +240,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
       await _advanceTurn();
     } else {
       AudioService.instance.playError();
-      HapticFeedback.heavyImpact();
+      Haptics.heavyImpact();
       if (mounted) {
         final l10n = AppLocalizations.of(context)!;
         showTopError(context, _currentPuzzle.failsOnlyOnLeadingZero(answer)
@@ -632,11 +632,11 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
             onTap: () {
               setState(() => _selectedLetter = letter);
               AudioService.instance.playTap();
-              HapticFeedback.lightImpact();
+              Haptics.lightImpact();
             },
             onLongPress: () {
               setState(() => _assignments[letter] = null);
-              HapticFeedback.mediumImpact();
+              Haptics.mediumImpact();
             },
           );
         }).toList(),
@@ -752,7 +752,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                       onDigitTap: (digit) {
                         _assignDigit(digit);
                         AudioService.instance.playTap();
-                        HapticFeedback.selectionClick();
+                        Haptics.selectionClick();
                       },
                       enabled: _selectedLetter != null,
                     ),
@@ -807,7 +807,7 @@ class _MultiplayerGameScreenState extends State<MultiplayerGameScreen> {
                                     _assignments[_selectedLetter!] = null;
                                   });
                                   AudioService.instance.playTap();
-                                  HapticFeedback.lightImpact();
+                                  Haptics.lightImpact();
                                 },
                           child: Container(
                             padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 14),

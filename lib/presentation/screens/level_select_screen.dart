@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import '../../l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/services/haptics.dart';
 import '../../domain/entities/puzzle.dart';
 import '../../levels/puzzle_generator.dart';
 import '../../data/datasources/local_database.dart';
@@ -171,7 +171,7 @@ class LevelSelectScreen extends ConsumerWidget {
         return GestureDetector(
           onTap: () {
             if (isLocked) {
-              HapticFeedback.lightImpact();
+              Haptics.lightImpact();
               _showLockedHint(context, levelNum);
               return;
             }

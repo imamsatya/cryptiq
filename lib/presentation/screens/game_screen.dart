@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../l10n/app_localizations.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/services/haptics.dart';
 import '../../core/services/audio_service.dart';
 import '../../core/services/ad_service.dart';
 import '../providers/game_state_provider.dart';
@@ -108,7 +108,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
                       onLetterTap: (letter) {
                         ref.read(gameStateProvider(widget.levelNumber).notifier).selectLetter(letter);
                         AudioService.instance.playTap();
-                        HapticFeedback.lightImpact();
+                        Haptics.lightImpact();
                       },
                     ),
                   ),
@@ -130,7 +130,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
                   onDigitTap: (digit) {
                     ref.read(gameStateProvider(widget.levelNumber).notifier).assignDigit(digit);
                     AudioService.instance.playTap();
-                    HapticFeedback.selectionClick();
+                    Haptics.selectionClick();
                   },
                   enabled: gameState.selectedLetter != null && !gameState.isComplete,
                 ),
@@ -263,11 +263,11 @@ class _GameScreenState extends ConsumerState<GameScreen>
             onTap: () {
               ref.read(gameStateProvider(widget.levelNumber).notifier).selectLetter(letter);
               AudioService.instance.playTap();
-              HapticFeedback.lightImpact();
+              Haptics.lightImpact();
             },
             onLongPress: () {
               ref.read(gameStateProvider(widget.levelNumber).notifier).clearLetter(letter);
-              HapticFeedback.mediumImpact();
+              Haptics.mediumImpact();
             },
           );
         }).toList(),
@@ -297,7 +297,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
                         final used = notifier.useHint();
                         if (used) {
                           AudioService.instance.playTap();
-                          HapticFeedback.mediumImpact();
+                          Haptics.mediumImpact();
                         }
                       } else if (gameState.nextHintNeedsAd) {
                         // Last hint — watch ad first
@@ -307,7 +307,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
                           if (rewarded && mounted) {
                             notifier.unlockLastHint();
                             AudioService.instance.playTap();
-                            HapticFeedback.mediumImpact();
+                            Haptics.mediumImpact();
                           }
                         } else {
                           if (mounted) {
@@ -380,7 +380,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
                     if (selected != null) {
                       ref.read(gameStateProvider(widget.levelNumber).notifier).clearLetter(selected);
                       AudioService.instance.playTap();
-                      HapticFeedback.lightImpact();
+                      Haptics.lightImpact();
                     }
                   },
             child: Container(
@@ -405,7 +405,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
                         gameStateProvider(widget.levelNumber).notifier);
                     if (notifier.canUndo) {
                       notifier.undo();
-                      HapticFeedback.lightImpact();
+                      Haptics.lightImpact();
                     }
                   },
             child: Container(
@@ -436,14 +436,14 @@ class _GameScreenState extends ConsumerState<GameScreen>
                       final unassignedCount = gameState.assignments.values.where((v) => v == null).length;
                       if (unassignedCount > 0) {
                         showTopError(context, l10n.fillAllLetters);
-                        HapticFeedback.lightImpact();
+                        Haptics.lightImpact();
                         return;
                       }
 
                       final correct = await notifier.checkSolution();
                       if (correct) {
                         AudioService.instance.playCorrect();
-                        HapticFeedback.heavyImpact();
+                        Haptics.heavyImpact();
                         navigator.push('/result/${widget.levelNumber}', extra: {
                           'time': currentTime,
                           'hints': currentHints,
@@ -451,7 +451,7 @@ class _GameScreenState extends ConsumerState<GameScreen>
                         });
                       } else {
                         AudioService.instance.playError();
-                        HapticFeedback.heavyImpact();
+                        Haptics.heavyImpact();
                         _shakeController.forward(from: 0);
                         if (!mounted) return;
                         final answer = gameState.assignments.map((k, v) => MapEntry(k, v!));

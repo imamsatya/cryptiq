@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../l10n/app_localizations.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/services/haptics.dart';
 import '../../core/services/daily_challenge_service.dart';
 import '../../core/services/audio_service.dart';
 import '../providers/daily_challenge_provider.dart';
@@ -180,11 +180,11 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen>
                         isHinted: gameState.hintedLetters.contains(letter),
                         onTap: () {
                           ref.read(dailyGameStateProvider.notifier).selectLetter(letter);
-                          HapticFeedback.selectionClick();
+                          Haptics.selectionClick();
                         },
                         onLongPress: () {
                           ref.read(dailyGameStateProvider.notifier).clearLetter(letter);
-                          HapticFeedback.mediumImpact();
+                          Haptics.mediumImpact();
                         },
                       );
                     }).toList(),
@@ -200,7 +200,7 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen>
                     onDigitTap: (digit) {
                       ref.read(dailyGameStateProvider.notifier).assignDigit(digit);
                       AudioService.instance.playTap();
-                      HapticFeedback.selectionClick();
+                      Haptics.selectionClick();
                     },
                     onDigitLongPress: (digit) {
                       final entry = gameState.assignments.entries
@@ -234,7 +234,7 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen>
                         child: GestureDetector(
                           onTap: () {
                             ref.read(dailyGameStateProvider.notifier).useHint();
-                            HapticFeedback.mediumImpact();
+                            Haptics.mediumImpact();
                           },
                           child: Container(
                             padding: EdgeInsets.symmetric(vertical: 14),
@@ -265,7 +265,7 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen>
                                 if (selected != null) {
                                   ref.read(dailyGameStateProvider.notifier).clearLetter(selected);
                                   AudioService.instance.playTap();
-                                  HapticFeedback.lightImpact();
+                                  Haptics.lightImpact();
                                 }
                               },
                         child: Container(
@@ -292,13 +292,13 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen>
                             final currentHints = current.hintsUsed;
                             if (current.assignments.values.contains(null)) {
                               showTopError(context, l10n.fillAllLetters);
-                              HapticFeedback.lightImpact();
+                              Haptics.lightImpact();
                               return;
                             }
                             final correct = await notifier.checkSolution();
                             if (correct) {
                               AudioService.instance.playCorrect();
-                              HapticFeedback.heavyImpact();
+                              Haptics.heavyImpact();
                               await DailyChallengeService.instance.completeDaily(currentTime);
                               navigator.push('/daily-result', extra: {
                                 'time': currentTime,
@@ -306,7 +306,7 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen>
                               });
                             } else {
                               AudioService.instance.playError();
-                              HapticFeedback.heavyImpact();
+                              Haptics.heavyImpact();
                               if (!context.mounted) return;
                               final answer = current.assignments.map((k, v) => MapEntry(k, v!));
                               showTopError(context, current.puzzle.failsOnlyOnLeadingZero(answer)

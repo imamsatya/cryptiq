@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import '../../l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/services/haptics.dart';
 import '../../data/datasources/local_database.dart';
 
 /// The lobby for Pass & Play multiplayer setup
@@ -56,7 +56,7 @@ class _MultiplayerLobbyScreenState extends State<MultiplayerLobbyScreen> {
   }
 
   void _showProDialog(String message) {
-    HapticFeedback.heavyImpact();
+    Haptics.heavyImpact();
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
