@@ -48,7 +48,7 @@ class NotificationService {
     );
 
     await _plugin.initialize(
-      const InitializationSettings(
+      settings: const InitializationSettings(
         android: androidSettings,
         iOS: iosSettings,
       ),
@@ -165,28 +165,24 @@ class NotificationService {
     // wall-clock time as an absolute UTC time. After a DST change the repeat
     // drifts by an hour until the app next reschedules it.
     //
-    // Both calls are wrapped: the plugin's own scheduled-notifications cache
-    // round-trip (Gson TypeToken) can throw "Missing type parameter" on some
-    // Android versions, and one failing must not stop the other from trying.
+    // Both calls are wrapped so a plugin error can never crash startup, and
+    // one failing doesn't stop the other. (Plugin versions before 19 threw
+    // "Missing type parameter" here in release builds.)
     final scheduledNext = await _scheduleQuietly(() => _plugin.zonedSchedule(
-          _reminderId,
-          strings.notifTitle,
-          streak > 0 ? strings.notifBodyStreak(streak) : strings.notifBodyDefault,
-          tz.TZDateTime.from(next, tz.UTC),
-          details,
+          id: _reminderId,
+          title: strings.notifTitle,
+          body: streak > 0 ? strings.notifBodyStreak(streak) : strings.notifBodyDefault,
+          scheduledDate: tz.TZDateTime.from(next, tz.UTC),
+          notificationDetails: details,
           androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
-          uiLocalNotificationDateInterpretation:
-              UILocalNotificationDateInterpretation.absoluteTime,
         ));
     final scheduledRepeat = await _scheduleQuietly(() => _plugin.zonedSchedule(
-          _repeatingReminderId,
-          strings.notifTitle,
-          strings.notifBodyDefault,
-          tz.TZDateTime.from(dayAfter, tz.UTC),
-          details,
+          id: _repeatingReminderId,
+          title: strings.notifTitle,
+          body: strings.notifBodyDefault,
+          scheduledDate: tz.TZDateTime.from(dayAfter, tz.UTC),
+          notificationDetails: details,
           androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
-          uiLocalNotificationDateInterpretation:
-              UILocalNotificationDateInterpretation.absoluteTime,
           matchDateTimeComponents: DateTimeComponents.time, // Repeat daily
         ));
 
@@ -211,16 +207,14 @@ class NotificationService {
   /// Cancel the scheduled reminders
   Future<void> cancelDailyReminder() async {
     if (!_isInitialized) return;
-    // The plugin can throw "Missing type parameter" when cancelling an id
-    // that was never scheduled (e.g. right after a fresh install) — a known
-    // flutter_local_notifications quirk. Don't let it block scheduling below.
+    // A failed cancel must not block the scheduling that follows it.
     await _cancelQuietly(_reminderId);
     await _cancelQuietly(_repeatingReminderId);
   }
 
   Future<void> _cancelQuietly(int id) async {
     try {
-      await _plugin.cancel(id);
+      await _plugin.cancel(id: id);
     } catch (e) {
       debugPrint('NotificationService: cancel($id) failed, ignoring: $e');
     }
