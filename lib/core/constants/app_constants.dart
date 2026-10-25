@@ -4,7 +4,7 @@ class AppConstants {
 
   // App Info
   static const String appName = 'CryptiQ';
-  static const String appVersion = '1.0.2';
+  static const String appVersion = '1.0.3';
   static const String packageName = 'com.cryptiq.app';
   static const String contactEmail = 'sortiq.app@gmail.com';
   static const String privacyPolicyUrl = 'https://cryptiq-privacy.vercel.app';
