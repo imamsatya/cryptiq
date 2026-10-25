@@ -215,7 +215,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     const SizedBox(height: 8),
                     _buildTapTile(
                       icon: Icons.star_rate_rounded,
-                      title: 'Rate Us', // TODO: Add to l10n later if needed
+                      title: l10n.rateApp,
                       onTap: () => _launchUrl(AppConstants.playStoreUrl),
                     ),
 
