@@ -446,5 +446,14 @@
       }
     }
   },
-  "notifBodyDefault": "A new puzzle awaits. Can you solve it?"
+  "notifBodyDefault": "A new puzzle awaits. Can you solve it?",
+  "shareScoreText": "🧩 I just solved CryptiQ Level {level}! Can you beat my score?",
+  "@shareScoreText": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "shareStatsText": "🧩 My CryptiQ stats — think you can do better?"
 }

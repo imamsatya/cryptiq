@@ -432,5 +432,7 @@
   "levelLocked": "🔒 Completa el nivel {level} para desbloquear este",
   "notifTitle": "🧩 ¡Desafío Diario listo!",
   "notifBodyStreak": "🔥 ¡Llevas {streak} días de racha! ¡No la pierdas!",
-  "notifBodyDefault": "Te espera un nuevo puzzle. ¿Podrás resolverlo?"
+  "notifBodyDefault": "Te espera un nuevo puzzle. ¿Podrás resolverlo?",
+  "shareScoreText": "🧩 ¡Acabo de resolver el nivel {level} de CryptiQ! ¿Puedes superar mi puntuación?",
+  "shareStatsText": "🧩 Mis estadísticas de CryptiQ. ¿Crees que puedes hacerlo mejor?"
 }

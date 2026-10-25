@@ -889,4 +889,13 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get notifBodyDefault =>
       'Te espera un nuevo puzzle. ¿Podrás resolverlo?';
+
+  @override
+  String shareScoreText(int level) {
+    return '🧩 ¡Acabo de resolver el nivel $level de CryptiQ! ¿Puedes superar mi puntuación?';
+  }
+
+  @override
+  String get shareStatsText =>
+      '🧩 Mis estadísticas de CryptiQ. ¿Crees que puedes hacerlo mejor?';
 }

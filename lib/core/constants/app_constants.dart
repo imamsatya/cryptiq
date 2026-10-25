@@ -10,6 +10,12 @@ class AppConstants {
   static const String privacyPolicyUrl = 'https://cryptiq-privacy.vercel.app';
   static const String playStoreUrl = 'https://play.google.com/store/apps/details?id=com.cryptiq.app';
 
+  /// Play Store link for shared results. The referrer shows up in Play Console
+  /// (Store listing acquisition), so installs from each kind of share can be
+  /// told apart by [campaign].
+  static String shareUrl(String campaign) => '$playStoreUrl&referrer='
+      '${Uri.encodeComponent('utm_source=share&utm_medium=app&utm_campaign=$campaign')}';
+
   // ⚡ Developer Mode — set to false before production/Play Store release!
   static const bool devProMode = false;  // Forces Pro status ON for testing
   static const bool devUnlockAllLevels = false; // Unlock all levels in free mode for testing

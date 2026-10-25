@@ -432,5 +432,7 @@
   "levelLocked": "🔒 Schließe Level {level} ab, um dieses freizuschalten",
   "notifTitle": "🧩 Tägliche Herausforderung bereit!",
   "notifBodyStreak": "🔥 Deine Serie: {streak} Tage! Lass sie nicht abreißen!",
-  "notifBodyDefault": "Ein neues Rätsel wartet. Kannst du es lösen?"
+  "notifBodyDefault": "Ein neues Rätsel wartet. Kannst du es lösen?",
+  "shareScoreText": "🧩 Ich habe gerade CryptiQ Level {level} gelöst! Schaffst du mehr Punkte?",
+  "shareStatsText": "🧩 Meine CryptiQ-Statistik – schaffst du es besser?"
 }

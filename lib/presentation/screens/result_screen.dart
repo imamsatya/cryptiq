@@ -385,7 +385,8 @@ class _ResultScreenState extends ConsumerState<ResultScreen>
                           child: _buildSecondaryButton(
                             icon: Icons.share_rounded,
                             label: l10n.share,
-                            onTap: () => ScoreCard.captureAndShare(_scoreCardKey),
+                            onTap: () => ScoreCard.captureAndShare(_scoreCardKey,
+                                '${l10n.shareScoreText(widget.levelNumber)}\n${AppConstants.shareUrl('score_card')}'),
                           ),
                         ),
                         const SizedBox(width: 12),

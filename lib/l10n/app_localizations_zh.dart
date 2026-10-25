@@ -865,4 +865,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get notifBodyDefault => '新谜题等着你，你能解开吗？';
+
+  @override
+  String shareScoreText(int level) {
+    return '🧩 我刚通关了 CryptiQ 第$level关！你能超过我的分数吗？';
+  }
+
+  @override
+  String get shareStatsText => '🧩 我的 CryptiQ 战绩，你能做得更好吗？';
 }

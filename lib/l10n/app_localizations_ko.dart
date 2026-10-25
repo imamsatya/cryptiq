@@ -870,4 +870,12 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get notifBodyDefault => '새로운 퍼즐이 기다리고 있어요. 풀 수 있을까요?';
+
+  @override
+  String shareScoreText(int level) {
+    return '🧩 CryptiQ 레벨 $level을(를) 풀었어요! 제 점수를 이길 수 있나요?';
+  }
+
+  @override
+  String get shareStatsText => '🧩 제 CryptiQ 기록이에요. 더 잘할 수 있나요?';
 }

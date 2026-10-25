@@ -432,5 +432,7 @@
   "levelLocked": "🔒 레벨 {level}을(를) 완료하면 열립니다",
   "notifTitle": "🧩 일일 챌린지가 준비됐어요!",
   "notifBodyStreak": "🔥 {streak}일 연속 중이에요! 기록을 이어가세요!",
-  "notifBodyDefault": "새로운 퍼즐이 기다리고 있어요. 풀 수 있을까요?"
+  "notifBodyDefault": "새로운 퍼즐이 기다리고 있어요. 풀 수 있을까요?",
+  "shareScoreText": "🧩 CryptiQ 레벨 {level}을(를) 풀었어요! 제 점수를 이길 수 있나요?",
+  "shareStatsText": "🧩 제 CryptiQ 기록이에요. 더 잘할 수 있나요?"
 }

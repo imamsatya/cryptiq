@@ -432,5 +432,7 @@
   "levelLocked": "🔒 レベル{level}をクリアすると解放されます",
   "notifTitle": "🧩 デイリーチャレンジの準備ができました！",
   "notifBodyStreak": "🔥 {streak}日連続中！記録を途切れさせないで！",
-  "notifBodyDefault": "新しいパズルが待っています。解けるかな？"
+  "notifBodyDefault": "新しいパズルが待っています。解けるかな？",
+  "shareScoreText": "🧩 CryptiQのレベル{level}をクリアしたよ！私のスコアを超えられる？",
+  "shareStatsText": "🧩 私のCryptiQの記録。これを超えられる？"
 }

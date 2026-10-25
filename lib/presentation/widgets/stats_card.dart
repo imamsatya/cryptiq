@@ -27,8 +27,8 @@ class StatsCard extends StatelessWidget {
     required this.repaintKey,
   });
 
-  /// Capture this widget as PNG and share
-  static Future<void> captureAndShare(GlobalKey key) async {
+  /// Capture this widget as PNG and share with [text]
+  static Future<void> captureAndShare(GlobalKey key, String text) async {
     try {
       final boundary =
           key.currentContext?.findRenderObject() as RenderRepaintBoundary?;
@@ -46,7 +46,7 @@ class StatsCard extends StatelessWidget {
       await SharePlus.instance.share(
         ShareParams(
           files: [XFile(file.path, mimeType: 'image/png')],
-          text: '🧩 My CryptiQ Stats — Decode the Logic',
+          text: text,
         ),
       );
     } catch (_) {}

@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import '../widgets/stats_card.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/constants/app_constants.dart';
 import '../../data/datasources/local_database.dart';
 import '../../levels/puzzle_generator.dart';
 import '../../core/services/daily_challenge_service.dart';
@@ -76,7 +77,8 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                     ),
                     const Spacer(),
                     GestureDetector(
-                      onTap: () => StatsCard.captureAndShare(_statsCardKey),
+                      onTap: () => StatsCard.captureAndShare(_statsCardKey,
+                          '${l10n.shareStatsText}\n${AppConstants.shareUrl('stats')}'),
                       child: Container(
                         padding: const EdgeInsets.all(8),
                         decoration: AppTheme.glassDecoration(borderRadius: 12),

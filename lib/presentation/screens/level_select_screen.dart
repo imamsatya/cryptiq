@@ -422,7 +422,8 @@ class LevelSelectScreen extends ConsumerWidget {
                             text: 'CryptiQ ${l10n.level(levelNum)} ⭐${progress.stars}/3\n'
                                 '⏱ ${_formatTime(progress.bestTimeSeconds)} | '
                                 '🔄 ${progress.attempts}x\n'
-                                '${l10n.beatMyTime}',
+                                '${l10n.beatMyTime}\n'
+                                '${AppConstants.shareUrl('level')}',
                           ),
                         );
                       },

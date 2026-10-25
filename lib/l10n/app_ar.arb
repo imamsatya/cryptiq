@@ -432,5 +432,7 @@
   "levelLocked": "🔒 أكمل المستوى {level} لفتح هذا المستوى",
   "notifTitle": "🧩 التحدي اليومي جاهز!",
   "notifBodyStreak": "🔥 لديك سلسلة {streak} يوم! لا تقطعها!",
-  "notifBodyDefault": "لغز جديد بانتظارك. هل يمكنك حله؟"
+  "notifBodyDefault": "لغز جديد بانتظارك. هل يمكنك حله؟",
+  "shareScoreText": "🧩 لقد حللت للتو المستوى {level} في CryptiQ! هل يمكنك التغلب على نتيجتي؟",
+  "shareStatsText": "🧩 إحصائياتي في CryptiQ — هل تظن أنك تستطيع أفضل؟"
 }

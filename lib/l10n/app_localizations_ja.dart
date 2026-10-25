@@ -868,4 +868,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get notifBodyDefault => '新しいパズルが待っています。解けるかな？';
+
+  @override
+  String shareScoreText(int level) {
+    return '🧩 CryptiQのレベル$levelをクリアしたよ！私のスコアを超えられる？';
+  }
+
+  @override
+  String get shareStatsText => '🧩 私のCryptiQの記録。これを超えられる？';
 }

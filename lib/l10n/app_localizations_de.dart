@@ -888,4 +888,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get notifBodyDefault => 'Ein neues Rätsel wartet. Kannst du es lösen?';
+
+  @override
+  String shareScoreText(int level) {
+    return '🧩 Ich habe gerade CryptiQ Level $level gelöst! Schaffst du mehr Punkte?';
+  }
+
+  @override
+  String get shareStatsText =>
+      '🧩 Meine CryptiQ-Statistik – schaffst du es besser?';
 }

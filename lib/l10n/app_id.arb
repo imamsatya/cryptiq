@@ -418,5 +418,7 @@
   "levelLocked": "🔒 Selesaikan level {level} untuk membuka level ini",
   "notifTitle": "🧩 Tantangan Harian Siap!",
   "notifBodyStreak": "🔥 Kamu sudah {streak} hari beruntun! Jangan sampai putus!",
-  "notifBodyDefault": "Puzzle baru menantimu. Bisakah kamu memecahkannya?"
+  "notifBodyDefault": "Puzzle baru menantimu. Bisakah kamu memecahkannya?",
+  "shareScoreText": "🧩 Aku baru menyelesaikan CryptiQ Level {level}! Bisa kalahkan skorku?",
+  "shareStatsText": "🧩 Statistik CryptiQ-ku — yakin bisa lebih baik?"
 }

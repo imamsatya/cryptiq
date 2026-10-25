@@ -1729,6 +1729,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'A new puzzle awaits. Can you solve it?'**
   String get notifBodyDefault;
+
+  /// No description provided for @shareScoreText.
+  ///
+  /// In en, this message translates to:
+  /// **'🧩 I just solved CryptiQ Level {level}! Can you beat my score?'**
+  String shareScoreText(int level);
+
+  /// No description provided for @shareStatsText.
+  ///
+  /// In en, this message translates to:
+  /// **'🧩 My CryptiQ stats — think you can do better?'**
+  String get shareStatsText;
 }
 
 class _AppLocalizationsDelegate

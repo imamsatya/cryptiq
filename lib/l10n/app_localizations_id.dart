@@ -886,4 +886,13 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get notifBodyDefault =>
       'Puzzle baru menantimu. Bisakah kamu memecahkannya?';
+
+  @override
+  String shareScoreText(int level) {
+    return '🧩 Aku baru menyelesaikan CryptiQ Level $level! Bisa kalahkan skorku?';
+  }
+
+  @override
+  String get shareStatsText =>
+      '🧩 Statistik CryptiQ-ku — yakin bisa lebih baik?';
 }

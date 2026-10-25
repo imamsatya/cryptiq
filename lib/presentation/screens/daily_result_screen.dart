@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:confetti/confetti.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/constants/app_constants.dart';
 import '../../core/services/ad_service.dart';
 import '../../core/services/daily_challenge_service.dart';
 import '../../core/services/achievement_service.dart';
@@ -262,10 +263,10 @@ class _DailyResultScreenState extends State<DailyResultScreen>
                           onTap: () {
                             SharePlus.instance.share(
                               ShareParams(
-                                text: l10n.shareDailyText(
+                                text: '${l10n.shareDailyText(
                                   _formatTime(widget.timeSeconds),
                                   streak,
-                                ),
+                                )}\n${AppConstants.shareUrl('daily')}',
                               ),
                             );
                           },

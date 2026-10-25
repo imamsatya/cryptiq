@@ -432,5 +432,7 @@
   "levelLocked": "🔒 完成第{level}关即可解锁",
   "notifTitle": "🧩 每日挑战已就绪！",
   "notifBodyStreak": "🔥 你已连续 {streak} 天！别让它中断！",
-  "notifBodyDefault": "新谜题等着你，你能解开吗？"
+  "notifBodyDefault": "新谜题等着你，你能解开吗？",
+  "shareScoreText": "🧩 我刚通关了 CryptiQ 第{level}关！你能超过我的分数吗？",
+  "shareStatsText": "🧩 我的 CryptiQ 战绩，你能做得更好吗？"
 }
