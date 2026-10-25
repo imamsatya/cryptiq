@@ -21,23 +21,32 @@ class DailyChallengeService {
 
   final _db = LocalDatabase.instance;
 
-  /// Get today's date string (yyyy-MM-dd)
-  String get _today {
-    final now = DateTime.now();
-    return '${now.year}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}';
-  }
+  /// Date string (yyyy-MM-dd) of [d]'s calendar day
+  static String dateKey(DateTime d) =>
+      '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
 
-  String get _yesterday {
-    final y = DateTime.now().subtract(const Duration(days: 1));
-    return '${y.year}-${y.month.toString().padLeft(2, '0')}-${y.day.toString().padLeft(2, '0')}';
-  }
+  /// Calendar day before [now]. Not `subtract(Duration(days: 1))`: on a
+  /// daylight-saving change a day is 23 or 25 hours long.
+  static String yesterdayKey(DateTime now) =>
+      dateKey(DateTime(now.year, now.month, now.day - 1));
+
+  /// Days from 2024-01-01 to [now]'s calendar date. Counted on UTC dates so
+  /// a daylight-saving change can't make it one day short near midnight.
+  static int dayNumber(DateTime now) =>
+      DateTime.utc(now.year, now.month, now.day)
+          .difference(DateTime.utc(2024, 1, 1))
+          .inDays;
+
+  /// Get today's date string (yyyy-MM-dd)
+  String get _today => dateKey(DateTime.now());
+
+  String get _yesterday => yesterdayKey(DateTime.now());
 
   /// Get today's daily challenge puzzle.
   /// Uses date as seed → same puzzle for everyone on the same day.
   CryptarithmPuzzle getDailyPuzzle() {
-    final now = DateTime.now();
     // Seed from date: days since epoch
-    final daysSinceEpoch = now.difference(DateTime(2024, 1, 1)).inDays;
+    final daysSinceEpoch = dayNumber(DateTime.now());
     final rng = Random(daysSinceEpoch * 7 + 42);
 
     // Pick from medium-hard range (levels 251-1000) for interesting puzzles
