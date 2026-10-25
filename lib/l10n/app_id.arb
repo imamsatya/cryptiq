@@ -39,7 +39,7 @@
   "restorePurchase": "Pulihkan Pembelian",
   "storeTitle": "Toko",
   "proActiveDesc": "Semua fitur premium terbuka!",
-  "proDesc": "Hapus iklan selamanya dan dukung developer.",
+  "proDesc": "Sekali beli: tanpa iklan, hint tanpa batas, semua level terbuka, semua tema, dan Main Bergantian hingga 6 pemain.",
   "purchased": "Telah Dibeli",
   "restorePurchases": "Pulihkan Pembelian",
   "purchasesRestored": "Pembelian dipulihkan",
@@ -420,5 +420,8 @@
   "notifBodyStreak": "🔥 Kamu sudah {streak} hari beruntun! Jangan sampai putus!",
   "notifBodyDefault": "Puzzle baru menantimu. Bisakah kamu memecahkannya?",
   "shareScoreText": "🧩 Aku baru menyelesaikan CryptiQ Level {level}! Bisa kalahkan skorku?",
-  "shareStatsText": "🧩 Statistik CryptiQ-ku — yakin bisa lebih baik?"
+  "shareStatsText": "🧩 Statistik CryptiQ-ku — yakin bisa lebih baik?",
+  "unlimitedHints": "Hint Tanpa Batas",
+  "allLevelsUnlocked": "Semua Level Terbuka",
+  "proMorePlayers": "Main Bergantian: hingga 6 pemain, 10 ronde"
 }

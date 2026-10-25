@@ -130,7 +130,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get proActiveDesc => 'تم فتح جميع الميزات المميزة!';
 
   @override
-  String get proDesc => 'أزل جميع الإعلانات إلى الأبد وادعم المطوّر.';
+  String get proDesc =>
+      'شراء لمرة واحدة: بلا إعلانات، تلميحات غير محدودة، فتح جميع المستويات، كل السمات، ومرر والعب حتى 6 لاعبين.';
 
   @override
   String get purchased => 'تم الشراء';
@@ -887,4 +888,13 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get shareStatsText =>
       '🧩 إحصائياتي في CryptiQ — هل تظن أنك تستطيع أفضل؟';
+
+  @override
+  String get unlimitedHints => 'تلميحات غير محدودة';
+
+  @override
+  String get allLevelsUnlocked => 'فتح جميع المستويات';
+
+  @override
+  String get proMorePlayers => 'مرر والعب: حتى 6 لاعبين و10 جولات';
 }

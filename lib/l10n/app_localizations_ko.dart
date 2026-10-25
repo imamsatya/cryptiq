@@ -130,7 +130,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get proActiveDesc => '모든 프리미엄 기능이 잠금 해제되었습니다!';
 
   @override
-  String get proDesc => '모든 광고를 영구히 제거하고 개발자를 응원하세요.';
+  String get proDesc =>
+      '한 번 구매: 광고 없음, 무제한 힌트, 모든 레벨 잠금 해제, 모든 테마, 최대 6명 패스 앤 플레이.';
 
   @override
   String get purchased => '구매 완료';
@@ -878,4 +879,13 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get shareStatsText => '🧩 제 CryptiQ 기록이에요. 더 잘할 수 있나요?';
+
+  @override
+  String get unlimitedHints => '무제한 힌트';
+
+  @override
+  String get allLevelsUnlocked => '모든 레벨 잠금 해제';
+
+  @override
+  String get proMorePlayers => '패스 앤 플레이: 최대 6명, 10라운드';
 }

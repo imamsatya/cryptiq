@@ -9,8 +9,9 @@ import 'ad_service.dart';
 ///
 /// Benefits:
 /// - All ads removed (banner, interstitial, rewarded)
+/// - Unlimited hints and every level unlocked
 /// - All premium themes unlocked
-/// - +1 bonus hint per puzzle (within 50% cap)
+/// - Pass & Play with up to 6 players and 10 rounds
 class IapService {
   IapService._();
   static final IapService instance = IapService._();

@@ -130,7 +130,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get proActiveDesc => 'Semua fitur premium terbuka!';
 
   @override
-  String get proDesc => 'Hapus iklan selamanya dan dukung developer.';
+  String get proDesc =>
+      'Sekali beli: tanpa iklan, hint tanpa batas, semua level terbuka, semua tema, dan Main Bergantian hingga 6 pemain.';
 
   @override
   String get purchased => 'Telah Dibeli';
@@ -895,4 +896,13 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get shareStatsText =>
       '🧩 Statistik CryptiQ-ku — yakin bisa lebih baik?';
+
+  @override
+  String get unlimitedHints => 'Hint Tanpa Batas';
+
+  @override
+  String get allLevelsUnlocked => 'Semua Level Terbuka';
+
+  @override
+  String get proMorePlayers => 'Main Bergantian: hingga 6 pemain, 10 ronde';
 }

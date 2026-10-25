@@ -199,7 +199,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            '${l10n.noAds} • ${l10n.bonusHint} • ${l10n.allThemes}',
+                            '${l10n.noAds} • ${l10n.unlimitedHints} • ${l10n.allLevelsUnlocked}',
                             style: TextStyle(
                               fontSize: 11,
                               color: Colors.white.withValues(alpha: 0.7),

@@ -46,7 +46,7 @@
   "restorePurchase": "Restore Purchase",
   "storeTitle": "Store",
   "proActiveDesc": "All premium features unlocked!",
-  "proDesc": "Remove all ads forever and support the developer.",
+  "proDesc": "One-time purchase: no ads, unlimited hints, every level unlocked, all themes, and Pass & Play for up to 6 players.",
   "purchased": "Purchased",
   "restorePurchases": "Restore Purchases",
   "purchasesRestored": "Purchases restored",
@@ -455,5 +455,8 @@
       }
     }
   },
-  "shareStatsText": "🧩 My CryptiQ stats — think you can do better?"
+  "shareStatsText": "🧩 My CryptiQ stats — think you can do better?",
+  "unlimitedHints": "Unlimited Hints",
+  "allLevelsUnlocked": "All Levels Unlocked",
+  "proMorePlayers": "Pass & Play: up to 6 players, 10 rounds"
 }

@@ -130,7 +130,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get proActiveDesc => 'すべてのプレミアム機能が解放されました！';
 
   @override
-  String get proDesc => '広告を永久に削除して、開発者を応援しよう。';
+  String get proDesc => '買い切り：広告なし、ヒント無制限、全レベル解放、全テーマ、最大6人のパス＆プレイ。';
 
   @override
   String get purchased => '購入済み';
@@ -876,4 +876,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get shareStatsText => '🧩 私のCryptiQの記録。これを超えられる？';
+
+  @override
+  String get unlimitedHints => 'ヒント無制限';
+
+  @override
+  String get allLevelsUnlocked => '全レベル解放';
+
+  @override
+  String get proMorePlayers => 'パス＆プレイ：最大6人・10ラウンド';
 }

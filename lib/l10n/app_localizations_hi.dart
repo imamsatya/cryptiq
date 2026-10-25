@@ -131,7 +131,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get proDesc =>
-      'सभी विज्ञापन हमेशा के लिए हटाएँ और डेवलपर का समर्थन करें।';
+      'एक बार की खरीद: कोई विज्ञापन नहीं, असीमित संकेत, सभी स्तर अनलॉक, सभी थीम, और 6 खिलाड़ियों तक पास एंड प्ले।';
 
   @override
   String get purchased => 'खरीदा गया';
@@ -893,4 +893,13 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get shareStatsText =>
       '🧩 मेरे CryptiQ आँकड़े — क्या आप इससे बेहतर कर सकते हैं?';
+
+  @override
+  String get unlimitedHints => 'असीमित संकेत';
+
+  @override
+  String get allLevelsUnlocked => 'सभी स्तर अनलॉक';
+
+  @override
+  String get proMorePlayers => 'पास एंड प्ले: 6 खिलाड़ी तक, 10 राउंड';
 }

@@ -419,7 +419,7 @@
   "fillAllLetters": "请先填满所有字母！",
   "levelSelectHint": "💡 提示：点击开始游戏，长按已完成的关卡查看详情。",
   "proActiveDesc": "所有高级功能已解锁！",
-  "proDesc": "永久移除所有广告，并支持开发者。",
+  "proDesc": "一次购买：无广告、无限提示、解锁全部关卡、全部主题，以及最多6人的轮流玩。",
   "purchased": "已购买",
   "purchasesRestored": "购买已恢复",
   "restorePurchases": "恢复购买",
@@ -434,5 +434,8 @@
   "notifBodyStreak": "🔥 你已连续 {streak} 天！别让它中断！",
   "notifBodyDefault": "新谜题等着你，你能解开吗？",
   "shareScoreText": "🧩 我刚通关了 CryptiQ 第{level}关！你能超过我的分数吗？",
-  "shareStatsText": "🧩 我的 CryptiQ 战绩，你能做得更好吗？"
+  "shareStatsText": "🧩 我的 CryptiQ 战绩，你能做得更好吗？",
+  "unlimitedHints": "无限提示",
+  "allLevelsUnlocked": "解锁全部关卡",
+  "proMorePlayers": "轮流玩：最多6人、10轮"
 }

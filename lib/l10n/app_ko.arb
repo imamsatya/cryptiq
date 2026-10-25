@@ -419,7 +419,7 @@
   "fillAllLetters": "먼저 모든 글자를 채워주세요!",
   "levelSelectHint": "💡 팁: 탭하여 플레이하고, 완료한 레벨을 길게 누르면 상세 정보를 볼 수 있어요.",
   "proActiveDesc": "모든 프리미엄 기능이 잠금 해제되었습니다!",
-  "proDesc": "모든 광고를 영구히 제거하고 개발자를 응원하세요.",
+  "proDesc": "한 번 구매: 광고 없음, 무제한 힌트, 모든 레벨 잠금 해제, 모든 테마, 최대 6명 패스 앤 플레이.",
   "purchased": "구매 완료",
   "purchasesRestored": "구매가 복원되었습니다",
   "restorePurchases": "구매 복원",
@@ -434,5 +434,8 @@
   "notifBodyStreak": "🔥 {streak}일 연속 중이에요! 기록을 이어가세요!",
   "notifBodyDefault": "새로운 퍼즐이 기다리고 있어요. 풀 수 있을까요?",
   "shareScoreText": "🧩 CryptiQ 레벨 {level}을(를) 풀었어요! 제 점수를 이길 수 있나요?",
-  "shareStatsText": "🧩 제 CryptiQ 기록이에요. 더 잘할 수 있나요?"
+  "shareStatsText": "🧩 제 CryptiQ 기록이에요. 더 잘할 수 있나요?",
+  "unlimitedHints": "무제한 힌트",
+  "allLevelsUnlocked": "모든 레벨 잠금 해제",
+  "proMorePlayers": "패스 앤 플레이: 최대 6명, 10라운드"
 }

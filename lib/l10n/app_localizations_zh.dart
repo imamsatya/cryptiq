@@ -130,7 +130,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get proActiveDesc => '所有高级功能已解锁！';
 
   @override
-  String get proDesc => '永久移除所有广告，并支持开发者。';
+  String get proDesc => '一次购买：无广告、无限提示、解锁全部关卡、全部主题，以及最多6人的轮流玩。';
 
   @override
   String get purchased => '已购买';
@@ -873,4 +873,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get shareStatsText => '🧩 我的 CryptiQ 战绩，你能做得更好吗？';
+
+  @override
+  String get unlimitedHints => '无限提示';
+
+  @override
+  String get allLevelsUnlocked => '解锁全部关卡';
+
+  @override
+  String get proMorePlayers => '轮流玩：最多6人、10轮';
 }

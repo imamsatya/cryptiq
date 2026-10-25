@@ -61,12 +61,15 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       ),
                     ),
                     const SizedBox(width: 16),
-                    Text(
-                      l10n.settings,
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                    Expanded(
+                      child: Text(
+                        l10n.settings,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ],
@@ -298,15 +301,17 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 Icon(isPro ? Icons.verified_rounded : Icons.workspace_premium_rounded,
                     color: Colors.white, size: 28),
                 const SizedBox(width: 12),
-                Text(
-                  isPro ? l10n.proActive : l10n.goPro,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                Expanded(
+                  child: Text(
+                    isPro ? l10n.proActive : l10n.goPro,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-                const Spacer(),
                 if (!isPro)
                   Text(
                     IapService.instance.proPriceString,
@@ -320,8 +325,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             ),
             const SizedBox(height: 12),
             _proBenefit(Icons.block_rounded, l10n.noAds),
+            _proBenefit(Icons.all_inclusive_rounded, l10n.unlimitedHints),
+            _proBenefit(Icons.lock_open_rounded, l10n.allLevelsUnlocked),
             _proBenefit(Icons.palette_rounded, l10n.allThemes),
-            _proBenefit(Icons.lightbulb_rounded, l10n.bonusHint),
+            _proBenefit(Icons.people_rounded, l10n.proMorePlayers),
             if (!isPro) ...[
               const SizedBox(height: 16),
               SizedBox(
@@ -356,8 +363,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         children: [
           Icon(icon, color: Colors.white.withValues(alpha: 0.9), size: 16),
           const SizedBox(width: 10),
-          Text(text,
-              style: TextStyle(color: Colors.white.withValues(alpha: 0.9), fontSize: 14)),
+          Expanded(
+            child: Text(text,
+                style: TextStyle(color: Colors.white.withValues(alpha: 0.9), fontSize: 14)),
+          ),
         ],
       ),
     );

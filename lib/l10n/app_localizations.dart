@@ -353,7 +353,7 @@ abstract class AppLocalizations {
   /// No description provided for @proDesc.
   ///
   /// In en, this message translates to:
-  /// **'Remove all ads forever and support the developer.'**
+  /// **'One-time purchase: no ads, unlimited hints, every level unlocked, all themes, and Pass & Play for up to 6 players.'**
   String get proDesc;
 
   /// No description provided for @purchased.
@@ -1741,6 +1741,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'🧩 My CryptiQ stats — think you can do better?'**
   String get shareStatsText;
+
+  /// No description provided for @unlimitedHints.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlimited Hints'**
+  String get unlimitedHints;
+
+  /// No description provided for @allLevelsUnlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'All Levels Unlocked'**
+  String get allLevelsUnlocked;
+
+  /// No description provided for @proMorePlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Pass & Play: up to 6 players, 10 rounds'**
+  String get proMorePlayers;
 }
 
 class _AppLocalizationsDelegate

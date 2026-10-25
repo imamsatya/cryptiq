@@ -131,7 +131,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get proDesc =>
-      'Remova todos os anúncios para sempre e apoie o desenvolvedor.';
+      'Compra única: sem anúncios, dicas ilimitadas, todos os níveis desbloqueados, todos os temas e Passar e Jogar para até 6 jogadores.';
 
   @override
   String get purchased => 'Comprado';
@@ -898,4 +898,13 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get shareStatsText =>
       '🧩 Minhas estatísticas no CryptiQ. Acha que consegue fazer melhor?';
+
+  @override
+  String get unlimitedHints => 'Dicas ilimitadas';
+
+  @override
+  String get allLevelsUnlocked => 'Todos os níveis desbloqueados';
+
+  @override
+  String get proMorePlayers => 'Passar e Jogar: até 6 jogadores e 10 rodadas';
 }

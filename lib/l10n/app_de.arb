@@ -419,7 +419,7 @@
   "fillAllLetters": "Bitte zuerst alle Buchstaben ausfüllen!",
   "levelSelectHint": "💡 Tipp: Tippen zum Spielen, ein abgeschlossenes Level gedrückt halten für Details.",
   "proActiveDesc": "Alle Premium-Funktionen freigeschaltet!",
-  "proDesc": "Entferne alle Werbung für immer und unterstütze den Entwickler.",
+  "proDesc": "Einmalkauf: keine Werbung, unbegrenzte Hinweise, alle Level freigeschaltet, alle Themes und Weitergeben & Spielen für bis zu 6 Spieler.",
   "purchased": "Gekauft",
   "purchasesRestored": "Käufe wiederhergestellt",
   "restorePurchases": "Käufe wiederherstellen",
@@ -434,5 +434,8 @@
   "notifBodyStreak": "🔥 Deine Serie: {streak} Tage! Lass sie nicht abreißen!",
   "notifBodyDefault": "Ein neues Rätsel wartet. Kannst du es lösen?",
   "shareScoreText": "🧩 Ich habe gerade CryptiQ Level {level} gelöst! Schaffst du mehr Punkte?",
-  "shareStatsText": "🧩 Meine CryptiQ-Statistik – schaffst du es besser?"
+  "shareStatsText": "🧩 Meine CryptiQ-Statistik – schaffst du es besser?",
+  "unlimitedHints": "Unbegrenzte Hinweise",
+  "allLevelsUnlocked": "Alle Level freigeschaltet",
+  "proMorePlayers": "Weitergeben & Spielen: bis zu 6 Spieler, 10 Runden"
 }

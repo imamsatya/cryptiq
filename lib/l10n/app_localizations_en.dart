@@ -130,7 +130,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get proActiveDesc => 'All premium features unlocked!';
 
   @override
-  String get proDesc => 'Remove all ads forever and support the developer.';
+  String get proDesc =>
+      'One-time purchase: no ads, unlimited hints, every level unlocked, all themes, and Pass & Play for up to 6 players.';
 
   @override
   String get purchased => 'Purchased';
@@ -889,4 +890,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get shareStatsText => '🧩 My CryptiQ stats — think you can do better?';
+
+  @override
+  String get unlimitedHints => 'Unlimited Hints';
+
+  @override
+  String get allLevelsUnlocked => 'All Levels Unlocked';
+
+  @override
+  String get proMorePlayers => 'Pass & Play: up to 6 players, 10 rounds';
 }

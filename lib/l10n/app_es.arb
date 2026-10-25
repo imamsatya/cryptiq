@@ -419,7 +419,7 @@
   "fillAllLetters": "¡Primero completa todas las letras!",
   "levelSelectHint": "💡 Consejo: toca para jugar; mantén pulsado un nivel completado para ver detalles.",
   "proActiveDesc": "¡Todas las funciones premium desbloqueadas!",
-  "proDesc": "Elimina todos los anuncios para siempre y apoya al desarrollador.",
+  "proDesc": "Pago único: sin anuncios, pistas ilimitadas, todos los niveles desbloqueados, todos los temas y Pasar y Jugar para hasta 6 jugadores.",
   "purchased": "Comprado",
   "purchasesRestored": "Compras restauradas",
   "restorePurchases": "Restaurar compras",
@@ -434,5 +434,8 @@
   "notifBodyStreak": "🔥 ¡Llevas {streak} días de racha! ¡No la pierdas!",
   "notifBodyDefault": "Te espera un nuevo puzzle. ¿Podrás resolverlo?",
   "shareScoreText": "🧩 ¡Acabo de resolver el nivel {level} de CryptiQ! ¿Puedes superar mi puntuación?",
-  "shareStatsText": "🧩 Mis estadísticas de CryptiQ. ¿Crees que puedes hacerlo mejor?"
+  "shareStatsText": "🧩 Mis estadísticas de CryptiQ. ¿Crees que puedes hacerlo mejor?",
+  "unlimitedHints": "Pistas ilimitadas",
+  "allLevelsUnlocked": "Todos los niveles desbloqueados",
+  "proMorePlayers": "Pasar y Jugar: hasta 6 jugadores y 10 rondas"
 }

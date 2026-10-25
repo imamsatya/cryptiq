@@ -132,7 +132,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get proDesc =>
-      'Supprimez toutes les pubs pour toujours et soutenez le développeur.';
+      'Achat unique : sans pub, indices illimités, tous les niveaux débloqués, tous les thèmes et Passer et Jouer jusqu\'à 6 joueurs.';
 
   @override
   String get purchased => 'Acheté';
@@ -897,4 +897,14 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get shareStatsText =>
       '🧩 Mes statistiques CryptiQ — vous pensez faire mieux ?';
+
+  @override
+  String get unlimitedHints => 'Indices illimités';
+
+  @override
+  String get allLevelsUnlocked => 'Tous les niveaux débloqués';
+
+  @override
+  String get proMorePlayers =>
+      'Passer et Jouer : jusqu\'à 6 joueurs, 10 manches';
 }

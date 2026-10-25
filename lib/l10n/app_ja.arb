@@ -419,7 +419,7 @@
   "fillAllLetters": "先にすべての文字を埋めてください！",
   "levelSelectHint": "💡 ヒント：タップでプレイ、クリア済みのレベルを長押しで詳細を表示。",
   "proActiveDesc": "すべてのプレミアム機能が解放されました！",
-  "proDesc": "広告を永久に削除して、開発者を応援しよう。",
+  "proDesc": "買い切り：広告なし、ヒント無制限、全レベル解放、全テーマ、最大6人のパス＆プレイ。",
   "purchased": "購入済み",
   "purchasesRestored": "購入を復元しました",
   "restorePurchases": "購入を復元",
@@ -434,5 +434,8 @@
   "notifBodyStreak": "🔥 {streak}日連続中！記録を途切れさせないで！",
   "notifBodyDefault": "新しいパズルが待っています。解けるかな？",
   "shareScoreText": "🧩 CryptiQのレベル{level}をクリアしたよ！私のスコアを超えられる？",
-  "shareStatsText": "🧩 私のCryptiQの記録。これを超えられる？"
+  "shareStatsText": "🧩 私のCryptiQの記録。これを超えられる？",
+  "unlimitedHints": "ヒント無制限",
+  "allLevelsUnlocked": "全レベル解放",
+  "proMorePlayers": "パス＆プレイ：最大6人・10ラウンド"
 }
