@@ -903,4 +903,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get noPurchasesToRestore => '이 Google 계정으로 구매한 Pro가 없어요.';
+
+  @override
+  String get adPrivacyOptions => '광고 개인정보 옵션';
 }

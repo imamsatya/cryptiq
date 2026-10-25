@@ -442,5 +442,6 @@
   "proActivated": "CryptiQ Pro सक्रिय हो गया! आपके समर्थन के लिए धन्यवाद।",
   "purchasePending": "भुगतान लंबित है। पूरा होते ही Pro अनलॉक हो जाएगा।",
   "purchaseFailed": "खरीदारी पूरी नहीं हो सकी। कृपया फिर से कोशिश करें।",
-  "noPurchasesToRestore": "इस Google खाते के लिए कोई पिछली Pro खरीदारी नहीं मिली।"
+  "noPurchasesToRestore": "इस Google खाते के लिए कोई पिछली Pro खरीदारी नहीं मिली।",
+  "adPrivacyOptions": "विज्ञापन गोपनीयता विकल्प"
 }

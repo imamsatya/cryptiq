@@ -50,6 +50,13 @@ class AdService {
       return;
     }
     try {
+      await _gatherConsent();
+      // Also true with consent given in an earlier session, e.g. when the
+      // update above failed because the device is offline.
+      if (!await ConsentInformation.instance.canRequestAds()) {
+        debugPrint('AdService: No ad consent yet, not loading ads');
+        return;
+      }
       await MobileAds.instance.initialize();
       _isInitialized = true;
       debugPrint('AdService: Initialized');
@@ -58,6 +65,44 @@ class AdService {
     } catch (e) {
       debugPrint('AdService: Init failed: $e');
     }
+  }
+
+  // ==========  CONSENT (GDPR)  ==========
+
+  bool _privacyOptionsRequired = false;
+
+  /// Whether Settings must offer a way to change ad consent (EEA/UK users).
+  bool get privacyOptionsRequired => _privacyOptionsRequired;
+
+  /// Asks for ad consent where the law requires it (EEA, UK, Switzerland),
+  /// using the message set up in AdMob → Privacy & messaging. Elsewhere
+  /// Google reports consent as not required and no form is shown.
+  Future<void> _gatherConsent() async {
+    final done = Completer<void>();
+    ConsentInformation.instance.requestConsentInfoUpdate(
+      ConsentRequestParameters(),
+      () async {
+        await ConsentForm.loadAndShowConsentFormIfRequired((error) {
+          if (error != null) debugPrint('AdService: Consent form error: ${error.message}');
+        });
+        done.complete();
+      },
+      (error) {
+        debugPrint('AdService: Consent info update failed: ${error.message}');
+        done.complete();
+      },
+    );
+    await done.future;
+    _privacyOptionsRequired =
+        await ConsentInformation.instance.getPrivacyOptionsRequirementStatus() ==
+            PrivacyOptionsRequirementStatus.required;
+  }
+
+  /// Lets the user review or change their ad consent (Settings).
+  Future<void> showPrivacyOptions() async {
+    await ConsentForm.showPrivacyOptionsForm((error) {
+      if (error != null) debugPrint('AdService: Privacy options error: ${error.message}');
+    });
   }
 
   // ==========  BANNER  ==========

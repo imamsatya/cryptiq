@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/theme/theme_presets.dart';
 import '../../core/services/audio_service.dart';
+import '../../core/services/ad_service.dart';
 import '../../core/services/iap_service.dart';
 import '../../core/services/notification_service.dart';
 import '../../data/datasources/local_database.dart';
@@ -213,6 +214,14 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       onTap: () => _launchUrl(AppConstants.privacyPolicyUrl),
                     ),
                     const SizedBox(height: 8),
+                    if (AdService.instance.privacyOptionsRequired) ...[
+                      _buildTapTile(
+                        icon: Icons.manage_accounts_outlined,
+                        title: l10n.adPrivacyOptions,
+                        onTap: AdService.instance.showPrivacyOptions,
+                      ),
+                      const SizedBox(height: 8),
+                    ],
                     _buildTapTile(
                       icon: Icons.star_rate_rounded,
                       title: l10n.rateApp,

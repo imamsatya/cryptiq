@@ -924,4 +924,7 @@ class AppLocalizationsId extends AppLocalizations {
   @override
   String get noPurchasesToRestore =>
       'Tidak ada pembelian Pro sebelumnya untuk akun Google ini.';
+
+  @override
+  String get adPrivacyOptions => 'Opsi Privasi Iklan';
 }

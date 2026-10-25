@@ -428,5 +428,6 @@
   "proActivated": "CryptiQ Pro aktif! Terima kasih atas dukunganmu.",
   "purchasePending": "Pembayaran tertunda. Pro akan aktif begitu pembayaran selesai.",
   "purchaseFailed": "Pembelian tidak dapat diselesaikan. Silakan coba lagi.",
-  "noPurchasesToRestore": "Tidak ada pembelian Pro sebelumnya untuk akun Google ini."
+  "noPurchasesToRestore": "Tidak ada pembelian Pro sebelumnya untuk akun Google ini.",
+  "adPrivacyOptions": "Opsi Privasi Iklan"
 }

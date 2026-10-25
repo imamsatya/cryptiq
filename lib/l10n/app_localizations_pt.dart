@@ -926,4 +926,7 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get noPurchasesToRestore =>
       'Nenhuma compra do Pro encontrada para esta conta do Google.';
+
+  @override
+  String get adPrivacyOptions => 'Opções de privacidade de anúncios';
 }

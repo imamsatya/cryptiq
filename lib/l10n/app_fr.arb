@@ -442,5 +442,6 @@
   "proActivated": "CryptiQ Pro activé ! Merci pour votre soutien.",
   "purchasePending": "Paiement en attente. Pro sera débloqué dès qu'il sera finalisé.",
   "purchaseFailed": "L'achat n'a pas pu aboutir. Veuillez réessayer.",
-  "noPurchasesToRestore": "Aucun achat Pro trouvé pour ce compte Google."
+  "noPurchasesToRestore": "Aucun achat Pro trouvé pour ce compte Google.",
+  "adPrivacyOptions": "Options de confidentialité des annonces"
 }

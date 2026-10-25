@@ -922,4 +922,7 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get noPurchasesToRestore =>
       'इस Google खाते के लिए कोई पिछली Pro खरीदारी नहीं मिली।';
+
+  @override
+  String get adPrivacyOptions => 'विज्ञापन गोपनीयता विकल्प';
 }

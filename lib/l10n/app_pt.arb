@@ -442,5 +442,6 @@
   "proActivated": "CryptiQ Pro ativado! Obrigado pelo apoio.",
   "purchasePending": "Pagamento pendente. O Pro será liberado assim que for concluído.",
   "purchaseFailed": "Não foi possível concluir a compra. Tente novamente.",
-  "noPurchasesToRestore": "Nenhuma compra do Pro encontrada para esta conta do Google."
+  "noPurchasesToRestore": "Nenhuma compra do Pro encontrada para esta conta do Google.",
+  "adPrivacyOptions": "Opções de privacidade de anúncios"
 }

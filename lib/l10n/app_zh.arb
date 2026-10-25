@@ -442,5 +442,6 @@
   "proActivated": "CryptiQ Pro 已激活！感谢你的支持。",
   "purchasePending": "付款处理中。完成后将立即解锁 Pro。",
   "purchaseFailed": "无法完成购买，请重试。",
-  "noPurchasesToRestore": "未找到此 Google 账号的 Pro 购买记录。"
+  "noPurchasesToRestore": "未找到此 Google 账号的 Pro 购买记录。",
+  "adPrivacyOptions": "广告隐私选项"
 }

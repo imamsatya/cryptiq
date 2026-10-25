@@ -914,4 +914,7 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get noPurchasesToRestore =>
       'لم يتم العثور على شراء سابق لـ Pro لحساب Google هذا.';
+
+  @override
+  String get adPrivacyOptions => 'خيارات خصوصية الإعلانات';
 }

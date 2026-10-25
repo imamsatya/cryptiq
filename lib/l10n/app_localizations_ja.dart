@@ -900,4 +900,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get noPurchasesToRestore => 'このGoogleアカウントでのPro購入履歴はありません。';
+
+  @override
+  String get adPrivacyOptions => '広告のプライバシー設定';
 }

@@ -897,4 +897,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get noPurchasesToRestore => '未找到此 Google 账号的 Pro 购买记录。';
+
+  @override
+  String get adPrivacyOptions => '广告隐私选项';
 }

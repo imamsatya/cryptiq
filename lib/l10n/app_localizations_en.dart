@@ -919,4 +919,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get noPurchasesToRestore =>
       'No previous Pro purchase found for this Google account.';
+
+  @override
+  String get adPrivacyOptions => 'Ad Privacy Options';
 }

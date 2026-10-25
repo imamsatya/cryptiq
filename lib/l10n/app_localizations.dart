@@ -1789,6 +1789,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No previous Pro purchase found for this Google account.'**
   String get noPurchasesToRestore;
+
+  /// No description provided for @adPrivacyOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'Ad Privacy Options'**
+  String get adPrivacyOptions;
 }
 
 class _AppLocalizationsDelegate
